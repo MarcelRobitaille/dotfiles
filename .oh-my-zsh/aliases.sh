@@ -12,6 +12,7 @@ alias aa="git add -A"
 alias ac="git commit -am "
 alias c="git commit "
 alias cm="git commit -m "
+alias p="git push"
 alias new="clone git@github.com:Marcel-Robitaille/template.git "
 
 # Misc
