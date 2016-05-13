@@ -22,7 +22,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 filetype plugin indent on
 
-
 " Line numbers
 set number
 
