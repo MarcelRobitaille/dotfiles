@@ -18,16 +18,16 @@ clone(){
 }
 
 # Create a new directory and enter it
-function mkd() {
+mkd() {
 	mkdir -p "$@" && cd "$_";
 }
 
 # `git commit -m "<message>"` without the need for ""
 cm(){
-	git commit -m "$*"
+	git commit -m "${*}"
 }
 
 # Same as previous but with -a
 cam(){
-	git commit -am "$*"
+	git commit -am "${*}"
 }
