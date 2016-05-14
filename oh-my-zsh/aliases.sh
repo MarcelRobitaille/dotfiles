@@ -2,7 +2,7 @@
 alias rm="rm -i"
 
 # Places
-alias d="cd ~/Desktop"
+alias dt="cd ~/Desktop"
 
 # Git
 alias g="git "
