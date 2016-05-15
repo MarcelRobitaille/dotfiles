@@ -21,13 +21,3 @@ clone(){
 mkd() {
 	mkdir -p "$@" && cd "$_";
 }
-
-# `git commit -m "<message>"` without the need for ""
-cm(){
-	git commit -m "${*}"
-}
-
-# Same as previous but with -a
-cam(){
-	git commit -am "${*}"
-}
