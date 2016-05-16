@@ -2,7 +2,7 @@
 alias rm="rm -i"
 
 # Places
-alias d="cd ~/Desktop"
+alias dt="cd ~/Desktop"
 
 # Git
 alias g="git "
@@ -18,7 +18,6 @@ alias pl="git pull"
 alias new="clone git@github.com:Marcel-Robitaille/template.git "
 
 # Misc
-alias scan="sudo chmod 666 /dev/bus/usb/$(lsusb | grep Brother | sed s/Bus\ // | sed s:\ Device\ :/: | cut -d':' -f 1 ) && xsane"
 alias sql="mysql -u lan -p personal --host 192.168.0.120"
 alias starwars="telnet towel.blinkenlights.nl"
 alias fonts="fc-cache -fv"
