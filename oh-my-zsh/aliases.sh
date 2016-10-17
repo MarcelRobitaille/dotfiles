@@ -1,5 +1,6 @@
 # Basic functions
 alias rm="rm -i"
+alias clip="xsel -i -b"
 
 # Places
 alias dt="cd ~/Desktop"
