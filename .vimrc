@@ -6,20 +6,20 @@ filetype off
 " ================ Vundle ======================
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+"Plugin 'VundleVim/Vundle.vim'
 
 " Tree view
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 
 " Fuzzy file finder
-Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'ctrlpvim/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
-call vundle#end()
+"call vundle#end()
 filetype plugin indent on
 
 " Line numbers
