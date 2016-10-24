@@ -1,9 +1,10 @@
 # Basic functions
-alias rm="rm -i"
 alias clip="xsel -i -b"
+alias tmux="tmux -u"
 
 # Places
 alias dt="cd ~/Desktop"
+alias ll="ls -la"
 
 # Git
 alias g="git "

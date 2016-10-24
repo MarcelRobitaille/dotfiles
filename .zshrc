@@ -2,6 +2,7 @@
 export ZSH=/home/marcel/.dotfiles/oh-my-zsh
 
 ZSH_THEME="spaceship"
+SPACESHIP_PROMPT_TRUNC=0
 
 plugins=(git)
 
@@ -14,4 +15,3 @@ DEFAULT_USER="marcel"
 if [[ ! $TERM =~ screen ]]; then
   tmux -u new-session
 fi
-
