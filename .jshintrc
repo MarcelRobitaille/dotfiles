@@ -1,0 +1,7 @@
+{
+  "asi": true,
+  "esnext": true,
+  "strict": "global",
+  "node": true,
+  "browser": true
+}
