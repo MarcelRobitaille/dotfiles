@@ -21,3 +21,13 @@ clone(){
 mkd() {
 	mkdir -p "$@" && cd "$_";
 }
+
+cptoct(){
+  scp $1 clairitech:~/website/$1
+}
+
+dlloop(){
+  for i in $(seq -f "%02g" 0 $1); do
+    wget "$2$i.jpg"
+  done
+}
