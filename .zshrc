@@ -12,6 +12,6 @@ done;
 
 DEFAULT_USER="marcel"
 
-if [[ ! $TERM =~ screen ]]; then
-  tmux -u new-session
+if command -v tmux>/dev/null; then
+  [[ ! $TERM =~ screen ]] && exec tmux
 fi
