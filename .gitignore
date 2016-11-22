@@ -1,2 +1,5 @@
 bin/.pid
 oh-my-zsh
+!oh-my-zsh/exports.sh
+!oh-my-zsh/aliases.sh
+!oh-my-zsh/functions.sh
