@@ -47,7 +47,7 @@ fi
 
 PID=$(<$PIDD)
 if [ -z $PID ]; then
-  notify-send "Brightness" --icon="$icon" -h int:value:$BRIGHTNESS -h string:synchronous:brightness -p > $PIDD
+  /home/marcel/bin/notify-send "Brightness" --icon="$icon" -h int:value:$BRIGHTNESS -h string:synchronous:brightness -p > $PIDD
 else
-  notify-send "Brightness" --icon="$icon" -h int:value:$BRIGHTNESS -h string:synchronous:brightness -p -r $PID > $PIDD
+  /home/marcel/bin/notify-send "Brightness" --icon="$icon" -h int:value:$BRIGHTNESS -h string:synchronous:brightness -p -r $PID > $PIDD
 fi

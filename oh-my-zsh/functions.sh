@@ -3,7 +3,7 @@ clone(){
   local FOLDER=""
   if [ "$#" -gt "1" ]; then
     FOLDER=$2
-  elif; then
+  else
     FOLDER=$(echo $1 | grep -o "[^\/]*\.git$" | sed s/\.git//)
   fi;
 

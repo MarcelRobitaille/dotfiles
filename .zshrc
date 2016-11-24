@@ -12,6 +12,6 @@ done;
 
 DEFAULT_USER="marcel"
 
-if command -v tmux>/dev/null; then
-  [[ ! $TERM =~ screen ]] && exec tmux
-fi
+# if command -v tmux>/dev/null; then
+#   [[ ! $TERM =~ screen ]] && exec tmux
+# fi

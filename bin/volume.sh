@@ -38,7 +38,7 @@ fi
 
 PID=$(<$PIDD)
 if [ -z $PID ]; then
-  notify-send "Volume" --icon="$icon" -h int:value:$VOLUME -h string:synchronous:volume -p > $PIDD
+  /home/marcel/.config/bin/notify-send "Volume" --icon="$icon" -h int:value:$VOLUME -h string:synchronous:volume -p > $PIDD
 else
-  notify-send "Volume" --icon="$icon" -h int:value:$VOLUME -h string:synchronous:volume -p -r $PID > $PIDD
+  /home/marcel/.config/bin/notify-send "Volume" --icon="$icon" -h int:value:$VOLUME -h string:synchronous:volume -p -r $PID > $PIDD
 fi
