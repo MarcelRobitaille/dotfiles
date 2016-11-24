@@ -9,7 +9,7 @@ clone(){
 
   git clone $1 $FOLDER
   cd $FOLDER
-  $EDITOR_CLI .
+  $VISUAL .
 }
 
 # Create a new directory and enter it
