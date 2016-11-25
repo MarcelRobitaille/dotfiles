@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/marcel/.dotfiles/oh-my-zsh
+export ZSH=/home/marcel/.oh-my-zsh
 
 ZSH_THEME="spaceship"
 SPACESHIP_PROMPT_TRUNC=0
@@ -11,7 +11,3 @@ for file in $ZSH/{oh-my-zsh,exports,aliases,functions}.sh; do
 done;
 
 DEFAULT_USER="marcel"
-
-# if command -v tmux>/dev/null; then
-#   [[ ! $TERM =~ screen ]] && exec tmux
-# fi
