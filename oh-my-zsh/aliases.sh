@@ -19,9 +19,6 @@ alias p="git push"
 alias pl="git pull"
 alias new="clone git@github.com:Marcel-Robitaille/template.git "
 
-# Pass
-alias ps="pass -c school/UdeM/emr6821@umoncton.ca"
-
 # Misc
 alias sql="mysql -u lan -p personal --host 192.168.0.120"
 alias starwars="telnet towel.blinkenlights.nl"
