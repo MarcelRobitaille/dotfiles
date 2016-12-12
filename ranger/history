@@ -1,0 +1,25 @@
+rename 1.8.1/world
+search material
+search blue_grey
+search busty
+search man
+search manifest
+search gulp-auto
+search gulp-
+search hint
+search conky
+search .conky
+search .password-store
+search font
+d
+searchdocu
+searchDocume
+search Do
+atom wishlist.txt
+
+shell atom wishlist.txt
+search Pi
+delete
+shell file --mime-type -Lb %f
+shell file --mime-type -Lb %f | notify-send
+search Pic

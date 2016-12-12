@@ -6,8 +6,10 @@ SPACESHIP_PROMPT_TRUNC=0
 
 plugins=(git)
 
-for file in $ZSH/{oh-my-zsh,exports,aliases,functions}.sh; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+source "$ZSH/oh-my-zsh.sh"
+
+for file in /home/marcel/.dotfiles/oh-my-zsh/{exports,aliases,functions}.sh; do
+  [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 
 DEFAULT_USER="marcel"
