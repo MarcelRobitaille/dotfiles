@@ -21,7 +21,7 @@ print('''${{alignc}}Weather
 ${{voffset -20}}${{alignr}}${{color grey}}{}
 ${{voffset -8}}$hr${{voffset 10}}'''.format(timestamp))
 
-r = requests.get('http://wttr.in', headers = {'User-Agent': 'curl'})
+r = requests.get('http://wttr.in/moncton', headers = {'User-Agent': 'curl'})
 lines = r.text.split('\n')
 lines = lines[2:7]
 lines = '\n'.join(lines)
