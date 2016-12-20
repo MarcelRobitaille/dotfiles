@@ -3,6 +3,7 @@
 from mpd import MPDClient
 import os
 import subprocess
+import sys
 
 client = MPDClient()
 client.timeout = 10
@@ -17,6 +18,11 @@ cover = '{}/cover.jpg'.format(dirname)
 client.close()
 client.disconnect()
 
+png = cover.replace('jpg', 'png')
+if os.path.isfile(png):
+    print(png)
+    sys.exit(0)
+
 if not os.path.isfile(cover):
     command = [
         '/usr/sbin/ffmpeg',
@@ -27,4 +33,12 @@ if not os.path.isfile(cover):
     out, err = process.communicate()
     errcode = process.returncode
 
-print(cover)
+    if err:
+        print(err)
+        sys.exit(1)
+
+link = '/home/marcel/.config/mpd/covers/{}.jpg'.format(base)
+if not os.path.isfile(link):
+    os.symlink(cover, link)
+
+print(link)
