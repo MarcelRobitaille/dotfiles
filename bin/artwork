@@ -20,8 +20,7 @@ client.disconnect()
 
 png = cover.replace('jpg', 'png')
 if os.path.isfile(png):
-    print(png)
-    sys.exit(0)
+    cover = png
 
 if not os.path.isfile(cover):
     command = [
@@ -37,7 +36,7 @@ if not os.path.isfile(cover):
         print(err)
         sys.exit(1)
 
-link = '/home/marcel/.config/mpd/covers/{}.jpg'.format(base)
+link = '/home/marcel/.config/mpd/covers/{}{}'.format(base, os.path.splitext(cover)[1])
 if not os.path.isfile(link):
     os.symlink(cover, link)
 
