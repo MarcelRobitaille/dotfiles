@@ -1,0 +1,30 @@
+#!/usr/sbin/python
+
+from mpd import MPDClient
+import os
+import subprocess
+
+client = MPDClient()
+client.timeout = 10
+client.idleTimeout = None
+client.connect('localhost', 6600)
+
+current = '/home/marcel/Music/{}'.format(client.currentsong()['file'])
+base = os.path.basename(current)
+dirname = os.path.dirname(current)
+cover = '{}/cover.jpg'.format(dirname)
+
+client.close()
+client.disconnect()
+
+if not os.path.isfile(cover):
+    command = [
+        '/usr/sbin/ffmpeg',
+        '-i', current,
+        cover
+    ]
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out, err = process.communicate()
+    errcode = process.returncode
+
+print(cover)
