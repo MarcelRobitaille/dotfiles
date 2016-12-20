@@ -15,12 +15,6 @@ while not internet():
 
 ansi_escape = re.compile(r'\x1b[^m]*m')
 
-timestamp = time.strftime('%l:%M %p')
-
-print('''${{alignc}}Weather
-${{voffset -20}}${{alignr}}${{color grey}}{}
-${{voffset -8}}$hr${{voffset 10}}'''.format(timestamp))
-
 r = requests.get('http://wttr.in/moncton', headers = {'User-Agent': 'curl'})
 lines = r.text.split('\n')
 lines = lines[2:7]
