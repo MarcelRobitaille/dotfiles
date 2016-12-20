@@ -41,4 +41,8 @@ link = '/home/marcel/.config/mpd/covers/{}.jpg'.format(base)
 if not os.path.isfile(link):
     os.symlink(cover, link)
 
+if not (os.path.exists('/home/marcel/.config/mpd/cover') and os.path.samefile(cover, '/home/marcel/.config/mpd/cover')):
+    os.unlink('/home/marcel/.config/mpd/cover')
+    os.symlink(cover, '/home/marcel/.config/mpd/cover')
+
 print(link)
