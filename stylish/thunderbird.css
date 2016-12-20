@@ -1,0 +1,73 @@
+.tabmail-tab{
+  border-radius: 0 !important;
+}
+.tab-background-start,
+.tab-background-end{
+  visibility: hidden !important;
+}
+.tab-background{
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1px;
+  background-image: none !important;
+}
+.tab-background[selected=true]{
+  background-color: #242424 !important;
+  color: #fff;
+}
+.tab-background:hover{
+  background-color: #444;
+}
+.tabmail-tab:hover:not(:-moz-lwtheme) > .tab-stack > .tab-content > .tab-text{
+ color: #fff;
+}
+
+.tab-close-button{
+  display: none !important;
+}
+.tab-close-button[selected],
+.tabmail-tab:hover .tab-close-button{
+  display: block !important;
+}
+
+.tab-background-middle{
+  background-image: none !important;
+  background-color: transparent !important;
+}
+.tabmail-tab[selected]:not(:-moz-lwtheme) > .tab-stack > .tab-content > .tab-text{
+  color: #fff !important;
+}
+.tabmail-tab:not(:-moz-lwtheme) > .tab-stack > .tab-content > .tab-text{
+  color: #999;
+  border: none !important;
+}
+.tabmail-arrowscrollbox > scrollbox{
+  padding-inline-start: 0;
+}
+
+#mailContent,
+#tabpanelcontainer,
+.tabmail-tabbox,
+tabmail,
+#tabmail-container{
+  border: none !important;
+  outline: none !important;
+  background-color: transparent !important;
+}
+.mail-toolbox{
+  background-color: #242424 !important;
+  background-image: none !important;
+  outline: none !important;
+  border: none !important;
+  color: #fff !important;
+}
+.mail-toolbox *{
+  color: #fff !important;
+}
+#tabmail-container{
+/*   display: none !important; */
+  border: none !important;
+  padding: 0 !important;
+  outline: none !important;
+/*   margin-top: -1px; */
+}
