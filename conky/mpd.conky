@@ -12,7 +12,7 @@ draw_shades no
 use_xft yes
 xftfont Fira Sans:size=16
 gap_x 30
-gap_y 80
+gap_y 69
 border_inner_margin 20
 net_avg_samples 2
 no_buffers yes
