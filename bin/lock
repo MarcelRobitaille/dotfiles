@@ -26,7 +26,7 @@ for RES in $SR
     convert $TMPBG $ICON -geometry +$PX+$PY -composite -matte $TMPBG
 done
 
-i3lock -u -i $TMPBG -I 5 -d
+i3lock -u -i $TMPBG -I 5
 
 rm /tmp/screen.png
 rm /tmp/xkcd.png
