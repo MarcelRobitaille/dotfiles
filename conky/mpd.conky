@@ -1,47 +1,40 @@
-alignment bottom_left
-background yes
-border_width 1
-cpu_avg_samples 2
-default_color white
-default_outline_color black
-default_shade_color black
-draw_borders no
-draw_graph_borders no
-draw_outline no
-draw_shades no
-use_xft yes
-xftfont Fira Sans:size=16
-gap_x 30
-gap_y 69
-border_inner_margin 20
-net_avg_samples 2
-no_buffers yes
-out_to_console no
-out_to_stderr no
-extra_newline no
-own_window true
-own_window_type desktop
-own_window_class Conky
-own_window_argb_visual yes
-own_window_argb_value 200
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-stippled_borders 0
-update_interval 1.0
-uppercase no
-use_spacer no
-text_buffer_size 1024
-double_buffer true
-minimum_size 300
-show_graph_scale no
-show_graph_range no
-draw_graph_borders no
+conky.config = {
+  alignment =  'bottom_left',
+  background = true,
+  border_width =  1,
+  cpu_avg_samples =  2,
+  default_color =  'white',
+  default_outline_color = 'black',
+  default_shade_color = 'black',
+  draw_borders =  false,
+  draw_graph_borders =  false,
+  draw_outline =  false,
+  draw_shades =  false,
+  use_xft =  true,
+  font = "Fira Sans",
+  gap_x = 30,
+  gap_y = 69,
+  border_inner_margin = 20,
+  net_avg_samples =  2,
+  no_buffers =  true,
+  out_to_console =  false,
+  out_to_stderr =  false,
+  extra_newline =  false,
+  own_window =  true,
+  own_window_type =  'override',
+  own_window_class =  Conky,
+  own_window_argb_visual =  true,
+  own_window_argb_value =  200,
+  own_window_hints =  undecorated,below,sticky,skip_taskbar,skip_pager,
+  stippled_borders =  0,
+  update_interval =  1.0,
+  uppercase =  false,
+  text_buffer_size =  1024,
+  double_buffer =  true,
+  show_graph_scale =  false,
+  show_graph_range =  false,
+  draw_graph_borders =  false,
+  lua_load = "/home/marcel/.dotfiles/conky/mpd.lua"
+}
 
-TEXT
-${if_match "$mpd_status"=="Playing"}
-${image /home/marcel/.config/mpd/cover -s 300x300 -n -f 5}${texeci 10 artwork 2>&1 > /dev/null}\
-${voffset 300}$alignc${scroll 24 1 $mpd_smart}
-${voffset 10}${mpd_bar 4,300}\
-${endif}\
-${if_match "$mpd_status"!="Playing"}\
-$alignc$mpd_status\
-${endif}\
+conky.text = '${texeci 10 artwork 2>&1 > /dev/null}${lua main}'
