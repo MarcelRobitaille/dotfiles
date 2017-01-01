@@ -28,7 +28,7 @@ own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 stippled_borders 0
 update_interval 1.0
 uppercase no
-use_spacer no
+use_spacer none
 show_graph_scale no
 show_graph_range no
 draw_graph_borders no
