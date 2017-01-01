@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 function round_fives(){
-  expr $(expr $(($1 + 4)) / 5) '*' 5
+  expr $(expr $(($1 + 2)) / 5) '*' 5
 }
 
 if [ "$1" = "up" ]; then
@@ -10,12 +10,18 @@ else
   DELTA="-5"
 fi
 
-VOLUME=$(amixer get Master |grep % |awk '{print $5}'|sed 's/[^0-9]//g'|head -n 1)
-VOLUME=${VOLUME%.*}
-VOLUME=`round_fives $VOLUME`
-VOLUME=$((VOLUME + DELTA))
+volume=$(amixer get Master | awk '$0~/%/{print $4}' | tr -d '[]%')
+volume=${volume%.*}
+volume=`round_fives $volume`
+volume=$((volume + DELTA))
+if [ $volume -gt 100 ]; then
+  volume=100
+fi
+if [ $volume -lt 0 ]; then
+  volume=0
+fi
 
-amixer set Master "$VOLUME%" > /dev/null
+amixer set Master "$volume%" > /dev/null
 
 PIDD="/tmp/volume_notification_pid"
 
@@ -28,17 +34,24 @@ if [ ! -w "$PIDD" ] ; then
   exit 1
 fi
 
-icon="audio-volume-high-symbolic"
+icon="off"
 
-if [ $VOLUME -lt 33 ]; then
-  icon="audio-volume-low-symbolic"
-elif [ $VOLUME -lt 66 ]; then
-  icon="audio-volume-medium-symbolic"
+if [ "$volume" -gt "66" ]; then
+  icon="high"
+elif [ "$volume" -gt "33" ]; then
+  icon="medium"
+elif [ "$volume" -gt "0" ]; then
+  icon="low"
+elif [ "$volume" -eq "0" ]; then
+  icon="muted"
 fi
+
+icon="audio-volume-$icon"
 
 PID=$(<$PIDD)
-if [ -z $PID ]; then
-  /home/marcel/.config/bin/notify-send "Volume" --icon="$icon" -h int:value:$VOLUME -h string:synchronous:volume -p > $PIDD
+if [[ $PID =~ '^[0-9]+$' ]]; then
+  PID=$(notify-send -p -t 1000 -i $icon "<b>Volume:</b>\n$volume %" -r $PID)
 else
-  /home/marcel/.config/bin/notify-send "Volume" --icon="$icon" -h int:value:$VOLUME -h string:synchronous:volume -p -r $PID > $PIDD
+  PID=$(notify-send -p -t 1000 -i $icon "<b>Volume:</b>\n$volume %")
 fi
+echo $PID > $PIDD
