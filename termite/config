@@ -6,7 +6,7 @@ dynamic_title = false
 maximize = true
 
 [colors]
-background = rgba(0, 0, 0, 0.9)
+background = rgba(0, 0, 0, 0.8)
 #color1 = #1c1d19
 #color0 = #1C1D19
 #color1 = #D01B24
