@@ -52,8 +52,12 @@ local spacer = '                                                                
 local function apollo()
   local result = ''
 
+  local function get_result()
+    c:perform({writefunction = function(str) result = str end})
+  end
+
   -- Curl apollo server
-  c:perform({writefunction = function(str) result = str end})
+  if not pcall(get_result) then return false end
 
   -- If this returns a `Cannot GET whatever` error, return false
   if string.sub(result, 0, 10) == 'Cannot GET' then return false end
