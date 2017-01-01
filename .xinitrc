@@ -7,6 +7,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
-conky -c ~/.dotfiles/conky/system.conky&
+NODE_ENV=production forever start ~/code/apollo/server.js &
 conky -c ~/.dotfiles/conky/mpd.conky &
+conky -c ~/.dotfiles/conky/system.conky &
+compton -b --config ~/.dotfiles/compton/compton.conf &
+dunst &
 exec startxfce4
