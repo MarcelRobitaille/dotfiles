@@ -3,5 +3,7 @@
   "esnext": true,
   "strict": "global",
   "node": true,
-  "browser": true
+  "browser": true,
+  "undef": true,
+  "unused": true
 }
