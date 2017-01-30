@@ -7,24 +7,6 @@ maximize = true
 
 [colors]
 background = rgba(0, 0, 0, 0.8)
-#color1 = #1c1d19
-#color0 = #1C1D19
-#color1 = #D01B24
-#color2 = #A7D32C
-#color3 = #D8CF67
-#color4 = #61B8D0
-#color5 = #695ABB
-#color6 = #D53864
-#color7 = #FEFFFE
-
-#color8 = #1C1D19
-#color9 = #D12A24
-#color10 = #A7D32C
-#color11 = #D8CF67
-#color12 = #61B8D0
-#color13 = #695ABB
-#color14 = #D53864
-#color15 = #FEFFFE
 
 color0 = #000000
 color1 = #c75646
