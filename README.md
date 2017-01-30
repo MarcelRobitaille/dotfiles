@@ -30,7 +30,11 @@ ncmpcpp   ➔ music player config
 neofetch  ➔ system info script config
 ranger    ➔ file manager config
 refind    ➔ backup of my rEFInd config
+<<<<<<< HEAD
 rofi-pass ➔ rofi frontend for pass by carnager
+=======
+rofi-pass ➔ rofi frontent for pass by carnager
+>>>>>>> be1300442711dac1685322210d0a4c621bb5fa77
 termite   ➔ terminal emulator
 tmux      ➔ terminal multiplexer
 vim       ➔ terminal text editor
