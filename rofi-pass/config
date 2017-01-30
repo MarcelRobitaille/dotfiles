@@ -22,11 +22,11 @@ delay=2
 EDITOR='vim'
 
 # Browser
-BROWSER='google-chrome-stable'
+BROWSER='firefox'
 
 ## Misc settings
 
-default_do='autotype' # menu, autotype, copyPass, typeUser, typePass, copyUser, copyUrl, viewEntry, typeMenu, actionMenu, copyMenu, openUrl
+default_do='menu' # menu, autotype, copyPass, typeUser, typePass, copyUser, copyUrl, viewEntry, typeMenu, actionMenu, copyMenu, openUrl
 auto_enter='false'
 notify='false'
 

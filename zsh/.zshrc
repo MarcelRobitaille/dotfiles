@@ -8,7 +8,7 @@ plugins=(git)
 
 source "$ZSH/oh-my-zsh.sh"
 
-for file in /home/marcel/.dotfiles/oh-my-zsh/{exports,aliases,functions}.sh; do
+for file in /home/marcel/.oh-my-zsh/{exports,aliases,functions}.sh; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 
