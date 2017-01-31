@@ -31,7 +31,6 @@ neofetch  ➔ system info script config
 ranger    ➔ file manager config
 refind    ➔ backup of my rEFInd config
 rofi-pass ➔ rofi frontend for pass by carnager
-rofi-pass ➔ rofi frontent for pass by carnager
 termite   ➔ terminal emulator
 tmux      ➔ terminal multiplexer
 vim       ➔ terminal text editor
