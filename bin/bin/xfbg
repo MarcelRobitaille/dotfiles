@@ -1,0 +1,42 @@
+#!/bin/luajit
+local sh = require('sh')
+local xf = require('xfconf')
+
+local wallpaper = arg[1]
+local intensity = 96
+local screenWidth = 1920
+local screenHeight = 1080
+
+-- Functions
+local function averageColor(image, x1, y1, x2, y2)
+	-- The area of the image to check
+	local width = math.abs(x1 - x2)
+	local height = math.abs(y1 - y2)
+	local area = width..'x'..height..'+'..x1..'+'..y1
+
+	-- Get the average color using the convert tool
+	local srgb = tostring(sh.command("convert")('-extract',
+									area, -- Panel Location
+									image,
+									'-scale 1x1',
+									'-format',
+									'%[pixel:s]',
+									'info:-'
+								))
+
+								print(srgb)
+	local _, _, red, green, blue = string.find(srgb, "%((%d+),(%d+),(%d+).-%)")
+	return {red, green, blue}
+end
+
+local panelColor = averageColor(wallpaper, 0, 0, screenWidth, screenHeight)
+
+local screens = xf.listProperties("xfce4-desktop", "last%-image")
+for _, screen in pairs(screens) do
+	xf.setProperty("xfce4-desktop", screen, wallpaper)
+end
+
+local panels = xf.listProperties("xfce4-panel", "background%-color")
+for _, panel in pairs(panels) do
+	xf.setProperty("xfce4-panel", panel, panelColor[1]*intensity, panelColor[2]*intensity, panelColor[3]*intensity, 0)
+end

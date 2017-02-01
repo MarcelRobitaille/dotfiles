@@ -1,0 +1,5 @@
+#!/bin/bash
+
+while true; do
+  xfbg "$(shuf -n1 -e ~/Pictures/landscapes/*)" && sleep 300
+done
