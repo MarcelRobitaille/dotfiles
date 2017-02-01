@@ -24,7 +24,7 @@ end
 --
 
 -- Read lines into table
-local lines = lines_from('/home/marcel/.dotfiles/conky/env')
+local lines = lines_from('/home/marcel/.config/conky/env')
 
 -- Create config var
 local config = {}
