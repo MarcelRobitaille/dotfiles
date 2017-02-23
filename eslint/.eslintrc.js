@@ -16,14 +16,11 @@ module.exports = {
     'sourceType': 'module'
   },
 
-  'plugins': [ 'react' ],
-
   'rules': {
     'indent': [ 'error', 2 ],
     'linebreak-style': [ 'error', 'unix' ],
     'quotes': [ 'error', 'single' ],
     'semi': [ 'error', 'never' ],
-    'react/jsx-uses-vars': 1,
     'no-console': 0,
   }
 }
