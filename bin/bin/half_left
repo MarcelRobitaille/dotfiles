@@ -1,0 +1,15 @@
+#/bin/zsh
+
+X=$(xwininfo -id $(xdotool getactivewindow) | grep "Absolute upper-left X:" | awk '{print $4}')
+
+W="640"
+if [[ $X -lt "1280" ]]; then
+  X="0"
+elif [[ $X -lt "2960" ]]; then
+  X="1280"
+  W="840"
+else
+  X="2960"
+fi
+
+half_width $X $W
