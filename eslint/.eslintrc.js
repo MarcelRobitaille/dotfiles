@@ -21,7 +21,6 @@ module.exports = {
     'linebreak-style': [ 'error', 'unix' ],
     'quotes': [ 'error', 'single' ],
     'semi': [ 'error', 'never' ],
-    // 'react/jsx-uses-vars': 1,
     'no-console': 0,
   }
 }
