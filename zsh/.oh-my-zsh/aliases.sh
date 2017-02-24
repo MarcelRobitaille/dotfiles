@@ -4,7 +4,7 @@ alias clip="xsel -i -b"
 
 # Places
 alias dt="cd ~/Desktop"
-alias ll="ls -la"
+alias ll="ls -lah"
 
 # Git
 alias g="git "
