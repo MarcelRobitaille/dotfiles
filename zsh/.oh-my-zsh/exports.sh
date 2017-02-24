@@ -2,7 +2,7 @@ export PATH="/home/marcel/bin/:/usr/local/sbin:/usr/local/node/bin:/usr/local/bi
 export FPATH="/home/marcel/.oh-my-zsh/custom/plugins:$FPATH"
 
 export EDITOR="/usr/sbin/vim"
-export VISUAL="/usr/bin/atom"
+export VISUAL="/usr/sbin/vim"
 export CHEATCOLORS=true
 export CHERE_INVOKING=1
 export TERM=xterm
