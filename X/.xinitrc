@@ -9,7 +9,7 @@ fi
 
 NODE_ENV=production forever start ~/code/apollo/server.js &
 NODE_ENV=production forever start ~/code/PurpleRSS/index.js &
-conkystartup &
+sleep 20s && conkystartup &
 compton -b --config ~/.config/compton/compton.conf &
 dunst &
 exec startxfce4

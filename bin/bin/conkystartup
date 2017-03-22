@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-sleep 20s
 killall conky
 conky -c ~/.config/conky/system.conky
 conky -c ~/.config/conky/mpd.conky

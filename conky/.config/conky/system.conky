@@ -1,71 +1,160 @@
-alignment top_right
-background yes
-border_width 1
-cpu_avg_samples 2
-default_color white
-default_outline_color white
-default_shade_color white
-draw_borders no
-draw_graph_borders yes
-draw_outline no
-draw_shades no
-use_xft yes
-xftfont Fira Mono:size=11
-gap_x 30
-gap_y 30
-border_inner_margin 20
-net_avg_samples 2
-no_buffers yes
-out_to_console no
-out_to_stderr no
-extra_newline no
-own_window true
-own_window_type desktop
-own_window_class Conky
-own_window_argb_visual yes
-own_window_argb_value 200
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-stippled_borders 0
-update_interval 1.0
-uppercase no
-use_spacer none
-show_graph_scale no
-show_graph_range no
-draw_graph_borders no
-text_buffer_size 1024
-minimum_size 440
-double_buffer true
+-- Checks if file exists
+function file_exists(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
 
-TEXT
+-- Read file into table of lines
+function lines_from(file)
+  if not file_exists(file) then return {} end
+  lines = {}
+  for line in io.lines(file) do
+    lines[#lines + 1] = line
+  end
+  return lines
+end
+
+conky.config = {
+  alignment = 'top_right',
+  background = true,
+  border_width = 1,
+  cpu_avg_samples = 2,
+  default_color = 'white',
+  default_outline_color = 'white',
+  default_shade_color = 'white',
+  draw_borders = false,
+  draw_graph_borders = true,
+  draw_outline = false,
+  draw_shades = false,
+  use_xft = true,
+  font = 'Fira Mono:size=11',
+  gap_x = 30,
+  gap_y = 30,
+  border_inner_margin = 20,
+  net_avg_samples = 2,
+  no_buffers = true,
+  out_to_console = false,
+  out_to_stderr = false,
+  extra_newline = false,
+  own_window = true,
+  own_window_class = Conky,
+  own_window_argb_visual = true,
+  own_window_argb_value = 200,
+  own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+  stippled_borders = 0,
+  update_interval = 1,
+  uppercase = false,
+  use_spacer = 'none',
+  show_graph_scale = false,
+  show_graph_range = false,
+  draw_graph_borders = false,
+  text_buffer_size = 1024,
+  double_buffer = true,
+  lua_load = '/home/marcel/.config/conky/parseweather.lua',
+}
+
+-- Read lines into table
+local lines = lines_from('/home/marcel/.config/conky/env')
+
+-- Create config var
+local config = {}
+
+-- Parse file line by line
+for i, line in pairs(lines) do
+  local key, val = line:match("([^=]+)=(.+)")
+  config[key] = val
+end
+
+local pwd = string.gsub(debug.getinfo(1).short_src, "^(.+/)[^/]+$", "%1")
+
+local file = io.popen([[cat /proc/cpuinfo | grep -m 1 'model name' | sed -e 's/\(model name.*: \| Eight-Core Processor\|(tm)\|(r)\|CPU.*\)//gi']], 'r')
+local cpu = file:read()
+file:close()
+
+local bigspace = 10
+local smallspace = 10
+
+local sections = {}
+
+
+--
+-- Info
+--
+
+table.insert(sections, [[
 ${voffset -20}
 ${alignc}Info
 ${voffset -8}$hr${voffset 10}
 ${color grey}Date:$color ${time %A %B %e, %l:%M:%S %p}
 ${color grey}Hostname:$color $nodename $alignr ${color grey}Kernel:$color $kernel
 ${color grey}Uptime:$color $uptime $alignr ${color grey}Outdated packages:$color ${execi 300 (pacman -Qu; pacaur -k) | wc -l}
-${voffset -10}
+${voffset -]] .. bigspace .. [[}
+]])
+
+
+--
+-- Weather
+--
+
+table.insert(sections, [[
 ${alignc}Weather
 ${voffset -8}$hr${voffset 10}
-${execpi 300 parseWeather.py}
-${voffset -14}
+${execpi 300 python ]] .. pwd .. [[/parseWeather.py}
+${voffset -]] .. smallspace .. [[}
+]])
+
+
+--
+-- CPU
+--
+
+local function cpu_section(core)
+  local name = core + 1
+  local sensors = ''
+  if config.SENSORS == 'true' then sensors = '| ${execi 5 sensors | grep "Core ' .. core .. '" | cut -c18-19} °C ' end
+  return '${color grey}Core ' .. name .. ':$alignr ${cpubar cpu' .. name .. ' 6, 360}\n$alignr$color [ ${cpu cpu ' .. name .. '} % ' .. sensors .. ']'
+end
+
+local cpu_sections = {}
+
+for i = 0,3 do
+  table.insert(cpu_sections, cpu_section(i))
+end
+
+local sensors = ''
+if config.SENSORS == 'true' then sensors = "| ${execi 5 sensors | grep 'Physical id 0' | cut -c18-19 } °C " end
+
+table.insert(sections, [[
 ${alignc}${color}CPU
 ${voffset -8}$hr${voffset 10}
-${color grey}CPU:$color ${execi 100000 cat /proc/cpuinfo | grep -m 1 'model name' | sed -e 's/\(model name.*: \| Eight-Core Processor\|(tm)\|(r)\|CPU.*\)//gi'} $alignr [ $freq_g GHz | ${execi 5 sensors | grep 'Physical id 0' | cut -c18-19} °C ]
+${color grey}CPU:$color ]] .. cpu .. [[$alignr [ $freq_g GHz ]] .. sensors .. [[]
 ${voffset -12}
-${color grey}Core 1:$alignr${cpubar cpu1 6, 370}
-$alignr$color [ ${cpu cpu1} % | ${execi 5 sensors | grep 'Core 0' | cut -c18-19} °C ]
-${color grey}Core 2:$alignr${cpubar cpu2 6, 370}
-$alignr$color [ ${cpu cpu2} % | ${execi 5 sensors | grep 'Core 1' | cut -c18-19} °C ]
-${color grey}Core 3:$alignr${cpubar cpu3 6, 370}
-$alignr$color [ ${cpu cpu3} % | ${execi 5 sensors | grep 'Core 2' | cut -c18-19} °C ]
-${color grey}Core 4:$alignr${cpubar cpu4 6, 370}
-$alignr$color [ ${cpu cpu4} % | ${execi 5 sensors | grep 'Core 3' | cut -c18-19} °C ]
-${voffset -12}
+]] .. table.concat(cpu_sections, '\n') .. [[
+${voffset 5}
 ${color grey}${top name 1} ${alignr}${color}${top cpu 1} %
 ${color grey}${top name 2} ${alignr}${color}${top cpu 2} %
 ${color grey}${top name 3} ${alignr}${color}${top cpu 3} %
 ${color grey}${top name 4} ${alignr}${color}${top cpu 4} %
-${voffset -14}
+${voffset -]] .. smallspace .. [[}
+]])
+
+
+--
+-- GPU
+--
+
+table.insert(sections, [[
+${alignc}${color}GPU
+${voffset -8}$hr${voffset 10}
+${execbar nvidia-smi -q -d utilization | awk '$1 == "Gpu" { print $3}'}
+${alignr} [ ${execi 5 nvidia-smi -q -d clock | awk '$1 == "Graphics" { print $3 " " $4 }' | head -n 1} | ${execi 5 nvidia-smi -q -d temperature | awk '$2 == "Current" { print $5 }'} °C ]
+]])
+
+--
+-- RAM
+--
+
+table.insert(sections, [[
 ${alignc}RAM
 ${voffset -8}$hr${voffset 10}
 ${color grey}RAM:$color ${membar 6}
@@ -77,13 +166,32 @@ ${color grey}${top_mem name 1} ${alignr}${color}${top_mem mem_res 1}
 ${color grey}${top_mem name 2} ${alignr}${color}${top_mem mem_res 2}
 ${color grey}${top_mem name 3} ${alignr}${color}${top_mem mem_res 3}
 ${color grey}${top_mem name 4} ${alignr}${color}${top_mem mem_res 4}
-${voffset -14}
+${voffset -]] .. bigspace .. [[}
+]])
+
+
+--
+-- Drives
+--
+
+table.insert(sections, [[
 ${alignc}Drives
 ${voffset -8}$hr${voffset 10}
 ${color grey}/$color ${fs_bar 6 /}
 $alignr${color grey}${fs_used /} / ${fs_size /}$color [ ${fs_used_perc /}% ]
-${voffset -12}
+${voffset -]] .. bigspace .. [[}
+]])
+
+
+--
+-- Network
+--
+
+table.insert(sections, [[
 ${alignc}Network
 ${voffset -8}$hr${voffset 10}
 ${color grey}Down: $alignr Up:
 $color ${downspeedgraph wlp2s0 30,150 grey grey}$alignr${upspeedgraph wlp2s0 30,150 grey grey}
+]])
+
+conky.text = table.concat(sections, '')
