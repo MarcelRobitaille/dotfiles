@@ -5,7 +5,7 @@ export EDITOR="/usr/sbin/vim"
 export VISUAL="/usr/sbin/vim"
 export CHEATCOLORS=true
 export CHERE_INVOKING=1
-export TERM=xterm
+export TERM=xterm-256color
 
 export NODE_ENV=development
 
