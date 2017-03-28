@@ -36,4 +36,4 @@ conky.config = {
   lua_load = "/home/marcel/.config/conky/mpd.lua",
 }
 
-conky.text = '${texeci 10 artwork 2>&1 > /dev/null}${lua main}'
+conky.text = '${texeci 10 /home/marcel/bin/artwork 2>&1 > /dev/null}${lua main}'
