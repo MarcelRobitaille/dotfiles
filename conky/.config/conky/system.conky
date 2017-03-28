@@ -1,9 +1,7 @@
-local lfs = require('lfs')
-local F = require('F')
-
-lfs.chdir('/home/marcel/.config/conky')
+require('lfs').chdir('/home/marcel/.config/conky')
 
 require('helpers')
+local F = require('F')
 local config = require('config')('/home/marcel/.config/conky/env')
 
 conky.config = {
