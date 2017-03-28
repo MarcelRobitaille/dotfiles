@@ -8,7 +8,7 @@ local config = require('config')('/home/marcel/.config/conky/env')
 
 conky.config = {
   alignment = 'top_right',
-  background = false,
+  background = true,
   border_width = 1,
   cpu_avg_samples = 2,
   default_color = 'white',
