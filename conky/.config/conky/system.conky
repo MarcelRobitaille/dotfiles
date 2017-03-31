@@ -1,18 +1,8 @@
--- Checks if file exists
-function file_exists(name)
-   local f=io.open(name,"r")
-   if f~=nil then io.close(f) return true else return false end
-end
+require('lfs').chdir('/home/marcel/.config/conky')
 
--- Read file into table of lines
-function lines_from(file)
-  if not file_exists(file) then return {} end
-  lines = {}
-  for line in io.lines(file) do
-    lines[#lines + 1] = line
-  end
-  return lines
-end
+require('helpers')
+local F = require('F')
+local config = require('config')('/home/marcel/.config/conky/env')
 
 conky.config = {
   alignment = 'top_right',
@@ -20,8 +10,6 @@ conky.config = {
   border_width = 1,
   cpu_avg_samples = 2,
   default_color = 'white',
-  default_outline_color = 'white',
-  default_shade_color = 'white',
   draw_borders = false,
   draw_graph_borders = true,
   draw_outline = false,
@@ -50,29 +38,21 @@ conky.config = {
   draw_graph_borders = false,
   text_buffer_size = 1024,
   double_buffer = true,
-  lua_load = '/home/marcel/.config/conky/parseweather.lua',
+  lua_load = '/home/marcel/.config/conky/system.lua',
 }
 
--- Read lines into table
-local lines = lines_from('/home/marcel/.config/conky/env')
+white = '${color}'
+gray = '${color grey}'
 
--- Create config var
-local config = {}
-
--- Parse file line by line
-for i, line in pairs(lines) do
-  local key, val = line:match("([^=]+)=(.+)")
-  config[key] = val
-end
-
-local pwd = string.gsub(debug.getinfo(1).short_src, "^(.+/)[^/]+$", "%1")
-
-local file = io.popen([[cat /proc/cpuinfo | grep -m 1 'model name' | sed -e 's/\(model name.*: \| Eight-Core Processor\|(tm)\|(r)\|CPU.*\)//gi']], 'r')
-local cpu = file:read()
-file:close()
-
-local bigspace = 10
+local bigspace = 5
 local smallspace = 10
+space = {}
+space.big = 0
+space.small = 18
+function offset(space)
+  local value = F "${voffset -%{space}}"
+  return value
+end
 
 local sections = {}
 
@@ -81,14 +61,14 @@ local sections = {}
 -- Info
 --
 
-table.insert(sections, [[
+table.insert(sections, F [[
 ${voffset -20}
 ${alignc}Info
 ${voffset -8}$hr${voffset 10}
 ${color grey}Date:$color ${time %A %B %e, %l:%M:%S %p}
 ${color grey}Hostname:$color $nodename $alignr ${color grey}Kernel:$color $kernel
-${color grey}Uptime:$color $uptime $alignr ${color grey}Outdated packages:$color ${execi 300 (pacman -Qu; pacaur -k) | wc -l}
-${voffset -]] .. bigspace .. [[}
+${color grey}Uptime:$color $uptime$alignr ${color grey}Outdated packages:$color ${execi 300 (pacman -Qu; pacaur -k) | wc -l}
+%{offset(space.big)}
 ]])
 
 
@@ -96,11 +76,11 @@ ${voffset -]] .. bigspace .. [[}
 -- Weather
 --
 
-table.insert(sections, [[
+table.insert(sections, F [[
 ${alignc}Weather
 ${voffset -8}$hr${voffset 10}
-${execpi 300 python ]] .. pwd .. [[/parseWeather.py}
-${voffset -]] .. smallspace .. [[}
+${execpi 300 python /home/marcel/.config/conky/parseWeather.py}
+%{offset(space.small)}
 ]])
 
 
@@ -108,11 +88,17 @@ ${voffset -]] .. smallspace .. [[}
 -- CPU
 --
 
+local function sensors(match_string, index)
+  if config.SENSORS ~= 'true' then return '' end
+
+  parts = match_string:split(" ")
+  local string = F "| ${execi 5 sensors | awk '$1 == \"%{parts[1]}\" && $2 == \"%{parts[2]}\" { c=$%{index}; gsub(\"[+°C]\", \"\", c); print c }' } °C"
+  return string
+end
+
 local function cpu_section(core)
   local name = core + 1
-  local sensors = ''
-  if config.SENSORS == 'true' then sensors = '| ${execi 5 sensors | grep "Core ' .. core .. '" | cut -c18-19} °C ' end
-  return '${color grey}Core ' .. name .. ':$alignr ${cpubar cpu' .. name .. ' 6, 360}\n$alignr$color [ ${cpu cpu ' .. name .. '} % ' .. sensors .. ']'
+  return F '%{gray}Core %{name}: ${cpubar cpu%{name} 6, 365}\n$alignr$color [ ${cpu cpu %{name}} % ' .. sensors(F "Core %{core}:", 3) .. ' ]'
 end
 
 local cpu_sections = {}
@@ -121,21 +107,20 @@ for i = 0,3 do
   table.insert(cpu_sections, cpu_section(i))
 end
 
-local sensors = ''
-if config.SENSORS == 'true' then sensors = "| ${execi 5 sensors | grep 'Physical id 0' | cut -c18-19 } °C " end
+cpu = output_of([[cat /proc/cpuinfo | grep -m 1 'model name' | sed -e 's/\(model name.*: \| Eight-Core Processor\|(tm)\|(r)\|CPU.*\)//gi']])
 
-table.insert(sections, [[
+table.insert(sections, F [[
 ${alignc}${color}CPU
 ${voffset -8}$hr${voffset 10}
-${color grey}CPU:$color ]] .. cpu .. [[$alignr [ $freq_g GHz ]] .. sensors .. [[]
+${color grey}CPU:$color %{cpu}$alignr [ $freq_g GHz %{sensors("Package id", 4)} ]
 ${voffset -12}
-]] .. table.concat(cpu_sections, '\n') .. [[
-${voffset 5}
+%{table.concat(cpu_sections, '\n')}
+${voffset -10}
 ${color grey}${top name 1} ${alignr}${color}${top cpu 1} %
 ${color grey}${top name 2} ${alignr}${color}${top cpu 2} %
 ${color grey}${top name 3} ${alignr}${color}${top cpu 3} %
 ${color grey}${top name 4} ${alignr}${color}${top cpu 4} %
-${voffset -]] .. smallspace .. [[}
+%{offset(space.small)}
 ]])
 
 
@@ -143,18 +128,23 @@ ${voffset -]] .. smallspace .. [[}
 -- GPU
 --
 
-table.insert(sections, [[
+gpu = output_of([[nvidia-smi -q | grep "Product Name" | sed "s/.*Product Name.*\: //"]])
+
+table.insert(sections, F [[
 ${alignc}${color}GPU
 ${voffset -8}$hr${voffset 10}
+${color grey}GPU: ${color}%{gpu}${alignr} [ ${execi 5 nvidia-smi -q -d clock | awk '$1 == "Graphics" { print $3 " " $4 }' | head -n 1} | ${execi 5 nvidia-smi -q -d temperature | awk '$2 == "Current" { print $5 }'} °C ]
+${voffset -12}
 ${execbar nvidia-smi -q -d utilization | awk '$1 == "Gpu" { print $3}'}
-${alignr} [ ${execi 5 nvidia-smi -q -d clock | awk '$1 == "Graphics" { print $3 " " $4 }' | head -n 1} | ${execi 5 nvidia-smi -q -d temperature | awk '$2 == "Current" { print $5 }'} °C ]
+%{offset(space.big)}
 ]])
+
 
 --
 -- RAM
 --
 
-table.insert(sections, [[
+table.insert(sections, F [[
 ${alignc}RAM
 ${voffset -8}$hr${voffset 10}
 ${color grey}RAM:$color ${membar 6}
@@ -162,11 +152,11 @@ $alignr ${color grey}$mem / $memmax$color [ $memperc% ]
 ${color grey}Swap:$color ${swapbar 6}
 $alignr ${color grey}$swap / $swapmax$color [ $swapperc% ]
 ${voffset -12}
-${color grey}${top_mem name 1} ${alignr}${color}${top_mem mem_res 1}
-${color grey}${top_mem name 2} ${alignr}${color}${top_mem mem_res 2}
-${color grey}${top_mem name 3} ${alignr}${color}${top_mem mem_res 3}
-${color grey}${top_mem name 4} ${alignr}${color}${top_mem mem_res 4}
-${voffset -]] .. bigspace .. [[}
+${color grey}${top_mem name 1} ${alignr}${color}${lua top_mem 1}
+${color grey}${top_mem name 2} ${alignr}${color}${lua top_mem 2}
+${color grey}${top_mem name 3} ${alignr}${color}${lua top_mem 3}
+${color grey}${top_mem name 4} ${alignr}${color}${lua top_mem 4}
+%{offset(space.small)}
 ]])
 
 
@@ -174,12 +164,12 @@ ${voffset -]] .. bigspace .. [[}
 -- Drives
 --
 
-table.insert(sections, [[
+table.insert(sections, F [[
 ${alignc}Drives
 ${voffset -8}$hr${voffset 10}
 ${color grey}/$color ${fs_bar 6 /}
 $alignr${color grey}${fs_used /} / ${fs_size /}$color [ ${fs_used_perc /}% ]
-${voffset -]] .. bigspace .. [[}
+%{offset(space.big)}
 ]])
 
 
@@ -187,11 +177,11 @@ ${voffset -]] .. bigspace .. [[}
 -- Network
 --
 
-table.insert(sections, [[
+table.insert(sections, F [[
 ${alignc}Network
 ${voffset -8}$hr${voffset 10}
-${color grey}Down: $alignr Up:
-$color ${downspeedgraph wlp2s0 30,150 grey grey}$alignr${upspeedgraph wlp2s0 30,150 grey grey}
+${color grey}Down: $color ${lua network downspeedf %{config.INTERFACE}} $alignr${color grey} Up: $color${lua network upspeedf %{config.INTERFACE}}
+$color ${downspeedgraph %{config.INTERFACE} 30,150 black white -t}$alignr${upspeedgraph %{config.INTERFACE} 30,150 grey white}
 ]])
 
-conky.text = table.concat(sections, '')
+conky.text = table.concat(sections, '') .. "${voffset -40}                                                "
