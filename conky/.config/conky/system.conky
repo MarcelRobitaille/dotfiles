@@ -92,13 +92,13 @@ local function sensors(match_string, index)
   if config.SENSORS ~= 'true' then return '' end
 
   parts = match_string:split(" ")
-  local string = F "| ${execi 5 sensors | awk '$1 == \"%{parts[1]}\" && $2 == \"%{parts[2]}\" { c=$%{index}; gsub(\"[+°C]\", \"\", c); print c }' } °C"
+  local string = F "| ${execi 5 sensors | awk '$1 == \"%{parts[1]}\" && $2 == \"%{parts[2]}\" { c=$%{index}; gsub(\"[+°C]\", \"\", c); print c }' } °C "
   return string
 end
 
 local function cpu_section(core)
   local name = core + 1
-  return F '%{gray}Core %{name}: ${cpubar cpu%{name} 6, 365}\n$alignr$color [ ${cpu cpu %{name}} % ' .. sensors(F "Core %{core}:", 3) .. ' ]'
+  return F '%{gray}Core %{name}: ${cpubar cpu%{name} 6, 365}\n$alignr$color [ ${cpu cpu %{name}} % ' .. sensors(F "Core %{core}:", 3) .. ']'
 end
 
 local cpu_sections = {}
@@ -112,7 +112,7 @@ cpu = output_of([[cat /proc/cpuinfo | grep -m 1 'model name' | sed -e 's/\(model
 table.insert(sections, F [[
 ${alignc}${color}CPU
 ${voffset -8}$hr${voffset 10}
-${color grey}CPU:$color %{cpu}$alignr [ $freq_g GHz %{sensors("Package id", 4)} ]
+${color grey}CPU:$color %{cpu}$alignr [ $freq_g GHz %{sensors("Package id", 4)}]
 ${voffset -12}
 %{table.concat(cpu_sections, '\n')}
 ${voffset -10}
