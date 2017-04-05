@@ -1,5 +1,5 @@
 #!/bin/zsh
 
 killall conky
-conky -c ~/.config/conky/system.conky
-conky -c ~/.config/conky/mpd.conky
+conky -c /home/marcel/.config/conky/system.conky
+conky -c /home/marcel/.config/conky/mpd.conky
