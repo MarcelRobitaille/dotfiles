@@ -1,3 +1,38 @@
+-- Checks if file exists
+function file_exists(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
+
+-- Read file into table of lines
+function lines_from(file)
+  if not file_exists(file) then return {} end
+  lines = {}
+  for line in io.lines(file) do
+    lines[#lines + 1] = line
+  end
+  return lines
+end
+
+
+--
+-- Read env file
+-- key=value formatted file
+-- You should include `URL=url_to_your_apollo_server` or don't call the apollo function
+--
+
+-- Read lines into table
+local lines = lines_from('/home/marcel/.config/conky/env')
+
+-- Create config var
+local config = {}
+
+-- Parse file line by line
+for i, line in pairs(lines) do
+  local key, val = line:match("([^=]+)=(.+)")
+  config[key] = val
+end
+
 conky.config = {
   alignment = 'bottom_left',
   background = true,
@@ -12,8 +47,8 @@ conky.config = {
   draw_shades = false,
   use_xft = true,
   font = "Fira Sans",
-  gap_x = 30,
-  gap_y = 69,
+  gap_x = tonumber(config.GAP_X),
+  gap_y = tonumber(config.GAP_Y),
   border_inner_margin = 20,
   net_avg_samples = 2,
   no_buffers = true,
