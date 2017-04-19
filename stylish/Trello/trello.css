@@ -1,6 +1,9 @@
 .list-card-title {
   display: flex !important;
 }
+.calendar-list-header {
+  display: none !important;
+}
 .list-card-title > .calendar-list-header {
   display: block !important;
 }
