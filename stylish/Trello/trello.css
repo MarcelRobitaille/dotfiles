@@ -1,0 +1,18 @@
+.list-card-title {
+  display: flex !important;
+}
+.list-card-title > .calendar-list-header {
+  display: block !important;
+}
+.calendar-list-header {
+  font-size: inherit;
+  font-weight: normal !important;
+  margin: 0 !important;
+  color: inherit;
+}
+.calendar-list-header > span{
+  display: none;
+}
+.list-card-title__span {
+  flex: 1;
+}
