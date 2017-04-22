@@ -1,5 +1,8 @@
 #!/bin/bash
 
 while true; do
-  xfbg "$(shuf -n1 -e ~/Pictures/landscapes/*)" && sleep 300
+  f=$(shuf -n1 -e /home/marcel/Pictures/landscapes/*)
+  wal -t -i "$f"
+  xfbg "$f"
+  sleep 300
 done
