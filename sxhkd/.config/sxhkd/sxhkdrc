@@ -1,3 +1,5 @@
+source /home/marcel/.zshrc
+
 #
 # wm independent hotkeys
 #
@@ -14,7 +16,7 @@ alt + ctrl + space
   rofi -show
 
 alt + shift + space
-  /home/marcel/bin/rofi-pass
+  rofi-pass
 
 # screenshooter
 Print
