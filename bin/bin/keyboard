@@ -1,0 +1,20 @@
+#!/bin/zsh
+
+LAYOUT=$(setxkbmap -print -verbose 10 | awk '$1 == "layout:" { print $2 }')
+FIFO="/tmp/panel_top_fifo"
+
+case $1 in
+  get)
+    echo "$LAYOUT"
+    ;;
+  toggle)
+    if [[ "$LAYOUT" == "$2" ]]; then
+      LAYOUT=$3
+    else
+      LAYOUT=$2
+    fi
+    setxkbmap $LAYOUT
+    [ -e "$FIFO" ] && echo "K" > "$FIFO"
+    xmodmap ~/.Xmodmap
+    ;;
+esac
