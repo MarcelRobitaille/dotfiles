@@ -16,4 +16,4 @@ const main = () => {
   })
 }
 
-setInterval(main, 5000);
+setInterval(main, 5000)
