@@ -6,20 +6,30 @@ filetype off
 " ================ Vundle ======================
 
 " set the runtime path to include Vundle and initialize
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle, required
-"Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " Tree view
-"Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 
 " Fuzzy file finder
-"Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" Status bar
+Plugin 'vim-airline/vim-airline'
+
+" Colourscheme
+Plugin 'dylanaraps/wal'
+
+Plugin 'christoomey/vim-tmux-navigator'
+
+Plugin 'farmergreg/vim-lastplace'
 
 " All of your Plugins must be added before the following line
-"call vundle#end()
+call vundle#end()
 filetype plugin indent on
 
 " Line numbers
@@ -36,11 +46,58 @@ set scrolloff=3
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
+" ================ Airline ==========================
+
+" Show by default
+set laststatus=2
+
+let g:airline#extensions#tabline#enabled = 1
+
+" Use powerline fonts
+let g:airline_powerline_fonts = 1
+
+" Supposed to make leaving insert mode faster
+set ttimeoutlen=50
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.linenr = ''
+
+" Hide default status bar
+set shortmess+=F
+
+" ================ NERDTree =========================
+
+" Automatically open when starting vim on directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+" Close NERDTree if it's the only thing left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Keybinding to open NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" Show hidden files
+let NERDTreeShowHidden=1
+
+" ================ Navigation =======================
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " ================ Indentation ======================
 
-set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
 set listchars=space:·
 
-colorscheme smyck
+colorscheme wal
+
