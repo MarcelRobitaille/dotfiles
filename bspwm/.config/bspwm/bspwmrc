@@ -26,7 +26,7 @@ bspc rule -a Oblogout state=floating
 
 source ~/.zshrc
 
-pkill randombg && randombg &
+pkill wallpaper-timer && wallpaper-timer &
 
 pkill top.sh && ~/.dotfiles/lemonbar/top.sh &
 pkill bottom.sh && ~/.dotfiles/lemonbar/bottom.sh &
