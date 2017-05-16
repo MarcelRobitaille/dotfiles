@@ -13,4 +13,4 @@ oh-my-zsh/README.md
 */node_modules/
 */node_modules/*
 env
-.swp
+*.swp
