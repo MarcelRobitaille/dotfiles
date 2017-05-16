@@ -15,3 +15,4 @@ done;
 (wal -r -t &)
 
 DEFAULT_USER="marcel"
+

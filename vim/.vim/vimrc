@@ -3,39 +3,34 @@ set nocompatible
 filetype off
 
 
-" ================ Vundle ======================
+" ================ vim plug ======================
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " Tree view
-Plugin 'scrooloose/nerdtree'
-"Plugin 'Xuyuanp/nerdtree-git-plugin' " Commented until it's colours not icons
+Plug 'scrooloose/nerdtree'
+"Plug 'Xuyuanp/nerdtree-git-plugin' " Commented until it's colours not icons
 
 " Fuzzy file finder
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Status bar
-Plugin 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 
 " Colourscheme
-Plugin 'dylanaraps/wal'
+Plug 'dylanaraps/wal'
 
 " Navigate between vim splits and tmux panes
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Open files in last place
-Plugin 'farmergreg/vim-lastplace'
+Plug 'farmergreg/vim-lastplace'
 
 " File icons
-Plugin 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 
-" All of your Plugins must be added before the following line
-call vundle#end()
+call plug#end()
+
 filetype plugin indent on
 
 " Line numbers
@@ -119,6 +114,12 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+
+" ================ Opening/closing files ====================
+
+" CtrlP fuzzy finder
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_show_hidden = 1
 
 " ================ Navigation =======================
 nnoremap <C-J> <C-W><C-J>
