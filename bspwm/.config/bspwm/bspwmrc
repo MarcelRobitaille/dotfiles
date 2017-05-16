@@ -24,19 +24,19 @@ bspc rule -a Oblogout state=floating
 # Startup scripts
 #
 
-source ~/.zshrc
+source ~/.oh-my-zsh/exports.sh
 
-pkill wallpaper-timer && wallpaper-timer &
+pkill wallpaper-timer; wallpaper-timer &
 
-pkill top.sh && ~/.dotfiles/lemonbar/top.sh &
-pkill bottom.sh && ~/.dotfiles/lemonbar/bottom.sh &
+pkill top.sh; ~/.dotfiles/lemonbar/top.sh &
+pkill bottom.sh;~/.dotfiles/lemonbar/bottom.sh &
 
 xbindkeys &
 xmodmap ~/.Xmodmap &
 
-pkill compton && compton -b --config ~/.config/compton/compton.conf &
+pkill compton; compton -b --config ~/.config/compton/compton.conf &
 
-pkill dunst && dunst &
+pkill dunst; dunst &
 
 
 #NODE_ENV=production forever start ~/code/apollo/server.js &
