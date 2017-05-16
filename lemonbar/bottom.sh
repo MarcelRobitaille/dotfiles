@@ -5,7 +5,8 @@ DIRNAME="$(dirname $0)"
 cd $DIRNAME
 
 FONT="Source Code Pro:size=12"
-ICON_FONT="MaterialIcons:size=14"
+ICON_FONT1="MaterialIcons:size=14"
+ICON_FONT2="Font Awesome:size=14"
 PANEL_FIFO="/tmp/panel_bottom_fifo"
 
 if [ $(pgrep -cx bottom.sh) -gt 1 ] ; then
@@ -33,6 +34,6 @@ done &
 
 cat "$PANEL_FIFO" \
   | zsh fifo_parse_bottom.sh \
-  | lemonbar -p -b -a 30 -g "x35" -f "$FONT" -f "$ICON_FONT" -u 4 | bash &
+  | lemonbar -p -b -a 30 -g "x35" -f "$FONT" -f "$ICON_FONT1" -f "$ICON_FONT2" -u 4 | bash &
 
 wait
