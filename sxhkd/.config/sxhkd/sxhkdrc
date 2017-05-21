@@ -4,28 +4,28 @@
 #
 
 # terminal emulator
-alt + Return
+super + Return
   termite
 
 # program launcher
-alt + space
+super + space
   rofi -show run
 
-alt + ctrl + space
+super + ctrl + space
   rofi -show
 
-alt + shift + space
-  rofi-pass
+super + shift + space
+  /home/marcel/prog/bin/rofi-pass
 
 # screenshooter
 Print
   xfce4-screenshooter
 
-alt + shift + k
+super + shift + k
   /home/marcel/bin/keyboard toggle us ca
 
 # make sxhkd reload its configuration files:
-alt + Escape
+super + Escape
   pkill -USR1 -x sxhkd
 
 #
@@ -33,15 +33,15 @@ alt + Escape
 #
 
 # quit bspwm normally
-super + alt + Escape
+super + super + Escape
   bspc quit
 
 # close and kill
-alt + {_,shift + }w
+super + {_,shift + }w
   bspc node -{c,k}
 
-# alternate between the tiled and monocle layout
-alt + m
+# superernate between the tiled and monocle layout
+super + m
   bspc desktop -l next
 
 # if the current node is automatic, send it to the last manual, otherwise pull the last leaf
@@ -57,11 +57,11 @@ super + g
 #
 
 # set the window state
-alt + {t,shift + t,s,f}
+super + {t,shift + t,s,f}
   bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
-alt + ctrl + {x,y,z}
+super + ctrl + {x,y,z}
   bspc node -g {locked,sticky,private}
 
 #
@@ -73,7 +73,7 @@ alt + ctrl + {x,y,z}
   bspc node pointed -f
 
 # focus the node in the given direction
-alt + {_,shift + }{h,j,k,l}
+super + {_,shift + }{h,j,k,l}
   bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
@@ -81,28 +81,28 @@ super + {p,b,comma,period}
   bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous desktop
-alt + bracket{left,right}
+super + bracket{left,right}
   bspc desktop -f {prev,next}
 
 # focus the last node/desktop
-alt + {_,shift +}grave
+super + {_,shift +}grave
   bspc desktop -f {next,prev}.occupied
 
 # focus last node
-alt + Tab
+super + Tab
   bspc node -f last
 
 # focus the older or newer node in the focus history
-alt + shift + Tab
+super + shift + Tab
   bspc wm -h off; \
   bspc node -f older; \
   bspc wm -h on
 
 # focus the given desktop
-alt + {1-9,0}
+super + {1-9,0}
   bspc desktop -f '^{1-9,10}'
 
-alt + shift + {1-9,0}
+super + shift + {1-9,0}
   desktop={1-9,10}; \
   bspc node -d "^$desktop"; \
   bspc desktop -f "^$desktop"
@@ -132,19 +132,19 @@ super + ctrl + shift + space
 #
 
 # expand a window by moving one of its side outward
-super + alt + {h,j,k,l}
+super + super + {h,j,k,l}
   bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
-super + alt + shift + {h,j,k,l}
+super + super + shift + {h,j,k,l}
   bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
-alt + {Left,Down,Up,Right}
+super + {Left,Down,Up,Right}
   bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # move node to next/previous desktop
-alt + shift + bracket{left,right}
+super + shift + bracket{left,right}
   direction={prev,next}; \
   nodeId="`xdotool getactivewindow`"; \
   bspc node -d "$direction"; \
