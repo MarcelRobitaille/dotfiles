@@ -89,8 +89,8 @@ handle_image() {
     case "${mimetype}" in
         # SVG
         image/svg+xml)
-            convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
-            exit 1;;
+        #    convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
+            exit 6;;
 
         # Image
         image/*)
@@ -111,6 +111,8 @@ handle_mime() {
     case "${mimetype}" in
         # Text
         text/* | */xml)
+          ;&
+        image/svg+xml)
             # Syntax highlight
             if [[ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]]; then
                 exit 2
@@ -129,8 +131,8 @@ handle_mime() {
         # Image
         image/*)
             # Preview as text conversion
-            # img2txt --gamma=0.6 --width="${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
-            exiftool "${FILE_PATH}" && exit 5
+            img2txt --gamma=0.6 --width="${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
+            # exiftool "${FILE_PATH}" && exit 5
             exit 1;;
 
         # Video and audio
@@ -138,6 +140,9 @@ handle_mime() {
             mediainfo "${FILE_PATH}" && exit 5
             exiftool "${FILE_PATH}" && exit 5
             exit 1;;
+
+        application/pdf)
+            pdftoppm -jpeg -singlefile "$path" "${cached//.jpg}" && exit 6;;
     esac
 }
 
