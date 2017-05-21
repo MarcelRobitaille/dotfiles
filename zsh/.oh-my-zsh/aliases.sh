@@ -25,5 +25,3 @@ alias starwars="telnet towel.blinkenlights.nl"
 alias fonts="fc-cache -fv"
 alias spaces="sed 's/^/    /'"
 
-# Does this go here?
-eval "$(thefuck --alias)"
