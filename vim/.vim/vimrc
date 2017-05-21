@@ -1,15 +1,93 @@
-" Vim settings
+"
+" General settings
+"
+
+" Use space as leader
+let mapleader = " "
+
+" Indentation
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+
+" Show (certain) invisibles
+set listchars=space:·
+
+" No need for vi compatability
 set nocompatible
-filetype off
+
+" Encoding and font
+set encoding=utf-8
+set guifont=Source\ Code\ Pro\ 12
+
+" Line numbers
+set number
+
+" Syntax highlighting
+syntax on
+
+" Start scrolling 10 lines before the horizontal window border
+set scrolloff=10
+
+" Scroll with mousewheel
+set mouse=a
+
+" Allow buffers in background
+set hidden
 
 
-" ================ vim plug ======================
+"
+" Navigation
+"
+
+" Quick pane cycling
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Buffer cycling
+nnoremap [ :bp<CR>
+nnoremap ] :bn<CR>
+
+" Go to most recent buffer
+nnoremap <tab> :e #<CR>
+
+
+"
+" File handling
+"
+
+" CtrlP fuzzy finder
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --follow
+  \ --ignore .git
+  \ -g ""'
+
+" Shortcut to close only current buffer
+map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+
+
+"
+" Typing
+"
+
+function! RepeatChar(char, count)
+  return repeat(a:char, a:count)
+endfunction
+
+" Insert character and go back to normal mode
+nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
+nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
+
+
+"
+" Plugins
+"
 
 call plug#begin('~/.vim/plugged')
 
 " Tree view
 Plug 'scrooloose/nerdtree'
-"Plug 'Xuyuanp/nerdtree-git-plugin' " Commented until it's colours not icons
+" Plug 'Xuyuanp/nerdtree-git-plugin' " Commented until it's colours not icons
 
 " Fuzzy file finder
 Plug 'ctrlpvim/ctrlp.vim'
@@ -20,34 +98,22 @@ Plug 'vim-airline/vim-airline'
 " Colourscheme
 Plug 'dylanaraps/wal'
 
-" Navigate between vim splits and tmux panes
-Plug 'christoomey/vim-tmux-navigator'
-
 " Open files in last place
 Plug 'farmergreg/vim-lastplace'
 
 " File icons
 Plug 'ryanoasis/vim-devicons'
 
+Plug 'mustache/vim-mustache-handlebars'
+
 call plug#end()
 
 filetype plugin indent on
 
-" Line numbers
-set number
 
-" Syntax highlighting
-syntax on
-
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
-
-" This makes vim act like all other editors, buffers can
-" exist in the background without being in a window.
-" http://items.sjbach.com/319/configuring-vim-right
-set hidden
-
-" ================ Airline ==========================
+"
+" Airline 
+"
 
 " Show by default
 set laststatus=2
@@ -64,6 +130,7 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
+" Hide things that are broken with my fonts or that I don't like the look of
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
@@ -73,12 +140,10 @@ let g:airline_symbols.linenr = ''
 " Hide default status bar
 set shortmess+=F
 
-" ================ Encoding =========================
 
-set encoding=utf-8
-set guifont=Source\ Code\ Pro\ 12
-
-" ================ NERDTree =========================
+"
+" NERDTree
+"
 
 " Automatically open when starting vim on directory
 autocmd StdinReadPre * let s:std_in=1
@@ -88,7 +153,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Keybinding to open NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
 
 " Show hidden files
 let NERDTreeShowHidden=1
@@ -107,31 +172,23 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 let g:NERDTreeShowIgnoredStatus = 1
 
+" Files to be hidden
+let NERDTreeIgnore=['\.git$', '\.pioenvs$', '\.swp']
+
 " Folders
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+" Use pretty icons
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 
-" ================ Opening/closing files ====================
 
-" CtrlP fuzzy finder
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_show_hidden = 1
+"
+" Wal
+"
 
-" ================ Navigation =======================
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" ================ Indentation ======================
-
-set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
-
-set listchars=space:·
-
+" Colourscheme settings
 colorscheme wal
 
