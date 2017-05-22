@@ -45,8 +45,8 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Buffer cycling
-nnoremap [ :bp<CR>
-nnoremap ] :bn<CR>
+nnoremap b[ :bp<CR>
+nnoremap b] :bn<CR>
 
 " Go to most recent buffer
 nnoremap <tab> :e #<CR>
