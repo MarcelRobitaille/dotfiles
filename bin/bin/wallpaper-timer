@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+while true; do
+  $(dirname $0)/changebg
+  sleep 300
+done
+

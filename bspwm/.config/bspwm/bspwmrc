@@ -1,0 +1,44 @@
+#! /bin/sh
+
+sxhkd &
+
+#bspc monitor -d $(seq -s ' ' 0 9)
+bspc monitor eDP1 -d 0 1 2 3 4
+bspc monitor HDMI2 -d 5 6 7 8 9
+
+bspc config border_width         5
+bspc config window_gap          12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+bspc rule -a Oblogout state=floating
+
+
+#
+# Startup scripts
+#
+
+source ~/.oh-my-zsh/exports.sh
+
+pkill wallpaper-timer; wallpaper-timer &
+
+pkill top.sh; ~/.dotfiles/lemonbar/top.sh &
+pkill bottom.sh;~/.dotfiles/lemonbar/bottom.sh &
+
+xbindkeys &
+xmodmap ~/.Xmodmap &
+
+pkill compton; compton -b --config ~/.config/compton/compton.conf &
+
+pkill dunst; dunst &
+
+
+#NODE_ENV=production forever start ~/code/apollo/server.js &
+#NODE_ENV=production forever start ~/code/PurpleRSS/index.js &
+

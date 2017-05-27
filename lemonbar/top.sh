@@ -1,10 +1,11 @@
 #!/bin/zsh
 
-cd $(dirname $0)
-source $(dirname $0)/config.sh
+DIRNAME=$(dirname $0)
+
+cd "$DIRNAME"
 
 FONT="Source Code Pro:size=12"
-ICON_FONT="MaterialIcons:size=14"
+ICON_FONT="MaterialIcons:size=16"
 PANEL_FIFO="/tmp/panel_top_fifo"
 
 if [ $(pgrep -cx top.sh) -gt 1 ] ; then
@@ -17,11 +18,58 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
-bspc subscribe > "$PANEL_FIFO" &
+
+#
+# Events
+#
+
+# Pulse audio
+pactl subscribe | zsh scripts/pactl_parse.sh > "$PANEL_FIFO" &
+
+# MPD
+mpc idleloop > "$PANEL_FIFO" &
+
+
+#
+# Kickstarts
+# Otherwise event-driven sections won't display anything until an event is triggered
+#
+
+# Kickstart volume
+echo "V$(zsh ./scripts/volume.sh)" > "$PANEL_FIFO" &
+
+# Kickstart player
+echo "p" > "$PANEL_FIFO" &
+
+# Kickstart backlight
+echo "L" > "$PANEL_FIFO" &
+
+
+#
+# Timers
+#
+
+# Time
+while true; do
+  echo "T" > "$PANEL_FIFO"
+  echo "K" > "$PANEL_FIFO"
+  sleep 1s
+done &
+
+# Battery
+while true; do
+  echo "B$(zsh ./scripts/battery.sh)" > "$PANEL_FIFO"
+  echo "L" > "$PANEL_FIFO"
+  sleep 10s
+done &
+
+
+#
+# Lemonbar
+#
 
 cat "$PANEL_FIFO" \
   | zsh fifo_parse_top.sh \
-  | lemonbar -p -g "x45" -f "$FONT" -f "$ICON_FONT" | bash &
+  | lemonbar -p -a 20 -g "x45" -f "$FONT" -f "$ICON_FONT" -u 4 | bash &
 
-zsh scripts/time.sh "$PANEL_FIFO" &
 wait

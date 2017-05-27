@@ -1,0 +1,7 @@
+conky.config = {
+  out_to_console = true,
+  out_to_x = false,
+  update_interval = 3
+}
+
+conky.text = [[${cpu cpu0} ${cpu cpu1} ${cpu cpu2} ${cpu cpu3} ${cpu cpu4} ${exec sensors | awk '$1 == "Package" && $2 == "id" { c=$4; gsub("[+°C]", "", c); print c }'} $memperc]]
