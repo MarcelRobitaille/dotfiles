@@ -9,7 +9,7 @@ clone(){
 
   git clone $1 $FOLDER
   cd $FOLDER
-  $VISUAL .
+  atom .
 }
 
 # Create a new directory and enter it
