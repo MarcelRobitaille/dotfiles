@@ -1,6 +1,7 @@
 #!/bin/sh
 
 while read -r line; do
+  source "$HOME/.cache/wal/colors.sh"
   case $line in
     W*)
       WORKSPACES="$(zsh scripts/workspace.sh)"
@@ -13,10 +14,9 @@ while read -r line; do
       RAM="${line#?}"
       ;;
     N*)
-      NETWORK="${line#?}"
+      NETWORK="%{U$color1}%{+u} ${line#?} %{-u}"
       ;;
   esac
-  source "$HOME/.cache/wal/colors.sh"
-  BAR="%{l}%{B$color0 F$color5} $WORKSPACES%{c}$TITLE%{r}%{U$color1}%{+u} $NETWORK %{-u} %{U$color2}%{+u} $CPU %{-u} %{U$color3}%{+u} $RAM %{-u}%{U-}"
+  BAR="%{l}%{B$color0 F$color5} $WORKSPACES%{c}$TITLE%{r}$NETWORK %{U$color2}%{+u}%{A:xfce4-taskmanager:} $CPU %{-u} %{U$color3}%{+u} $RAM %{A}%{-u}%{U-}"
   echo "$BAR%{S+}$BAR"
 done

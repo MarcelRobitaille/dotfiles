@@ -33,6 +33,6 @@ while read -r line; do
     GRAPHS="$GRAPHS $(graph $cpu)"
   done
 
-  echo "C $CPU_LOAD% $CPU_TEMP°C $GRAPHS"
-  echo "R $RAM% $(graph $RAM)"
+  echo "C%{T3}%{T-} $CPU_LOAD% $CPU_TEMP°C $GRAPHS"
+  echo "R%{T3}%{T-} $RAM% $(graph $RAM)"
 done

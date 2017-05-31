@@ -6,7 +6,7 @@ cd $DIRNAME
 
 FONT="Source Code Pro:size=12"
 ICON_FONT1="MaterialIcons:size=14"
-ICON_FONT2="Font Awesome:size=14"
+ICON_FONT2="lemonbar\-font:size=16"
 PANEL_FIFO="/tmp/panel_bottom_fifo"
 
 if [ $(pgrep -cx bottom.sh) -gt 1 ] ; then
