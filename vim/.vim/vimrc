@@ -45,8 +45,8 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Buffer cycling
-nnoremap b[ :bp<CR>
-nnoremap b] :bn<CR>
+nnoremap [[ :bp<CR>
+nnoremap ]] :bn<CR>
 
 " Go to most recent buffer
 nnoremap <tab> :e #<CR>
@@ -104,7 +104,21 @@ Plug 'farmergreg/vim-lastplace'
 " File icons
 Plug 'ryanoasis/vim-devicons'
 
+" Indent guides
+Plug 'Yggdroot/indentLine'
+
+" Toggle comments
+Plug 'scrooloose/nerdcommenter'
+
+" Emmet
+Plug 'mattn/emmet-vim'
+
+" Syntax plugins
+Plug 'pangloss/vim-javascript'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'digitaltoad/vim-pug'
+
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
@@ -191,4 +205,30 @@ let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 
 " Colourscheme settings
 colorscheme wal
+
+
+"
+" Indent line
+"
+
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '·'
+let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*']
+
+
+"
+" Emmet
+"
+
+let g:user_emmet_expandabbr_key = "<s-tab>"
+
+
+"
+" NERDCommenter
+"
+
+let g:NERDSpaceDelims = 1
+
+map <C-_> <Plug>NERDCommenterToggle
+imap <C-_> <Plug>NERDCommenterInsertComment
 
