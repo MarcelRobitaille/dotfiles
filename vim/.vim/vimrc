@@ -190,8 +190,8 @@ let g:NERDTreeShowIgnoredStatus = 1
 let NERDTreeIgnore=['\.git$', '\.pioenvs$', '\.swp']
 
 " Folders
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 
