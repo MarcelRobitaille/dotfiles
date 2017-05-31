@@ -1,6 +1,5 @@
 [options]
 font = Source Code Pro 11
-cursor_shape = ibeam
 icon_name = terminal
 dynamic_title = false
 maximize = true
