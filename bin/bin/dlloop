@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+read url
+
+i=0
+
+while wget ${url/{}/`printf "%02d" $i`}; do
+  $i++
+done
