@@ -6,7 +6,7 @@
 let mapleader = " "
 
 " Indentation
-set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
 
 " Show (certain) invisibles
 set listchars=space:·
@@ -19,7 +19,7 @@ set encoding=utf-8
 set guifont=Source\ Code\ Pro\ 12
 
 " Line numbers
-set number
+set relativenumber
 
 " Syntax highlighting
 syntax on
@@ -32,6 +32,11 @@ set mouse=a
 
 " Allow buffers in background
 set hidden
+
+filetype plugin indent on
+
+" Automatically change working directory to autocomplete files relative to id
+set autochdir
 
 
 "
@@ -56,12 +61,6 @@ nnoremap <tab> :e #<CR>
 " File handling
 "
 
-" CtrlP fuzzy finder
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --follow
-  \ --ignore .git
-  \ -g ""'
-
 " Shortcut to close only current buffer
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
@@ -74,7 +73,7 @@ function! RepeatChar(char, count)
   return repeat(a:char, a:count)
 endfunction
 
-" Insert character and go back to normal mode
+
 nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 
@@ -102,6 +101,12 @@ endif
 
 
 "
+" Autocomplete
+"
+
+set complete+=kspell
+
+"
 " Plugins
 "
 
@@ -112,7 +117,7 @@ Plug 'scrooloose/nerdtree'
 " Plug 'Xuyuanp/nerdtree-git-plugin' " Commented until it's colours not icons
 
 " Fuzzy file finder
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Status bar
 Plug 'vim-airline/vim-airline'
@@ -147,7 +152,6 @@ Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
-filetype plugin indent on
 
 
 "
@@ -222,6 +226,18 @@ let g:DevIconsEnableFoldersOpenClose = 1
 
 " Use pretty icons
 let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+
+" Prevent brackets around icons when sourcing vimrc
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
+
+
+" 
+" FZF
+"
+
+nnoremap <C-p> :FZF<CR>
 
 
 "
