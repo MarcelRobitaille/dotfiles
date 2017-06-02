@@ -1,5 +1,5 @@
 # Cross application keybindings
-I spend most of my time in a terminal emulator. For that reason, I have tried to keep the keybindings similar for different terminal applications just with different modifiers. I am often in vim under tmux. I move around in vim more so vim's keybindings don't have a modifier. The alt modifier will trigger a similar command in tmux and the super modifier will trigger it in bspwm. For example: in vim <kbd>\`</kbd> switches to the most recent buffer, in tmux, <kbd>alt-\`</kbd> switches to the most recent window, and in bspwm, <kbd>super-\`</kbd> switches to the most recent workspace. For a complete list of keybindings, see [keybindings.md](keybindings.md).
+I spend most of my time in a terminal emulator. For that reason, I have tried to keep the keybindings similar for different terminal applications just with different modifiers. I am often in vim under tmux. I move around in vim more so vim's keybindings don't have a modifier. The alt modifier will trigger a similar command in tmux and the super modifier will trigger it in bspwm. For example: in vim <kbd>\`</kbd> switches to the most recent buffer, in tmux, <kbd>alt-\`</kbd> switches to the most recent window, and in bspwm, <kbd>super-\`</kbd> switches to the most recent workspace.
 
 <table>
   <thead>
@@ -24,7 +24,7 @@ I spend most of my time in a terminal emulator. For that reason, I have tried to
       <td>previous buffer<br><code>:bp\&lt;CR&gt;</code></td>
       <td>previous window<br><code>previous-window</code></td>
       <td>previous desktop<br><code>bspc desktop -f prev</code></td>
-      <td rowspan=4>Note: vim and tmux use <kbd>{</kbd> and <kbd>}</kbd> to switch buffers/windows. bspwm uses <kbd>[</kbd> and <kbd>]</kbd> to change desktops and <kbd>{</kbd> and <kbd>}</kbd> to move nodes to the previous and next desktop respectively. The reason for this is to avoid conflicts in vim and tmux.</td>
+      <td rowspan=4>vim and tmux use <kbd>{</kbd> and <kbd>}</kbd> to switch buffers/windows. bspwm uses <kbd>[</kbd> and <kbd>]</kbd> to change desktops and <kbd>{</kbd> and <kbd>}</kbd> to move nodes to the previous and next desktop respectively. The reason for this is to avoid conflicts in vim and tmux.</td>
     </tr>
     <tr>
       <td><kbd>}</kbd></td>
