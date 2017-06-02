@@ -246,5 +246,5 @@ let g:user_emmet_expandabbr_key = "<s-tab>"
 let g:NERDSpaceDelims = 1
 
 map <C-_> <Plug>NERDCommenterToggle
-imap <C-_> <Plug>NERDCommenterInsertComment
+imap <C-_> <Plug>NERDCommenterInsert
 
