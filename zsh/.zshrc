@@ -16,3 +16,5 @@ done;
 
 DEFAULT_USER="marcel"
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
