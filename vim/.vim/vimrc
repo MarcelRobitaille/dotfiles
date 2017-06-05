@@ -36,7 +36,7 @@ set hidden
 filetype plugin indent on
 
 " Automatically change working directory to autocomplete files relative to id
-set autochdir
+" set autochdir
 
 
 "
@@ -50,11 +50,23 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Buffer cycling
-nnoremap [[ :bp<CR>
-nnoremap ]] :bn<CR>
+nnoremap { :bp<CR>
+nnoremap } :bn<CR>
 
 " Go to most recent buffer
-nnoremap <tab> :e #<CR>
+nnoremap ` :e #<CR>
+
+" Go to nth buffer
+nnoremap <leader>1 :b 1<CR>
+nnoremap <leader>2 :b 2<CR>
+nnoremap <leader>3 :b 3<CR>
+nnoremap <leader>4 :b 4<CR>
+nnoremap <leader>5 :b 5<CR>
+nnoremap <leader>6 :b 6<CR>
+nnoremap <leader>7 :b 7<CR>
+nnoremap <leader>8 :b 8<CR>
+nnoremap <leader>9 :b 9<CR>
+nnoremap <leader>0 :b 10<CR>
 
 
 "
@@ -112,6 +124,21 @@ set complete+=kspell
 
 call plug#begin('~/.vim/plugged')
 
+
+" 
+" Tim Pope plugins
+" 
+
+" Enable dot repetition for plugins
+Plug 'tpope/vim-repeat'
+
+" Surround blocks with characters
+Plug 'tpope/vim-surround'
+
+" Pairs of handy backet mappins
+" Good for moving lines and such
+Plug 'tpope/vim-unimpaired'
+
 " Tree view
 Plug 'scrooloose/nerdtree'
 " Plug 'Xuyuanp/nerdtree-git-plugin' " Commented until it's colours not icons
@@ -121,6 +148,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Status bar
 Plug 'vim-airline/vim-airline'
+
+" Snippet engine
+Plug 'SirVer/ultisnips'
 
 " Colourscheme
 Plug 'dylanaraps/wal'
@@ -137,9 +167,6 @@ Plug 'Yggdroot/indentLine'
 " Toggle comments
 Plug 'scrooloose/nerdcommenter'
 
-" Surround
-Plug 'tpope/vim-surround'
-
 " Emmet
 Plug 'mattn/emmet-vim'
 
@@ -148,7 +175,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'digitaltoad/vim-pug'
 
+" Linting
 Plug 'vim-syntastic/syntastic'
+
+Plug 'suan/vim-instant-markdown'
 
 call plug#end()
 
@@ -160,8 +190,6 @@ call plug#end()
 
 " Show by default
 set laststatus=2
-
-let g:airline#extensions#tabline#enabled = 1
 
 " Use powerline fonts
 let g:airline_powerline_fonts = 1
@@ -183,6 +211,18 @@ let g:airline_symbols.linenr = ''
 " Hide default status bar
 set shortmess+=F
 
+" Show tabline
+let g:airline#extensions#tabline#enabled = 1
+
+" Don't collapse filename
+let g:airline#extensions#tabline#fnamecollapse = 0
+
+" Show buffer numbers in tabline
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
+" Remove comma after buffer number
+let g:airline#extensions#tabline#buffer_nr_format = '%s '
+
 
 "
 " NERDTree
@@ -196,7 +236,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Keybinding to open NERDTree
-map <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 
 " Show hidden files
 let NERDTreeShowHidden=1
@@ -238,6 +278,26 @@ endif
 "
 
 nnoremap <C-p> :FZF<CR>
+
+
+" 
+" Syntastic
+" 
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'eslint --ignore-path ~/.eslintignore .'
+
+
+" 
+" Snippets
+" 
+
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
 
 
 "
