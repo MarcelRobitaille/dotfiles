@@ -5,21 +5,18 @@
 " Use space as leader
 let mapleader = " "
 
-" Indentation
-set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
-
-" Show (certain) invisibles
-set listchars=space:·
-
-" No need for vi compatability
+" No need for vi compatibility
 set nocompatible
 
-" Encoding and font
-set encoding=utf-8
-set guifont=Source\ Code\ Pro\ 12
+" Scroll with mousewheel
+set mouse=a
 
-" Line numbers
-set relativenumber
+filetype plugin indent on
+
+
+"
+" Appearance
+"
 
 " Syntax highlighting
 syntax on
@@ -27,16 +24,30 @@ syntax on
 " Start scrolling 10 lines before the horizontal window border
 set scrolloff=10
 
-" Scroll with mousewheel
-set mouse=a
+" Break on words not on characters
+set formatoptions=l
+set lbr
 
-" Allow buffers in background
-set hidden
+" Show (certain) invisibles
+set listchars=trail:·
 
-filetype plugin indent on
+" Show trailing whitespace
+match Todo /\s\+$/
 
-" Automatically change working directory to autocomplete files relative to id
-" set autochdir
+" Indentation
+set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
+
+" Line numbers
+set relativenumber
+set nu
+
+" Encoding and font
+set encoding=utf-8
+set guifont=Source\ Code\ Pro\ 12
+
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 
 "
@@ -49,6 +60,32 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+
+"
+" Search
+"
+
+" Search before hitting enter
+set incsearch
+
+" Prefer case sensitive matches but allow both
+set ignorecase
+set smartcase
+
+" Highlight results
+set hlsearch
+
+" Hide search results easily
+nnoremap <leader>/ :noh<CR>
+
+
+"
+" Buffers
+"
+
+" Allow buffers in background
+set hidden
+
 " Buffer cycling
 nnoremap { :bp<CR>
 nnoremap } :bn<CR>
@@ -57,24 +94,17 @@ nnoremap } :bn<CR>
 nnoremap ` :e #<CR>
 
 " Go to nth buffer
-nnoremap <leader>1 :b 1<CR>
-nnoremap <leader>2 :b 2<CR>
-nnoremap <leader>3 :b 3<CR>
-nnoremap <leader>4 :b 4<CR>
-nnoremap <leader>5 :b 5<CR>
-nnoremap <leader>6 :b 6<CR>
-nnoremap <leader>7 :b 7<CR>
-nnoremap <leader>8 :b 8<CR>
-nnoremap <leader>9 :b 9<CR>
-nnoremap <leader>0 :b 10<CR>
-
-
-"
-" File handling
-"
+let c = 1
+while c <= 99
+  execute "nnoremap " . c . "<leader> :" . c . "b\<CR>"
+  let c += 1
+endwhile
 
 " Shortcut to close only current buffer
-map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+
+" Automatically update files
+set autoread
 
 
 "
@@ -85,38 +115,24 @@ function! RepeatChar(char, count)
   return repeat(a:char, a:count)
 endfunction
 
+" Empty line but don't delete it
+nnoremap <leader>dd 0d$
 
 nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
-
-if (&tildeop)
-  nmap gcw guw~l
-  nmap gcW guW~l
-  nmap gciw guiw~l
-  nmap gciW guiW~l
-  nmap gcis guis~l
-  nmap gc$ gu$~l
-  nmap gcgc guu~l
-  nmap gcc guu~l
-  vmap gc gu~l
-else
-  nmap gcw guw~h
-  nmap gcW guW~h
-  nmap gciw guiw~h
-  nmap gciW guiW~h
-  nmap gcis guis~h
-  nmap gc$ gu$~h
-  nmap gcgc guu~h
-  nmap gcc guu~h
-  vmap gc gu~h
-endif
 
 
 "
 " Autocomplete
 "
 
+" Autocomplete words when spell is set
 set complete+=kspell
+
+" Automatically change working directory to autocomplete files relative to it
+:autocmd InsertEnter * let save_cwd = getcwd() | set autochdir
+:autocmd InsertLeave * set noautochdir | execute 'cd' fnameescape(save_cwd)
+
 
 "
 " Plugins
@@ -125,9 +141,9 @@ set complete+=kspell
 call plug#begin('~/.vim/plugged')
 
 
-" 
+"
 " Tim Pope plugins
-" 
+"
 
 " Enable dot repetition for plugins
 Plug 'tpope/vim-repeat'
@@ -139,9 +155,12 @@ Plug 'tpope/vim-surround'
 " Good for moving lines and such
 Plug 'tpope/vim-unimpaired'
 
+" Git
+Plug 'tpope/vim-fugitive'
+
 " Tree view
 Plug 'scrooloose/nerdtree'
-" Plug 'Xuyuanp/nerdtree-git-plugin' " Commented until it's colours not icons
+Plug 'robinfehr/nerdtree-git-plugin'
 
 " Fuzzy file finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -174,18 +193,31 @@ Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'digitaltoad/vim-pug'
+Plug 'elzr/vim-json'
 
 " Linting
-Plug 'vim-syntastic/syntastic'
-
-Plug 'suan/vim-instant-markdown'
+" Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 
 call plug#end()
 
 
+"
+" Ale
+"
+
+nmap <silent> <leader>k <Plug>(ale_previous_wrap)
+nmap <silent> <leader>j <Plug>(ale_next_wrap)
+
+let g:ale_fixers = {
+\ 'javascript': [
+\   'eslint',
+\ ],
+\}
+
 
 "
-" Airline 
+" Airline
 "
 
 " Show by default
@@ -220,7 +252,7 @@ let g:airline#extensions#tabline#fnamecollapse = 0
 " Show buffer numbers in tabline
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
-" Remove comma after buffer number
+" Remove colon after buffer number
 let g:airline#extensions#tabline#buffer_nr_format = '%s '
 
 
@@ -241,18 +273,11 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 " Show hidden files
 let NERDTreeShowHidden=1
 
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : " ",
-    \ "Dirty"     : "",
-    \ "Clean"     : "",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
+" Use colours not flags
+let g:NERDTreeGitStatusNodeColorization = 1
+let g:NERDTreeGitStatusWithFlags = 0
+
+" Show files matching .gitignore
 let g:NERDTreeShowIgnoredStatus = 1
 
 " Files to be hidden
@@ -273,28 +298,28 @@ if exists('g:loaded_webdevicons')
 endif
 
 
-" 
+"
 " FZF
 "
 
 nnoremap <C-p> :FZF<CR>
 
 
-" 
+"
 " Syntastic
-" 
+"
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'eslint --ignore-path ~/.eslintignore .'
+" let g:syntastic_javascript_eslint_exe = 'eslint --ignore-path ~/.eslintignore .'
 
 
-" 
+"
 " Snippets
-" 
+"
 
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
@@ -312,8 +337,14 @@ colorscheme wal
 " Indent line
 "
 
+" Don't remove quotes from json
+let g:vim_json_syntax_conceal = 0
+
+" Enable leading spaces
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
+
+" Exclude NERDTree
 let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*']
 
 
