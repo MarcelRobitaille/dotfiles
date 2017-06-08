@@ -16,3 +16,17 @@ export FZF_DEFAULT_COMMAND='ag -l --nocolor --hidden --follow
   \ --ignore .git
   \ -g ""'
 
+
+#
+# NPM
+#
+
+NPM_PACKAGES="/home/marcel/.npm-packages"
+export PATH="$PATH:$NPM_PACKAGES/bin"
+
+
+#
+# Ruby
+#
+
+export PATH="$PATH:/home/marcel/.gem/ruby/2.4.0/bin"
