@@ -19,24 +19,32 @@
 
 ```
 bin       ➔ executable scripts
+bspwm     ➔ window manager config
 cava      ➔ Console-based Audio Visualizer for ALSA (MPD and Pulseaudio)
 compton   ➔ display compositor
-conky     ➔ config for system monitor and music status
 dunst     ➔ notification config and related icons
 eslint    ➔ code linter
 git       ➔ source control config and aliases
+gtk       ➔ custom css for modifying gtk apps
+lemonbar  ➔ lemon scented status bars
 mpd       ➔ music server config
 ncmpcpp   ➔ music player config
 neofetch  ➔ system info script config
 ranger    ➔ file manager config
 refind    ➔ backup of my rEFInd config
 rofi-pass ➔ rofi frontend for pass by carnager
+stylish   ➔ custom css for websites
+sxhkd     ➔ keybindings
 termite   ➔ terminal emulator
 tmux      ➔ terminal multiplexer
 vim       ➔ terminal text editor
 X         ➔ display server
+zathura   ➔ document viewer config
 zsh       ➔ shell
 ```
+
+## Keybindings
+I spend most of my time in a terminal emulator. For that reason, I have tried to keep the keybindings similar for different terminal applications just with different modifiers. I am often in vim under tmux. I move around in vim more so vim's keybindings don't have a modifier. The alt modifier will trigger a similar command in tmux and the super modifier will trigger it in bspwm. For example: in vim <kbd>\`</kbd> switches to the most recent buffer, in tmux, <kbd>alt-\`</kbd> switches to the most recent window, and in bspwm, <kbd>super-\`</kbd> switches to the most recent workspace. For a complete list of keybindings, see [keybindings.md](keybindings.md).
 
 ## Screenshots
 
