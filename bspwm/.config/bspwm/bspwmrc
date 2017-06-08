@@ -1,6 +1,6 @@
 #! /bin/sh
 
-sxhkd &
+pkill sxhkd; sxhkd &
 
 #bspc monitor -d $(seq -s ' ' 0 9)
 bspc monitor eDP1 -d 0 1 2 3 4
@@ -39,6 +39,7 @@ pkill compton; compton -b --config ~/.config/compton/compton.conf &
 pkill dunst; dunst &
 
 
-#NODE_ENV=production forever start ~/code/apollo/server.js &
-#NODE_ENV=production forever start ~/code/PurpleRSS/index.js &
+forever stopall
+NODE_ENV=production forever start ~/code/apollo/server.js &
+# NODE_ENV=production forever start ~/code/PurpleRSS/index.js &
 
