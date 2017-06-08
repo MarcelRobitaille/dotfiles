@@ -15,7 +15,7 @@ super + ctrl + space
   rofi -show
 
 super + shift + space
-  /home/marcel/prog/bin/rofi-pass
+  /home/marcel/prog/bin/rofi-pass; xmodmap ~/.Xmodmap
 
 # screenshooter
 Print
@@ -40,7 +40,7 @@ super + super + Escape
 super + {_,shift + }w
   bspc node -{c,k}
 
-# superernate between the tiled and monocle layout
+# alternate between the tiled and monocle layout
 super + m
   bspc desktop -l next
 
