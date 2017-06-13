@@ -1,4 +1,95 @@
 "
+" Plugins
+"
+
+call plug#begin('~/.vim/plugged')
+
+
+"
+" Tim Pope plugins
+"
+
+" Enable dot repetition for plugins
+Plug 'tpope/vim-repeat'
+
+" Surround blocks with characters
+Plug 'tpope/vim-surround'
+
+" Pairs of handy pairs mappings
+" Good for moving lines and such
+Plug 'tpope/vim-unimpaired'
+
+" Git
+Plug 'tpope/vim-fugitive'
+
+" Add more targets
+Plug 'wellle/targets.vim'
+
+" Tree view
+Plug 'scrooloose/nerdtree'
+Plug 'robinfehr/nerdtree-git-plugin'
+
+" Fuzzy file finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" Status bar
+Plug 'vim-airline/vim-airline'
+
+
+"
+" Convenience
+"
+
+" Open files in last place
+Plug 'farmergreg/vim-lastplace'
+
+" Snippet engine
+Plug 'SirVer/ultisnips'
+
+" Toggle comments
+Plug 'scrooloose/nerdcommenter'
+
+" Emmet
+Plug 'mattn/emmet-vim'
+
+" Linting
+Plug 'w0rp/ale'
+
+" Automatically remove search highlighting
+Plug 'haya14busa/incsearch.vim'
+
+
+"
+" Aesthetic stuff
+"
+
+" Colourscheme
+Plug 'dylanaraps/wal'
+
+" File icons
+Plug 'ryanoasis/vim-devicons'
+
+" Indent guides
+Plug 'Yggdroot/indentLine'
+
+" Syntax plugins
+Plug 'pangloss/vim-javascript'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'digitaltoad/vim-pug'
+Plug 'elzr/vim-json'
+
+
+"
+" Fun stuff
+"
+
+" Gotta watch out for trolls
+Plug 'vim-utils/vim-troll-stopper'
+
+call plug#end()
+
+
+"
 " General settings
 "
 
@@ -65,18 +156,22 @@ nnoremap <C-H> <C-W><C-H>
 " Search
 "
 
-" Search before hitting enter
-set incsearch
+" Highlight results
+set hlsearch
+
+" Automatically hide results
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
 
 " Prefer case sensitive matches but allow both
 set ignorecase
 set smartcase
-
-" Highlight results
-set hlsearch
-
-" Hide search results easily
-nnoremap <leader>/ :noh<CR>
+nnoremap <leader>/ :nohl<CR>
 
 
 "
@@ -134,72 +229,9 @@ set complete+=kspell
 :autocmd InsertLeave * set noautochdir | execute 'cd' fnameescape(save_cwd)
 
 
-"
-" Plugins
-"
-
-call plug#begin('~/.vim/plugged')
-
-
-"
-" Tim Pope plugins
-"
-
-" Enable dot repetition for plugins
-Plug 'tpope/vim-repeat'
-
-" Surround blocks with characters
-Plug 'tpope/vim-surround'
-
-" Pairs of handy backet mappins
-" Good for moving lines and such
-Plug 'tpope/vim-unimpaired'
-
-" Git
-Plug 'tpope/vim-fugitive'
-
-" Tree view
-Plug 'scrooloose/nerdtree'
-Plug 'robinfehr/nerdtree-git-plugin'
-
-" Fuzzy file finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Status bar
-Plug 'vim-airline/vim-airline'
-
-" Snippet engine
-Plug 'SirVer/ultisnips'
-
-" Colourscheme
-Plug 'dylanaraps/wal'
-
-" Open files in last place
-Plug 'farmergreg/vim-lastplace'
-
-" File icons
-Plug 'ryanoasis/vim-devicons'
-
-" Indent guides
-Plug 'Yggdroot/indentLine'
-
-" Toggle comments
-Plug 'scrooloose/nerdcommenter'
-
-" Emmet
-Plug 'mattn/emmet-vim'
-
-" Syntax plugins
-Plug 'pangloss/vim-javascript'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'digitaltoad/vim-pug'
-Plug 'elzr/vim-json'
-
-" Linting
-" Plug 'vim-syntastic/syntastic'
-Plug 'w0rp/ale'
-
-call plug#end()
+""""""""""""""""""""""
+"  Plugins settings  "
+""""""""""""""""""""""
 
 
 "
