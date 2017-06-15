@@ -4,12 +4,11 @@ clone(){
   if [ "$#" -gt "1" ]; then
     FOLDER=$2
   else
-    FOLDER=$(echo $1 | grep -o "[^\/]*\.git$" | sed s/\.git//)
-  fi;
+    FOLDER=$(echo $1 | sed 's/\.git$//' | grep -o "[^\/]*$")
+  fi
 
   git clone $1 $FOLDER
   cd $FOLDER
-  atom .
 }
 
 # Create a new directory and enter it
