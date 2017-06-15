@@ -77,6 +77,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'digitaltoad/vim-pug'
 Plug 'elzr/vim-json'
+Plug 'plasticboy/vim-markdown'
 
 
 "
@@ -84,7 +85,7 @@ Plug 'elzr/vim-json'
 "
 
 " Gotta watch out for trolls
-Plug 'vim-utils/vim-troll-stopper'
+" Plug 'vim-utils/vim-troll-stopper'
 
 call plug#end()
 
@@ -140,6 +141,8 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
+let g:vim_markdown_conceal = 0
+
 
 "
 " Navigation
@@ -158,6 +161,10 @@ nnoremap <C-H> <C-W><C-H>
 
 " Highlight results
 set hlsearch
+
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 " Automatically hide results
 let g:incsearch#auto_nohlsearch = 1
@@ -216,6 +223,8 @@ nnoremap <leader>dd 0d$
 nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 
+inoremap <C-W> {<CR><end><CR>}
+
 
 "
 " Autocomplete
@@ -246,6 +255,8 @@ let g:ale_fixers = {
 \   'eslint',
 \ ],
 \}
+
+nnoremap <leader>f :ALEFix<CR>
 
 
 "
@@ -279,7 +290,7 @@ set shortmess+=F
 let g:airline#extensions#tabline#enabled = 1
 
 " Don't collapse filename
-let g:airline#extensions#tabline#fnamecollapse = 0
+" let g:airline#extensions#tabline#fnamecollapse = 0
 
 " Show buffer numbers in tabline
 let g:airline#extensions#tabline#buffer_nr_show = 1
