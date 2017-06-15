@@ -5,6 +5,9 @@ module.exports = {
     'es6': true,
     'commonjs': true
   },
+  // plugins: [
+    // 'prettier',
+  // ],
 
   'extends': 'eslint:recommended',
 
@@ -17,10 +20,16 @@ module.exports = {
   },
 
   'rules': {
-    'indent': [ 'error', 2 ],
+    'indent': [ 'error', 2, {
+      SwitchCase: 1,
+    }],
     'linebreak-style': [ 'error', 'unix' ],
     'quotes': [ 'error', 'single' ],
     'semi': [ 'error', 'never' ],
     'no-console': 0,
+    // 'prettier/prettier': ['error', {
+      // singleQuote: true,
+      // semi: false,
+    // }],
   }
 }
