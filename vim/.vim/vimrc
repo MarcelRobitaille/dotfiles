@@ -6,8 +6,24 @@ call plug#begin('~/.vim/plugged')
 
 
 "
-" Tim Pope plugins
+" Additional functionality
 "
+
+" Add more targets
+Plug 'wellle/targets.vim'
+
+" Tree view
+Plug 'scrooloose/nerdtree'
+Plug 'robinfehr/nerdtree-git-plugin'
+
+" Better history
+Plug 'mbbill/undotree'
+
+" Fuzzy file finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" Status bar
+Plug 'vim-airline/vim-airline'
 
 " Enable dot repetition for plugins
 Plug 'tpope/vim-repeat'
@@ -21,19 +37,6 @@ Plug 'tpope/vim-unimpaired'
 
 " Git
 Plug 'tpope/vim-fugitive'
-
-" Add more targets
-Plug 'wellle/targets.vim'
-
-" Tree view
-Plug 'scrooloose/nerdtree'
-Plug 'robinfehr/nerdtree-git-plugin'
-
-" Fuzzy file finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Status bar
-Plug 'vim-airline/vim-airline'
 
 
 "
@@ -58,6 +61,8 @@ Plug 'w0rp/ale'
 " Automatically remove search highlighting
 Plug 'haya14busa/incsearch.vim'
 
+Plug 'tranvansang/vim-close-pair'
+Plug 'Raimondi/delimitMate'
 
 "
 " Aesthetic stuff
@@ -84,7 +89,7 @@ Plug 'elzr/vim-json'
 "
 
 " Gotta watch out for trolls
-Plug 'vim-utils/vim-troll-stopper'
+" Plug 'vim-utils/vim-troll-stopper'
 
 call plug#end()
 
@@ -161,6 +166,9 @@ set hlsearch
 
 " Automatically hide results
 let g:incsearch#auto_nohlsearch = 1
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 map n  <Plug>(incsearch-nohl-n)
 map N  <Plug>(incsearch-nohl-N)
 map *  <Plug>(incsearch-nohl-*)
@@ -303,7 +311,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 nnoremap <leader>n :NERDTreeToggle<CR>
 
 " Show hidden files
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
 
 " Use colours not flags
 let g:NERDTreeGitStatusNodeColorization = 1
@@ -313,7 +321,7 @@ let g:NERDTreeGitStatusWithFlags = 0
 let g:NERDTreeShowIgnoredStatus = 1
 
 " Files to be hidden
-let NERDTreeIgnore=['\.git$', '\.pioenvs$', '\.swp']
+let NERDTreeIgnore = ['\.git$', '\.pioenvs$', '\.swp']
 
 " Folders
 let g:NERDTreeDirArrowExpandable = ''
