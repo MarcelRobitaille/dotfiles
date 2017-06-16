@@ -62,7 +62,7 @@ Plug 'w0rp/ale'
 Plug 'haya14busa/incsearch.vim'
 
 Plug 'tranvansang/vim-close-pair'
-Plug 'Raimondi/delimitMate'
+" Plug 'Raimondi/delimitMate'
 
 "
 " Aesthetic stuff
