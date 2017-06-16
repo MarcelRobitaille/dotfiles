@@ -235,11 +235,18 @@ inoremap <C-W> {<CR><end><CR>}
 
 
 "
-" Autocomplete
+" Spelling
 "
+
+autocmd FileType markdown,gitcommit setlocal spell
 
 " Autocomplete words when spell is set
 set complete+=kspell
+
+
+"
+" Autocomplete
+"
 
 " Automatically change working directory to autocomplete files relative to it
 :autocmd InsertEnter * let save_cwd = getcwd() | set autochdir
