@@ -19,7 +19,7 @@ super + shift + space
 
 # screenshooter
 Print
-  xfce4-screenshooter
+  gscreenshot
 
 super + shift + k
   /home/marcel/bin/keyboard toggle us ca
