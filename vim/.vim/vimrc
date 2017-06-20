@@ -233,6 +233,8 @@ nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 
 inoremap <C-W> {<CR><end><CR>}
 
+autocmd FileType gitcommit startinsert
+
 
 "
 " Spelling
