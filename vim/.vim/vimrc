@@ -58,14 +58,14 @@ Plug 'mattn/emmet-vim'
 " Linting
 Plug 'w0rp/ale'
 
-" Automatically remove search highlighting
-Plug 'haya14busa/incsearch.vim'
-
 Plug 'tranvansang/vim-close-pair'
 " Plug 'Raimondi/delimitMate'
 
+Plug 'Valloric/YouCompleteMe'
+
+
 "
-" Aesthetic stuff
+" Appearance
 "
 
 " Colourscheme
@@ -76,6 +76,9 @@ Plug 'ryanoasis/vim-devicons'
 
 " Indent guides
 Plug 'Yggdroot/indentLine'
+
+" Automatically remove search highlighting
+Plug 'haya14busa/incsearch.vim'
 
 " Syntax plugins
 Plug 'pangloss/vim-javascript'
@@ -167,10 +170,6 @@ nnoremap <C-H> <C-W><C-H>
 " Highlight results
 set hlsearch
 
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
 " Automatically hide results
 let g:incsearch#auto_nohlsearch = 1
 map /  <Plug>(incsearch-forward)
@@ -182,6 +181,21 @@ map *  <Plug>(incsearch-nohl-*)
 map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
+
+" Underline search results
+let g:incsearch#highlight = {
+\   'match' : {
+\     'group' : 'IncSearchUnderline',
+\     'priority' : '10'
+\   },
+\   'on_cursor' : {
+\     'priority' : '100'
+\   },
+\   'cursor' : {
+\     'group' : 'Search',
+\     'priority' : '1000'
+\   }
+\ }
 
 " Prefer case sensitive matches but allow both
 set ignorecase
@@ -201,7 +215,7 @@ nnoremap { :bp<CR>
 nnoremap } :bn<CR>
 
 " Go to most recent buffer
-nnoremap ` :e #<CR>
+nnoremap <leader><leader> :e #<CR>
 
 " Go to nth buffer
 let c = 1
@@ -215,6 +229,12 @@ nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " Automatically update files
 set autoread
+
+" Autoread sucks, read on BufEnter
+au FocusGained,BufEnter * :silent! !
+
+" To avoid conflicts, write on focus lost
+au FocusLost,WinLeave * :silent! w
 
 
 "
@@ -248,9 +268,7 @@ set complete+=kspell
 " Autocomplete
 "
 
-" Automatically change working directory to autocomplete files relative to it
-:autocmd InsertEnter * let save_cwd = getcwd() | set autochdir
-:autocmd InsertLeave * set noautochdir | execute 'cd' fnameescape(save_cwd)
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 
 """"""""""""""""""""""
@@ -381,6 +399,10 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
+
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 
 "
