@@ -4,8 +4,8 @@ DIRNAME=$(dirname $0)
 
 cd "$DIRNAME"
 
-FONT="Source Code Pro:size=12"
-ICON_FONT="MaterialIcons:size=16"
+source "./config"
+
 PANEL_FIFO="/tmp/panel_top_fifo"
 
 if [ $(pgrep -cx top.sh) -gt 1 ] ; then

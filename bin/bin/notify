@@ -1,0 +1,111 @@
+#!/bin/zsh
+
+# notify - A wrapper for lemonbar to use it as a notification service
+
+# Copyright (c) 2017 Marcel Robitaille <marcelrobitaille11@gmail.com>
+
+# Dependancies:
+#   lemonbar (a fork that supports borders such as https://github.com/dark-yux/bar)
+#   GNU getopt
+
+DIRNAME=$(dirname $0)
+
+cd $DIRNAME
+
+# Get lemonbar config
+source "../../lemonbar/config"
+
+# Get colours
+source "$HOME/.cache/wal/colors.sh"
+
+# Print usage
+usage() { echo "$0 -w <width> -h <line height> -t <timeout> -p <padding> -b <bg colour> -f <fg colour> -b <border width> -bc <border colour> [message]"; exit 1; }
+
+# >>> Set default values
+w=300
+h=60
+p=10
+t=5
+bg=$color0
+fg=$color5
+border=5
+m=1
+urgent=false
+debug=false
+# <<<
+
+# >>> Use getopt to parse input so options are more lenient
+OPTS=`getopt -o w:h:t:p:m:b: --long urgent,debug,gb:,fg:bc:,width:,height:,timeout:,padding:,monitor:,text-align:,border: -n 'notify' -- "$@"`
+eval set -- "$OPTS"
+# <<<
+
+while true; do
+  case "$1" in
+    --bg ) bg="$2"; shift 2 ;;
+    --fg ) fg="$2"; shift 2 ;;
+    --bc ) bc="$2"; shift 2 ;;
+    --debug ) debug=true; shift ;;
+    --urgent ) urgent=true; shift ;;
+    --text-align ) ta="$2"; shift 2 ;;
+    -w | --width ) w="$2"; shift 2 ;;
+    -h | --height ) h="$2"; shift 2 ;;
+    -t | --timeout ) t="$2"; shift 2 ;;
+    -p | --padding ) p="$2"; shift 2 ;;
+    -m | --monitor ) m="$2"; shift 2 ;;
+    -b | --border ) border="$2"; shift 2 ;;
+    -- ) shift; break ;;
+    * ) break ;;
+  esac
+done
+
+# >>> Show usage if input is empty or 'help'
+if [[ "$1" == "help" ]] || [[ -z "$1" ]]; then
+  usage
+fi
+# <<<
+
+# >>> Read selected monitors dimentions and position from xrandr
+# >>> sed is used to select the monitor's line
+# >>> awk is used to turn wxh to w+h and to print the correct section
+ORIG_IFS=$IFS
+IFS=+ read mw mh mx my <<< $(xrandr | grep ' connected' | sed -n "$m"p | awk '{ m = $3 == "primary" ? $4 : $3; gsub("x", "+", m); print m }')
+IFS=$ORIG_IFS
+# <<<
+
+# >>> Calculate x and y
+x=$((mw+mx-w-p-2*border))
+y=$((TOP_HEIGHT+p))
+# <<<
+
+[[ -z "$bc" ]] && bc=$fg
+
+if [[ "$debug" == true ]]; then
+  echo "w=$w"
+  echo "h=$h"
+  echo "p=$p"
+  echo "t=$t"
+  echo "bg=$bg"
+  echo "fg=$fg"
+  echo "m=$m"
+  echo "border=$border"
+  echo "bc=$bc"
+fi
+
+message="$1"
+
+[[ "$urgent" == true ]] && message=" $message"
+
+# We use "lemonbar -n 'notification'" to identify notifications
+echo "%{A3:pkill -f 'lemonbar -n notification':} $message %{A}" | lemonbar \
+  -n "notification" \
+  -g "${w}x${h}+${x}+${y}" \
+  -B "$bg" \
+  -F "$fg" \
+  -f "Source Code Pro:size=14" \
+  -f "Font Awesome:size=16" \
+  -r "$border" \
+  -R "$bc" \
+  -p | zsh &
+
+(sleep "$t"; pkill -f "lemonbar -n notification" 2>1 > /dev/null) &
+

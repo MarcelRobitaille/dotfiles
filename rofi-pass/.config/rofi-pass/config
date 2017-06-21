@@ -7,7 +7,8 @@ _rofi () {
 }
 
 # keyboard layout (set this to your actual layout. E.g. keyboard="de us"
-keyboard=us
+# keyboard=us
+fix_layout=false
 
 # fields to be used
 URL_field='url'
@@ -40,7 +41,7 @@ help_color="#4872FF"
 clip=primary
 
 # Options for generating new password entries
-default_user=iambecomeroot
+default_user=marcelrobitaille11@gmail.com
 # default_user2=mary_ann
 password_length=64
 default_autotype='user :tab pass'
@@ -62,3 +63,4 @@ show="Alt+s"
 # help="Alt+h"
 # switch="Alt+x"
 # insert_pass="Alt+n"
+

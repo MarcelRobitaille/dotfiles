@@ -1,9 +1,11 @@
 #!/bin/zsh
 
+# url/%02d.jpg
 read url
 
 i=0
 
-while wget ${url/{}/`printf "%02d" $i`}; do
-  $i++
+while wget $(printf "$url" $i); do
+  ((i++))
 done
+

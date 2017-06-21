@@ -3,9 +3,7 @@
 # wm independent hotkeys
 #
 
-# terminal emulator
-super + Return
-  termite
+# NOTE: termite launcher in xbindkeys so I can recover in case sxhkd gets stopped for some reason
 
 # program launcher
 super + space
@@ -15,7 +13,7 @@ super + ctrl + space
   rofi -show
 
 super + shift + space
-  /home/marcel/prog/bin/rofi-pass; xmodmap ~/.Xmodmap
+  rofi-pass
 
 # screenshooter
 Print

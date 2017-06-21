@@ -12,6 +12,10 @@ rules:
     - 1
     -
       convention: 'hyphenatedbem'
+  variable-name-format:
+    - 1
+    -
+      convention: 'hyphenatedbem'
   property-sort-order:
     - 1
     -

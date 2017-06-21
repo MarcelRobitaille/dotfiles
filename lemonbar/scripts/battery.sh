@@ -16,3 +16,4 @@ if [ -n "$remaining" ]; then
 fi
 
 echo -e "$icon $lvl%$remaining"
+
