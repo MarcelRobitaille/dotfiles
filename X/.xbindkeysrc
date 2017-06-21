@@ -48,6 +48,9 @@
 "pamixer --set-volume 20"
   XF86AudioNext
 
+"termite"
+  Mod2+Mod4 + Return
+
 "/home/marcel/bin/keyboard toggle ca us"
   Shift+Alt + k
 
