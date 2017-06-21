@@ -26,18 +26,26 @@ bspc rule -a Oblogout state=floating
 
 source ~/.oh-my-zsh/exports.sh
 
+# >>> Cycle wallpapers
 pkill wallpaper-timer; wallpaper-timer &
+# <<<
 
+# >>> Lemonbar
 pkill top.sh; ~/.dotfiles/lemonbar/top.sh &
-pkill bottom.sh;~/.dotfiles/lemonbar/bottom.sh &
+pkill bottom.sh; ~/.dotfiles/lemonbar/bottom.sh &
+# <<<
 
+# >>> Keybindings
 xbindkeys &
 xmodmap ~/.Xmodmap &
+# <<<
 
 pkill compton; compton -b --config ~/.config/compton/compton.conf &
 
 pkill dunst; dunst &
 
+pkill redshift
+redshift 2>1 > /dev/null || notify "Failed to start redshift\!" --urgent
 
 forever stopall
 NODE_ENV=production forever start ~/code/apollo/server.js &
