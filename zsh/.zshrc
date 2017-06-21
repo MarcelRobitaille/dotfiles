@@ -12,7 +12,7 @@ for file in /home/marcel/.oh-my-zsh/{exports,aliases,functions}.sh; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 
-(wal -r -t &)
+(hash wal 2>/dev/null && wal -r -t &)
 
 DEFAULT_USER="marcel"
 
