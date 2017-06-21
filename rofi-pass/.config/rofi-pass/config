@@ -14,6 +14,7 @@ URL_field='url'
 USERNAME_field='user'
 AUTOTYPE_field='autotype'
 
+
 # delay to be used for :delay keyword
 delay=2
 
@@ -26,7 +27,7 @@ BROWSER='firefox'
 
 ## Misc settings
 
-default_do='menu' # menu, autotype, copyPass, typeUser, typePass, copyUser, copyUrl, viewEntry, typeMenu, actionMenu, copyMenu, openUrl
+default_do='autotype' # menu, autotype, copyPass, typeUser, typePass, copyUser, copyUrl, viewEntry, typeMenu, actionMenu, copyMenu, openUrl
 auto_enter='false'
 notify='false'
 
@@ -42,6 +43,7 @@ clip=primary
 default_user=iambecomeroot
 # default_user2=mary_ann
 password_length=64
+default_autotype='user :tab pass'
 
 # Custom Keybindings
 open_url="Alt+o"
