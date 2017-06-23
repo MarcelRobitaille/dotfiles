@@ -13,10 +13,8 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
+bspc rule -a *:notification state=floating
 bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
 bspc rule -a Oblogout state=floating
 
 
@@ -37,7 +35,7 @@ pkill bottom.sh; ~/.dotfiles/lemonbar/bottom.sh &
 
 # >>> Keybindings
 xbindkeys &
-xmodmap ~/.Xmodmap &
+doxmodmap
 # <<<
 
 pkill compton; compton -b --config ~/.config/compton/compton.conf &
@@ -45,7 +43,7 @@ pkill compton; compton -b --config ~/.config/compton/compton.conf &
 pkill dunst; dunst &
 
 pkill redshift
-redshift 2>1 > /dev/null || notify "Failed to start redshift\!" --urgent
+redshift 2>&1 > /dev/null || notify "Failed to start redshift\!" --urgent
 
 forever stopall
 NODE_ENV=production forever start ~/code/apollo/server.js &
