@@ -1,7 +1,0 @@
-#!/bin/zsh
-
-H=$(xwininfo -id $(xdotool getactivewindow) | awk '$1=="Height:" {print $2}')
-
-wmctrl -r :ACTIVE: -b remove,maximized_vert,maximized_horz
-wmctrl -r :ACTIVE: -e 0,$1,0,$2,$H
-wmctrl -r :ACTIVE: -b add,maximized_vert
