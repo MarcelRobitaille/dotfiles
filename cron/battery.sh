@@ -7,6 +7,6 @@ STATUS=$(cat /sys/class/power_supply/BAT1/status)
 REMAINING="$(acpi | awk '{ print $5 }')"
 
 if [[ "$LVL" -lt 20 ]] && [[ "$STATUS" == "Discharging" ]]; then
-  DISPLAY=:0 notify -w 450 --urgent "Low battery!. $REMAINING remaining."
+  DISPLAY=:0 notify -w 480 --urgent "Low battery! $LVL% remaining ($REMAINING)."
 fi
 
