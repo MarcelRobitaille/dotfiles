@@ -38,6 +38,9 @@ Plug 'tpope/vim-unimpaired'
 " Git
 Plug 'tpope/vim-fugitive'
 
+" Save session
+Plug 'tpope/vim-obsession'
+
 
 "
 " Convenience
