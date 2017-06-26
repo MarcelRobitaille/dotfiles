@@ -2,7 +2,7 @@
 export ZSH=/home/marcel/.oh-my-zsh
 
 ZSH_THEME="spaceship"
-SPACESHIP_PROMPT_TRUNC=0
+SPACESHIP_DIR_TRUNC=0
 
 plugins=(git)
 
