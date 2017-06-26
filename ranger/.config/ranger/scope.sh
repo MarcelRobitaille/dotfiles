@@ -50,13 +50,18 @@ safepipe() { "$@"; test $? = 0 -o $? = 141; }
 if [ "$preview_images" = "True" ]; then
     case "$mimetype" in
         # Image previews for SVG files, disabled by default.
-        ###image/svg+xml)
-        ###   convert "$path" "$cached" && exit 6 || exit 1;;
+        image/svg+xml)
+           # convert "$path" "$cached" && exit 6 || exit 1;;
+           pygmentize_format=terminal
+           highlight_format=ansi
+           try safepipe highlight --out-format=${highlight_format} "$path" && { dump | trim; exit 5; }
+           try safepipe pygmentize -f ${pygmentize_format} "$path" && { dump | trim; exit 5; }
+           exit 2;;
         # Image previews for image files. w3mimgdisplay will be called for all
         # image files (unless overriden as above), but might fail for
         # unsupported types.
-        image/*)
-            exit 7;;
+        # image/*)
+            # exit 7;;
         # Image preview for video, disabled by default.:
         ###video/*)
         ###    ffmpegthumbnailer -i "$path" -o "$cached" -s 0 && exit 6 || exit 1;;
