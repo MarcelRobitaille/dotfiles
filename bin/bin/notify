@@ -105,6 +105,7 @@ echo "%{A3:pkill -f 'lemonbar -n notification':} $message %{A}" | lemonbar \
   -f "Font Awesome:size=16" \
   -r "$border" \
   -R "$bc" \
+  -d \
   -p | zsh &
 
 (sleep "$t"; pkill -f "lemonbar -n notification" 2>1 > /dev/null) &
