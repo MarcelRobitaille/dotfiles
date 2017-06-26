@@ -41,6 +41,9 @@ Plug 'tpope/vim-fugitive'
 " Save session
 Plug 'tpope/vim-obsession'
 
+" Word and case variants
+Plug 'tpope/tpope-vim-abolish'
+
 
 "
 " Convenience
@@ -66,6 +69,9 @@ Plug 'tranvansang/vim-close-pair'
 
 Plug 'Valloric/YouCompleteMe'
 
+" Switch between single line and multi line statemnts
+Plug 'AndrewRadev/splitjoin.vim'
+
 
 "
 " Appearance
@@ -89,6 +95,7 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'digitaltoad/vim-pug'
 Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
+Plug 'heavenshell/vim-jsdoc'
 
 
 "
@@ -296,6 +303,13 @@ nnoremap <leader>f :ALEFix<CR>
 
 
 "
+" Filetype
+"
+
+nnoremap <leader>jd <Plug>(jsdoc)
+let g:javascript_plugin_jsdoc = 1
+
+"
 " Airline
 "
 
@@ -446,11 +460,4 @@ let g:NERDSpaceDelims = 1
 
 map <C-_> <Plug>NERDCommenterToggle
 imap <C-_> <Plug>NERDCommenterInsert
-
-
-"
-" CtrlP
-"
-
-let g:ctrlp_cmd = 'CtrlPMixed'
 
