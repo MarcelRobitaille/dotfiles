@@ -230,11 +230,10 @@ nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 " Automatically update files
 set autoread
 
-" Autoread sucks, read on BufEnter
-au FocusGained,BufEnter * :silent! !
-
-" To avoid conflicts, write on focus lost
-au FocusLost,WinLeave * :silent! w
+function! Autoread(timer)
+    silent checktime %
+endfunction!
+let timer = timer_start(100, 'Autoread', { 'repeat': -1 })
 
 
 "
