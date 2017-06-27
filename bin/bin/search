@@ -1,0 +1,20 @@
+#!/bin/zsh
+
+if [[ -z "$1" ]]; then
+  echo "What are you trying to pull?"
+  exit 1
+fi
+
+grep \
+  -n \
+  -R \
+  --exclude-dir '.git' \
+  --exclude-dir 'node_modules' \
+  --exclude-dir 'public' \
+  --exclude-dir 'build' \
+  --exclude 'package.*' \
+  --exclude 'yarn.*' \
+  --exclude '*.swp' \
+  "$1" \
+  .
+
