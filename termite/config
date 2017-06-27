@@ -1,6 +1,7 @@
 [options]
 font = Source Code Pro 11
 dynamic_title = false
+icon_name = terminal
 
 [colors]
 background = #242424
