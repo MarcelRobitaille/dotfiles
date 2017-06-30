@@ -4,8 +4,10 @@ export FPATH=/usr/share/zsh/site-functions:/usr/share/zsh/functions/Calendar:/us
 ZSH_THEME="spaceship"
 SPACESHIP_DIR_TRUNC=0
 SPACESHIP_EXEC_TIME_SHOW=false
+SPACESHIP_NODE_SHOW=false
+export RPS1="%{$reset_color%}"
 
-plugins=(git)
+plugins=(git,vi-mode)
 
 source "$ZSH/oh-my-zsh.sh"
 
