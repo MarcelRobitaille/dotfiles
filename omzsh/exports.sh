@@ -15,6 +15,7 @@ export FZF_DEFAULT_COMMAND='ag -l --nocolor --hidden --follow
   \ --ignore .git
   \ -g ""'
 
+export KEYTIMEOUT=1
 
 #
 # NPM
