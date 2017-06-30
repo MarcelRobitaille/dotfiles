@@ -133,7 +133,7 @@ set scrolloff=10
 
 " Break on words not on characters
 set formatoptions=l
-set lbr
+set linebreak
 
 " Show (certain) invisibles
 set listchars=trail:·
@@ -145,8 +145,8 @@ match Todo /\s\+$/
 set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
 
 " Line numbers
+set number
 set relativenumber
-set nu
 
 " Encoding and font
 set encoding=utf-8
