@@ -115,9 +115,6 @@ call plug#end()
 " Use space as leader
 let mapleader = " "
 
-" No need for vi compatibility
-set nocompatible
-
 " Scroll with mousewheel
 set mouse=a
 
@@ -220,10 +217,6 @@ nnoremap <leader>/ :nohl<CR>
 " Allow buffers in background
 set hidden
 
-" Buffer cycling
-nnoremap { :bp<CR>
-nnoremap } :bn<CR>
-
 " Go to nth buffer
 let c = 1
 while c <= 99
@@ -232,7 +225,7 @@ while c <= 99
 endwhile
 
 " Shortcut to close only current buffer
-nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+nnoremap <leader>q :bn<CR>:bd #<CR>
 
 " Automatically update files
 set autoread
@@ -256,8 +249,6 @@ nnoremap <leader>dd 0d$
 
 nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
-
-inoremap <C-W> {<CR><end><CR>}
 
 
 "
@@ -302,7 +293,6 @@ nnoremap <leader>f :ALEFix<CR>
 " Filetype
 "
 
-nnoremap <leader>jd <Plug>(jsdoc)
 let g:javascript_plugin_jsdoc = 1
 
 "
