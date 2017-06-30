@@ -255,7 +255,9 @@ nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 " Spelling
 "
 
-autocmd FileType markdown,gitcommit setlocal spell
+augroup spelling
+  autocmd FileType markdown,gitcommit setlocal spell
+augroup END
 
 " Autocomplete words when spell is set
 set complete+=kspell
@@ -339,12 +341,14 @@ let g:airline#extensions#tabline#buffer_nr_format = '%s '
 " NERDTree
 "
 
-" Automatically open when starting vim on directory
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+augroup nerdstart
+  " Automatically open when starting vim on directory
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
-" Close NERDTree if it's the only thing left
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  " Close NERDTree if it's the only thing left
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+augroup END
 
 " Keybinding to open NERDTree
 nnoremap <leader>n :NERDTreeToggle<CR>
