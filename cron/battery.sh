@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source ~/.oh-my-zsh/exports.sh
+source ~/.dotfiles/omzsh/exports.sh
 
 LVL=$(cat /sys/class/power_supply/BAT1/capacity)
 STATUS=$(cat /sys/class/power_supply/BAT1/status)

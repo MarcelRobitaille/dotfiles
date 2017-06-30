@@ -21,7 +21,7 @@ bspc rule -a Oblogout state=floating
 # Startup scripts
 #
 
-source ~/.oh-my-zsh/exports.sh
+source ~/.dotfiles/omzsh/exports.sh
 
 # >>> Cycle wallpapers
 pkill wallpaper-timer; wallpaper-timer &

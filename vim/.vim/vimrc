@@ -224,9 +224,6 @@ set hidden
 nnoremap { :bp<CR>
 nnoremap } :bn<CR>
 
-" Go to most recent buffer
-nnoremap <leader><leader> :e #<CR>
-
 " Go to nth buffer
 let c = 1
 while c <= 99
