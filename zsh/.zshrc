@@ -18,6 +18,7 @@ eval $(thefuck --alias)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Vi mode
 bindkey -v
 
 SPACESHIP_PROMPT_ORDER=(
@@ -32,6 +33,15 @@ SPACESHIP_PROMPT_ORDER=(
   exit_code     # Exit code section
   char          # Prompt character
 )
+
+# Up/down search for matches of what's already there
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^P' up-line-or-beginning-search
+bindkey '^N' down-line-or-beginning-search
+
+
 
 SPACESHIP_DIR_TRUNC=0
 SPACESHIP_VI_MODE_SHOW=true
