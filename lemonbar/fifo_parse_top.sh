@@ -5,7 +5,7 @@ while read -r line; do
   source "$HOME/.cache/wal/colors.sh"
   case $line in
     T*)
-      TIME="  $(date +'%A, %b %e' | sed -E 's/[[:space:]]+/ /g')  $(date +'%l:%M:%S %p' | xargs) "
+      TIME="%{A:calendar -s monitor_num:}  $(date +'%A, %b %e' | sed -E 's/[[:space:]]+/ /g')  $(date +'%l:%M:%S %p' | xargs) %{A}"
       PLAYER=" $(zsh $DIRNAME/scripts/player.sh)"
       ;;
     B*)
@@ -30,5 +30,6 @@ while read -r line; do
   CENTRE="%{c}$SONG"
   RIGHT="%{r}%{U$color1}%{+o} $LAYOUT %{-o} %{U$color3}%{+o} $VOLUME %{-o} %{U$color2}%{+o} $BACKLIGHT %{-o} %{U$color3}%{+o} $BATTERY %{-o} %{B$color5 F$color0 U$color0}%{+u}$TIME%{-u}%{B$color0 F$color5}"
 
-  echo "$LEFT$CENTRE$RIGHT%{S+}$LEFT$CENTRE$RIGHT"
+  ALL="$LEFT$CENTRE$RIGHT"
+  echo "${ALL/monitor_num/1}%{S+}${ALL/monitor_num/2}"
 done
