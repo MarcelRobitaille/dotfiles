@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+scrot  -d 1 -e 'mv $f ~/Pictures/Screenshots/; notify -w700 " Saved screenshot as $f"'
+

@@ -103,6 +103,7 @@ echo "%{A3:pkill -f 'lemonbar -n notification':} $message %{A}" | lemonbar \
   -F "$fg" \
   -f "Source Code Pro:size=14" \
   -f "Font Awesome:size=16" \
+  -f "Material Icons:size=18" \
   -r "$border" \
   -R "$bc" \
   -d \
