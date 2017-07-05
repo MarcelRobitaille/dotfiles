@@ -35,7 +35,7 @@ print_info() {
     # info "Disk" disk
     # info "Battery" battery
     # info "Font" font
-    info "Song" song
+    # info "Song" song
     # info "Local IP" local_ip
     # info "Public IP" public_ip
     # info "Users" users
