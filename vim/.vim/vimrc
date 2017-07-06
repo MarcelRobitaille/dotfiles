@@ -282,6 +282,12 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
 
+let g:ale_linters = {
+\ 'cpp': [
+\   'clangtidy',
+\ ],
+\}
+
 let g:ale_fixers = {
 \ 'javascript': [
 \   'eslint',
