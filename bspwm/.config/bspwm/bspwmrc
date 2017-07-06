@@ -41,7 +41,7 @@ pkill dunst; dunst &
 pkill redshift
 redshift 2>&1 > /dev/null || notify "Failed to start redshift\!" --urgent
 
-forever stopall
-NODE_ENV=production forever start ~/code/apollo/server.js &
+# forever stopall
+# NODE_ENV=production forever start ~/code/apollo/server.js &
 # NODE_ENV=production forever start ~/code/PurpleRSS/index.js &
 
