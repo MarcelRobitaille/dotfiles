@@ -5,7 +5,7 @@ source $HOME/.cache/wal/colors.sh
 pkill -f "dzen2 -title-name calendar"
 
 ORIG_IFS=$IFS
-IFS=" " read month year <<< $(date +"%m %Y")
+IFS=" " read current_month current_year <<< $(date +"%m %Y")
 IFS=$ORIG_IFS
 
 screen=1
@@ -24,6 +24,9 @@ while true; do
   esac
 done
 
+month=${month:-$current_month}
+year=${year:-$current_year}
+
 if (( month > 12)); then
   month=1
   ((year++))
@@ -39,6 +42,10 @@ next="^ca(1, calendar -m $((month+1)) -y $year)>^ca()"
 
 out=$(cal $month $year | sed "1s/^ /$back/; 1s/ $/$next/")
 lines=$(echo "$out" | wc -l)
+
+if test "$month" -eq "$current_month" && test "$year" -eq "$current_year"; then
+  out=$(echo "$out" | sed "2,$ s/$(date +%e)/^fg($color0)^bg($color5)\0^fg()^bg()/")
+fi
 
 echo  "$out" | dzen2 \
   -title-name "calendar" \
