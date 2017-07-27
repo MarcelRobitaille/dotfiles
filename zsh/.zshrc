@@ -7,7 +7,7 @@ SPACESHIP_EXEC_TIME_SHOW=false
 SPACESHIP_NODE_SHOW=false
 export RPS1="%{$reset_color%}"
 
-plugins=(git)
+plugins=(git pass vi-mode)
 
 source "$ZSH/oh-my-zsh.sh"
 
@@ -23,6 +23,7 @@ eval $(thefuck --alias)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
 # Up/down search for matches of what's already there
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -33,3 +34,6 @@ bindkey '^N' down-line-or-beginning-search
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+bindkey -v
+
