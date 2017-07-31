@@ -1,13 +1,31 @@
 #!/bin/zsh
 
+# search - A semi-complicated search script
+
+# Usage:
+#  search PATTERN
+#  Search for PATTERN in all files under cwp (except .git, node_modules...)
+
+# Copyright (c) 2017 Marcel Robitaille <marcelrobitaille11@gmail.com>
+
+# Dependencies:
+#   highlight
+#   grep
+#   tput
+#   sed
+
+# Disallow searching for nothing
 if [[ -z "$1" ]]; then
   echo "What are you trying to pull?"
   exit 1
 fi
 
+# Find all files matching search pattern
+# We just want the file names here
 grep \
   -n \
   -R \
+  -l \
   --exclude-dir '.git' \
   --exclude-dir 'node_modules' \
   --exclude-dir 'public' \
@@ -16,5 +34,28 @@ grep \
   --exclude 'yarn.*' \
   --exclude '*.swp' \
   "$1" \
-  .
+  . |
+
+# Read each matching file
+while read match; do
+
+  # Get file extension for syntax highlighting
+  filename=$(basename "$match")
+  extname="${filename##*.}"
+
+  # Echo filename in fancy way
+  # We want a string of "=" of length equal to the number of columns minus our filename minus a space on each side
+  columns=$(tput cols)
+  width=$(( (columns - ${#match} - 2) / 2))
+  space=$(for i in `seq $width`; do echo -n "="; done)
+  # Set distinct colour
+  tput setaf 2
+  # Echo our spacer, the file, then our spacer again
+  echo "$space $match $space"
+  # Reset colours
+  tput sgr0
+
+  # Search file for matches
+  grep "$1" "$match" -n --context=3 | highlight --syntax "$extname" --force --out-format ansi | sed "s/$1/$(tput rev)\0$(tput sgr0)/I"
+done
 
