@@ -284,7 +284,7 @@ nmap <silent> <leader>j <Plug>(ale_next_wrap)
 
 let g:ale_linters = {
 \ 'cpp': [
-\   'clangtidy',
+\   'g++',
 \ ],
 \}
 
