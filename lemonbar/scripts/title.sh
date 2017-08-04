@@ -1,1 +1,2 @@
-xdotool getactivewindow getwindowname | trunc 70
+xdotool getactivewindow getwindowname 2>/dev/null | trunc 70
+
