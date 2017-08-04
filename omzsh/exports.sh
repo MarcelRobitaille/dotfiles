@@ -1,5 +1,6 @@
 export PATH="/home/marcel/bin/:/home/marcel/prog/bin:/usr/local/sbin:/usr/local/node/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
 
+export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="/usr/sbin/vim"
 export VISUAL="/usr/sbin/vim"
 export CHEATCOLORS=true
