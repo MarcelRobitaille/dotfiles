@@ -32,3 +32,10 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 
 export PATH="$PATH:/home/marcel/.gem/ruby/2.4.0/bin"
 
+
+#
+# Weechat
+#
+
+export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
+
