@@ -27,6 +27,9 @@ pkill wallpaper-timer; wallpaper-timer &
 pkill top.sh; ~/.dotfiles/lemonbar/top.sh &
 pkill bottom.sh; ~/.dotfiles/lemonbar/bottom.sh &
 
+# Autolock screen
+xautolock -time 3 -locker /home/marcel/bin/lock &
+
 # Keybindings
 xbindkeys &
 doxmodmap
