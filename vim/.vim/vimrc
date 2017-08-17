@@ -86,6 +86,9 @@ Plug 'ryanoasis/vim-devicons'
 " Indent guides
 Plug 'Yggdroot/indentLine'
 
+" Git diff gutter
+Plug 'airblade/vim-gitgutter'
+
 " Automatically remove search highlighting
 Plug 'haya14busa/incsearch.vim'
 
