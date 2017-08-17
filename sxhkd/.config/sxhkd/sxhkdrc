@@ -17,6 +17,9 @@ super + shift + space
 
 # screenshooter
 Print
+  gscreenshot-cli -sc
+
+shift + Print
   gscreenshot
 
 super + shift + k
