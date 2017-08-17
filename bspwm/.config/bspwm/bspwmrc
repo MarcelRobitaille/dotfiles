@@ -20,20 +20,18 @@ bspc rule -a Oblogout state=floating
 # Startup scripts
 #
 
-# >>> Cycle wallpapers
+# Cycle wallpapers
 pkill wallpaper-timer; wallpaper-timer &
-# <<<
 
-# >>> Lemonbar
+# Lemonbar
 pkill top.sh; ~/.dotfiles/lemonbar/top.sh &
 pkill bottom.sh; ~/.dotfiles/lemonbar/bottom.sh &
-# <<<
 
-# >>> Keybindings
+# Keybindings
 xbindkeys &
 doxmodmap
-# <<<
 
+# Compton
 pkill compton; compton -b --config ~/.config/compton/compton.conf &
 
 pkill dunst; dunst &
