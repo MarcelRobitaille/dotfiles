@@ -1,10 +1,10 @@
 #/bin/zsh
 
 INPUT="$(cat -)"
-CUTOFF=$(($1 - 3))
+CUTOFF=$(($1 - 1))
 
 if [[ ${#INPUT} -gt $1 ]]; then
-  echo "${INPUT:0:$CUTOFF}..."
+  echo "${INPUT:0:$CUTOFF}…"
 else
   echo "$INPUT"
 fi
