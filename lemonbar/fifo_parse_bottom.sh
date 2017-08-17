@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/bin/zsh
+
+# Hopefully this doesn't change...
+MONITORS=($(bspc query -M))
 
 while read -r line; do
   source "$HOME/.cache/wal/colors.sh"
@@ -14,16 +17,36 @@ while read -r line; do
       ;;
   esac
 
-  function BAR {
-    WORKSPACES=$(zsh scripts/workspace.sh $MONITOR)
-    TITLE="$(zsh scripts/title.sh)"
-    echo -n "%{l}%{B$color0 F$color5} $WORKSPACES%{c}$TITLE%{r}$NETWORK %{U$color2}%{+u}%{A:xfce4-taskmanager:} $CPU %{-u} %{U$color3}%{+u} $RAM %{A}%{-u}%{U-}"
-  }
+  local -a WORKSPACES
 
-  result=""
-  bspc query -M | while read -r MONITOR; do
-    result+="$(BAR)%{S+}"
+  RESULT=""
+
+  # Populate workspaces array with that monitor's workspaces
+  for (( i=1; i<=$#MONITORS; i++)); do
+    MONITOR=$MONITORS[i]
+    WORKSPACES[i]=$(zsh scripts/workspace.sh $MONITOR)
   done
-  echo "$result"
+
+  # Start bar
+  BAR="%{l}%{B$color0}%{-u} "
+
+  for (( j=1; j<=$#WORKSPACES; j++)); do
+
+    # Get colour corresponding to monitor's number
+    COLOR=$(sed -n "$((j+1))p" < "$HOME/.cache/wal/colors")
+
+    # Add monitor's workspaces to bar with coloured underline
+    BAR+="%{U$COLOR}%{+u}${WORKSPACES[j]}%{-u} "
+  done
+
+  # Add network and conky to bar
+  BAR+="%{F$color5}%{r}$NETWORK %{U$color2}%{+u}%{A:xfce4-taskmanager:} $CPU %{-u} %{U$color3}%{+u} $RAM %{A}%{-u}%{U-}"
+
+  # Add a bar for each monitor
+  for (( i=1; i<=$#MONITORS; i++)); do
+    RESULT+="$BAR%{S+}"
+  done
+
+  echo "$RESULT"
 done
 

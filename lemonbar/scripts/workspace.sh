@@ -1,37 +1,39 @@
-workspace_populated() {
-  echo -n "%{A:wmctrl -s $1:} %{A}"
+format_workspace() {
+  echo -n "%{A:wmctrl -s $1:} $(($1+1))$2 %{A}"
 }
 
-workspace_empty() {
-echo -n "%{A:wmctrl -s $1:} %{A}"
-}
+get_title() {
+  if [[ -z "$1" ]]; then
+    exit
+  fi
 
-workspace_current() {
-  echo -n " "
+  title="$(xprop -id $1 WM_CLASS | cut -d '"' -f 4)"
+
+  case "$title" in
+    "libreoffice-writer" )
+      title="$(xprop -id $1 WM_NAME | cut -d '"' -f 2)"
+      ;;
+  esac
+
+  echo " $title" | trunc 20
 }
 
 local -a workspaces
 workspaces=($(bspc query -m "$1" -D --names))
 
-local -a populated
-populated=($(wmctrl -l | awk '{ print $2 }'))
-
 for (( i=1; i<=$#workspaces; i++ )); do
   workspace=$workspaces[i]
 
+  biggest_node=$(bspc query -d $workspace -N biggest)
+  title=$(get_title $biggest_node)
+
   # Check if it's the current desktop
   if [[ $workspace == $(bspc query -D -d --names) ]]; then
-    workspace_current
+    # Invert colours on current desktop
+    echo -n "%{R}$(format_workspace $workspace $title)%{R}"
     continue
   fi
 
-  # Check if populated
-  if [[ ${populated[(r)$workspace]} == $workspace ]]; then
-    workspace_populated $workspace
-    continue
-  fi
-
-  # Empty and not selected
-  workspace_empty $workspace
+  format_workspace $workspace $title
 done
 
