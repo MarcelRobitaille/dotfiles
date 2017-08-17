@@ -70,6 +70,7 @@ done &
 
 cat "$PANEL_FIFO" \
   | zsh fifo_parse_top.sh \
-  | lemonbar -p -a 25 -g "x45" -f "$FONT" -f "$ICON_FONT" -u 4 | bash &
+  | lemonbar -p -a 26 -g "x45" -f "$FONT" -f "$ICON_FONT" -u 4 | bash &
 
 wait
+

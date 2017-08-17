@@ -16,4 +16,9 @@ else
   icon=''
 fi
 
-echo "%{A4:xbacklight -inc 5 && echo L > /tmp/panel_top_fifo:}%{A5:xbacklight -dec 5 && echo L > /tmp/panel_top_fifo:}$icon $level%%{A}%{A}"
+set_cmd="%{A3:xbacklight -set 100; echo L > /tmp/panel_top_fifo:}"
+inc_cmd="%{A4:xbacklight -inc 5; echo L > /tmp/panel_top_fifo:}"
+dec_cmd="%{A5:xbacklight -dec 5; echo L > /tmp/panel_top_fifo:}"
+
+echo "$set_cmd$inc_cmd$dec_cmd$icon $level%%{A}%{A}%{A}"
+
