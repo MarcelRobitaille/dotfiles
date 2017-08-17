@@ -32,10 +32,11 @@ border=5
 m=1
 urgent=false
 debug=false
+fork=true
 # <<<
 
 # >>> Use getopt to parse input so options are more lenient
-OPTS=`getopt -o w:h:t:p:m:b: --long urgent,debug,gb:,fg:bc:,width:,height:,timeout:,padding:,monitor:,text-align:,border: -n 'notify' -- "$@"`
+OPTS=`getopt -o w:h:t:p:m:b: --long urgent,debug,gb:,fg:bc:,width:,height:,timeout:,padding:,monitor:,text-align:,border:,no-fork -n 'notify' -- "$@"`
 eval set -- "$OPTS"
 # <<<
 
@@ -53,6 +54,7 @@ while true; do
     -p | --padding ) p="$2"; shift 2 ;;
     -m | --monitor ) m="$2"; shift 2 ;;
     -b | --border ) border="$2"; shift 2 ;;
+    --no-fork ) fork=false; shift ;;
     -- ) shift; break ;;
     * ) break ;;
   esac
@@ -96,18 +98,26 @@ message="$1"
 [[ "$urgent" == true ]] && message=" $message"
 
 # We use "lemonbar -n 'notification'" to identify notifications
-echo "%{A3:pkill -f 'lemonbar -n notification':} $message %{A}" | lemonbar \
-  -n "notification" \
-  -g "${w}x${h}+${x}+${y}" \
-  -B "$bg" \
-  -F "$fg" \
-  -f "Source Code Pro:size=14" \
-  -f "Font Awesome:size=16" \
-  -f "Material Icons:size=18" \
-  -r "$border" \
-  -R "$bc" \
-  -d \
-  -p | zsh &
-
 (sleep "$t"; pkill -f "lemonbar -n notification" 2>&1 > /dev/null) &
+
+notify() {
+  echo "%{A3:pkill -f 'lemonbar -n notification':} $message %{A}" | lemonbar \
+    -n "notification" \
+    -g "${w}x${h}+${x}+${y}" \
+    -B "$bg" \
+    -F "$fg" \
+    -f "Source Code Pro:size=14" \
+    -f "Font Awesome:size=16" \
+    -f "Material Icons:size=18" \
+    -r "$border" \
+    -R "$bc" \
+    -d \
+    -p | zsh
+}
+
+if [[ "$fork" == true ]]; then
+  notify &
+else
+  notify
+fi
 
