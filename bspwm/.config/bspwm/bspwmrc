@@ -31,15 +31,13 @@ pkill bottom.sh; ~/.dotfiles/lemonbar/bottom.sh &
 xbindkeys &
 doxmodmap
 
-# Compton
-pkill compton; compton -b --config ~/.config/compton/compton.conf &
-
+# Notifications
 pkill dunst; dunst &
 
+# Redshift
 pkill redshift
 redshift 2>&1 > /dev/null || notify "Failed to start redshift\!" --urgent
 
-# forever stopall
-# NODE_ENV=production forever start ~/code/apollo/server.js &
-# NODE_ENV=production forever start ~/code/PurpleRSS/index.js &
+# Compton
+pkill compton; compton -b --config ~/.config/compton/compton.conf &
 
