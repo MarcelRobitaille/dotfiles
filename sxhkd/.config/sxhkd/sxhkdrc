@@ -9,7 +9,7 @@
 super + space
   rofi -show run
 
-super + ctrl + space
+ctrl + space
   rofi -show
 
 super + shift + space
