@@ -18,6 +18,9 @@ get_title() {
     "libreoffice-writer" )
       title="$(xprop -id $1 WM_NAME | cut -d '"' -f 2)"
       ;;
+    "evince" )
+      title="$(xdotool getwindowname $1)"
+      ;;
   esac
 
   echo " $title" | trunc 20
