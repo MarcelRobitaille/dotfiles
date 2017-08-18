@@ -1,13 +1,20 @@
 #!/bin/zsh
 
 format_workspace() {
-  echo -n "%{A:wmctrl -s $1:} $(($1+1))$2 %{A}"
+  id=$1
+  title="$2"
+
+  # Add 1 to workspace because number keys are 1-indexed
+  index=$(($1+1))
+
+  # Title will have a leading space if it is not empty
+  echo -n "%{A:wmctrl -s $id:} $index$title %{A}"
 }
 
 get_title() {
-  if [[ -z "$1" ]]; then
-    exit
-  fi
+
+  # Exit function if id empty (means no node was found)
+  [[ -z "$1" ]] && exit
 
   title="$(xprop -id $1 WM_CLASS | cut -d '"' -f 4)"
 
