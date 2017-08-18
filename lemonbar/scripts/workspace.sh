@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 format_workspace() {
   echo -n "%{A:wmctrl -s $1:} $(($1+1))$2 %{A}"
 }
