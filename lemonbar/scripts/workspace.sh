@@ -11,6 +11,9 @@ get_title() {
 
   title="$(xprop -id $1 WM_CLASS | cut -d '"' -f 4)"
 
+  # Lowercase window class
+  title=${(L)title}
+
   case "$title" in
     "libreoffice-writer" )
       title="$(xprop -id $1 WM_NAME | cut -d '"' -f 2)"
