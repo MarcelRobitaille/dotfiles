@@ -14,7 +14,7 @@ case $1 in
       LAYOUT=$2
     fi
     setxkbmap $LAYOUT
-    doxmodmap
+    xmodmap ~/.Xmodmap
     [ -e "$FIFO" ] && echo "K" > "$FIFO"
     ;;
 esac
