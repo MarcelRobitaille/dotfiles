@@ -78,7 +78,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'vim-airline/vim-airline'
 
 " Colourscheme
-Plug 'dylanaraps/wal'
+Plug 'dylanaraps/wal.vim'
 
 " File icons
 Plug 'ryanoasis/vim-devicons'
