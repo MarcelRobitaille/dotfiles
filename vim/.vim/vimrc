@@ -110,6 +110,7 @@ Plug 'heavenshell/vim-jsdoc'
 
 call plug#end()
 
+let @i = "^cwimportf=dwcwfrom lds("
 
 "
 " General settings
