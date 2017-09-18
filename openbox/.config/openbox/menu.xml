@@ -1,0 +1,28 @@
+<menu id="exit-menu" label="Exit">
+	<item label="Log Out">
+		<action name="Execute">
+			<command>openbox --exit</command>
+		</action>
+	</item>
+	<item label="Shutdown">
+		<action name="Execute">
+			<command>systemctl poweroff</command>
+		</action>
+	</item>
+	<item label="Restart">
+		<action name="Execute">
+		        <command>systemctl reboot</command>
+		</action>
+	</item>
+	<item label="Suspend">
+		<action name="Execute">
+		        <command>systemctl suspend</command>
+		</action>
+	</item>
+	<item label="Hibernate">
+		<action name="Execute">
+		        <command>systemctl hibernate</command>
+		</action>
+	</item>
+</menu>
+
