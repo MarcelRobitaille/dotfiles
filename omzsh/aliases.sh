@@ -1,3 +1,5 @@
+alias term="(sleep .5; wmctrl -r :ACTIVE: -b toggle,maximized_horz,maximized_vert) & alacritty"
+
 # Basic functions
 alias clip="xsel -i -b"
 # alias tmux="tmux -u"
@@ -7,7 +9,7 @@ alias dt="cd ~/Desktop"
 alias ll="ls -lah"
 
 # Git
-alias g="git "
+alias g="hub"
 alias s="git status -s"
 alias a="git add "
 alias aa="git add -A"

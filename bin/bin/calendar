@@ -44,7 +44,7 @@ out=$(cal $month $year | sed "1s/^ /$back/; 1s/ $/$next/")
 lines=$(echo "$out" | wc -l)
 
 if test "$month" -eq "$current_month" && test "$year" -eq "$current_year"; then
-  out=$(echo "$out" | sed "2,$ s/ \($(date +%e)\) /^fg($color0)^bg($color5)\1^fg()^bg()/")
+  out=$(echo "$out" | sed "2,$ s/ \($(date +%e)\) / ^fg($color0)^bg($color5)\1^fg()^bg() /")
 fi
 
 echo  "$out" | dzen2 \

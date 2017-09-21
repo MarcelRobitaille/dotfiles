@@ -1,18 +1,54 @@
-input=$(wmctrl -d)
+#!/bin/zsh
 
-workspace() {
-  echo "%{A:wmctrl -s $1:} %{A}"
+format_workspace() {
+  id=$1
+  title="$2"
+
+  # Add 1 to workspace because number keys are 1-indexed
+  index=$(($1+1))
+
+  # Title will have a leading space if it is not empty
+  echo -n "%{A:wmctrl -s $id:} $index$title %{A}"
 }
 
-workspace_empty="%{A:wmctrl -s \1:} %{A}"
-workspace_current=" "
+get_title() {
 
-workspaces=$(wmctrl -d | awk '{ print $2$1 }' | tr -d '[\n]')
+  # Exit function if id empty (means no node was found)
+  [[ -z "$1" ]] && exit
 
-wmctrl -l | awk '{ print $2 }' |
+  title="$(xprop -id $1 WM_CLASS | cut -d '"' -f 4)"
 
-while read -r window; do
-  workspaces=${workspaces/-$window/$(workspace $window)}
+  # Lowercase window class
+  title=${(L)title}
+
+  case "$title" in
+    "libreoffice-writer" )
+      title="$(xprop -id $1 WM_NAME | cut -d '"' -f 2)"
+      ;;
+    "evince" )
+      title="$(xdotool getwindowname $1)"
+      ;;
+  esac
+
+  echo " $title" | trunc 20
+}
+
+local -a workspaces
+workspaces=($(bspc query -m "$1" -D --names))
+
+for (( i=1; i<=$#workspaces; i++ )); do
+  workspace=$workspaces[i]
+
+  biggest_node=$(bspc query -d $workspace -N biggest)
+  title=$(get_title $biggest_node)
+
+  # Check if it's the current desktop
+  if [[ $workspace == $(bspc query -D -d --names) ]]; then
+    # Invert colours on current desktop
+    echo -n "%{R}$(format_workspace $workspace $title)%{R}"
+    continue
+  fi
+
+  format_workspace $workspace $title
 done
 
-echo "$workspaces" | sed -e "s/\*[0-9]/$workspace_current/g" -e "s/\-\([0-9]\)/$workspace_empty/g"

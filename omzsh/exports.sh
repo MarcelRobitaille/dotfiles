@@ -1,5 +1,6 @@
 export PATH="/home/marcel/bin/:/home/marcel/prog/bin:/usr/local/sbin:/usr/local/node/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
 
+export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="/usr/sbin/vim"
 export VISUAL="/usr/sbin/vim"
 export CHEATCOLORS=true
@@ -30,4 +31,11 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 #
 
 export PATH="$PATH:/home/marcel/.gem/ruby/2.4.0/bin"
+
+
+#
+# Weechat
+#
+
+export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
 

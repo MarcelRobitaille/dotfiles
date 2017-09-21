@@ -48,7 +48,7 @@
 "pamixer --set-volume 20"
   XF86AudioNext
 
-"termite"
+"alacritty"
   Mod2+Mod4 + Return
 
 "/home/marcel/bin/keyboard toggle ca us"

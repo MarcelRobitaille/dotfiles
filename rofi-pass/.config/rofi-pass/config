@@ -1,4 +1,4 @@
-# permanently set alternative root dir
+#permanently set alternative root dir
 # root=/path/to/root
 
 # rofi command. Make sure to have "$@" as last argument
@@ -44,7 +44,7 @@ clip=primary
 default_user=marcelrobitaille11@gmail.com
 # default_user2=mary_ann
 password_length=64
-default_autotype='user :tab pass'
+default_autotype='user :tab pass :enter'
 
 # Custom Keybindings
 open_url="Alt+o"

@@ -9,7 +9,7 @@
 super + space
   rofi -show run
 
-super + ctrl + space
+ctrl + space
   rofi -show
 
 super + shift + space
@@ -17,6 +17,9 @@ super + shift + space
 
 # screenshooter
 Print
+  gscreenshot-cli -sc
+
+shift + Print
   gscreenshot
 
 super + shift + k
@@ -101,9 +104,7 @@ super + {1-9,0}
   bspc desktop -f '^{1-9,10}'
 
 super + shift + {1-9,0}
-  desktop={1-9,10}; \
-  bspc node -d "^$desktop"; \
-  bspc desktop -f "^$desktop"
+  bspc node -d "^{1-9,10}" -f
 
 #
 # preselect

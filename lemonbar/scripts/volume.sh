@@ -17,4 +17,9 @@ else
   level="$level%"
 fi
 
-echo "%{A:pavucontrol:}%{A4:pamixer -i 5:}%{A5:pamixer -d 5:}$icon $level%{A}%{A}%{A}"
+open_cmd="%{A:pavucontrol:}"
+set_cmd="%{A3:pamixer --set-volume 20:}"
+inc_cmd="%{A4:pamixer -i 5:}"
+dec_cmd="%{A5:pamixer -d 5:}"
+
+echo "$open_cmd$set_cmd$inc_cmd$dec_cmd$icon $level%{A}%{A}%{A}%{A}"

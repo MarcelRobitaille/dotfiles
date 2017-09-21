@@ -1,7 +1,7 @@
 #!/bin/bash
 
 f=${1:-$(shuf -n1 -e /home/marcel/Pictures/landscapes/*)}
-wal -t -i "$f"
+wal -qt -i "$f"
 source ~/.cache/wal/colors.sh
 bspc config focused_border_color "$color5"
 bspc config normal_border_color "$color0"

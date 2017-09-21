@@ -22,9 +22,6 @@ Plug 'mbbill/undotree'
 " Fuzzy file finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-" Status bar
-Plug 'vim-airline/vim-airline'
-
 " Enable dot repetition for plugins
 Plug 'tpope/vim-repeat'
 
@@ -78,8 +75,11 @@ Plug 'AndrewRadev/splitjoin.vim'
 " Appearance
 "
 
+" Status bar
+Plug 'vim-airline/vim-airline'
+
 " Colourscheme
-Plug 'dylanaraps/wal'
+Plug 'dylanaraps/wal.vim'
 
 " File icons
 Plug 'ryanoasis/vim-devicons'
@@ -108,6 +108,7 @@ Plug 'heavenshell/vim-jsdoc'
 
 call plug#end()
 
+let @i = "^cwimportf=dwcwfrom lds("
 
 "
 " General settings
