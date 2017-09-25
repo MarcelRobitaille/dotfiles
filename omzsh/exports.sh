@@ -1,4 +1,4 @@
-export PATH="/home/marcel/bin/:/home/marcel/prog/bin:/usr/local/sbin:/usr/local/node/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
+export PATH="/home/marcel/bin/:/home/marcel/.bin:/home/marcel/prog/bin:/usr/local/sbin:/usr/local/node/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="/usr/sbin/vim"
@@ -6,6 +6,9 @@ export VISUAL="/usr/sbin/vim"
 export CHEATCOLORS=true
 export CHERE_INVOKING=1
 export TERM=xterm-256color
+
+# Prevent "Couldn't connect to accessibility bus" warnings
+export NO_AT_BRIDGE=1
 
 export NODE_ENV=development
 
