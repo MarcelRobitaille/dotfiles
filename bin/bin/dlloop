@@ -3,9 +3,16 @@
 # url/%02d.jpg
 read url
 
-i=0
+i=1
 
-while wget $(printf "$url" $i); do
+# if [[ -z "$referer" ]]; then
+  # referer=""
+# fi
+
+# Try once with zero. This means the script works for 0-index and incorrect-index resources
+wget $(printf "$url" 0) --referer "$referer"
+
+while wget $(printf "$url" $i) --referer "$referer"; do
   ((i++))
 done
 
