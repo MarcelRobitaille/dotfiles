@@ -1,16 +1,4 @@
-
-!
-! Rofi
-!
-
-rofi.padding: 50
-rofi.opacity: 95
-rofi.color-enabled: true
-rofi.color-window: #282828, #282828, #EBDBB2
-rofi.color-normal: #282828, #EBDBB2, #282828, #EBDBB2, #282828
-rofi.color-active: #282828, #458588, #282828, #458588, #282828
-rofi.color-urgent: #282828, #FB4934, #282828, #FB4934, #282828
-
+#include "$HOME/.themes/color_other/rofi.xres"
 
 !
 ! URxvt
