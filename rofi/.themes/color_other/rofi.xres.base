@@ -1,0 +1,10 @@
+! vi:syntax=xdefaults
+
+rofi.padding: 50
+rofi.opacity: 95
+rofi.color-enabled: true
+rofi.color-normal: #COLOR0, #COLORX15, #COLOR0, #COLORACT, #COLORX15
+rofi.color-urgent: #COLOR0, #d6b48d, #22231D, #d6b48d, #COLORX15
+rofi.color-active: #COLOR0, #COLORX14, #COLOR0, #COLORX14, #COLOR0
+rofi.color-window: #COLOR0, #COLORACT, #COLORIN
+

@@ -4,9 +4,9 @@
 rounded = 0
 border_width = 0
 border_sides = TB
-background_color = #01171c 100
-border_color = #01171c 100
-background_color_hover = #01171c 100
+background_color = #COLOR0 100
+border_color = #COLOR0 100
+background_color_hover = #COLOR0 100
 border_color_hover = #deeead 100
 background_color_pressed = #202020 100
 border_color_pressed = #deeead 100
@@ -15,8 +15,8 @@ border_color_pressed = #deeead 100
 rounded = 0
 border_width = 0
 border_sides = TB
-background_color = #01171c 100
-border_color = #01171c 100
+background_color = #COLOR0 100
+border_color = #COLOR0 100
 background_color_hover = #202020 100
 border_color_hover = #333333 0
 background_color_pressed = #202020 100
@@ -26,8 +26,8 @@ border_color_pressed = #333333 0
 rounded = 0
 border_width = 3
 border_sides = TB
-background_color = #a59069 100
-border_color = #01171c 100
+background_color = #COLOR4 100
+border_color = #COLOR0 100
 background_color_hover = #202020 32
 border_color_hover = #deeead 100
 background_color_pressed = #202020 32
@@ -37,63 +37,63 @@ border_color_pressed = #deeead 100
 rounded = 0
 border_width = 0
 border_sides = TB
-background_color = #6a6555 100
-border_color = #01171c 100
+background_color = #COLOR0 100
+border_color = #COLOR0 100
 background_color_hover = #202020 32
 border_color_hover = #deeead 100
 background_color_pressed = #202020 32
 border_color_pressed = #deeead 100
 
-# Background 5: 
+# Background 5:
 rounded = 0
 border_width = 0
 border_sides = TB
-background_color = #deeead 100
-border_color = #01171c 100
+background_color = #COLOR0 100
+border_color = #COLOR0 100
 background_color_hover = #202020 32
 border_color_hover = #deeead 100
 background_color_pressed = #202020 32
 border_color_pressed = #deeead 100
 
-# Background 6: 
+# Background 6:
 rounded = 0
 border_width = 0
 border_sides = TB
 background_color = #6a6555 100
-border_color = #01171c 100
+border_color = #COLOR0 100
 background_color_hover = #202020 32
 border_color_hover = #deeead 100
 background_color_pressed = #202020 32
 border_color_pressed = #deeead 100
 
-# Background 7: 
+# Background 7:
 rounded = 0
 border_width = 3
 border_sides = TB
 background_color = #0a5e44 100
-border_color = #01171c 100
+border_color = #COLOR0 100
 background_color_hover = #202020 32
 border_color_hover = #deeead 100
 background_color_pressed = #202020 32
 border_color_pressed = #deeead 100
 
-# Background 8: 
+# Background 8:
 rounded = 0
 border_width = 3
 border_sides = TB
 background_color = #956449 100
-border_color = #01171c 100
+border_color = #COLOR0 100
 background_color_hover = #202020 32
 border_color_hover = #deeead 100
 background_color_pressed = #202020 32
 border_color_pressed = #deeead 100
 
-# Background 9: 
+# Background 9:
 rounded = 0
 border_width = 3
 border_sides = TB
 background_color = #374644 100
-border_color = #01171c 100
+border_color = #COLOR0 100
 background_color_hover = #202020 32
 border_color_hover = #deeead 100
 background_color_pressed = #202020 32
@@ -102,7 +102,7 @@ border_color_pressed = #deeead 100
 #-------------------------------------
 # Panel
 panel_items = TS
-panel_size = 100% 30
+panel_size = 100% 35
 panel_margin = 0 0
 panel_padding = 0 0 0
 panel_background_id = 1
@@ -140,8 +140,8 @@ taskbar_name_padding = 16 0
 taskbar_name_background_id = 1
 taskbar_name_active_background_id = 1
 taskbar_name_font = Source Code Pro Italic 12
-taskbar_name_font_color = #a59069 100
-taskbar_name_active_font_color = #a59069 100
+taskbar_name_font_color = #COLOR3 100
+taskbar_name_active_font_color = #COLOR3 100
 taskbar_distribute_size = 0
 taskbar_sort_order = none
 task_align = left
@@ -152,12 +152,12 @@ task_text = 1
 task_icon = 0
 task_centered = 0
 urgent_nb_of_blink = 7
-task_maximum_size = 200 30
+task_maximum_size = 400 30
 task_padding = 6 5 10
 task_font = Source Code Pro 12
 task_tooltip = 0
-task_font_color = #0a5e44 100
-task_active_font_color = #01171c 100
+task_font_color = #COLOR5 100
+task_active_font_color = #COLOR0 100
 task_urgent_font_color = #deeead 100
 task_iconified_font_color = #0a5e44 100
 task_active_background_id = 3
@@ -175,7 +175,7 @@ systray_sort = ascending
 systray_icon_size = 0
 systray_icon_asb = 100 0 -20
 systray_monitor = 1
-systray_name_filter = 
+systray_name_filter =
 
 #-------------------------------------
 # Tooltip

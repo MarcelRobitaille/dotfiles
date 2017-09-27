@@ -1,2 +1,7 @@
 sxhkd &
 
+lead &
+
+tint2 &
+"$HOME/.dotfiles/lemonbar/init.sh" &
+

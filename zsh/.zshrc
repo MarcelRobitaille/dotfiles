@@ -5,6 +5,7 @@ ZSH_THEME="spaceship"
 SPACESHIP_DIR_TRUNC=0
 SPACESHIP_EXEC_TIME_SHOW=false
 SPACESHIP_NODE_SHOW=false
+SPACESHIP_PHP_SHOW=false
 export RPS1="%{$reset_color%}"
 
 plugins=(git pass vi-mode)
@@ -15,7 +16,7 @@ for file in $HOME/.dotfiles/omzsh/{exports,aliases,functions,secret}.sh; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 
-(hash wal 2>/dev/null && wal -r -t &)
+(hash wpg 2>/dev/null && wpg -t &)
 
 DEFAULT_USER="marcel"
 
