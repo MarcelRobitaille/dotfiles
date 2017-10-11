@@ -7,6 +7,7 @@ sxhkd &
 
 lead &
 
+"$HOME/bin/background_timer" &
 tint2 &
 "$HOME/.dotfiles/lemonbar/init.sh" &
 
