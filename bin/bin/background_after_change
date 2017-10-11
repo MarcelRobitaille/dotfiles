@@ -2,5 +2,5 @@
 
 source "$HOME/.dotfiles/config.sh"
 source "$WAL_SCRIPT"
-xrdb -merge "$HOME/.themes/color_other/rofi.xres"
+xrdb "$HOME/.Xresources"
 
