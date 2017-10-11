@@ -1,4 +1,4 @@
-#include "$HOME/.themes/color_other/rofi.xres"
+#include "/home/marcel/.themes/color_other/rofi.xres"
 
 !
 ! URxvt
