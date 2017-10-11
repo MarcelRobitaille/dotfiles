@@ -1,4 +1,4 @@
-export PATH="/home/marcel/bin/:/home/marcel/.bin:/home/marcel/prog/bin:/usr/local/sbin:/usr/local/node/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
+export PATH="/home/marcel/bin/:/usr/bin:/usr/local/bin:$PATH"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="/usr/sbin/vim"
