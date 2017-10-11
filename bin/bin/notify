@@ -13,10 +13,10 @@ DIRNAME=$(dirname $0)
 cd $DIRNAME
 
 # Get lemonbar config
-source "../../lemonbar/config"
+source "../../config.sh"
 
 # Get colours
-source "$HOME/.cache/wal/colors.sh"
+source "$WAL_SCRIPT"
 
 # Print usage
 usage() { echo "$0 -w <width> -h <line height> -t <timeout> -p <padding> -b <bg colour> -f <fg colour> -b <border width> -bc <border colour> [message]"; exit 1; }
