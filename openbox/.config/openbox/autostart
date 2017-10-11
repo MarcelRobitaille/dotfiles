@@ -1,3 +1,5 @@
+# vi: ft=zsh
+
 sxhkd &
 
 lead &
