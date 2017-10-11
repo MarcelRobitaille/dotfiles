@@ -8,7 +8,7 @@ while read -r line; do
 
   case $line in
     T*)
-      TIME="%{A:calendar -s monitor_num:}  $(date +'%A, %b %e' | sed -E 's/[[:space:]]+/ /g')  $(date +'%l:%M:%S %p' | xargs) %{A}"
+      TIME="%{A:calendar -s MONITOR_NUM:}  $(date +'%A, %b %e' | sed -E 's/[[:space:]]+/ /g')  $(date +'%l:%M:%S %p' | xargs) %{A}"
       PLAYER=" $(zsh $DIRNAME/scripts/player.sh)"
       ;;
     B*)
@@ -39,6 +39,7 @@ while read -r line; do
   esac
 
   LEFT="%{l}%{B$color5 F$color0 U$color0}%{+u}%{A:oblogout:}    %{A}%{-u}%{B$color0 F$color5} "
+  RIGHT="%{r}"
 
   declare -a sections_left
   declare -a sections_right
@@ -55,8 +56,6 @@ while read -r line; do
     "$BATTERY"
   )
 
-  RIGHT="%{r}"
-
   for ((i=1; i<=$#sections_left; i++)); do
     LEFT+="%{U${colours[i+1]}}%{+o} ${sections_left[i]} %{-o} "
   done
@@ -67,6 +66,14 @@ while read -r line; do
 
   RIGHT+="%{B$color5 F$color0 U$color0}%{+u}$TIME%{-u}%{B$color0 F$color5}"
 
-  ALL="$LEFT$RIGHT"
-  echo "${ALL/monitor_num/1}%{S+}${ALL/monitor_num/2}"
+  output=""
+
+  for ((i=0; i<$(xrandr -d :0 -q | grep ' connected' | wc -l); i++)); do
+    monitors_output="$LEFT$RIGHT%{S+}"
+    monitors_output=${monitors_output/MONITOR_NUM/$i}
+    output+="$monitors_output"
+  done
+
+  echo "$output"
 done
+
