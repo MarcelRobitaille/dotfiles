@@ -34,7 +34,7 @@
     <!-- with Smart placement on a multi-monitor system, try to place new windows
        on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where
        the active window is, 'Primary' - only on the primary monitor -->
-    <primaryMonitor>1</primaryMonitor>
+    <primaryMonitor>2</primaryMonitor>
     <!-- The monitor where Openbox should place popup dialogs such as the
        focus cycling popup, or the desktop switch popup.  It can be an index
        from 1, specifying a particular monitor.  Or it can be one of the
@@ -264,6 +264,9 @@
         <menu>client-menu</menu>
       </action>
     </keybind>
+    <keybind key="W-m">
+      <action name="ToggleMaximize"/>
+    </keybind>
     <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
       <action name="NextWindow">
@@ -369,12 +372,12 @@
       </mousebind>
       <mousebind button="A-Down" action="Click">
         <action name="GoToDesktop">
-          <to>next</to>
+          <to>previous</to>
         </action>
       </mousebind>
       <mousebind button="C-A-Up" action="Click">
         <action name="GoToDesktop">
-          <to>previous</to>
+          <to>next</to>
         </action>
       </mousebind>
       <mousebind button="C-A-Down" action="Click">
@@ -587,12 +590,12 @@
     <context name="Desktop">
       <mousebind button="Up" action="Click">
         <action name="GoToDesktop">
-          <to>previous</to>
+          <to>next</to>
         </action>
       </mousebind>
       <mousebind button="Down" action="Click">
         <action name="GoToDesktop">
-          <to>next</to>
+          <to>previous</to>
         </action>
       </mousebind>
       <mousebind button="A-Up" action="Click">
@@ -714,7 +717,7 @@
   # order that they appear in this list
 
 
-    # each rule element can be left out or set to 'default' to specify to not 
+    # each rule element can be left out or set to 'default' to specify to not
     # change that attribute of the window
 
     <decor>yes</decor>
