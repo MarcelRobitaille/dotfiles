@@ -1,5 +1,8 @@
 # vi: ft=zsh
 
+# Sourcing exports doesn't work so yolo
+# source ../../../omzsh/exports.sh
+export PATH="$PATH:$HOME/bin/"
 sxhkd &
 
 lead &
