@@ -1,2 +1,4 @@
 set selection-clipboard clipboard
 set zoom 100
+set window-title-basename true
+
