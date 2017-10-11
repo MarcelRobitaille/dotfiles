@@ -22,7 +22,7 @@ Print
 shift + Print
   gscreenshot
 
-super + shift + k
+super + k
   /home/marcel/bin/keyboard toggle us ca
 
 # make sxhkd reload its configuration files:
