@@ -4,6 +4,8 @@
 source "$HOME/.dotfiles/config.sh"
 source "$WAL_SCRIPT"
 
+should_kill_only=$(pgrep -fc "dzen2 -title-name calendar")
+
 pkill -f "dzen2 -title-name calendar"
 
 ORIG_IFS=$IFS
@@ -11,25 +13,31 @@ IFS=" " read current_month current_year <<< $(date +"%m %Y")
 IFS=$ORIG_IFS
 
 screen=1
+replace=false
 
-OPTS=`getopt -o m:y:s: -- "$@"`
+OPTS=`getopt -o m:y:s:r -- "$@"`
 eval set -- "$OPTS"
-# <<<
 
 while true; do
   case "$1" in
     -m ) month="$2"; shift 2 ;;
     -y ) year="$2"; shift 2 ;;
     -s ) screen="$2"; shift 2 ;;
+    -r ) replace=true; shift ;;
     -- ) shift; break ;;
     * ) break ;;
   esac
 done
 
+# If it's already running, calling script again should kill rather than replacing
+if ((should_kill_only > 0)) && [ "$replace" = false ]; then
+  exit 0
+fi
+
 month=${month:-$current_month}
 year=${year:-$current_year}
 
-if (( month > 12)); then
+if ((month > 12)); then
   month=1
   ((year++))
 fi
@@ -39,14 +47,15 @@ if ((month < 1)); then
   ((year--))
 fi
 
-back="^ca(1, calendar -m $((month-1)) -y $year)<^ca()"
-next="^ca(1, calendar -m $((month+1)) -y $year)>^ca()"
+# Set replace so we don't kill only
+back="^ca(1, calendar -r -m $((month-1)) -y $year)<^ca()"
+next="^ca(1, calendar -r -m $((month+1)) -y $year)>^ca()"
 
 out=$(cal $month $year | sed "1s/^ /$back/; 1s/ $/$next/")
 lines=$(echo "$out" | wc -l)
 
 if test "$month" -eq "$current_month" && test "$year" -eq "$current_year"; then
-  out=$(echo "$out" | sed "2,$ s/ \($(date +%e)\) / ^fg($color0)^bg($color5)\1^fg()^bg() /")
+  out=$(echo "$out" | sed "2,$ s/\($(date +%e)\)/^fg($color0)^bg($color5)\1^fg()^bg()/")
 fi
 
 echo  "$out" | dzen2 \
