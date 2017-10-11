@@ -10,4 +10,5 @@ lead &
 "$HOME/bin/background_timer" &
 tint2 &
 "$HOME/.dotfiles/lemonbar/init.sh" &
+xautolock -time 5 -locker /home/marcel/bin/lock -killtime 20 -killer "systemctl suspend" -notify 20 -notifier "notify ' Locking' -w 140 -t 20 2>&1 > /home/marcel/locker_log" -secure &
 
