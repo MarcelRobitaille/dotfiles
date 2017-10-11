@@ -72,6 +72,13 @@ Plug 'AndrewRadev/splitjoin.vim'
 
 
 "
+" Inconvinience
+"
+
+Plug 'takac/vim-hardtime'
+
+
+"
 " Appearance
 "
 
