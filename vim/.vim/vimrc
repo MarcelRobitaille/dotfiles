@@ -104,6 +104,7 @@ Plug 'digitaltoad/vim-pug'
 Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
 Plug 'heavenshell/vim-jsdoc'
+Plug 'lervag/vimtex'
 
 
 "
@@ -465,4 +466,6 @@ let g:NERDSpaceDelims = 1
 
 map <C-_> <Plug>NERDCommenterToggle
 imap <C-_> <Plug>NERDCommenterInsert
+
+let g:tex_conceal = ""
 
