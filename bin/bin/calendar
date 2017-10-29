@@ -4,7 +4,7 @@
 source "$HOME/.dotfiles/config.sh"
 source "$WAL_SCRIPT"
 
-should_kill_only=$(pgrep -fc "dzen2 -title-name calendar")
+count=$(pgrep -fc "dzen2 -title-name calendar")
 
 pkill -f "dzen2 -title-name calendar"
 
@@ -30,7 +30,7 @@ while true; do
 done
 
 # If it's already running, calling script again should kill rather than replacing
-if ((should_kill_only > 0)) && [ "$replace" = false ]; then
+if ((count > 0)) && [ "$replace" = false ]; then
   exit 0
 fi
 
