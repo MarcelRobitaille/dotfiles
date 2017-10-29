@@ -15,9 +15,11 @@ export NODE_ENV=development
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export FZF_DEFAULT_COMMAND='ag -l --nocolor --hidden --follow
-  \ --ignore .git
-  \ -g ""'
+export FZF_DEFAULT_COMMAND='ag -l --nocolor --hidden --follow \
+  --ignore .git \
+  --ignore node_modules \
+  --ignore vendor \
+  -g ""'
 
 export KEYTIMEOUT=1
 
