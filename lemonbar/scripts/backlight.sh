@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 source "$HOME/.dotfiles/config.sh"
 
 level="$(xbacklight | awk 'END { print int(($0 / 5) + 0.5) * 5 }')"

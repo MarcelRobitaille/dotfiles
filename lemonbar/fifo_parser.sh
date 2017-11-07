@@ -1,31 +1,32 @@
 #!/bin/sh
 DIRNAME="$(dirname $0)"
+declare -a colours
+source "$HOME/.dotfiles/config.sh"
+source "$WAL_SCRIPT"
+source "$WAL_COLOURS_ARRAY"
 
 while read -r line; do
-  source "$HOME/.dotfiles/config.sh"
-  source "$WAL_SCRIPT"
-  source "$WAL_COLOURS_ARRAY"
 
   case $line in
     T*)
-      TIME="%{A:calendar -s MONITOR_NUM:}  $(date +'%A, %b %e' | sed -E 's/[[:space:]]+/ /g')  $(date +'%l:%M:%S %p' | xargs) %{A}"
-      PLAYER=" $(zsh $DIRNAME/scripts/player.sh)"
+      TIME="%{A:calendar -s 0:}  $(date +'%A, %b %-d')  $(date +'%l:%M:%S %p') %{A}"
+      PLAYER=" $($DIRNAME/scripts/player.sh)"
       ;;
     B*)
       BATTERY="${line#?}"
       ;;
     L*)
-      BACKLIGHT="$(zsh ./scripts/backlight.sh)"
+      BACKLIGHT="$($DIRNAME/scripts/backlight.sh)"
       ;;
     V*)
-      VOLUME="$(zsh $DIRNAME/scripts/volume.sh)"
+      VOLUME="$($DIRNAME/scripts/volume.sh)"
       ;;
     K*)
-      LAYOUT="$(zsh ./scripts/layout.sh)"
+      LAYOUT="$($DIRNAME/scripts/layout.sh)"
       ;;
     p*)
-      SONG="$(zsh $DIRNAME/scripts/current_song.sh)"
-      PLAYER=" $(zsh $DIRNAME/scripts/player.sh)"
+      SONG="$($DIRNAME/scripts/current_song.sh)"
+      PLAYER=" $($DIRNAME/scripts/player.sh)"
       ;;
     C*)
       CPU="${line#?}"
@@ -35,7 +36,11 @@ while read -r line; do
       ;;
     N*)
       NETWORK="${line#?}"
-;;
+      ;;
+    W*)
+      source "$WAL_SCRIPT"
+      source "$WAL_COLOURS_ARRAY"
+      ;;
   esac
 
   LEFT="%{l}%{B$color5 F$color0 U$color0}%{+u}%{A:oblogout:}    %{A}%{-u}%{B$color0 F$color5} "
@@ -68,12 +73,13 @@ while read -r line; do
 
   output=""
 
-  for ((i=0; i<$(xrandr -d :0 -q | grep ' connected' | wc -l); i++)); do
-    monitors_output="$LEFT$RIGHT%{S+}"
-    monitors_output=${monitors_output/MONITOR_NUM/$i}
-    output+="$monitors_output"
-  done
+  # for i in `xrandr -d :0 -q | grep ' connected' | wc -l`; do
+    # output+="$LEFT$RIGHT"
+    # monitors_output="$LEFT$RIGHT%{S+}"
+    # monitors_output=${monitors_output/MONITOR_NUM/$i}
+    # output+="$monitors_output"
+  # done
 
-  echo "$output"
+  echo "$LEFT$RIGHT"
 done
 
