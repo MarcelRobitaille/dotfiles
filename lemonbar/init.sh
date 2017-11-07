@@ -76,7 +76,8 @@ done &
 
 cat "$FIFO" \
   | zsh fifo_parser.sh \
-  | lemonbar -n panel -p -a 36 -g "x$PANEL_HEIGHT" -f "$PANEL_FONT" -f "$PANEL_ICON_FONT0" -f "$PANEL_ICON_FONT1" -u 4 | bash &
+  | lemonbar -n panel -p -a 36 -g "x$PANEL_HEIGHT" -f "$PANEL_FONT" -f "$PANEL_ICON_FONT0" -f "$PANEL_ICON_FONT1" -u 4 \
+  | bash
 
 wait
 
