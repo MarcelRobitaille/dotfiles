@@ -3,6 +3,7 @@ alias term="(sleep .5; wmctrl -r :ACTIVE: -b toggle,maximized_horz,maximized_ver
 # Basic functions
 alias clip="xsel -i -b"
 # alias tmux="tmux -u"
+alias incognito="fc -p; SPACESHIP_PROMPT_SYMBOL=' ➜'"
 
 # Places
 alias dt="cd ~/Desktop"
