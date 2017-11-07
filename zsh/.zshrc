@@ -6,6 +6,7 @@ SPACESHIP_DIR_TRUNC=0
 SPACESHIP_EXEC_TIME_SHOW=false
 SPACESHIP_NODE_SHOW=false
 SPACESHIP_PHP_SHOW=false
+SPACESHIP_PROMPT_SYMBOL="➜"
 export RPS1="%{$reset_color%}"
 
 plugins=(git pass vi-mode)
