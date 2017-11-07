@@ -1,6 +1,5 @@
 # vi: ft=zsh
 
-declare -a colours
 colours=(
   "#COLOR0"
   "#COLOR1"
