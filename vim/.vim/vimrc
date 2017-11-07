@@ -116,7 +116,11 @@ Plug 'lervag/vimtex'
 
 call plug#end()
 
+" Macro to switch common.js to es6 imports
 let @i = "^cwimportf=dwcwfrom lds("
+
+" Macro to fix typos in line
+let @s = "$[s1z="
 
 "
 " General settings
