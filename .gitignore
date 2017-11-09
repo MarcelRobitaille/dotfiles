@@ -3,4 +3,5 @@ secret*
 *.swp
 *.swo
 Session.vim
+__pycache__
 

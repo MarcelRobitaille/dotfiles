@@ -9,7 +9,7 @@ while read -r line; do
 
   case $line in
     T*)
-      TIME="%{A:calendar -s 0:}  $(date +'%A, %b %-d')  $(date +'%l:%M:%S %p') %{A}"
+      TIME="%{A:dzen-calendar -s MONITOR_NUM:}  $(date +'%A, %b %-d')  $(date +'%l:%M:%S %p') %{A}"
       PLAYER=" $($DIRNAME/scripts/player.sh)"
       ;;
     B*)
