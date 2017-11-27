@@ -1,29 +1,29 @@
 #!/bin/bash
 
-#
-# Thanks to /u/NotoriousHakk0r4chan
-#
+rectangles=" "
 
-ICON=/home/marcel/Pictures/locked.png
-TMPBG=/tmp/screen.png
-scrot $TMPBG && convert $TMPBG -scale 5% -scale 2000% $TMPBG &
-wait
-
-
-PX=0
-PY=0
-# lockscreen image info
-R=$(file $ICON | grep -o '[0-9]* x [0-9]*')
-RA=(${R// x / })
 SR=$(xrandr --query | grep ' connected' | grep -o '[0-9][0-9]*x[0-9][0-9]*[^ ]*')
 for RES in $SR; do
-  # monitor position/offset
   SRA=(${RES//[x+]/ })
-  PX=$((${SRA[2]} + ${SRA[0]} / 2 - ${RA[0]} / 2))
-  PY=$((${SRA[3]} + ${SRA[1]} / 2 - ${RA[1]} / 2))
-  convert $TMPBG $ICON -geometry +$PX+$PY -composite -matte $TMPBG
+  CX=$((${SRA[2]} + 25))
+  CY=$((${SRA[1]} - 80))
+  rectangles+="rectangle $CX,$CY $((CX+300)),$((CY-80)) "
 done
 
-i3lock -u -i $TMPBG
+TMPBG=/tmp/screen.png
+scrot $TMPBG && convert $TMPBG -scale 5% -scale 2000% -draw "fill black fill-opacity 0.4 $rectangles" $TMPBG
+
+i3lock \
+  -i $TMPBG \
+  --timepos="x-90:h-ch-20" \
+  --datepos="tx+24:ty+25" \
+  --clock --datestr "Type password to unlock..." \
+  --insidecolor=00000000 --ringcolor=ffffffff --line-uses-inside \
+  --keyhlcolor=d23c3dff --bshlcolor=d23c3dff --separatorcolor=00000000 \
+  --insidevercolor=fecf4dff --insidewrongcolor=d23c3dff \
+  --ringvercolor=ffffffff --ringwrongcolor=ffffffff --indpos="x+290:h-120" \
+  --radius=20 --ring-width=3 --veriftext="" --wrongtext="" \
+  --textcolor="ffffffff" --timecolor="ffffffff" --datecolor="ffffffff"
 
 rm /tmp/screen.png
+
