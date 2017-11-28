@@ -152,9 +152,6 @@ set linebreak
 " Show (certain) invisibles
 set listchars=trail:·
 
-" Show trailing whitespace
-match Todo /\s\+$/
-
 " Indentation
 set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
 
@@ -171,6 +168,17 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 let g:vim_markdown_conceal = 0
+
+" Trailing whitespace
+hi ExtraWhitespace guifg=red guibg=red
+augroup whitespace
+  autocmd!
+  autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+  autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+  autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+  autocmd BufWinLeave * call clearmatches()
+  autocmd BufEnter * call s:WhitespaceHighlight()
+augroup END
 
 
 "
