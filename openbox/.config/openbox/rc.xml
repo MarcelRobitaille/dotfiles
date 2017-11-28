@@ -175,14 +175,6 @@
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
-    <keybind key="C-A-Left">
-      <action name="GoToDesktop"/>
-    </keybind>
-    <keybind key="S-W-s">
-      <action name="Execute">
-        <command>rtile --split-up</command>
-      </action>
-    </keybind>
     <keybind key="S-A-Left">
       <action name="SendToDesktop"/>
     </keybind>
@@ -228,12 +220,6 @@
     </keybind>
     <keybind key="A-S-Tab">
       <action name="PreviousWindow"/>
-    </keybind>
-    <keybind key="C-A-Tab">
-      <action name="NextWindow">
-        <panels>yes</panels>
-        <desktop>yes</desktop>
-      </action>
     </keybind>
     <keybind key="W-S-Right">
       <action name="DirectionalCycleWindows"/>
@@ -345,7 +331,7 @@
         <action name="Move"/>
       </mousebind>
       <mousebind action="DoubleClick" button="Left">
-        <action name="ToggleMaximize" xmlns="http://openbox.org/3.4/rc"/>
+        <action xmlns="http://openbox.org/3.4/rc" name="ToggleMaximize"/>
       </mousebind>
       <mousebind action="Click" button="Up">
         <action name="if">
