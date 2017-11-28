@@ -20,5 +20,10 @@ tint2 &
 "$HOME/.dotfiles/lemonbar/init.sh" &
 
 # Autolock screen
-xautolock -time 5 -locker /home/marcel/bin/lock -killtime 20 -killer "systemctl suspend" -notify 20 -notifier "notify ' Locking' -w 140 -t 20 2>&1 > /home/marcel/locker_log" -secure &
+xautolock \
+  -time 1 \
+  -locker /home/marcel/bin/lock \
+  -notify 20 -notifier "notify ' Locking' -w 140 -t 20" \
+  -killtime 20 -killer "systemctl suspend" \
+  -corners 0-00 &
 
