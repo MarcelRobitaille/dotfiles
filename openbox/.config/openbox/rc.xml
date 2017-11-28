@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
   <resistance>
     <strength>10</strength>
@@ -241,16 +242,16 @@
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
         <width>50%</width>
+        <x>0</x>
       </action>
-      <action name="MoveToEdge"/>
     </keybind>
     <keybind key="C-A-Right">
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
         <width>50%</width>
+        <x>-0</x>
       </action>
-      <action name="MoveToEdge"/>
     </keybind>
     <keybind key="C-A-Up">
       <action name="ToggleMaximize"/>
