@@ -7,10 +7,9 @@ cd "$DIRNAME"
 source "$HOME/.dotfiles/config.sh"
 FIFO="$PANEL_FIFO_PATH"
 
-if [ $(pgrep -cf "lemonbar -n panel") -gt 1 ] ; then
-  printf "%s\n" "The top panel is already running." >&2
-  exit 1
-fi
+for pid in $(pgrep -f "$0"); do
+  [ "$pid" -ne "$$" ] && kill "$pid"
+done
 
 trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 
