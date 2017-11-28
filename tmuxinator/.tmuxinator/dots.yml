@@ -1,0 +1,6 @@
+# vim: nomodeline
+name: dots
+root: ~/.dotfiles
+windows:
+  - vim: vim .
+

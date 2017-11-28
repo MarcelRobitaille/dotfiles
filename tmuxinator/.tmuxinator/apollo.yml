@@ -1,0 +1,6 @@
+# vim: nomodeline
+name: apollo
+root: ~/code/apollo
+windows:
+  vim: vim .
+
