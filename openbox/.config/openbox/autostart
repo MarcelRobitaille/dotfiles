@@ -12,7 +12,8 @@ sxhkd &
 lead &
 
 # Background switcher
-"$HOME/bin/background_timer" &
+pkill background_timer
+background_timer &
 
 # Panels
 tint2 &
