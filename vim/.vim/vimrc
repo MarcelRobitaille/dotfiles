@@ -267,7 +267,7 @@ function! RepeatChar(char, count)
 endfunction
 
 " Empty line but don't delete it
-nnoremap <leader>dd 0d$
+nnoremap <leader>dd 0D
 
 nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
