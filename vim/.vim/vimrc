@@ -277,13 +277,6 @@ augroup END
 set complete+=kspell
 
 
-"
-" Autocomplete
-"
-
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
-
 """"""""""""""""""""""
 "  Plugins settings  "
 """"""""""""""""""""""
@@ -309,6 +302,18 @@ let g:ale_fixers = {
 \}
 
 nnoremap <leader>f :ALEFix<CR>
+
+
+"
+" You Complete Me
+"
+
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_global_ycm_extra_conf = '/home/marcel/.vim/ycm_global_ycm_extra_conf.py'
+
+let g:ycm_semantic_triggers = {
+  \ 'css': [ 're!^\s{2}', 're!:\s+' ],
+  \ }
 
 
 "
@@ -460,4 +465,6 @@ map <C-_> <Plug>NERDCommenterToggle
 imap <C-_> <Plug>NERDCommenterInsert
 
 let g:tex_conceal = ""
+
+let g:languagetool_jar='/usr/share/java/languagetool/languagetool-commandline.jar'
 
