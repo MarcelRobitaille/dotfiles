@@ -2,7 +2,6 @@ alias term="(sleep .5; wmctrl -r :ACTIVE: -b toggle,maximized_horz,maximized_ver
 
 # Basic functions
 alias clip="xsel -i -b"
-# alias tmux="tmux -u"
 alias incognito="fc -p; SPACESHIP_PROMPT_SYMBOL=' ➜'"
 
 # Places
@@ -23,7 +22,7 @@ alias pl="git pull"
 alias new="clone git@github.com:Marcel-Robitaille/template.git "
 
 # Misc
-alias sql="mysql -u lan -p personal --host 192.168.0.120"
+alias t=tmuxinator
 alias starwars="telnet towel.blinkenlights.nl"
 alias fonts="fc-cache -fv"
 alias spaces="sed 's/^/    /'"
