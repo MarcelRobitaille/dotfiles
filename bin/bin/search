@@ -33,6 +33,7 @@ grep \
   --exclude 'package.*' \
   --exclude 'yarn.*' \
   --exclude '*.swp' \
+  --exclude 'tags' \
   "$1" \
   . |
 
