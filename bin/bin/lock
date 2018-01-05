@@ -27,5 +27,5 @@ i3lock \
   --radius=20 --ring-width=3 --veriftext="" --wrongtext="" \
   --textcolor="ffffffff" --timecolor="ffffffff" --datecolor="ffffffff"
 
-rm /tmp/screen.png
+rm $TMPBG
 
