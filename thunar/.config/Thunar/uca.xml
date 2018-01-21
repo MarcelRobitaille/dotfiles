@@ -1,0 +1,31 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1515034965442206-1</unique-id>
+	<command>alacritty --working-directory %f</command>
+	<description>Example for a custom action</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>application-pdf</icon>
+	<name>Convert to pdf</name>
+	<unique-id>1516461989292966-1</unique-id>
+	<command>libreoffice --headless --convert-to pdf %f --outdir %d</command>
+	<description></description>
+	<patterns>*.doc;*.docx;*.odt</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>insert-image-symbolic</icon>
+	<name>Clipboard to image</name>
+	<unique-id>1516548204374263-1</unique-id>
+	<command>xclip -selection clipboard -target image/png -out &gt; Image.png</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+</actions>
