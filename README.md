@@ -13,40 +13,41 @@
 # My dotfiles, managed with GNU stow
 
 ```
-alacritty (s) ➔ terminal emulator config
-bin       (s) ➔ executable scripts
-cava      (s) ➔ Console-based Audio Visualizer for ALSA (MPD and Pulseaudio)
-compton   (s) ➔ display compositor
-cron          ➔ schedule scripts
-ctags     (s) ➔ source code indexer
-dunst     (s) ➔ notification config and related icons
-git       (s) ➔ source control config and aliases
-gtk       (s) ➔ custom css for modifying gtk apps
-lead      (s) ➔ hot corners
-lemonbar      ➔ lemon scented status bars
-linters   (s) ➔ source code style checkers
-mpd       (s) ➔ music server config
-ncmpcpp   (s) ➔ music player config
-neofetch  (s) ➔ system info script config
-npm       (s) ➔ node package manager config
-oblogout      ➔ openbox logout
-omzsh         ➔ zsh configuration that shouldn't be symlinked
-openbox   (s) ➔ window manager configuration
-ranger    (s) ➔ file manager config
-redshift  (s) ➔ eye-saving colour temperature adjuster
-refind        ➔ backup of my rEFInd config
-rofi-pass (s) ➔ rofi frontend for pass by carnager
-rofi      (s) ➔ fuzzy launcher
-stylish       ➔ custom css for websites
-sxhkd     (s) ➔ keybindings
-tern      (s) ➔ javascript autocomplete
-tint2     (s) ➔ panel
-tmux      (s) ➔ terminal multiplexer
-vim       (s) ➔ terminal text editor
-wpgtk     (s) ➔ wpgtk templates
-X         (s) ➔ display server
-zathura   (s) ➔ document viewer config
-zsh       (s) ➔ shell
+alacritty     (s) ➔ terminal emulator config
+bin           (s) ➔ executable scripts
+cava          (s) ➔ Console-based Audio Visualizer for ALSA (MPD and Pulseaudio)
+compton       (s) ➔ display compositor
+cron              ➔ schedule scripts
+ctags         (s) ➔ source code indexer
+dunst         (s) ➔ notification config and related icons
+git           (s) ➔ source control config and aliases
+gtk           (s) ➔ custom css for modifying gtk apps
+lead          (s) ➔ hot corners
+lemonbar-font (s) ➔ custom fontello.com font for lemonbar
+lemonbar          ➔ lemon scented status bars
+linters       (s) ➔ source code style checkers
+mpd           (s) ➔ music server config
+ncmpcpp       (s) ➔ music player config
+neofetch      (s) ➔ system info script config
+npm           (s) ➔ node package manager config
+oblogout          ➔ openbox logout
+omzsh             ➔ zsh configuration that shouldn't be symlinked
+openbox       (s) ➔ window manager configuration
+ranger        (s) ➔ file manager config
+redshift      (s) ➔ eye-saving colour temperature adjuster
+refind            ➔ backup of my rEFInd config
+rofi-pass     (s) ➔ rofi frontend for pass by carnager
+rofi          (s) ➔ fuzzy launcher
+stylish           ➔ custom css for websites
+sxhkd         (s) ➔ keybindings
+tern          (s) ➔ javascript autocomplete
+tint2         (s) ➔ panel
+tmux          (s) ➔ terminal multiplexer
+vim           (s) ➔ terminal text editor
+wpgtk         (s) ➔ wpgtk templates
+X             (s) ➔ display server
+zathura       (s) ➔ document viewer config
+zsh           (s) ➔ shell
 ```
 
 ## Instructions
