@@ -3,7 +3,7 @@
 <action>
 	<icon>utilities-terminal</icon>
 	<name>Open Terminal Here</name>
-	<unique-id>1515034965442206-1</unique-id>
+	<unique-id>1511827762809513-1</unique-id>
 	<command>alacritty --working-directory %f</command>
 	<description>Example for a custom action</description>
 	<patterns>*</patterns>
@@ -11,19 +11,61 @@
 	<directories/>
 </action>
 <action>
-	<icon>application-pdf</icon>
+	<icon>folder</icon>
+	<name>Open as root</name>
+	<unique-id>1476032331327230-3</unique-id>
+	<command>gksu thunar %f</command>
+	<description>Opens thunar in the current directory as root</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>gvim</icon>
+	<name>Open in vim</name>
+	<unique-id>1511965991607036-2</unique-id>
+	<command>alacritty -e &quot;vim %f&quot;</command>
+	<description>Open in vim</description>
+	<patterns>*</patterns>
+	<other-files/>
+	<text-files/>
+</action>
+<action>
+	<icon>catfish</icon>
+	<name>Search</name>
+	<unique-id>1478280596464841-1</unique-id>
+	<command>catfish --path=%f</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>pdfmod</icon>
 	<name>Convert to pdf</name>
-	<unique-id>1516461989292966-1</unique-id>
+	<unique-id>1511965971511128-1</unique-id>
 	<command>libreoffice --headless --convert-to pdf %f --outdir %d</command>
 	<description></description>
-	<patterns>*.doc;*.docx;*.odt</patterns>
+	<patterns>*.docx;*.doc;*.pptx;*.ppt;*.pptm;*.odt;*.odp</patterns>
 	<other-files/>
 </action>
 <action>
-	<icon>insert-image-symbolic</icon>
-	<name>Clipboard to image</name>
-	<unique-id>1516548204374263-1</unique-id>
-	<command>xclip -selection clipboard -target image/png -out &gt; Image.png</command>
+	<icon>image-x-generic</icon>
+	<name>Set as background</name>
+	<unique-id>1511966063608246-3</unique-id>
+	<command>wpg -s &quot;%f&quot;</command>
+	<description></description>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>clipman-symbolic</icon>
+	<name>Clipboard to file</name>
+	<unique-id>1511828514850236-4</unique-id>
+	<command>xclip -selection clipboard -target image/png -out &gt; %f/Image.png</command>
 	<description></description>
 	<patterns>*</patterns>
 	<directories/>
