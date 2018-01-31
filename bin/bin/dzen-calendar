@@ -14,7 +14,7 @@ def format_day(day):
     return str(day).rjust(2)
 
 def format_current_month_day(day):
-    template = '^fg({})^bg({}){{}}^fg()^bg()'.format(colours[0], colours[5]) if is_current_month and day is current.day else '{}'
+    template = '^fg({})^bg({}){{}}^fg()^bg()'.format(colours[0], colours[5]) if is_current_month and day is today.day else '{}'
     return template.format(format_day(day))
 
 def format_row(row):
@@ -56,8 +56,8 @@ if month < 1:
     month += 12
     year -= 1
 
-current = today.replace(year=year, month=month)
-is_current_month = current == today
+current = today.replace(day=1, year=year, month=month)
+is_current_month = current.month == today.month and current.year == today.year
 
 if count > 0 and not replace: sys.exit()
 
