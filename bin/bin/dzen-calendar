@@ -23,17 +23,28 @@ def format_row(row):
 #  Get current day
 today = date.today()
 
+#  Count of existing instances
+#  Used to determine if we should exit
 count = 0
 screen = 0
 replace = False
 month = today.month
 year = today.year
 
+#  Kill previous instances
 for proc in psutil.process_iter():
+    #  If not dzen, ignore
     if proc.name() != 'dzen2': continue
+    #  If not calendar, ignore
     if not '"calendar"' in proc.cmdline(): continue
+    #  Kill and increment
     proc.kill()
     count += 1
+
+
+#  
+#  Parse arguments
+#  
 
 optlist, _ = getopt.getopt(sys.argv[1:], 'm:y:s:r')
 
@@ -47,6 +58,7 @@ for o, a in optlist:
     elif o == '-y':
         year = int(a)
 
+if count > 0 and not replace: sys.exit()
 
 if month > 12:
     month -= 12
@@ -56,10 +68,8 @@ if month < 1:
     month += 12
     year -= 1
 
-current = today.replace(day=1, year=year, month=month)
+current = date(day=1, month=month, year=year)
 is_current_month = current.month == today.month and current.year == today.year
-
-if count > 0 and not replace: sys.exit()
 
 #  Make sunday the first day of the week
 calendar.setfirstweekday(calendar.SUNDAY)
@@ -117,7 +127,7 @@ command = [
     '-e', 'onstart=uncollapse;button3=exit',
     '-ta', 'c',
     '-sa', 'c',
-    #  dzen is zero-indexed for some reason
+    #  dzen is one-indexed for some reason
     '-xs', str(int(screen) + 1),
     '-p'
 ]
