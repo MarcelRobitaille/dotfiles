@@ -28,11 +28,11 @@
     <center>yes</center>
     <!-- whether to place windows in the center of the free area found or
        the top left corner -->
-    <monitor>Primary</monitor>
+    <monitor>Active</monitor>
     <!-- with Smart placement on a multi-monitor system, try to place new windows
        on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where
        the active window is, 'Primary' - only on the primary monitor -->
-    <primaryMonitor>2</primaryMonitor>
+    <primaryMonitor>1</primaryMonitor>
     <!-- The monitor where Openbox should place popup dialogs such as the
        focus cycling popup, or the desktop switch popup.  It can be an index
        from 1, specifying a particular monitor.  Or it can be one of the
@@ -258,6 +258,16 @@
     </keybind>
     <keybind key="C-A-Down">
       <action name="Iconify"/>
+    </keybind>
+    <keybind key="C-S-A-Left">
+      <action name="MoveResizeTo">
+        <monitor>prev</monitor>
+      </action>
+    </keybind>
+    <keybind key="C-S-A-Right">
+      <action name="MoveResizeTo">
+        <monitor>next</monitor>
+      </action>
     </keybind>
   </keyboard>
   <mouse>
