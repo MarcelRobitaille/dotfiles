@@ -14,7 +14,7 @@ def format_day(day):
     return str(day).rjust(2)
 
 def format_current_month_day(day):
-    template = '^fg({})^bg({}){{}}^fg()^bg()'.format(colours[0], colours[5]) if is_current_month and day is current.day else '{}'
+    template = '^fg({})^bg({}){{}}^fg()^bg()'.format(colours[0], colours[5]) if is_current_month and day is today.day else '{}'
     return template.format(format_day(day))
 
 def format_row(row):
@@ -23,17 +23,28 @@ def format_row(row):
 #  Get current day
 today = date.today()
 
+#  Count of existing instances
+#  Used to determine if we should exit
 count = 0
 screen = 0
 replace = False
 month = today.month
 year = today.year
 
+#  Kill previous instances
 for proc in psutil.process_iter():
+    #  If not dzen, ignore
     if proc.name() != 'dzen2': continue
+    #  If not calendar, ignore
     if not '"calendar"' in proc.cmdline(): continue
+    #  Kill and increment
     proc.kill()
     count += 1
+
+
+#  
+#  Parse arguments
+#  
 
 optlist, _ = getopt.getopt(sys.argv[1:], 'm:y:s:r')
 
@@ -47,6 +58,7 @@ for o, a in optlist:
     elif o == '-y':
         year = int(a)
 
+if count > 0 and not replace: sys.exit()
 
 if month > 12:
     month -= 12
@@ -56,10 +68,8 @@ if month < 1:
     month += 12
     year -= 1
 
-current = today.replace(year=year, month=month)
-is_current_month = current == today
-
-if count > 0 and not replace: sys.exit()
+current = date(day=1, month=month, year=year)
+is_current_month = current.month == today.month and current.year == today.year
 
 #  Make sunday the first day of the week
 calendar.setfirstweekday(calendar.SUNDAY)
@@ -117,7 +127,7 @@ command = [
     '-e', 'onstart=uncollapse;button3=exit',
     '-ta', 'c',
     '-sa', 'c',
-    #  dzen is zero-indexed for some reason
+    #  dzen is one-indexed for some reason
     '-xs', str(int(screen) + 1),
     '-p'
 ]

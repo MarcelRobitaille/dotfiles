@@ -24,6 +24,7 @@ tint2 &
 # Autolock screen
 xautolock \
   -time 1 \
+  -detectsleep \
   -locker /home/marcel/bin/lock \
   -notify 20 -notifier "notify ' Locking' -w 140 -t 20" \
   -killtime 20 -killer "systemctl suspend" \

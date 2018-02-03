@@ -74,9 +74,9 @@ while read -r line; do
   output=""
 
   for ((i=0; i<`xrandr -d :0 -q | grep ' connected' | wc -l`; i++)); do
-    monitors_output="$LEFT$RIGHT%{S+}"
-    monitors_output=${monitors_output/MONITOR_NUM/$i}
-    output+="$monitors_output"
+    monitors_output="$LEFT$RIGHT"
+    monitors_output=${monitors_output//MONITOR_NUM/$i}
+    output+="$monitors_output%{S+}"
   done
 
   echo "$output"
