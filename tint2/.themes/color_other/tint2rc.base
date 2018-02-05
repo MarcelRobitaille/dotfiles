@@ -101,7 +101,7 @@ border_color_pressed = #deeead 100
 
 #-------------------------------------
 # Panel
-panel_items = T
+panel_items = TS
 panel_size = 100% 35
 panel_margin = 0 0
 panel_padding = 0 0 0
@@ -149,7 +149,7 @@ task_align = left
 #-------------------------------------
 # Task
 task_text = 1
-task_icon = 0
+task_icon = 1
 task_centered = 0
 urgent_nb_of_blink = 7
 task_maximum_size = 400 30
@@ -174,7 +174,7 @@ systray_background_id = 4
 systray_sort = ascending
 systray_icon_size = 0
 systray_icon_asb = 100 0 -20
-systray_monitor = 1
+systray_monitor = 2
 systray_name_filter =
 
 #-------------------------------------

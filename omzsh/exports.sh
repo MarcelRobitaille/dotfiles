@@ -1,4 +1,4 @@
-export PATH="/home/marcel/bin/:/usr/bin:/usr/local/bin:$PATH"
+export PATH="/home/marcel/bin/:/usr/bin:/usr/local/bin:/usr/lib/jvm/java-7-openjdk/bin/:$PATH"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="/usr/sbin/vim"
