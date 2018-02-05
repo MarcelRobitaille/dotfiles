@@ -1,4 +1,5 @@
 set selection-clipboard clipboard
 set zoom 100
 set window-title-basename true
+set window-icon /home/marcel/.icons/flat_remix/apps/scalable/acroread.svg
 
