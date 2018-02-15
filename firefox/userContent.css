@@ -16,3 +16,18 @@
     }
 }
 
+
+/**
+ * Facebook
+ ****************************************/
+
+@-moz-document url-prefix("https://www.facebook.com/") {
+  #pagelet_dock,
+  #pagelet_sidebar {
+    display: none;
+  }
+  #globalContainer {
+    padding-right: 0;
+  }
+}
+
