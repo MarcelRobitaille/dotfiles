@@ -6,11 +6,14 @@ module.exports = {
     'commonjs': true
   },
   plugins: [
-    // 'prettier',
     'lodash-fp',
   ],
 
-  'extends': 'eslint:recommended',
+  'extends': [
+    'eslint:recommended',
+  ],
+
+  parser: 'babel-eslint',
 
   'parserOptions': {
     'ecmaFeatures': {
