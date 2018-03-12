@@ -486,7 +486,7 @@ disk_display="off"
 # Flag:     --image
 #
 # NOTE: Change this to 'wallpaper', '/path/to/img' or /path/to/dir/' to enable image mode. You can also launch neofetch with '--image wallpaper' and etc.
-image_source="$(artwork)"
+# image_source="$(artwork)"
 
 # Thumbnail directory
 #
