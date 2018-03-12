@@ -1,0 +1,16 @@
+:root {
+  --tab-line-color: #AD4117;
+  --toolbarbutton-icon-fill-attention: #CF5323;
+  --url-and-searchbar-background-color: #505050;
+}
+
+#TabsToolbar {
+  background-color: #12181E;
+}
+
+#nav-bar,
+.tabbrowser-tab[selected="true"] .tab-background {
+  background-image: none;
+  background-color: #333;
+}
+

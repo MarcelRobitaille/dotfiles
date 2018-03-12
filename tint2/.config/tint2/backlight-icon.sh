@@ -24,5 +24,5 @@ set_cmd="%{A3:xbacklight -set 100; echo L > $PANEL_FIFO_PATH:}"
 inc_cmd="%{A4:xbacklight -inc 5; echo L > $PANEL_FIFO_PATH:}"
 dec_cmd="%{A5:xbacklight -dec 5; echo L > $PANEL_FIFO_PATH:}"
 
-echo "$set_cmd$inc_cmd$dec_cmd$icon $level%%{A}%{A}%{A}"
+echo "$icon"
 

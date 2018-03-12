@@ -15,5 +15,5 @@ if [ -n "$remaining" ]; then
   remaining=" ($remaining)"
 fi
 
-echo -e "$icon $lvl%$remaining"
+echo -e "$icon"
 

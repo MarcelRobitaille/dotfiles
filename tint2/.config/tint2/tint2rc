@@ -1,0 +1,205 @@
+#-------------------------------------
+# Backgrounds
+# Background 1: Panel
+rounded = 0
+border_width = 0
+border_sides = TB
+background_color = #12181e 100
+border_color = #12181e 100
+background_color_hover = #12181e 100
+border_color_hover = #deeead 100
+background_color_pressed = #202020 100
+border_color_pressed = #deeead 100
+
+# Background 2: Active desktop name, Active taskbar, Inactive desktop name, Inactive taskbar, Tooltip
+rounded = 0
+border_width = 0
+border_sides = TB
+background_color = #12181e 100
+border_color = #12181e 100
+background_color_hover = #202020 100
+border_color_hover = #333333 0
+background_color_pressed = #202020 100
+border_color_pressed = #333333 0
+
+# Background 3: Active task
+rounded = 0
+border_width = 3
+border_sides = TB
+background_color = #ABC658 100
+border_color = #12181e 100
+background_color_hover = #202020 32
+border_color_hover = #deeead 100
+background_color_pressed = #202020 32
+border_color_pressed = #deeead 100
+
+#-------------------------------------
+# Panel
+panel_items = T:S:EE:EE:EBC
+panel_size = 100% 35
+panel_margin = 0 0
+panel_padding = 0 0 0
+panel_background_id = 1
+wm_menu = 1
+panel_dock = 0
+panel_position = bottom center horizontal
+panel_layer = top
+panel_monitor = all
+panel_shrink = 0
+autohide = 0 autohide_show_timeout = 0.3
+autohide_hide_timeout = 2
+autohide_height = 2
+strut_policy = follow_size
+panel_window_name = tint2
+disable_transparency = 0
+mouse_effects = 0
+font_shadow = 0
+mouse_hover_icon_asb = 100 0 10
+mouse_pressed_icon_asb = 100 0 3
+
+#-------------------------------------
+# Taskbar
+taskbar_mode = single_desktop
+taskbar_hide_if_empty = 0
+taskbar_padding = 0 0 0
+taskbar_background_id = 0
+taskbar_active_background_id = 0
+taskbar_name = 1
+taskbar_hide_inactive_tasks = 0
+taskbar_hide_different_monitor = 0
+taskbar_hide_different_desktop = 0
+taskbar_always_show_all_desktop_tasks = 0
+taskbar_name_padding = 16 0
+taskbar_name_background_id = 0
+taskbar_name_active_background_id = 0
+taskbar_name_font = Source Code Pro Italic 12
+taskbar_name_font_color = #A49368 100
+taskbar_name_active_font_color = #A49368 100
+taskbar_distribute_size = 0
+taskbar_sort_order = none
+task_align = left
+
+#-------------------------------------
+# Task
+task_text = 1
+task_icon = 1
+task_centered = 0
+urgent_nb_of_blink = 7
+task_maximum_size = 400 30
+task_padding = 6 5 10
+task_font = Source Code Pro 12
+task_tooltip = 0
+task_font_color = #797D83 100
+task_active_font_color = #12181e 100
+task_urgent_font_color = #deeead 100
+task_iconified_font_color = #797D83 50
+task_active_background_id = 3
+mouse_left = toggle
+mouse_middle = none
+mouse_right = none
+mouse_scroll_up = none
+mouse_scroll_down = none
+
+#-------------------------------------
+# System tray (notification area)
+systray_padding = 0 7 2
+systray_background_id = 0
+systray_sort = ascending
+systray_icon_size = 24
+systray_icon_asb = 100 0 0
+systray_monitor = 2
+systray_name_filter =
+
+#-------------------------------------
+# Clock
+time1_format = %l:%M:%S %p
+time2_format = %A %B %d
+time1_font = Source Code Pro 12
+time2_font = Source Code Pro 9
+clock_font_color = #797D83 100
+clock_padding = 15 0
+clock_background_id = 0
+
+#-------------------------------------
+# Volume icon
+execp = new
+execp_command = /home/marcel/.dotfiles/lemonbar/scripts/volume.sh
+execp_interval = 5
+execp_font = Source Code Pro 18
+execp_font_color = #797D83 100
+execp_padding = 0 0
+
+#-------------------------------------
+# Volume
+execp = new
+execp_command = pamixer --get-volume | sed 's/$/%/'
+execp_interval = 5
+execp_font = Source Code Pro 12
+execp_font_color = #797D83 100
+execp_padding = 0 0
+execp_uwheel_command = pamixer -i 5
+execp_dwheel_command = pamixer -d 5
+
+#-------------------------------------
+# Backlight icon
+execp = new
+execp_command = /home/marcel/.dotfiles/lemonbar/scripts/backlight.sh
+execp_interval = 5
+execp_font = Source Code Pro 18
+execp_font_color = #797D83 100
+execp_padding = 3 0
+
+#-------------------------------------
+# Backlight
+execp = new
+execp_command = xbacklight | awk 'END { print int(($0 / 5) + 0.5) * 5 }' | sed 's/$/%/'
+execp_interval = 5
+execp_font = Source Code Pro 12
+execp_font_color = #797D83 100
+execp_padding = 3 0
+execp_uwheel_command = xbacklight -inc 5 -time 0
+execp_dwheel_command = xbacklight -dec 5 -time 0
+
+#-------------------------------------
+# Battery
+battery_tooltip = 1
+battery_low_status = 10
+battery_low_cmd = notify "battery low"
+battery_font_color = #797D83 100
+bat1_format = %p
+bat2_format = %h:%m
+bat1_font = Source Code Pro 12
+bat2_font = Source Code Pro 9
+battery_padding = 1 0
+battery_background_id = 0
+battery_hide = 101
+
+#-------------------------------------
+# Battery icon
+execp = new
+execp_command = /home/marcel/.dotfiles/lemonbar/scripts/battery.sh
+execp_interval = 10
+execp_font = Source Code Pro 18
+execp_font_color = #797D83 100
+
+#-------------------------------------
+# Tooltip
+tooltip_show_timeout = 0
+tooltip_hide_timeout = 0
+tooltip_padding = 0 0
+tooltip_background_id = 2
+tooltip_font_color = #deeead 100
+tooltip_font = Source Code Pro 12
+
+separator = new
+separator_background_id = 0
+separator_style = empty
+separator_padding = 3 0
+separator = new
+separator_background_id = 0
+separator_style = empty
+separator_padding = 2 0
+separator = new
+separator_background_id = 0
+separator_style = empty
+separator_padding = 0 0
