@@ -1,7 +1,5 @@
 #!/bin/zsh
 
-source "$HOME/.dotfiles/config.sh"
-
 LAYOUT=$(setxkbmap -print -verbose 10 | awk '$1 == "layout:" { print $2 }')
 FIFO="$PANEL_FIFO_PATH"
 
@@ -17,7 +15,6 @@ case $1 in
     fi
     setxkbmap $LAYOUT
     xmodmap ~/.Xmodmap
-    [ -e "$FIFO" ] && echo "K" > "$FIFO"
     ;;
 esac
 

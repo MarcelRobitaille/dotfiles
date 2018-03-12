@@ -8,18 +8,19 @@
 #   lemonbar (a fork that supports borders such as https://github.com/dark-yux/bar)
 #   GNU getopt
 
+# Print usage
+usage() { echo "$0 -w <width> -h <line height> -t <timeout> -p <padding> -b <bg colour> -f <fg colour> -b <border width> -bc <border colour> [message]"; exit 1; }
+
+kill_notification() {
+  pkill -f "lemonbar -n notification" 2>&1 > /dev/null
+}
+
 DIRNAME=$(dirname $0)
 
 cd $DIRNAME
 
-# Get lemonbar config
-source "../../config.sh"
-
 # Get colours
-source "$WAL_SCRIPT"
-
-# Print usage
-usage() { echo "$0 -w <width> -h <line height> -t <timeout> -p <padding> -b <bg colour> -f <fg colour> -b <border width> -bc <border colour> [message]"; exit 1; }
+source "../../config.sh"
 
 # >>> Set default values
 w=300
@@ -33,10 +34,11 @@ m=1
 urgent=false
 debug=false
 fork=true
+dismiss=false
 # <<<
 
 # >>> Use getopt to parse input so options are more lenient
-OPTS=`getopt -o w:h:t:p:m:b: --long urgent,debug,gb:,fg:bc:,width:,height:,timeout:,padding:,monitor:,text-align:,border:,no-fork -n 'notify' -- "$@"`
+OPTS=`getopt -o w:h:t:p:m:b: --long urgent,debug,gb:,fg:bc:,width:,height:,timeout:,padding:,monitor:,text-align:,border:,no-fork,dismiss -n 'notify' -- "$@"`
 eval set -- "$OPTS"
 # <<<
 
@@ -55,10 +57,16 @@ while true; do
     -m | --monitor ) m="$2"; shift 2 ;;
     -b | --border ) border="$2"; shift 2 ;;
     --no-fork ) fork=false; shift ;;
+    --dismiss ) dismiss=true; shift ;;
     -- ) shift; break ;;
     * ) break ;;
   esac
 done
+
+if [ "$dismiss" = true ]; then
+  kill_notification
+  exit
+fi
 
 # >>> Show usage if input is empty or 'help'
 if [[ "$1" == "help" ]] || [[ -z "$1" ]]; then
@@ -98,7 +106,7 @@ message="$1"
 [[ "$urgent" == true ]] && message=" $message"
 
 # We use "lemonbar -n 'notification'" to identify notifications
-(sleep "$t"; pkill -f "lemonbar -n notification" 2>&1 > /dev/null) &
+(sleep "$t"; kill_notification) &
 
 notify() {
   echo "%{A3:pkill -f 'lemonbar -n notification':} $message %{A}" | lemonbar \

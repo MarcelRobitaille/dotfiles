@@ -55,7 +55,7 @@ zsh           (s) ➔ shell
 1. Clone the repo to `~/.dotfiles`.
 1. Run `stow` ([gnu stow](https://www.gnu.org/software/stow/)) on all directories marked with `(s)`.
 1. Stow `oblogout` relative to `/` (`sudo stow -t / oblogout`).
-1. Create a hard link (`ln` not `ln -s`) from `firefox/userContent.css` to `~/.mozilla/firefox/<profile>/chrome/userContent.css` (`about:profiles` to see profile id)
+1. Create a hard link (`ln` not `ln -s`) from `firefox/user{Chrome,Content}.css` to `~/.mozilla/firefox/<profile>/chrome/user{Chrome,Content}.css` (`about:profiles` to see profile id)
 1. Add all files in `cron` to your `crontab` by running `crontab -e`. Set the desired schedule. For more information, see [Cron - ArchWiki](https://wiki.archlinux.org/index.php/Cron#Crontab_format).
 1. Update monitor ids in `lead`.
 1. Create the file `omzsh/secret.sh` and populate it with the following:

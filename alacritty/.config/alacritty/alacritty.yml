@@ -91,8 +91,8 @@ custom_cursor_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x242424'
-    foreground: '0xeaeaea'
+    background: '0x12181e'
+    foreground: '0xFFFFFD'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
@@ -101,36 +101,36 @@ colors:
 
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xc75646'
-    green:   '0x8EB33B'
-    yellow:  '0xe9cc24'
-    blue:    '0x72b3cc'
-    magenta: '0xc8a0d1'
-    cyan:    '0x218693'
-    white:   '0xb0b0b0'
+    black:   '0x12181e'
+    red:     '0xad4117'
+    green:   '0x659b45'
+    yellow:  '0xb8cc4b'
+    blue:    '0x325f93'
+    magenta: '0xbdcb92'
+    cyan:    '0x96744A'
+    white:   '0xe3e2e1'
 
   # Bright colors
   bright:
-    black:   '0x5d5d5d'
-    red:     '0xe09690'
-    green:   '0xcdee69'
-    yellow:  '0xffe377'
-    blue:    '0x9cd9f0'
-    magenta: '0xfbb1f9'
-    cyan:    '0x77dfd8'
-    white:   '0xf7f7f7'
+    black:   '0x5b7083'
+    red:     '0xf6f2b9'
+    green:   '0x8d9fba'
+    yellow:  '0x7fd84b'
+    blue:    '0xe6c675'
+    magenta: '0xe7ff5f'
+    cyan:    '0xd19851'
+    white:   '0xfffffd'
 
   # Dim colors (Optional)
   dim:
-￼   black:   '0x333333'
-￼   red:     '0xf2777a'
-￼   green:   '0x99cc99'
-￼   yellow:  '0xffcc66'
-￼   blue:    '0x6699cc'
-￼   magenta: '0xcc99cc'
-￼   cyan:    '0x66cccc'
-￼   white:   '0xdddddd'
+    black:   '0x333333'
+    red:     '0xf2777a'
+    green:   '0x99cc99'
+    yellow:  '0xffcc66'
+    blue:    '0x6699cc'
+    magenta: '0xcc99cc'
+    cyan:    '0x66cccc'
+    white:   '0xdddddd'
 
 # Visual Bell
 #

@@ -1,8 +1,0 @@
-#!/bin/bash
-
-source "$HOME/.dotfiles/config.sh"
-source "$WAL_SCRIPT"
-xrdb "$HOME/.Xresources"
-
-echo "W" > "$PANEL_FIFO_PATH"
-

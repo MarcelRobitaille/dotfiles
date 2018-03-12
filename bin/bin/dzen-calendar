@@ -2,7 +2,6 @@
 
 import os
 import sys
-import json
 import getopt
 import psutil
 import calendar
@@ -23,6 +22,25 @@ def format_row(row):
 #  Get current day
 today = date.today()
 
+colours = [
+    "#12181e",
+    "#ad4117",
+    "#659b45",
+    "#b8cc4b",
+    "#325f93",
+    "#bdcb92",
+    "#96744A",
+    "#e3e2e1",
+    "#5b7083",
+    "#f6f2b9",
+    "#8d9fba",
+    "#7fd84b",
+    "#e6c675",
+    "#e7ff5f",
+    "#d19851",
+    "#fffffd",
+]
+
 #  Count of existing instances
 #  Used to determine if we should exit
 count = 0
@@ -42,9 +60,9 @@ for proc in psutil.process_iter():
     count += 1
 
 
-#  
+#
 #  Parse arguments
-#  
+#
 
 optlist, _ = getopt.getopt(sys.argv[1:], 'm:y:s:r')
 
@@ -74,11 +92,6 @@ is_current_month = current.month == today.month and current.year == today.year
 #  Make sunday the first day of the week
 calendar.setfirstweekday(calendar.SUNDAY)
 
-#  Load colours
-colours = []
-with open(os.path.expanduser('~/.themes/color_other/colours.json')) as data:
-    colours = json.load(data)
-
 #  Global result variable
 output = ''
 
@@ -98,7 +111,7 @@ start = calendar.monthrange(current.year, current.month)[0]
 if start < 6:
     previous_month = current - relativedelta(months = 1)
     days_in_previous_month = calendar.monthrange(previous_month.year, previous_month.month)[1]
-    output += '^fg({})'.format(colours[8])
+    output += '^fg({})'.format(colours[0])
     output += ' '.join([ format_day(x) for x in range(days_in_previous_month - start, days_in_previous_month + 1) ])
     output += '^fg() '
 
@@ -108,7 +121,7 @@ output += '\n'.join([ format_row(row) for row in calendar.monthcalendar(current.
 #  Add trailing days
 num_trailing_days = 6 - calendar.monthrange(next_month.year, next_month.month)[0]
 if num_trailing_days > 0:
-    output += ' ^fg({})'.format(colours[8])
+    output += ' ^fg({})'.format(colours[0])
     output += ' '.join([ format_day(x + 1) for x in range(0, num_trailing_days) ])
 
 output += '\n'
@@ -116,10 +129,10 @@ output += '\n'
 command = [
     'dzen2',
     '-title-name', '"calendar"',
-    '-bg', colours[0],
+    '-bg', colours[4],
     '-fg', colours[5],
     '-x', '-240',
-    '-y', '45',
+    '-y', '-65',
     '-h', '30',
     '-l', str(len(output.split('\n')) - 2),
     '-w', '240',

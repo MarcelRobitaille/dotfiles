@@ -1,7 +1,0 @@
-#!/bin/zsh
-
-while true; do
-  $(dirname $0)/background_random
-  sleep 300
-done
-

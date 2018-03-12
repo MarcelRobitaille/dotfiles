@@ -4,6 +4,9 @@
 # source ../../../omzsh/exports.sh
 export PATH="$PATH:$HOME/bin/"
 
+# Restore desktop background
+~/.fehbg
+
 # Keybindings
 xbindkeys &
 sxhkd &
@@ -11,22 +14,29 @@ sxhkd &
 # Hot corners
 lead &
 
-# Background switcher
-pkill background_timer
-background_timer &
-
+# Save my eyes
 redshift &
+
+# Start nextcloud client
+nextcloud &
 
 # Panels
 tint2 &
-"$HOME/.dotfiles/lemonbar/init.sh" &
 
 # Autolock screen
-xautolock \
-  -time 1 \
-  -detectsleep \
-  -locker /home/marcel/bin/lock \
-  -notify 20 -notifier "notify ' Locking' -w 140 -t 20" \
-  -killtime 20 -killer "systemctl suspend" \
-  -corners 0-00 &
+# xautolock \
+  # -time 1 \
+  # -detectsleep \
+  # -locker /home/marcel/bin/lock \
+  # -notify 20 -notifier "notify ' Locking' -w 140 -t 20" \
+  # -killtime 20 -killer "systemctl suspend" \
+  # -corners 0-00 &
+
+xidlehook \
+  --time 1 \
+  --timer /home/marcel/bin/lock \
+  --notify 20 \
+  --notifier "notify ' Locking' -w 140 -t 20" \
+  --canceller 'pkill -f "lemonbar -n notification"' \
+  --not-when-fullscreen #--not-when-audio
 

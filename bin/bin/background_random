@@ -1,6 +1,0 @@
-#!/bin/bash
-
-f=${1:-$(shuf -n1 -e /home/marcel/Pictures/landscapes/*)}
-# wal -qt -i "$f"
-wpg -s "$f"
-

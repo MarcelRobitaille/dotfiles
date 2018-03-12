@@ -119,12 +119,13 @@ time2_font = Source Code Pro 9
 clock_font_color = #797D83 100
 clock_padding = 15 0
 clock_background_id = 0
+clock_lclick_command = 'dzen-calendar'
 
 #-------------------------------------
 # Volume icon
 execp = new
-execp_command = /home/marcel/.dotfiles/lemonbar/scripts/volume.sh
-execp_interval = 5
+execp_command = ~/.config/tint2/volume-icon.sh
+execp_interval = 10
 execp_font = Source Code Pro 18
 execp_font_color = #797D83 100
 execp_padding = 0 0
@@ -133,7 +134,7 @@ execp_padding = 0 0
 # Volume
 execp = new
 execp_command = pamixer --get-volume | sed 's/$/%/'
-execp_interval = 5
+execp_interval = 10
 execp_font = Source Code Pro 12
 execp_font_color = #797D83 100
 execp_padding = 0 0
@@ -143,8 +144,8 @@ execp_dwheel_command = pamixer -d 5
 #-------------------------------------
 # Backlight icon
 execp = new
-execp_command = /home/marcel/.dotfiles/lemonbar/scripts/backlight.sh
-execp_interval = 5
+execp_command = ~/.config/tint2/backlight-icon.sh
+execp_interval = 10
 execp_font = Source Code Pro 18
 execp_font_color = #797D83 100
 execp_padding = 3 0
@@ -153,7 +154,7 @@ execp_padding = 3 0
 # Backlight
 execp = new
 execp_command = xbacklight | awk 'END { print int(($0 / 5) + 0.5) * 5 }' | sed 's/$/%/'
-execp_interval = 5
+execp_interval = 10
 execp_font = Source Code Pro 12
 execp_font_color = #797D83 100
 execp_padding = 3 0
@@ -177,7 +178,7 @@ battery_hide = 101
 #-------------------------------------
 # Battery icon
 execp = new
-execp_command = /home/marcel/.dotfiles/lemonbar/scripts/battery.sh
+execp_command = ~/.config/tint2/battery-icon.sh
 execp_interval = 10
 execp_font = Source Code Pro 18
 execp_font_color = #797D83 100
@@ -203,3 +204,4 @@ separator = new
 separator_background_id = 0
 separator_style = empty
 separator_padding = 0 0
+
