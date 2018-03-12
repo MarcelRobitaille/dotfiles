@@ -9,10 +9,17 @@ i=1
   # referer=""
 # fi
 
+type=${url: -3}
+
 # Try once with zero. This means the script works for 0-index and incorrect-index resources
 wget $(printf "$url" 0) --referer "$referer"
 
-while wget $(printf "$url" $i) --referer "$referer"; do
+while wget $(printf "$url" $i) -O "$i.$type" --referer "$referer"; do
+  if [ "$(file -b --mime-type $i.$type)" = "text/html" ]; then
+    rm "$i.$type"
+    break
+  fi
+
   ((i++))
 done
 
