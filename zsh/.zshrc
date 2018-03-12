@@ -8,7 +8,7 @@ SPACESHIP_EXEC_TIME_SHOW=false
 SPACESHIP_NODE_SHOW=false
 SPACESHIP_PACKAGE_SHOW=false
 SPACESHIP_PHP_SHOW=false
-SPACESHIP_PROMPT_SYMBOL="➜"
+SPACESHIP_CHAR_SYMBOL="➜"
 export RPS1="%{$reset_color%}"
 
 plugins=(git pass vi-mode)
