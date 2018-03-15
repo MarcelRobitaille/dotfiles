@@ -17,8 +17,8 @@ URxvt.cursorBlink: true
 rofi.padding: 50
 rofi.opacity: 95
 rofi.color-enabled: true
-rofi.color-normal: #12181e, #e3e2e1, #12181e, #b5b4b4, #e3e2e1
+rofi.color-normal: #12181e, #e3e2e1, #12181e, #325f93, #12181e
 rofi.color-urgent: #12181e, #d6b48d, #22231D, #d6b48d, #e3e2e1
-rofi.color-active: #12181e, #ADAC9F, #12181e, #ADAC9F, #12181e
-rofi.color-window: #12181e, #b5b4b4, #7c7c7b
+rofi.color-active: #12181e, #bdcb92, #12181e, #ADAC9F, #12181e
+rofi.color-window: #12181e, #325f93, #325f93
 
