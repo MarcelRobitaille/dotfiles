@@ -1,28 +1,938 @@
-<menu id="exit-menu" label="Exit">
-	<item label="Log Out">
-		<action name="Execute">
-			<command>openbox --exit</command>
-		</action>
-	</item>
-	<item label="Shutdown">
-		<action name="Execute">
-			<command>systemctl poweroff</command>
-		</action>
-	</item>
-	<item label="Restart">
-		<action name="Execute">
-		        <command>systemctl reboot</command>
-		</action>
-	</item>
-	<item label="Suspend">
-		<action name="Execute">
-		        <command>systemctl suspend</command>
-		</action>
-	</item>
-	<item label="Hibernate">
-		<action name="Execute">
-		        <command>systemctl hibernate</command>
-		</action>
-	</item>
-</menu>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_menu>
+    <menu id="root-menu" label="OpenBox 3">
+        <menu id="1" label="Development">
+            <item label="Akonadi Console"> <action name="Execute">
+                <execute>akonadiconsole</execute>
+            </action> </item>
+            <item label="Arduino IDE"> <action name="Execute">
+                <execute>arduino</execute>
+            </action> </item>
+            <item label="Autodesk EAGLE"> <action name="Execute">
+                <execute>eagle</execute>
+            </action> </item>
+            <item label="Cervisia"> <action name="Execute">
+                <execute>cervisia</execute>
+            </action> </item>
+            <item label="CMake"> <action name="Execute">
+                <execute>cmake-gui</execute>
+            </action> </item>
+            <item label="Cuttlefish"> <action name="Execute">
+                <execute>cuttlefish</execute>
+            </action> </item>
+            <item label="DBeaver"> <action name="Execute">
+                <execute>dbeaver</execute>
+            </action> </item>
+            <item label="Emma"> <action name="Execute">
+                <execute>emma</execute>
+            </action> </item>
+            <item label="GDB"> <action name="Execute">
+                <execute>alacritty -e gdb</execute>
+            </action> </item>
+            <item label="HeidiSQL"> <action name="Execute">
+                <execute>heidisql</execute>
+            </action> </item>
+            <item label="KAppTemplate"> <action name="Execute">
+                <execute>kapptemplate</execute>
+            </action> </item>
+            <item label="KCachegrind"> <action name="Execute">
+                <execute>kcachegrind</execute>
+            </action> </item>
+            <item label="KImageMapEditor"> <action name="Execute">
+                <execute>kimagemapeditor</execute>
+            </action> </item>
+            <item label="Kirigami Gallery"> <action name="Execute">
+                <execute>kpackagelauncherqml -a org.kde.kirigami2.gallery</execute>
+            </action> </item>
+            <item label="Kompare"> <action name="Execute">
+                <execute>kompare</execute>
+            </action> </item>
+            <item label="KUIViewer"> <action name="Execute">
+                <execute>kuiviewer</execute>
+            </action> </item>
+            <item label="Lokalize"> <action name="Execute">
+                <execute>lokalize</execute>
+            </action> </item>
+            <item label="MPLAB IDE"> <action name="Execute">
+                <execute>mplab_ide</execute>
+            </action> </item>
+            <item label="MPLAB IPE"> <action name="Execute">
+                <execute>mplab_ipe</execute>
+            </action> </item>
+            <item label="Plasma Look And Feel Explorer"> <action name="Execute">
+                <execute>lookandfeelexplorer</execute>
+            </action> </item>
+            <item label="Plasma Theme Explorer"> <action name="Execute">
+                <execute>plasmathemeexplorer</execute>
+            </action> </item>
+            <item label="Postman"> <action name="Execute">
+                <execute>postman</execute>
+            </action> </item>
+            <item label="Qt Assistant"> <action name="Execute">
+                <execute>assistant</execute>
+            </action> </item>
+            <item label="Qt Designer"> <action name="Execute">
+                <execute>designer</execute>
+            </action> </item>
+            <item label="Qt Linguist"> <action name="Execute">
+                <execute>linguist</execute>
+            </action> </item>
+            <item label="Qt QDbusViewer"> <action name="Execute">
+                <execute>qdbusviewer</execute>
+            </action> </item>
+            <item label="Qt4 Assistant"> <action name="Execute">
+                <execute>assistant-qt4</execute>
+            </action> </item>
+            <item label="Qt4 Designer"> <action name="Execute">
+                <execute>designer-qt4</execute>
+            </action> </item>
+            <item label="Qt4 Linguist"> <action name="Execute">
+                <execute>linguist-qt4</execute>
+            </action> </item>
+            <item label="Qt4 QDbusViewer"> <action name="Execute">
+                <execute>qdbusviewer-qt4</execute>
+            </action> </item>
+            <item label="Sublime Text 3 Dev"> <action name="Execute">
+                <execute>subl3</execute>
+            </action> </item>
+            <item label="Umbrello"> <action name="Execute">
+                <execute>umbrello5</execute>
+            </action> </item>
+        </menu>
+        <menu id="2" label="Editors">
+            <item label="GVim"> <action name="Execute">
+                <execute>gvim</execute>
+            </action> </item>
+            <item label="Kate"> <action name="Execute">
+                <execute>kate</execute>
+            </action> </item>
+            <item label="KWrite"> <action name="Execute">
+                <execute>kwrite</execute>
+            </action> </item>
+            <item label="Mousepad"> <action name="Execute">
+                <execute>mousepad</execute>
+            </action> </item>
+            <item label="Vi"> <action name="Execute">
+                <execute>alacritty -e vi</execute>
+            </action> </item>
+            <item label="Vim"> <action name="Execute">
+                <execute>alacritty -e vim</execute>
+            </action> </item>
+        </menu>
+        <menu id="8" label="Education">
+            <item label="Artikulate"> <action name="Execute">
+                <execute>artikulate</execute>
+            </action> </item>
+            <item label="Blinken"> <action name="Execute">
+                <execute>blinken</execute>
+            </action> </item>
+            <item label="Kanagram"> <action name="Execute">
+                <execute>kanagram</execute>
+            </action> </item>
+            <item label="KGeography"> <action name="Execute">
+                <execute>kgeography</execute>
+            </action> </item>
+            <item label="KHangMan"> <action name="Execute">
+                <execute>khangman</execute>
+            </action> </item>
+            <item label="Kiten"> <action name="Execute">
+                <execute>kiten</execute>
+            </action> </item>
+            <item label="KLettres"> <action name="Execute">
+                <execute>klettres</execute>
+            </action> </item>
+            <item label="KTouch"> <action name="Execute">
+                <execute>ktouch</execute>
+            </action> </item>
+            <item label="KTurtle"> <action name="Execute">
+                <execute>kturtle</execute>
+            </action> </item>
+            <item label="KWordQuiz"> <action name="Execute">
+                <execute>kwordquiz</execute>
+            </action> </item>
+            <item label="Minuet"> <action name="Execute">
+                <execute>minuet</execute>
+            </action> </item>
+            <item label="Parley"> <action name="Execute">
+                <execute>parley</execute>
+            </action> </item>
+        </menu>
+        <menu id="18" label="Games">
+            <menu id="17" label="Amusement">
+                <item label="Potato Guy"> <action name="Execute">
+                    <execute>ktuberling</execute>
+                </action> </item>
+            </menu>
+            <menu id="10" label="Arcade">
+                <item label="Bomber"> <action name="Execute">
+                    <execute>bomber</execute>
+                </action> </item>
+                <item label="Granatier"> <action name="Execute">
+                    <execute>granatier</execute>
+                </action> </item>
+                <item label="Kapman"> <action name="Execute">
+                    <execute>kapman</execute>
+                </action> </item>
+                <item label="KBlocks"> <action name="Execute">
+                    <execute>kblocks</execute>
+                </action> </item>
+                <item label="KBounce"> <action name="Execute">
+                    <execute>kbounce</execute>
+                </action> </item>
+                <item label="KBreakOut"> <action name="Execute">
+                    <execute>kbreakout</execute>
+                </action> </item>
+                <item label="KGoldrunner"> <action name="Execute">
+                    <execute>kgoldrunner</execute>
+                </action> </item>
+                <item label="Kolf"> <action name="Execute">
+                    <execute>kolf</execute>
+                </action> </item>
+                <item label="Kollision"> <action name="Execute">
+                    <execute>kollision</execute>
+                </action> </item>
+                <item label="KSnakeDuel"> <action name="Execute">
+                    <execute>ksnakeduel</execute>
+                </action> </item>
+                <item label="KSpaceDuel"> <action name="Execute">
+                    <execute>kspaceduel</execute>
+                </action> </item>
+            </menu>
+            <menu id="11" label="Board">
+                <item label="Bovo"> <action name="Execute">
+                    <execute>bovo</execute>
+                </action> </item>
+                <item label="Kajongg"> <action name="Execute">
+                    <execute>kajongg</execute>
+                </action> </item>
+                <item label="KBlackBox"> <action name="Execute">
+                    <execute>kblackbox</execute>
+                </action> </item>
+                <item label="KFourInLine"> <action name="Execute">
+                    <execute>kfourinline</execute>
+                </action> </item>
+                <item label="Kigo"> <action name="Execute">
+                    <execute>kigo</execute>
+                </action> </item>
+                <item label="Kiriki"> <action name="Execute">
+                    <execute>kiriki</execute>
+                </action> </item>
+                <item label="KMahjongg"> <action name="Execute">
+                    <execute>kmahjongg</execute>
+                </action> </item>
+                <item label="KReversi"> <action name="Execute">
+                    <execute>kreversi</execute>
+                </action> </item>
+                <item label="KSquares"> <action name="Execute">
+                    <execute>ksquares -qwindowicon ksquares</execute>
+                </action> </item>
+                <item label="Shisen-Sho"> <action name="Execute">
+                    <execute>kshisen</execute>
+                </action> </item>
+            </menu>
+            <menu id="12" label="Card">
+                <item label="KPatience"> <action name="Execute">
+                    <execute>kpat</execute>
+                </action> </item>
+                <item label="LSkat"> <action name="Execute">
+                    <execute>lskat</execute>
+                </action> </item>
+            </menu>
+            <menu id="13" label="Puzzle">
+                <item label="KDiamond"> <action name="Execute">
+                    <execute>kdiamond</execute>
+                </action> </item>
+                <item label="KSudoku"> <action name="Execute">
+                    <execute>ksudoku -qwindowicon ksudoku</execute>
+                </action> </item>
+                <item label="Kubrick"> <action name="Execute">
+                    <execute>kubrick</execute>
+                </action> </item>
+                <item label="Palapeli"> <action name="Execute">
+                    <execute>palapeli</execute>
+                </action> </item>
+                <item label="picmi"> <action name="Execute">
+                    <execute>picmi</execute>
+                </action> </item>
+            </menu>
+            <menu id="16" label="Strategy">
+                <item label="KAtomic"> <action name="Execute">
+                    <execute>katomic</execute>
+                </action> </item>
+                <item label="Killbots"> <action name="Execute">
+                    <execute>killbots</execute>
+                </action> </item>
+                <item label="KJumpingCube"> <action name="Execute">
+                    <execute>kjumpingcube</execute>
+                </action> </item>
+                <item label="Klickety"> <action name="Execute">
+                    <execute>klickety</execute>
+                </action> </item>
+                <item label="KMines"> <action name="Execute">
+                    <execute>kmines</execute>
+                </action> </item>
+                <item label="KNetWalk"> <action name="Execute">
+                    <execute>knetwalk</execute>
+                </action> </item>
+                <item label="Kolor Lines"> <action name="Execute">
+                    <execute>klines</execute>
+                </action> </item>
+                <item label="Konquest"> <action name="Execute">
+                    <execute>konquest</execute>
+                </action> </item>
+                <item label="KsirK"> <action name="Execute">
+                    <execute>ksirk</execute>
+                </action> </item>
+                <item label="KsirK Skin Editor"> <action name="Execute">
+                    <execute>ksirkskineditor</execute>
+                </action> </item>
+                <item label="Naval Battle"> <action name="Execute">
+                    <execute>knavalbattle</execute>
+                </action> </item>
+                <item label="SameGame"> <action name="Execute">
+                    <execute>klickety --KSameMode</execute>
+                </action> </item>
+            </menu>
+        </menu>
+        <menu id="6" label="Graphics">
+            <item label="Agave"> <action name="Execute">
+                <execute>agave</execute>
+            </action> </item>
+            <item label="Blender"> <action name="Execute">
+                <execute>blender</execute>
+            </action> </item>
+            <item label="Darktable"> <action name="Execute">
+                <execute>darktable</execute>
+            </action> </item>
+            <item label="Gcolor2"> <action name="Execute">
+                <execute>gcolor2</execute>
+            </action> </item>
+            <item label="GNU Image Manipulation Program"> <action name="Execute">
+                <execute>gimp-2.9</execute>
+            </action> </item>
+            <item label="Gpick"> <action name="Execute">
+                <execute>gpick</execute>
+            </action> </item>
+            <item label="gscreenshot"> <action name="Execute">
+                <execute>gscreenshot</execute>
+            </action> </item>
+            <item label="Gwenview"> <action name="Execute">
+                <execute>gwenview</execute>
+            </action> </item>
+            <item label="Image Viewer"> <action name="Execute">
+                <execute>eog</execute>
+            </action> </item>
+            <item label="Inkscape"> <action name="Execute">
+                <execute>inkscape</execute>
+            </action> </item>
+            <item label="KColorChooser"> <action name="Execute">
+                <execute>kcolorchooser</execute>
+            </action> </item>
+            <item label="KolourPaint"> <action name="Execute">
+                <execute>kolourpaint</execute>
+            </action> </item>
+            <item label="KRuler"> <action name="Execute">
+                <execute>kruler</execute>
+            </action> </item>
+            <item label="Ristretto Image Viewer"> <action name="Execute">
+                <execute>ristretto</execute>
+            </action> </item>
+        </menu>
+        <menu id="7" label="Multimedia">
+            <item label="ALSA mixer"> <action name="Execute">
+                <execute>alacritty -e alsamixer</execute>
+            </action> </item>
+            <item label="Dragon Player"> <action name="Execute">
+                <execute>dragon</execute>
+            </action> </item>
+            <item label="EasyTag"> <action name="Execute">
+                <execute>easytag</execute>
+            </action> </item>
+            <item label="Feed The Beast"> <action name="Execute">
+                <execute>feedthebeast</execute>
+            </action> </item>
+            <item label="Grip"> <action name="Execute">
+                <execute>grip</execute>
+            </action> </item>
+            <item label="HDSPConf"> <action name="Execute">
+                <execute>hdspconf</execute>
+            </action> </item>
+            <item label="HDSPMixer"> <action name="Execute">
+                <execute>hdspmixer</execute>
+            </action> </item>
+            <item label="JuK"> <action name="Execute">
+                <execute>juk</execute>
+            </action> </item>
+            <item label="K3b"> <action name="Execute">
+                <execute>k3b</execute>
+            </action> </item>
+            <item label="Kdenlive"> <action name="Execute">
+                <execute>kdenlive</execute>
+            </action> </item>
+            <item label="Kwave Sound Editor"> <action name="Execute">
+                <execute>kwave</execute>
+            </action> </item>
+            <item label="mpv Media Player"> <action name="Execute">
+                <execute>mpv</execute>
+            </action> </item>
+            <item label="OBS"> <action name="Execute">
+                <execute>obs</execute>
+            </action> </item>
+            <item label="PulseAudio Volume Control"> <action name="Execute">
+                <execute>pavucontrol</execute>
+            </action> </item>
+            <item label="Qt V4L2 test Utility"> <action name="Execute">
+                <execute>qv4l2</execute>
+            </action> </item>
+            <item label="VLC media player"> <action name="Execute">
+                <execute>vlc</execute>
+            </action> </item>
+        </menu>
+        <menu id="5" label="Network">
+            <item label="Akregator"> <action name="Execute">
+                <execute>akregator</execute>
+            </action> </item>
+            <item label="Avahi SSH Server Browser"> <action name="Execute">
+                <execute>bssh</execute>
+            </action> </item>
+            <item label="Avahi VNC Server Browser"> <action name="Execute">
+                <execute>bvnc</execute>
+            </action> </item>
+            <item label="Chromium"> <action name="Execute">
+                <execute>chromium</execute>
+            </action> </item>
+            <item label="Discord"> <action name="Execute">
+                <execute>discord</execute>
+            </action> </item>
+            <item label="Discord Canary"> <action name="Execute">
+                <execute>discord-canary</execute>
+            </action> </item>
+            <item label="FireFox"> <action name="Execute">
+                <execute>firefox</execute>
+            </action> </item>
+            <item label="FTP"> <action name="Execute">
+                <execute>alacritty -e ftp</execute>
+            </action> </item>
+            <item label="IM Contacts"> <action name="Execute">
+                <execute>ktp-contactlist</execute>
+            </action> </item>
+            <item label="KDE Connect Indicator"> <action name="Execute">
+                <execute>kdeconnect-indicator</execute>
+            </action> </item>
+            <item label="KDE IM Log Viewer"> <action name="Execute">
+                <execute>ktp-log-viewer</execute>
+            </action> </item>
+            <item label="KGet"> <action name="Execute">
+                <execute>kget</execute>
+            </action> </item>
+            <item label="Konqueror"> <action name="Execute">
+                <execute>konqueror</execute>
+            </action> </item>
+            <item label="KRDC"> <action name="Execute">
+                <execute>krdc</execute>
+            </action> </item>
+            <item label="Krfb"> <action name="Execute">
+                <execute>krfb</execute>
+            </action> </item>
+            <item label="Lynx"> <action name="Execute">
+                <execute>alacritty -e lynx</execute>
+            </action> </item>
+            <item label="Mail"> <action name="Execute">
+                <execute>alacritty -e mail</execute>
+            </action> </item>
+            <item label="Mail Reader"> <action name="Execute">
+                <execute>exo-open --launch MailReader</execute>
+            </action> </item>
+            <item label="Mutt"> <action name="Execute">
+                <execute>alacritty -e mutt</execute>
+            </action> </item>
+            <item label="Steam (Native)"> <action name="Execute">
+                <execute>steam-native</execute>
+            </action> </item>
+            <item label="Steam (Runtime)"> <action name="Execute">
+                <execute>steam-runtime</execute>
+            </action> </item>
+            <item label="Syncthing GTK"> <action name="Execute">
+                <execute>syncthing-gtk</execute>
+            </action> </item>
+            <item label="Talk"> <action name="Execute">
+                <execute>alacritty -e talk</execute>
+            </action> </item>
+            <item label="Telnet"> <action name="Execute">
+                <execute>alacritty -e telnet</execute>
+            </action> </item>
+            <item label="Thunderbird"> <action name="Execute">
+                <execute>thunderbird</execute>
+            </action> </item>
+            <item label="Tor Browser (en-US)"> <action name="Execute">
+                <execute>tor-browser</execute>
+            </action> </item>
+            <item label="Transmission"> <action name="Execute">
+                <execute>transmission-gtk</execute>
+            </action> </item>
+            <item label="uTox"> <action name="Execute">
+                <execute>utox</execute>
+            </action> </item>
+            <item label="W3m"> <action name="Execute">
+                <execute>alacritty -e w3m</execute>
+            </action> </item>
+            <item label="Web Browser"> <action name="Execute">
+                <execute>exo-open --launch WebBrowser</execute>
+            </action> </item>
+            <item label="Wicd"> <action name="Execute">
+                <execute>wicd-client</execute>
+            </action> </item>
+        </menu>
+        <menu id="3" label="Office">
+            <item label="Contact Print Theme Editor"> <action name="Execute">
+                <execute>contactprintthemeeditor</execute>
+            </action> </item>
+            <item label="Contact Theme Editor"> <action name="Execute">
+                <execute>contactthemeeditor</execute>
+            </action> </item>
+            <item label="Dictionary"> <action name="Execute">
+                <execute>xfce4-dict</execute>
+            </action> </item>
+            <item label="Document Viewer"> <action name="Execute">
+                <execute>evince</execute>
+            </action> </item>
+            <item label="Evolution"> <action name="Execute">
+                <execute>evolution</execute>
+            </action> </item>
+            <item label="KAddressBook"> <action name="Execute">
+                <execute>kaddressbook</execute>
+            </action> </item>
+            <item label="KMail"> <action name="Execute">
+                <execute>kmail</execute>
+            </action> </item>
+            <item label="KMail Header Theme Editor"> <action name="Execute">
+                <execute>headerthemeeditor</execute>
+            </action> </item>
+            <item label="Kontact"> <action name="Execute">
+                <execute>kontact</execute>
+            </action> </item>
+            <item label="KOrganizer"> <action name="Execute">
+                <execute>korganizer</execute>
+            </action> </item>
+            <item label="KTnef"> <action name="Execute">
+                <execute>ktnef</execute>
+            </action> </item>
+            <item label="LibreOffice Impress"> <action name="Execute">
+                <execute>libreoffice</execute>
+            </action> </item>
+            <item label="OCRFeeder"> <action name="Execute">
+                <execute>ocrfeeder</execute>
+            </action> </item>
+            <item label="Okular"> <action name="Execute">
+                <execute>okular</execute>
+            </action> </item>
+            <item label="Orage Calendar"> <action name="Execute">
+                <execute>orage</execute>
+            </action> </item>
+            <item label="Orage Globaltime"> <action name="Execute">
+                <execute>globaltime</execute>
+            </action> </item>
+            <item label="PIM Setting Exporter"> <action name="Execute">
+                <execute>pimsettingexporter</execute>
+            </action> </item>
+            <item label="ProjectLibre"> <action name="Execute">
+                <execute>projectlibre</execute>
+            </action> </item>
+            <item label="Sieve Editor"> <action name="Execute">
+                <execute>sieveeditor</execute>
+            </action> </item>
+            <item label="Zathura"> <action name="Execute">
+                <execute>zathura</execute>
+            </action> </item>
+        </menu>
+        <menu id="39" label="Other">
+            <item label="Help"> <action name="Execute">
+                <execute>khelpcenter</execute>
+            </action> </item>
+            <item label="NVIDIA X Server Settings"> <action name="Execute">
+                <execute>nvidia-settings</execute>
+            </action> </item>
+        </menu>
+        <menu id="4" label="Science">
+            <item label="Cantor"> <action name="Execute">
+                <execute>cantor -qwindowicon cantor</execute>
+            </action> </item>
+            <item label="FreeCAD"> <action name="Execute">
+                <execute>freecad</execute>
+            </action> </item>
+            <item label="GTKWave"> <action name="Execute">
+                <execute>gtkwave</execute>
+            </action> </item>
+            <item label="KAlgebra"> <action name="Execute">
+                <execute>kalgebra</execute>
+            </action> </item>
+            <item label="KAlgebra Mobile"> <action name="Execute">
+                <execute>kalgebramobile</execute>
+            </action> </item>
+            <item label="Kalzium"> <action name="Execute">
+                <execute>kalzium</execute>
+            </action> </item>
+            <item label="KBruch"> <action name="Execute">
+                <execute>kbruch</execute>
+            </action> </item>
+            <item label="KDE Marble"> <action name="Execute">
+                <execute>marble</execute>
+            </action> </item>
+            <item label="Kig"> <action name="Execute">
+                <execute>kig</execute>
+            </action> </item>
+            <item label="KmPlot"> <action name="Execute">
+                <execute>kmplot</execute>
+            </action> </item>
+            <item label="R"> <action name="Execute">
+                <execute>alacritty -e R</execute>
+            </action> </item>
+            <item label="Rocs"> <action name="Execute">
+                <execute>rocs</execute>
+            </action> </item>
+            <item label="SMath Studio"> <action name="Execute">
+                <execute>smath</execute>
+            </action> </item>
+            <item label="Step"> <action name="Execute">
+                <execute>step</execute>
+            </action> </item>
+        </menu>
+        <menu id="19" label="Shells">
+            <item label="Alacritty"> <action name="Execute">
+                <execute>alacritty</execute>
+            </action> </item>
+            <item label="Dolphin"> <action name="Execute">
+                <execute>dolphin</execute>
+            </action> </item>
+            <item label="Files"> <action name="Execute">
+                <execute>nautilus</execute>
+            </action> </item>
+            <item label="GIT"> <action name="Execute">
+                <execute>alacritty -e git</execute>
+            </action> </item>
+            <item label="Konsole"> <action name="Execute">
+                <execute>konsole</execute>
+            </action> </item>
+            <item label="Oracle VM VirtualBox"> <action name="Execute">
+                <execute>VirtualBox</execute>
+            </action> </item>
+            <item label="PlayOnLinux"> <action name="Execute">
+                <execute>playonlinux</execute>
+            </action> </item>
+            <item label="ranger"> <action name="Execute">
+                <execute>alacritty -e ranger</execute>
+            </action> </item>
+            <item label="Terminator"> <action name="Execute">
+                <execute>terminator</execute>
+            </action> </item>
+            <item label="Termite"> <action name="Execute">
+                <execute>termite</execute>
+            </action> </item>
+            <item label="Thunar File Manager"> <action name="Execute">
+                <execute>thunar</execute>
+            </action> </item>
+            <item label="urxvt"> <action name="Execute">
+                <execute>urxvt</execute>
+            </action> </item>
+            <item label="urxvt (client)"> <action name="Execute">
+                <execute>urxvtc</execute>
+            </action> </item>
+            <item label="urxvt (tabbed)"> <action name="Execute">
+                <execute>urxvt-tabbed</execute>
+            </action> </item>
+            <item label="Ualacritty"> <action name="Execute">
+                <execute>ualacritty</execute>
+            </action> </item>
+            <item label="Xfce Terminal"> <action name="Execute">
+                <execute>xfce4-terminal</execute>
+            </action> </item>
+            <item label="alacritty"> <action name="Execute">
+                <execute>alacritty</execute>
+            </action> </item>
+        </menu>
+        <menu id="37" label="System">
+            <menu id="36" label="Settings">
+                <menu id="21" label="GNOME">
+                    <item label="About Me"> <action name="Execute">
+                        <execute>mugshot</execute>
+                    </action> </item>
+                    <item label="LightDM GTK+ Greeter settings"> <action name="Execute">
+                        <execute>lightdm-gtk-greeter-settings-pkexec</execute>
+                    </action> </item>
+                    <item label="Network Connections"> <action name="Execute">
+                        <execute>nm-connection-editor</execute>
+                    </action> </item>
+                    <item label="Privilege granting"> <action name="Execute">
+                        <execute>gksu-properties</execute>
+                    </action> </item>
+                </menu>
+                <menu id="35" label="Xfce">
+                    <item label="Orage preferences"> <action name="Execute">
+                        <execute>orage -p</execute>
+                    </action> </item>
+                    <item label="Settings Manager"> <action name="Execute">
+                        <execute>xfce4-settings-manager</execute>
+                    </action> </item>
+                </menu>
+                <item label="Accessibility"> <action name="Execute">
+                    <execute>xfce4-accessibility-settings</execute>
+                </action> </item>
+                <item label="Appearance"> <action name="Execute">
+                    <execute>xfce4-appearance-settings</execute>
+                </action> </item>
+                <item label="Customize Look and Feel"> <action name="Execute">
+                    <execute>lxappearance</execute>
+                </action> </item>
+                <item label="Desktop"> <action name="Execute">
+                    <execute>xfdesktop-settings</execute>
+                </action> </item>
+                <item label="Display"> <action name="Execute">
+                    <execute>xfce4-display-settings</execute>
+                </action> </item>
+                <item label="File Manager"> <action name="Execute">
+                    <execute>thunar-settings</execute>
+                </action> </item>
+                <item label="KDE Connect Settings"> <action name="Execute">
+                    <execute>kcmshell5 kcm_kdeconnect</execute>
+                </action> </item>
+                <item label="KDE System Settings"> <action name="Execute">
+                    <execute>systemsettings5</execute>
+                </action> </item>
+                <item label="Keyboard"> <action name="Execute">
+                    <execute>xfce4-keyboard-settings</execute>
+                </action> </item>
+                <item label="Manage Printing"> <action name="Execute">
+                    <execute>xdg-open http://localhost:631/</execute>
+                </action> </item>
+                <item label="MIME Type Editor"> <action name="Execute">
+                    <execute>xfce4-mime-settings</execute>
+                </action> </item>
+                <item label="Mouse and Touchpad"> <action name="Execute">
+                    <execute>xfce4-mouse-settings</execute>
+                </action> </item>
+                <item label="Notifications"> <action name="Execute">
+                    <execute>xfce4-notifyd-config</execute>
+                </action> </item>
+                <item label="Openbox Configuration Manager"> <action name="Execute">
+                    <execute>obconf</execute>
+                </action> </item>
+                <item label="Panel"> <action name="Execute">
+                    <execute>xfce4-panel --preferences</execute>
+                </action> </item>
+                <item label="Passwords and Keys"> <action name="Execute">
+                    <execute>seahorse</execute>
+                </action> </item>
+                <item label="Power Manager"> <action name="Execute">
+                    <execute>xfce4-power-manager-settings</execute>
+                </action> </item>
+                <item label="Preferred Applications"> <action name="Execute">
+                    <execute>exo-preferred-applications</execute>
+                </action> </item>
+                <item label="Print Settings"> <action name="Execute">
+                    <execute>system-config-printer</execute>
+                </action> </item>
+                <item label="Qt5 Settings"> <action name="Execute">
+                    <execute>qt5ct</execute>
+                </action> </item>
+                <item label="Removable Drives and Media"> <action name="Execute">
+                    <execute>thunar-volman-settings</execute>
+                </action> </item>
+                <item label="Session and Startup"> <action name="Execute">
+                    <execute>xfce4-session-settings</execute>
+                </action> </item>
+                <item label="Settings Editor"> <action name="Execute">
+                    <execute>xfce4-settings-editor</execute>
+                </action> </item>
+                <item label="Tint2 Settings"> <action name="Execute">
+                    <execute>tint2conf</execute>
+                </action> </item>
+                <item label="Window Manager"> <action name="Execute">
+                    <execute>xfwm4-settings</execute>
+                </action> </item>
+                <item label="Window Manager Tweaks"> <action name="Execute">
+                    <execute>xfwm4-tweaks-settings</execute>
+                </action> </item>
+                <item label="Workspaces"> <action name="Execute">
+                    <execute>xfwm4-workspace-settings</execute>
+                </action> </item>
+            </menu>
+            <item label="Avahi Zeroconf Browser"> <action name="Execute">
+                <execute>avahi-discover</execute>
+            </action> </item>
+            <item label="Bulk Rename"> <action name="Execute">
+                <execute>/usr/lib/Thunar/ThunarBulkRename</execute>
+            </action> </item>
+            <item label="Discover"> <action name="Execute">
+                <execute>plasma-discover</execute>
+            </action> </item>
+            <item label="Disk Usage Analyzer"> <action name="Execute">
+                <execute>baobab</execute>
+            </action> </item>
+            <item label="GParted"> <action name="Execute">
+                <execute>gparted</execute>
+            </action> </item>
+            <item label="Grsync"> <action name="Execute">
+                <execute>grsync</execute>
+            </action> </item>
+            <item label="Htop"> <action name="Execute">
+                <execute>alacritty -e htop</execute>
+            </action> </item>
+            <item label="Info Center"> <action name="Execute">
+                <execute>kinfocenter</execute>
+            </action> </item>
+            <item label="KDiskFree"> <action name="Execute">
+                <execute>kdf</execute>
+            </action> </item>
+            <item label="KSysGuard"> <action name="Execute">
+                <execute>ksysguard</execute>
+            </action> </item>
+            <item label="KSystemLog"> <action name="Execute">
+                <execute>ksystemlog</execute>
+            </action> </item>
+            <item label="KWalletManager"> <action name="Execute">
+                <execute>kwalletmanager5</execute>
+            </action> </item>
+            <item label="KwikDisk"> <action name="Execute">
+                <execute>kwikdisk</execute>
+            </action> </item>
+            <item label="Log Out"> <action name="Execute">
+                <execute>xfce4-session-logout</execute>
+            </action> </item>
+            <item label="NVCLOCK"> <action name="Execute">
+                <execute>gksu nvclock_gtk</execute>
+            </action> </item>
+            <item label="Sensor Viewer"> <action name="Execute">
+                <execute>xfce4-sensors</execute>
+            </action> </item>
+            <item label="Task Manager"> <action name="Execute">
+                <execute>xfce4-taskmanager</execute>
+            </action> </item>
+            <item label="Tint2"> <action name="Execute">
+                <execute>tint2</execute>
+            </action> </item>
+            <item label="VMware Player"> <action name="Execute">
+                <execute>vmplayer</execute>
+            </action> </item>
+        </menu>
+        <menu id="38" label="Utilities">
+            <item label="About Xfce"> <action name="Execute">
+                <execute>xfce4-about</execute>
+            </action> </item>
+            <item label="Application Finder"> <action name="Execute">
+                <execute>xfce4-appfinder</execute>
+            </action> </item>
+            <item label="Ark"> <action name="Execute">
+                <execute>ark</execute>
+            </action> </item>
+            <item label="Catfish File Search"> <action name="Execute">
+                <execute>catfish</execute>
+            </action> </item>
+            <item label="Clipman"> <action name="Execute">
+                <execute>xfce4-clipman</execute>
+            </action> </item>
+            <item label="compton"> <action name="Execute">
+                <execute>compton --xrender-sync-fence</execute>
+            </action> </item>
+            <item label="Disks"> <action name="Execute">
+                <execute>gnome-disks</execute>
+            </action> </item>
+            <item label="File Manager"> <action name="Execute">
+                <execute>exo-open --launch FileManager</execute>
+            </action> </item>
+            <item label="Filelight"> <action name="Execute">
+                <execute>filelight</execute>
+            </action> </item>
+            <item label="Gxmessage"> <action name="Execute">
+                <execute>gxmessage</execute>
+            </action> </item>
+            <item label="KAlarm"> <action name="Execute">
+                <execute>kalarm</execute>
+            </action> </item>
+            <item label="KCalc"> <action name="Execute">
+                <execute>kcalc</execute>
+            </action> </item>
+            <item label="KCharSelect"> <action name="Execute">
+                <execute>kcharselect</execute>
+            </action> </item>
+            <item label="KFind"> <action name="Execute">
+                <execute>kfind</execute>
+            </action> </item>
+            <item label="KFloppy"> <action name="Execute">
+                <execute>kfloppy</execute>
+            </action> </item>
+            <item label="KGpg"> <action name="Execute">
+                <execute>kgpg</execute>
+            </action> </item>
+            <item label="Kleopatra"> <action name="Execute">
+                <execute>kleopatra</execute>
+            </action> </item>
+            <item label="Klipper"> <action name="Execute">
+                <execute>klipper</execute>
+            </action> </item>
+            <item label="KMag"> <action name="Execute">
+                <execute>kmag</execute>
+            </action> </item>
+            <item label="KMail Import Wizard"> <action name="Execute">
+                <execute>akonadiimportwizard</execute>
+            </action> </item>
+            <item label="KMouseTool"> <action name="Execute">
+                <execute>kmousetool</execute>
+            </action> </item>
+            <item label="KMouth"> <action name="Execute">
+                <execute>kmouth</execute>
+            </action> </item>
+            <item label="KNotes"> <action name="Execute">
+                <execute>knotes</execute>
+            </action> </item>
+            <item label="KTeaTime"> <action name="Execute">
+                <execute>kteatime</execute>
+            </action> </item>
+            <item label="KTimer"> <action name="Execute">
+                <execute>ktimer</execute>
+            </action> </item>
+            <item label="Nextcloud desktop sync client"> <action name="Execute">
+                <execute>nextcloud</execute>
+            </action> </item>
+            <item label="Notes"> <action name="Execute">
+                <execute>xfce4-notes</execute>
+            </action> </item>
+            <item label="Okteta"> <action name="Execute">
+                <execute>okteta</execute>
+            </action> </item>
+            <item label="PDF Mod"> <action name="Execute">
+                <execute>pdfmod</execute>
+            </action> </item>
+            <item label="Redshift"> <action name="Execute">
+                <execute>redshift-gtk</execute>
+            </action> </item>
+            <item label="Run Program..."> <action name="Execute">
+                <execute>xfce4-appfinder --collapsed</execute>
+            </action> </item>
+            <item label="Screenkey"> <action name="Execute">
+                <execute>screenkey</execute>
+            </action> </item>
+            <item label="Screenshot"> <action name="Execute">
+                <execute>xfce4-screenshooter</execute>
+            </action> </item>
+            <item label="Spectacle"> <action name="Execute">
+                <execute>spectacle</execute>
+            </action> </item>
+            <item label="Sweeper"> <action name="Execute">
+                <execute>sweeper</execute>
+            </action> </item>
+            <item label="Terminal Emulator"> <action name="Execute">
+                <execute>exo-open --launch TerminalEmulator</execute>
+            </action> </item>
+            <item label="Xarchiver"> <action name="Execute">
+                <execute>xarchiver</execute>
+            </action> </item>
+        </menu>
+        <separator/>
+        <menu id="40" label="OpenBox">
+            <menu id="client-list-menu"/>
+            <item label="Reconfigure"> <action name="Reconfigure"/> </item>
+            <separator/>
+            <item label="Exit"> <action name="Exit"/> </item>
+        </menu>
+    </menu>
+</openbox_menu>
