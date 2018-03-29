@@ -25,6 +25,8 @@ export FZF_DEFAULT_COMMAND='ag -l \
   --ignore public \
   --ignore build \
   --ignore vendor \
+  --ignore env \
+  --ignore __pycache__ \
   -g ""'
 
 export KEYTIMEOUT=1
