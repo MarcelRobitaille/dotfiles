@@ -35,6 +35,7 @@ Plug 'tpope/vim-unimpaired'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'airblade/vim-gitgutter'
 
 " Save session
 Plug 'tpope/vim-obsession'
@@ -42,6 +43,7 @@ Plug 'tpope/vim-obsession'
 " Word and case variants
 Plug 'tpope/tpope-vim-abolish'
 
+Plug 'metakirby5/codi.vim'
 
 "
 " Convenience
@@ -105,6 +107,9 @@ Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'lervag/vimtex'
+Plug 'klen/python-mode'
+" Plug 'hdima/python-syntax'
+" Plug 'nvie/vim-flake8'
 
 
 "
@@ -121,6 +126,7 @@ let @i = "^cwimportf=dwcwfrom lds("
 
 " Macro to fix typos in line
 let @s = "$[s1z="
+let g:doxygen_enhanced_color = 1
 
 "
 " General settings
@@ -168,17 +174,6 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 let g:vim_markdown_conceal = 0
-
-" Trailing whitespace
-hi ExtraWhitespace guifg=red guibg=red
-augroup whitespace
-  autocmd!
-  autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-  autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-  autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-  autocmd BufWinLeave * call clearmatches()
-  autocmd BufEnter * call s:WhitespaceHighlight()
-augroup END
 
 
 "
@@ -415,6 +410,17 @@ endif
 
 
 "
+" Git gutter
+"
+
+let g:gitgutter_sign_added='┃'
+let g:gitgutter_sign_modified='┃'
+let g:gitgutter_sign_removed='◢'
+let g:gitgutter_sign_removed_first_line='◥'
+let g:gitgutter_sign_modified_removed='◢'
+
+
+"
 " FZF
 "
 
@@ -475,4 +481,7 @@ imap <C-_> <Plug>NERDCommenterInsert
 let g:tex_conceal = ""
 
 let g:languagetool_jar='/usr/share/java/languagetool/languagetool-commandline.jar'
+
+let g:pymode_options_colorcolumn = 0
+let g:pymode_folding = 0
 
