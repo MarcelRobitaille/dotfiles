@@ -9,6 +9,9 @@ call plug#begin('~/.vim/plugged')
 " Additional functionality
 "
 
+Plug 'tpope/vim-db'
+Plug 'tpope/vim-dotenv'
+
 " Add more targets
 Plug 'wellle/targets.vim'
 
@@ -70,6 +73,11 @@ Plug 'Valloric/YouCompleteMe'
 " Switch between single line and multi line statemnts
 Plug 'AndrewRadev/splitjoin.vim'
 
+" Spelling and grammar checking
+Plug 'vim-scripts/LanguageTool'
+
+Plug 'airblade/vim-accent'
+
 
 "
 " Inconvinience
@@ -99,6 +107,7 @@ Plug 'haya14busa/incsearch.vim'
 
 " Syntax plugins
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'digitaltoad/vim-pug'
 Plug 'elzr/vim-json'
@@ -121,6 +130,9 @@ let @i = "^cwimportf=dwcwfrom lds("
 
 " Macro to fix typos in line
 let @s = "$[s1z="
+
+" Convert class method to arrow function
+let @a = "^f(i = f{i=> "
 
 "
 " General settings
@@ -154,6 +166,7 @@ set listchars=trail:·
 
 " Indentation
 set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
+set cinoptions=l1
 
 " Line numbers
 set number
@@ -169,16 +182,11 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 
 let g:vim_markdown_conceal = 0
 
-" Trailing whitespace
-hi ExtraWhitespace guifg=red guibg=red
-augroup whitespace
-  autocmd!
-  autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-  autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-  autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-  autocmd BufWinLeave * call clearmatches()
-  autocmd BufEnter * call s:WhitespaceHighlight()
-augroup END
+" Show trailing whitespace
+match Todo /\s\+$/
+
+" No folding
+set nofoldenable
 
 
 "
@@ -253,7 +261,7 @@ nnoremap <leader>q :bn<CR>:bd #<CR>
 set autoread
 
 function! Autoread(timer)
-    silent checktime %
+  silent checktime %
 endfunction!
 let timer = timer_start(100, 'Autoread', { 'repeat': -1 })
 
@@ -301,6 +309,9 @@ let g:ale_linters = {
 \ 'cpp': [
 \   'g++',
 \ ],
+\ 'jsx': [
+\   'eslint',
+\ ],
 \}
 
 let g:ale_fixers = {
@@ -308,6 +319,8 @@ let g:ale_fixers = {
 \   'eslint',
 \ ],
 \}
+
+let g:ale_python_flake8_options = "--ignore=W391"
 
 nnoremap <leader>f :ALEFix<CR>
 
@@ -368,6 +381,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Remove colon after buffer number
 let g:airline#extensions#tabline#buffer_nr_format = '%s '
+
 
 
 "
@@ -475,4 +489,31 @@ imap <C-_> <Plug>NERDCommenterInsert
 let g:tex_conceal = ""
 
 let g:languagetool_jar='/usr/share/java/languagetool/languagetool-commandline.jar'
+
+function! CompletionChain(findstart, base)
+  if a:findstart
+    " Test against the functions one by one
+    for func in g:user_completion_chain
+      let pos = call(func, [a:findstart, a:base])
+      " If a function can complete the prefix,
+      " remember the name and return the result from the function
+      if pos >= 0
+        let s:current_completion = func
+        return pos
+      endif
+    endfor
+
+    " No completion can be done
+    unlet! s:current_completion
+    return -1
+  elseif exists('s:current_completion')
+    " Simply pass the arguments to the selected function
+    return call(s:current_completion, [a:findstart, a:base])
+  else
+    return []
+  endif
+endfunction
+
+let g:user_completion_chain = ['accent#AccentCompletion', 'youcompleteme#Complete']
+set completefunc=CompletionChain
 
