@@ -30,10 +30,15 @@ grep \
   --exclude-dir 'node_modules' \
   --exclude-dir 'public' \
   --exclude-dir 'build' \
-  --exclude 'package.*' \
+  --exclude-dir 'vendor' \
+  --exclude-dir 'env' \
+  --exclude-dir '__pycache__' \
+  --exclude 'package.json' \
+  --exclude 'package-lock.json' \
   --exclude 'yarn.*' \
   --exclude '*.swp' \
   --exclude 'tags' \
+  --exclude 'README.html' \
   "$1" \
   . |
 
