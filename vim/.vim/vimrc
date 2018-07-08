@@ -123,15 +123,20 @@ Plug 'statico/vim-javascript-sql'
 
 call plug#end()
 
+
+"
+" Macros
+"
+
 " Macro to switch common.js to es6 imports
 let @i = "^cwimportf=dwcwfrom lds("
 
 " Macro to fix typos in line
 let @s = "$[s1z="
-let g:doxygen_enhanced_color = 1
 
 " Convert class method to arrow function
 let @a = "^f(i = f{i=> "
+
 
 "
 " General settings
@@ -186,6 +191,13 @@ match Todo /\s\+$/
 
 " No folding
 set nofoldenable
+
+" Highlight characters that go over line length limit
+augroup vimrc_autocmds
+  autocmd BufEnter * highlight OverLength ctermbg=grey
+  autocmd BufEnter * match OverLength /\%80v.*/
+augroup END
+
 
 "
 " Navigation
@@ -247,7 +259,7 @@ set hidden
 
 " Go to nth buffer
 let c = 1
-while c <= 99
+while c <= 999
   execute "nnoremap " . c . "<leader> :" . c . "b\<CR>"
   let c += 1
 endwhile
@@ -277,6 +289,10 @@ nnoremap <leader>dd 0D
 
 nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
+
+" Continue comments on next line when max length is reached
+set textwidth=80
+set formatoptions+=c
 
 
 "
