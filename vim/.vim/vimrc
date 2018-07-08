@@ -9,7 +9,7 @@ call plug#begin('~/.vim/plugged')
 " Additional functionality
 "
 
-Plug 'tpope/vim-db'
+Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dotenv'
 
 " Add more targets
