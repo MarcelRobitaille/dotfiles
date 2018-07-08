@@ -121,14 +121,6 @@ Plug 'statico/vim-javascript-sql'
 " Plug 'hdima/python-syntax'
 " Plug 'nvie/vim-flake8'
 
-
-"
-" Fun stuff
-"
-
-" Gotta watch out for trolls
-" Plug 'vim-utils/vim-troll-stopper'
-
 call plug#end()
 
 " Macro to switch common.js to es6 imports
