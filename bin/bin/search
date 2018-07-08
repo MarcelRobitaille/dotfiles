@@ -34,6 +34,8 @@ grep \
   --exclude 'yarn.*' \
   --exclude '*.swp' \
   --exclude 'tags' \
+  --exclude 'README.html' \
+  --exclude 'package-lock.json' \
   "$1" \
   . |
 
