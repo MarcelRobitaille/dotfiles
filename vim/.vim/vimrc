@@ -9,7 +9,7 @@ call plug#begin('~/.vim/plugged')
 " Additional functionality
 "
 
-Plug 'tpope/vim-db'
+Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dotenv'
 
 " Add more targets
@@ -38,6 +38,7 @@ Plug 'tpope/vim-unimpaired'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'airblade/vim-gitgutter'
 
 " Save session
 Plug 'tpope/vim-obsession'
@@ -45,6 +46,7 @@ Plug 'tpope/vim-obsession'
 " Word and case variants
 Plug 'tpope/tpope-vim-abolish'
 
+Plug 'metakirby5/codi.vim'
 
 "
 " Convenience
@@ -114,16 +116,17 @@ Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'lervag/vimtex'
-
-
-"
-" Fun stuff
-"
-
-" Gotta watch out for trolls
-" Plug 'vim-utils/vim-troll-stopper'
+Plug 'klen/python-mode'
+Plug 'statico/vim-javascript-sql'
+" Plug 'hdima/python-syntax'
+" Plug 'nvie/vim-flake8'
 
 call plug#end()
+
+
+"
+" Macros
+"
 
 " Macro to switch common.js to es6 imports
 let @i = "^cwimportf=dwcwfrom lds("
@@ -133,6 +136,7 @@ let @s = "$[s1z="
 
 " Convert class method to arrow function
 let @a = "^f(i = f{i=> "
+
 
 "
 " General settings
@@ -187,6 +191,12 @@ match Todo /\s\+$/
 
 " No folding
 set nofoldenable
+
+" Highlight characters that go over line length limit
+augroup vimrc_autocmds
+  autocmd BufEnter * highlight OverLength ctermbg=grey
+  autocmd BufEnter * match OverLength /\%80v.*/
+augroup END
 
 
 "
@@ -249,7 +259,7 @@ set hidden
 
 " Go to nth buffer
 let c = 1
-while c <= 99
+while c <= 999
   execute "nnoremap " . c . "<leader> :" . c . "b\<CR>"
   let c += 1
 endwhile
@@ -279,6 +289,10 @@ nnoremap <leader>dd 0D
 
 nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
+
+" Continue comments on next line when max length is reached
+set textwidth=80
+set formatoptions+=c
 
 
 "
@@ -429,6 +443,17 @@ endif
 
 
 "
+" Git gutter
+"
+
+let g:gitgutter_sign_added='┃'
+let g:gitgutter_sign_modified='┃'
+let g:gitgutter_sign_removed='◢'
+let g:gitgutter_sign_removed_first_line='◥'
+let g:gitgutter_sign_modified_removed='◢'
+
+
+"
 " FZF
 "
 
@@ -489,6 +514,9 @@ imap <C-_> <Plug>NERDCommenterInsert
 let g:tex_conceal = ""
 
 let g:languagetool_jar='/usr/share/java/languagetool/languagetool-commandline.jar'
+
+let g:pymode_options_colorcolumn = 0
+let g:pymode_folding = 0
 
 function! CompletionChain(findstart, base)
   if a:findstart
