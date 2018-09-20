@@ -4,6 +4,9 @@
 # source ../../../omzsh/exports.sh
 export PATH="$PATH:$HOME/bin/"
 
+# Use detected monitor layout
+hash autorandr 2&>1 > /dev/null && autorandr -c
+
 # Restore desktop background
 ~/.fehbg
 
