@@ -279,12 +279,12 @@
         <command>rofi-pass</command>
       </action>
     </keybind>
-    <keybind key="print">
+    <keybind key="Print">
       <action name="Execute">
         <command>gscreenshot-cli -sc</command>
       </action>
     </keybind>
-    <keybind key="S-print">
+    <keybind key="S-Print">
       <action name="Execute">
         <command>gscreenshot-cli</command>
       </action>
