@@ -14,18 +14,20 @@ env:
   # `infocmp xterm-256color`.
   TERM: xterm-256color
 
-# Window dimensions in character columns and lines
-# (changes require restart)
-dimensions:
-  columns: 80
-  lines: 24
+window:
 
-# Adds this many blank pixels of padding around the window
-# Units are physical pixels; this is not DPI aware.
-# (change requires restart)
-padding:
-  x: 20
-  y: 20
+  # Window dimensions in character columns and lines
+  # (changes require restart)
+  dimensions:
+    columns: 80
+    lines: 24
+
+  # Adds this many blank pixels of padding around the window
+  # Units are physical pixels; this is not DPI aware.
+  # (change requires restart)
+  padding:
+    x: 20
+    y: 20
 
 # The FreeType rasterizer needs to know the device DPI for best results
 # (changes require restart)
@@ -60,7 +62,7 @@ font:
     # style: Italic
 
   # Point size of the font
-  size: 7.5
+  size: 11
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
