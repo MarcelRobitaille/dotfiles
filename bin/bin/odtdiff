@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+tmp1="/tmp/`basename $1`-`openssl rand -base64 12`.txt"
+tmp2="/tmp/`basename $2`-`openssl rand -base64 12`.txt"
+
+if [ ! -f "$1" ]; then exit 1; fi
+if [ ! -f "$2" ]; then exit 1; fi
+
+odt2txt "$1"  > "$tmp1"
+odt2txt "$2"  > "$tmp2"
+
+vimdiff "$tmp1" "$tmp2"
+
