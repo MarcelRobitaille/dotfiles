@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dotenv'
+Plug 'tpope/vim-commentary'
 
 " Add more targets
 Plug 'wellle/targets.vim'
@@ -57,9 +58,6 @@ Plug 'farmergreg/vim-lastplace'
 
 " Snippet engine
 Plug 'SirVer/ultisnips'
-
-" Toggle comments
-Plug 'scrooloose/nerdcommenter'
 
 " Emmet
 Plug 'mattn/emmet-vim'
@@ -343,7 +341,11 @@ nnoremap <leader>f :ALEFix<CR>
 " You Complete Me
 "
 
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_filepath_blacklist = {}
+
 let g:ycm_global_ycm_extra_conf = '/home/marcel/.vim/ycm_global_ycm_extra_conf.py'
 
 let g:ycm_semantic_triggers = {
@@ -467,8 +469,6 @@ nnoremap <C-p> :FZF<CR>
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
 
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 
@@ -503,13 +503,13 @@ let g:user_emmet_expandabbr_key = "<s-tab>"
 
 
 "
-" NERDCommenter
+" Commentary
 "
 
 let g:NERDSpaceDelims = 1
 
-map <C-_> <Plug>NERDCommenterToggle
-imap <C-_> <Plug>NERDCommenterInsert
+nmap <C-_> <Plug>CommentaryLine
+vmap <C-_> <Plug>Commentary
 
 let g:tex_conceal = ""
 

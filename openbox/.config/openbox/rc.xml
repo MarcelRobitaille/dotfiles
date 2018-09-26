@@ -286,7 +286,12 @@
     </keybind>
     <keybind key="S-Print">
       <action name="Execute">
-        <command>gscreenshot-cli</command>
+        <command>gscreenshot-cli -sco</command>
+      </action>
+    </keybind>
+    <keybind key="A-print">
+      <action name="Execute">
+        <command>gscreenshot</command>
       </action>
     </keybind>
     <keybind key="W-k">
