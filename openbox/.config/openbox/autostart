@@ -16,7 +16,8 @@ xbindkeys &
 # Hot corners
 lead &
 
-# Save my eyes
+# Compositing
+compton &
 redshift &
 
 # Start nextcloud client
