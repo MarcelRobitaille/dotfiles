@@ -31,6 +31,13 @@ export FZF_DEFAULT_COMMAND='ag -l \
 
 export KEYTIMEOUT=1
 
+
+#
+# Less
+#
+
+export LESS=-XFr
+
 #
 # NPM
 #
