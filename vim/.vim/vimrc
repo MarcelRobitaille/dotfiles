@@ -192,8 +192,8 @@ set nofoldenable
 
 " Highlight characters that go over line length limit
 augroup vimrc_autocmds
-  autocmd BufEnter * highlight OverLength ctermbg=grey
-  autocmd BufEnter * match OverLength /\%80v.*/
+  autocmd BufEnter *.js highlight OverLength ctermbg=grey
+  autocmd BufEnter *.js match OverLength /\%82v.*/
 augroup END
 
 
