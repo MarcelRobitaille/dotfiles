@@ -1,0 +1,35 @@
+#!/bin/zsh
+
+VM_UUID="22179f7e-6102-4e21-b00a-f692be50daed"
+VM_USERNAME="marcel"
+VM_PASSWORD="vboxpassword"
+
+ORIG_IFS=$IFS
+IFS=`echo -n "\n\b"`
+
+for filename in `echo "$@" | sed 's/\(\(.pptx\)[ ]*\)/\2\n/g'`; do
+
+  dir=`dirname "$filename"`
+  input=`basename "$filename"`
+  output=`echo "$input" | sed 's/pptx$/pdf/'`
+  uuid=`openssl rand -hex 12`
+
+  cd "$dir"
+
+  cp "./$input" "/tmp/$uuid-$input"
+
+  VBoxManage guestcontrol \
+    $VM_UUID \
+    run --username $VM_USERNAME --password $VM_PASSWORD -- \
+    "C:\\Windows\\System32\\cscript.exe" \
+    "C:\\Users\\marcel\\Documents\\ppt2pdf.vbs" \
+    "\\\\vboxsrv\\tmp\\$uuid-$input" \
+    "\\\\vboxsrv\\tmp\\$uuid-$output"
+
+  mv "/tmp/$uuid-$output" "./$output"
+  rm "/tmp/$uuid-$input"
+
+done
+
+IFS=$ORIG_IFS
+
