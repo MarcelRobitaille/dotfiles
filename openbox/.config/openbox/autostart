@@ -30,6 +30,9 @@ nextcloud &
 # Network applet
 nm-applet &
 
+# Printer applet
+system-config-printer-applet &
+
 # Panels
 tint2 &
 
