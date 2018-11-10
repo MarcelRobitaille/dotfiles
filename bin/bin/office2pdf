@@ -18,6 +18,14 @@ if [[ `vboxmanage showvminfo $VM_UUID | grep -c "running (since"` == '0' ]]; the
   exit 1
 fi
 
+
+if ! guestcontrol stat "C:\\Users\\$VM_USERNAME\\bin\\" > /dev/null; then
+  guestcontrol run -- \
+    "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" \
+    -command "mkdir C:\\Users\\$VM_USERNAME\\bin\\" \
+    > /dev/null
+fi
+
 if ! guestcontrol stat "C:\\Users\\$VM_USERNAME\\bin\\office2pdf.vbs" > /dev/null; then
   echo "Downloading VB script"
   wget "$GIST_URL" -O /tmp/office2pdf.vbs
