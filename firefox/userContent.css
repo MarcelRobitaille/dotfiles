@@ -31,3 +31,17 @@
   }
 }
 
+
+/**
+ * OneNote
+ ****************************************/
+
+.WACInteractiveView.Ltr.SingleOutlineLayout.WACViewPanel {
+  background-color: white !important;
+  color: black !important;
+}
+.WACInteractiveView.Ltr.SingleOutlineLayout.WACViewPanel .Paragraph,
+.WACInteractiveView.Ltr.SingleOutlineLayout.WACViewPanel .TextRun {
+  color: inherit !important;
+}
+
