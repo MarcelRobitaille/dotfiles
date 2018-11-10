@@ -38,11 +38,11 @@ fi
 ORIG_IFS=$IFS
 IFS=`echo -n "\n\b"`
 
-for filename in `echo "$@" | sed 's/\(\(.pptx\)[ ]*\)/\2\n/g'`; do
+for filename in `echo "$@" | sed 's/\(\(.pptx\|.docx\)[ ]*\)/\2\n/g'`; do
 
   dir=`dirname "$filename"`
   input=`basename "$filename"`
-  output=`echo "$input" | sed 's/pptx$/pdf/'`
+  output=`echo "$input" | sed 's/\(pptx\|docx\)$/pdf/'`
 
   # Generate uuid to avoid conflicts in /tmp
   uuid=`openssl rand -hex 12`
