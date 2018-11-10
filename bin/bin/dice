@@ -1,0 +1,108 @@
+#!/bin/bash
+
+#    Klorax Color Dice --- Colorscript with dice look.
+#    https://github.com/klorax/linux_ui_config
+
+#    Copyright © 2018 Klorax.
+
+#    This file is part of Klorax Color Dice.
+#
+#    Klorax Color Dice is free software: you can redistribute it and/or
+#    modify it under the terms of the GNU General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    Klorax Color Dice is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License along
+#    with Klorax Color Dice.  If not, see <http://www.gnu.org/licenses/>.
+
+
+f=3 # Normal colors: 30--37.
+b=4 # Background colors: 40--47.
+for t in f b; do # Type: Foreground or Background.
+  for c in {0..7}; do # Color.
+    printf -v $t$c %b "\e[${!t}${c}m" # f#=30--37, b#=40--47.
+  done
+done
+
+F=9 # Foreground colors: 90--97.
+B=10 # Background colors: 100--107.
+for t in F B; do # Type: Foreground or Background.
+  for c in {0..7}; do # Color.
+    printf -v $t$c %b "\e[1m\e[${!t}${c}m" # F#=90--97, B#=100--107.
+  done
+done
+
+r=$'\e[0m' # Reset.
+s=$'\e[7m' # Swap FG and BG.
+
+
+fg() {
+    cat << EOF
+
+  $f0┏━━━━━━━━━┓$r  $f1┏━━━━━━━━━┓$r  $f2┏━━━━━━━━━┓$r  $f3┏━━━━━━━━━┓$r $s$f0 ┏━━━━━━━━━┓ $r
+  $f0┃         ┃$r  $f1┃         ┃$r  $f2┃         ┃$r  $f3┃         ┃$r $s$f0 ┃         ┃ $r
+  $f0┃    ●    ┃$r  $f1┃    ●    ┃$r  $f2┃    ●    ┃$r  $f3┃    ●    ┃$r $s$f0 ┃    ●    ┃ $r
+  $f0┃         ┃$r  $f1┃         ┃$r  $f2┃         ┃$r  $f3┃         ┃$r $s$f0 ┃         ┃ $r
+  $f0┗━━━━━━━━━┛$r  $f1┗━━━━━━━━━┛$r  $f2┗━━━━━━━━━┛$r  $f3┗━━━━━━━━━┛$r $s$f0 ┗━━━━━━━━━┛ $r
+  $f4┏━━━━━━━━━┓$r  $f5┏━━━━━━━━━┓$r  $f6┏━━━━━━━━━┓$r  $f7┏━━━━━━━━━┓$r $s$f0 ┏━━━━━━━━━┓ $r
+  $f4┃         ┃$r  $f5┃      ●  ┃$r  $f6┃      ●  ┃$r  $f7┃  ●   ●  ┃$r $s$f0 ┃  ●   ●  ┃ $r
+  $f4┃    ●    ┃$r  $f5┃         ┃$r  $f6┃    ●    ┃$r  $f7┃         ┃$r $s$f0 ┃    ●    ┃ $r
+  $f4┃         ┃$r  $f5┃  ●      ┃$r  $f6┃  ●      ┃$r  $f7┃  ●   ●  ┃$r $s$f0 ┃  ●   ●  ┃ $r
+  $f4┗━━━━━━━━━┛$r  $f5┗━━━━━━━━━┛$r  $f6┗━━━━━━━━━┛$r  $f7┗━━━━━━━━━┛$r $s$f0 ┗━━━━━━━━━┛ $r
+  $F0┏━━━━━━━━━┓$r  $F1┏━━━━━━━━━┓$r  $F2┏━━━━━━━━━┓$r  $F3┏━━━━━━━━━┓$r $s$F0 ┏━━━━━━━━━┓ $r
+  $F0┃  ●   ●  ┃$r  $F1┃  ●   ●  ┃$r  $F2┃  ●   ●  ┃$r  $F3┃      ●  ┃$r $s$F0 ┃      ●  ┃ $r
+  $F0┃  ●   ●  ┃$r  $F1┃    ●    ┃$r  $F2┃         ┃$r  $F3┃    ●    ┃$r $s$F0 ┃         ┃ $r
+  $F0┃  ●   ●  ┃$r  $F1┃  ●   ●  ┃$r  $F2┃  ●   ●  ┃$r  $F3┃  ●      ┃$r $s$F0 ┃  ●      ┃ $r
+  $F0┗━━━━━━━━━┛$r  $F1┗━━━━━━━━━┛$r  $F2┗━━━━━━━━━┛$r  $F3┗━━━━━━━━━┛$r $s$F0 ┗━━━━━━━━━┛ $r
+  $F4┏━━━━━━━━━┓$r  $F5┏━━━━━━━━━┓$r  $F6┏━━━━━━━━━┓$r  $F7┏━━━━━━━━━┓$r $s$F0 ┏━━━━━━━━━┓ $r
+  $F4┃  ●   ●  ┃$r  $F5┃  ●   ●  ┃$r  $F6┃  ●   ●  ┃$r  $F7┃  ●   ●  ┃$r $s$F0 ┃  ●   ●  ┃ $r
+  $F4┃  ●   ●  ┃$r  $F5┃  ●   ●  ┃$r  $F6┃  ●   ●  ┃$r  $F7┃  ●   ●  ┃$r $s$F0 ┃  ●   ●  ┃ $r
+  $F4┃  ●   ●  ┃$r  $F5┃  ●   ●  ┃$r  $F6┃  ●   ●  ┃$r  $F7┃  ●   ●  ┃$r $s$F0 ┃  ●   ●  ┃ $r
+  $F4┗━━━━━━━━━┛$r  $F5┗━━━━━━━━━┛$r  $F6┗━━━━━━━━━┛$r  $F7┗━━━━━━━━━┛$r $s$F0 ┗━━━━━━━━━┛ $r
+
+EOF
+}
+
+
+bg() {
+    cat << EOF
+
+ $s$f0 ┏━━━━━━━━━┓ $r$s$f1 ┏━━━━━━━━━┓ $r$s$f2 ┏━━━━━━━━━┓ $r$s$f3 ┏━━━━━━━━━┓ $r$f0 ┏━━━━━━━━━┓ $r
+ $s$f0 ┃         ┃ $r$s$f1 ┃         ┃ $r$s$f2 ┃         ┃ $r$s$f3 ┃         ┃ $r$f0 ┃         ┃ $r
+ $s$f0 ┃    ●    ┃ $r$s$f1 ┃    ●    ┃ $r$s$f2 ┃    ●    ┃ $r$s$f3 ┃    ●    ┃ $r$f0 ┃    ●    ┃ $r
+ $s$f0 ┃         ┃ $r$s$f1 ┃         ┃ $r$s$f2 ┃         ┃ $r$s$f3 ┃         ┃ $r$f0 ┃         ┃ $r
+ $s$f0 ┗━━━━━━━━━┛ $r$s$f1 ┗━━━━━━━━━┛ $r$s$f2 ┗━━━━━━━━━┛ $r$s$f3 ┗━━━━━━━━━┛ $r$f0 ┗━━━━━━━━━┛ $r
+ $s$f4 ┏━━━━━━━━━┓ $r$s$f5 ┏━━━━━━━━━┓ $r$s$f6 ┏━━━━━━━━━┓ $r$s$f7 ┏━━━━━━━━━┓ $r$f0 ┏━━━━━━━━━┓ $r
+ $s$f4 ┃         ┃ $r$s$f5 ┃      ●  ┃ $r$s$f6 ┃      ●  ┃ $r$s$f7 ┃  ●   ●  ┃ $r$f0 ┃  ●   ●  ┃ $r
+ $s$f4 ┃    ●    ┃ $r$s$f5 ┃         ┃ $r$s$f6 ┃    ●    ┃ $r$s$f7 ┃         ┃ $r$f0 ┃    ●    ┃ $r
+ $s$f4 ┃         ┃ $r$s$f5 ┃  ●      ┃ $r$s$f6 ┃  ●      ┃ $r$s$f7 ┃  ●   ●  ┃ $r$f0 ┃  ●   ●  ┃ $r
+ $s$f4 ┗━━━━━━━━━┛ $r$s$f5 ┗━━━━━━━━━┛ $r$s$f6 ┗━━━━━━━━━┛ $r$s$f7 ┗━━━━━━━━━┛ $r$f0 ┗━━━━━━━━━┛ $r
+ $s$F0 ┏━━━━━━━━━┓ $r$s$F1 ┏━━━━━━━━━┓ $r$s$F2 ┏━━━━━━━━━┓ $r$s$F3 ┏━━━━━━━━━┓ $r$F0 ┏━━━━━━━━━┓ $r
+ $s$F0 ┃  ●   ●  ┃ $r$s$F1 ┃  ●   ●  ┃ $r$s$F2 ┃  ●   ●  ┃ $r$s$F3 ┃      ●  ┃ $r$F0 ┃      ●  ┃ $r
+ $s$F0 ┃  ●   ●  ┃ $r$s$F1 ┃    ●    ┃ $r$s$F2 ┃         ┃ $r$s$F3 ┃    ●    ┃ $r$F0 ┃         ┃ $r
+ $s$F0 ┃  ●   ●  ┃ $r$s$F1 ┃  ●   ●  ┃ $r$s$F2 ┃  ●   ●  ┃ $r$s$F3 ┃  ●      ┃ $r$F0 ┃  ●      ┃ $r
+ $s$F0 ┗━━━━━━━━━┛ $r$s$F1 ┗━━━━━━━━━┛ $r$s$F2 ┗━━━━━━━━━┛ $r$s$F3 ┗━━━━━━━━━┛ $r$F0 ┗━━━━━━━━━┛ $r
+ $s$F4 ┏━━━━━━━━━┓ $r$s$F5 ┏━━━━━━━━━┓ $r$s$F6 ┏━━━━━━━━━┓ $r$s$F7 ┏━━━━━━━━━┓ $r$F0 ┏━━━━━━━━━┓ $r
+ $s$F4 ┃  ●   ●  ┃ $r$s$F5 ┃  ●   ●  ┃ $r$s$F6 ┃  ●   ●  ┃ $r$s$F7 ┃  ●   ●  ┃ $r$F0 ┃  ●   ●  ┃ $r
+ $s$F4 ┃  ●   ●  ┃ $r$s$F5 ┃  ●   ●  ┃ $r$s$F6 ┃  ●   ●  ┃ $r$s$F7 ┃  ●   ●  ┃ $r$F0 ┃  ●   ●  ┃ $r
+ $s$F4 ┃  ●   ●  ┃ $r$s$F5 ┃  ●   ●  ┃ $r$s$F6 ┃  ●   ●  ┃ $r$s$F7 ┃  ●   ●  ┃ $r$F0 ┃  ●   ●  ┃ $r
+ $s$F4 ┗━━━━━━━━━┛ $r$s$F5 ┗━━━━━━━━━┛ $r$s$F6 ┗━━━━━━━━━┛ $r$s$F7 ┗━━━━━━━━━┛ $r$F0 ┗━━━━━━━━━┛ $r
+
+EOF
+}
+
+
+case "$1" in
+    *-f)
+        fg
+        ;;
+    *-b)
+        bg
+        ;;
+esac
+
