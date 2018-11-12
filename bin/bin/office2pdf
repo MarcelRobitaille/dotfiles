@@ -14,7 +14,7 @@ guestcontrol() {
 
 # Ensure virtual machine running
 if [[ `vboxmanage showvminfo $VM_UUID | grep -c "running (since"` == '0' ]]; then
-  zenity --text="You're virtual machine is not running." --error
+  zenity --text="Your virtual machine is not running." --error
   exit 1
 fi
 
@@ -30,11 +30,11 @@ fi
 ORIG_IFS=$IFS
 IFS=`echo -n "\n\b"`
 
-for filename in `echo "$@" | sed 's/\(\(.pptx\)[ ]*\)/\2\n/g'`; do
+for filename in `echo "$@" | sed 's/\(\(.ppt|.pptm|.pptx|.docx\)[ ]*\)/\2\n/g'`; do
 
   dir=`dirname "$filename"`
   input=`basename "$filename"`
-  output=`echo "$input" | sed 's/pptx$/pdf/'`
+  output=`echo "$input" | sed 's/\(ppt\|pptm\|pptx\|docx\)$/pdf/'`
 
   # Generate uuid to avoid conflicts in /tmp
   uuid=`openssl rand -hex 12`
