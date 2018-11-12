@@ -36,12 +36,12 @@
  * OneNote
  ****************************************/
 
-.WACInteractiveView.Ltr.SingleOutlineLayout.WACViewPanel {
+.WACInteractiveView.Ltr.WACViewPanel {
   background-color: white !important;
   color: black !important;
 }
-.WACInteractiveView.Ltr.SingleOutlineLayout.WACViewPanel .Paragraph,
-.WACInteractiveView.Ltr.SingleOutlineLayout.WACViewPanel .TextRun {
+.WACInteractiveView.Ltr.WACViewPanel .Paragraph,
+.WACInteractiveView.Ltr.WACViewPanel .TextRun {
   color: inherit !important;
 }
 
