@@ -49,6 +49,9 @@ Plug 'tpope/tpope-vim-abolish'
 
 Plug 'metakirby5/codi.vim'
 
+Plug 'rickhowe/diffchar.vim'
+
+
 "
 " Convenience
 "
