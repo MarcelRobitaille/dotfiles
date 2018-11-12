@@ -69,7 +69,7 @@ import os
 import subprocess
 import logging
 import json
-if  __name__ != "__main__":
+if __name__ != "__main__":
     import ycm_core
 
 # Logger for additional logging.
@@ -94,8 +94,6 @@ def get_idestate(path):
     """Calls [pio -f run -t idedata] to get compiler flags from PlatformIO env
     """
 
-    found_start = False
-    brace_count = 0
     lines = subprocess.check_output([
         'pio',
         '-f',
@@ -106,35 +104,35 @@ def get_idestate(path):
         'idedata',
         '-d',
         path,
-    ], universal_newlines=True )
-    json_lines = []
+    ], universal_newlines=True)
 
-    splitted=lines.splitlines()
+    splitted = lines.splitlines()
 
     found = 0
-    env_names=[]
+    env_names = []
     for line in splitted:
         env_found = line.find("Processing")
-        if env_found != -1 :
-            env_names.append(line[env_found+10:])
+        if env_found != -1:
+            env_names.append(line[env_found + 10:])
         start_brace = line.find("{")
         if start_brace != -1:
-            found+=1
+            found += 1
             if found == 1:
                 end_brace = line.find("}")
-                res=line[start_brace:end_brace+1]
+                res = line[start_brace:end_brace + 1]
 
     if found > 1:
         if __name__ == "__main__":
-            print("\nWARNING !!!\n {num} Environments found:".format(num=found) )
-            for a in env_names: print("\t" + a)
+            print("\nWARNING !!!\n {num} Environments found:".format(num=found))
+            for a in env_names:
+                print("\t" + a)
             print(" Includes and Flags taken from the FIRST one\n")
         else:
-            logger.warning("!!! {num} Environments found:".format(num=found) )
-            for a in env_names: logger.warning("\t" + a)
+            logger.warning("!!! {num} Environments found:".format(num=found))
+            for a in env_names:
+                logger.warning("\t" + a)
             logger.warning(" Includes and Flags taken from the FIRST one")
             logger.warning("!!!")
-
 
     if found:
         return json.loads(res)
@@ -151,47 +149,46 @@ def get_platformio_environment(wdir):
     if idestate == -1:
         return ["ERROR: get_idestate() returns -1"]
 
-    _includes  = idestate['includes']
-    _cxx_path  = idestate['cxx_path']
+    _includes = idestate['includes']
+    # _cxx_path = idestate['cxx_path']
     _cxx_flags = idestate['cxx_flags']
-    _cc_path   = idestate['cc_path']
-    _cc_flags  = idestate['cc_flags']
-    _defines   = idestate['defines']
-    _lisbsource_dirs  = idestate['libsource_dirs']
+    # _cc_path = idestate['cc_path']
+    # _cc_flags = idestate['cc_flags']
+    _defines = idestate['defines']
+    # _lisbsource_dirs = idestate['libsource_dirs']
 
     # ADD to _cxx_flags symbols found only in "_defines"
-    new_cxx_flags=_cxx_flags.split()
+    new_cxx_flags = _cxx_flags.split()
     for define in _defines:
         found = _cxx_flags.find(define)
         if found == -1:
             # not found -> add -d<define> to cxx_flags
-            new_cxx_flags.append('-D'+define)
+            new_cxx_flags.append('-D' + define)
 
     # insert into "includes" the working dir and ".pioenvs" (Platformio Autogen libs)
-    ## Platformio automatically copies over the libs you use after your first run.
-    ## Be warned that you will not receive autocompletion on libraries until after
-    ## your first `platformio run`.
-    _includes.insert(0,wdir + "/src")
-    _includes.insert(0,wdir + "/.pioenvs")
+    # Platformio automatically copies over the libs you use after your first run.
+    # Be warned that you will not receive autocompletion on libraries until after
+    # your first `platformio run`.
+    _includes.insert(0, wdir + "/src")
+    _includes.insert(0, wdir + "/.pioenvs")
 
     # Create "-I<include_file>" list
-    inc_list=[]
+    inc_list = []
     for i in _includes:
-        inc_list.append('-I'+i)
+        inc_list.append('-I' + i)
+
+    return(flags + new_cxx_flags + inc_list)
 
 
-    return(flags + new_cxx_flags + inc_list )
-
-
-
-def FlagsForFile( filename, **kwargs ):
+def FlagsForFile(filename, **kwargs):
 
     #  relative_to = os.path.dirname( os.path.abspath( __file__ ) )
     relative_to = os.getcwd()
     (allflags) = get_platformio_environment(relative_to)
 
     logger.debug("List of FLAGS hand back to YCM:")
-    for a in allflags: logger.debug(a)
+    for a in allflags:
+        logger.debug(a)
 
     return {
         'flags': allflags,
@@ -199,20 +196,16 @@ def FlagsForFile( filename, **kwargs ):
     }
 
 
-
-
 # Used to TEST module output (Executd only if the module is used as a script)
 if __name__ == "__main__":
     import sys
     if len(sys.argv) > 1:
-        relative_to=sys.argv[1]
+        relative_to = sys.argv[1]
     else:
-        relative_to = os.path.dirname( os.path.abspath( __file__ ) )
+        relative_to = os.path.dirname(os.path.abspath(__file__))
 
     (allflags) = get_platformio_environment(relative_to)
 
-    for a in allflags: print(a)
-
-
-
+    for a in allflags:
+        print(a)
 
