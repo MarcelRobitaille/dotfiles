@@ -32,6 +32,20 @@
 }
 
 
+/*
+ * OneNote
+ ****************************************/
+
+.WACInteractiveView.Ltr.WACViewPanel {
+  background-color: white !important;
+  color: black !important;
+}
+.WACInteractiveView.Ltr.WACViewPanel .Paragraph,
+.WACInteractiveView.Ltr.WACViewPanel .TextRun {
+  color: inherit !important;
+}
+
+
 /**
  * Messenger
  ****************************************/

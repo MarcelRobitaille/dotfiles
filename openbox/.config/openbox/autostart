@@ -20,8 +20,18 @@ lead &
 compton &
 redshift &
 
+#
+# Panel applets
+#
+
 # Start nextcloud client
 nextcloud &
+
+# Network applet
+nm-applet &
+
+# Printer applet
+system-config-printer-applet &
 
 # Panels
 tint2 &

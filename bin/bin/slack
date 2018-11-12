@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+(/usr/bin/slack 2>&1 > /dev/null) &
+
+# Wait for main slack window to open
+xdotool search --sync --onlyvisible --name "^Slack -" 2>&1 > /dev/null
+
+## Get id of slack window
+id=`xdotool search --onlyvisible --name "^Slack -"`
+
+xseticon -id $id /usr/share/icons/Flat-Remix/apps/scalable/slack.png
+

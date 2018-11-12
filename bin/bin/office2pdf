@@ -3,7 +3,6 @@
 VM_UUID="22179f7e-6102-4e21-b00a-f692be50daed"
 VM_USERNAME="marcel"
 VM_PASSWORD="vboxpassword"
-GIST_URL="https://gist.githubusercontent.com/Iambecomeroot/395f802a094e433c25a253577988f09d/raw/d1f75d3dd00564b6c1b02ebfe20e8a2436b8e223/office2pdf.vbs"
 
 guestcontrol() {
   VBoxManage guestcontrol \
@@ -13,18 +12,30 @@ guestcontrol() {
 }
 
 # Ensure virtual machine running
-if [[ `vboxmanage showvminfo $VM_UUID | grep -c "running (since"` == '0' ]]; then
-  zenity --text="Your virtual machine is not running." --error
-  exit 1
-fi
+if [[ `vboxmanage showvminfo $VM_UUID | grep -c "running (since"` == '0' ]];
+  then
+    zenity --text="Your virtual machine is not running." --error
+    exit 1
+  fi
 
-if ! guestcontrol stat "C:\\Users\\$VM_USERNAME\\bin\\office2pdf.vbs" > /dev/null; then
-  echo "Downloading VB script"
-  wget "$GIST_URL" -O /tmp/office2pdf.vbs
+if ! guestcontrol stat "C:\\Users\\$VM_USERNAME\\bin\\" > /dev/null; then
   guestcontrol run -- \
     "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" \
-    -command "move \\\\vboxsrv\\tmp\\office2pdf.vbs C:\\Users\\$VM_USERNAME\\bin\\"
+    -command "mkdir C:\\Users\\$VM_USERNAME\\bin\\" \
+    > /dev/null
 fi
+
+if ! guestcontrol stat "C:\\Users\\$VM_USERNAME\\bin\\office2pdf.vbs" \
+  > /dev/null; then
+    echo "Installing VB script"
+
+    cp "./office2pdf.vbs" /tmp
+
+    guestcontrol run -- \
+      "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" \
+      -command \
+      "move \\\\vboxsrv\\tmp\\office2pdf.vbs C:\\Users\\$VM_USERNAME\\bin\\"
+  fi
 
 # Loop through files passed
 ORIG_IFS=$IFS
