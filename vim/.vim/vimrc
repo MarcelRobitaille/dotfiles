@@ -514,6 +514,13 @@ let g:NERDSpaceDelims = 1
 nmap <C-_> <Plug>CommentaryLine
 vmap <C-_> <Plug>Commentary
 
+" Insert current comment leader replacing %s
+imap <C-_> <C-r>=substitute(&commentstring, '%s', '', '')<CR>
+
+" Set commentstring for zsh
+autocmd FileType zsh setlocal commentstring=#\ %s
+
+
 let g:tex_conceal = ""
 
 let g:languagetool_jar='/usr/share/java/languagetool/languagetool-commandline.jar'
