@@ -19,6 +19,8 @@ for file in $HOME/.dotfiles/omzsh/{exports,aliases,functions,secret}.sh; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 
+source "$ZSH/custom/plugins/tmuxinator.zsh"
+
 DEFAULT_USER="marcel"
 
 eval $(thefuck --alias)
