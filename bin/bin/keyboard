@@ -1,7 +1,9 @@
 #!/bin/zsh
 
 LAYOUT=$(setxkbmap -print -verbose 10 | awk '$1 == "layout:" { print $2 }')
-FIFO="$PANEL_FIFO_PATH"
+FIFO="/tmp/keybord.fifo"
+
+initfifo $FIFO
 
 case $1 in
   get)
@@ -13,8 +15,8 @@ case $1 in
     else
       LAYOUT=$2
     fi
-    setxkbmap $LAYOUT
-    xmodmap ~/.Xmodmap
+    setxkbmap -layout $LAYOUT -config $HOME/.config/setxkbmap.conf
+    echo $LAYOUT > $FIFO
     ;;
 esac
 
