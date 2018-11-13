@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+if [ ! -e $1 ]; then
+
+  # Make fifo if not exists
+  mkfifo $1
+
+  # Daemonize cat to keep pipe open
+  screen -d -m sh -c "cat > $1"
+fi
+
