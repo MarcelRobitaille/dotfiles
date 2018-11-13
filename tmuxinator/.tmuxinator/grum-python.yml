@@ -1,0 +1,8 @@
+# vim: set nomodeline:
+
+name: grum-python
+root: ~/code/grum/eurobot2019/python
+windows:
+  - vim: vim .
+  - zsh:
+

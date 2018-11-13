@@ -1,0 +1,13 @@
+# vim: modelines=0
+name: elumicate
+root: ~/code/elumicate/dashboard
+windows:
+  - vim: vim .
+  - serve:
+    layout: main-vertical
+    panes:
+      # - ./serve
+      - gulp
+  - ssh: ssh elumicate
+  - zsh:
+

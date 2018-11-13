@@ -1,0 +1,14 @@
+# vim: modelines=0
+name: SweatAcademy
+root: ~/code/SweatAcademy/website
+windows:
+  - vim: vim .
+  - serve:
+      layout: main-vertical
+      panes:
+        - npm run nodemon
+        - npm run gulp
+  - zsh:
+  - ssh: ssh sweatacademy
+  - sql: mycli -u SweatAcademy --host www.sweatacademytech.com -D SweatAcademy -p `pass work/SweatAcademy/ec2/mysql/SweatAcademy`
+
