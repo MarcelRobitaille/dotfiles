@@ -1,6 +1,12 @@
-# vim: nomodeline
+# vim: modelines=0
 name: apollo
 root: ~/code/apollo
 windows:
   vim: vim .
+  - serve:
+      layout: main-vertical
+      panes:
+        - npm run nodemon
+        - npm run gulp
+  - zsh:
 
