@@ -29,7 +29,7 @@ if ! guestcontrol stat "C:\\Users\\$VM_USERNAME\\bin\\office2pdf.vbs" \
   > /dev/null; then
     echo "Installing VB script"
 
-    cp "./office2pdf.vbs" /tmp
+    cp "$(dirname $0)/office2pdf.vbs" /tmp
 
     guestcontrol run -- \
       "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" \
