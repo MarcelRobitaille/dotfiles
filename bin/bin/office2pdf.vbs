@@ -85,7 +85,7 @@ inputFile = fileSystemObject.GetAbsolutePathName(inputFile)
 outputFile = fileSystemObject.GetAbsolutePathName(outputFile)
 
 Select Case fileSystemObject.GetExtensionName(inputFile)
-  Case "docx"
+  Case "docx", "doc"
 
     Set wordApplication = CreateObject("Word.Application")
     wordApplication.Visible = True
