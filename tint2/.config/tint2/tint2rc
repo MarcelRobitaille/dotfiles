@@ -35,7 +35,7 @@ border_color_pressed = #deeead 100
 
 #-------------------------------------
 # Panel
-panel_items = T:S:EE:EE:EBC
+panel_items = T:S:E:E:E:EBC
 panel_size = 100% 35
 panel_margin = 0 0
 panel_padding = 0 0 0
@@ -89,7 +89,7 @@ task_maximum_size = 400 30
 task_padding = 6 5 10
 task_font = Source Code Pro 12
 task_tooltip = 0
-task_font_color = #797D83 100
+task_font_color = #cccccc 100
 task_active_font_color = #12181e 100
 task_urgent_font_color = #deeead 100
 task_iconified_font_color = #797D83 50
@@ -116,47 +116,47 @@ time1_format = %l:%M:%S %p
 time2_format = %A %B %d
 time1_font = Source Code Pro 12
 time2_font = Source Code Pro 9
-clock_font_color = #797D83 100
+clock_font_color = #ffffff 100
 clock_padding = 15 0
 clock_background_id = 0
 clock_lclick_command = 'dzen-calendar'
 
 #-------------------------------------
-# Volume icon
+# Keyboard
 execp = new
-execp_command = ~/.config/tint2/volume-icon.sh
-execp_interval = 10
-execp_font = Source Code Pro 18
-execp_font_color = #797D83 100
+execp_command = ~/.config/tint2/keyboard-icon.sh
+execp_continuous = 1
+execp_has_icon = 1
+execp_font = Source Code Pro 12
+execp_font_color = #ffffff 100
 execp_padding = 0 0
+execp_lclick_command = keyboard toggle us ca
 
 #-------------------------------------
 # Volume
 execp = new
-execp_command = pamixer --get-volume | sed 's/$/%/'
+execp_command = ~/.config/tint2/volume-icon.sh
 execp_interval = 10
+execp_has_icon = 1
+execp_cache_icon = 1
+execp_icon_h = 20
 execp_font = Source Code Pro 12
-execp_font_color = #797D83 100
-execp_padding = 0 0
+execp_font_color = #ffffff 100
+execp_padding = 3 0
+execp_lclick_command = pavucontrol
 execp_uwheel_command = pamixer -i 5
 execp_dwheel_command = pamixer -d 5
 
 #-------------------------------------
-# Backlight icon
+# Backlight
 execp = new
 execp_command = ~/.config/tint2/backlight-icon.sh
 execp_interval = 10
-execp_font = Source Code Pro 18
-execp_font_color = #797D83 100
-execp_padding = 3 0
-
-#-------------------------------------
-# Backlight
-execp = new
-execp_command = xbacklight | awk 'END { print int(($0 / 5) + 0.5) * 5 }' | sed 's/$/%/'
-execp_interval = 10
+execp_has_icon = 1
+execp_cache_icon = 1
+execp_icon_h = 20
 execp_font = Source Code Pro 12
-execp_font_color = #797D83 100
+execp_font_color = #ffffff 100
 execp_padding = 3 0
 execp_uwheel_command = xbacklight -inc 5 -time 0
 execp_dwheel_command = xbacklight -dec 5 -time 0
@@ -165,8 +165,7 @@ execp_dwheel_command = xbacklight -dec 5 -time 0
 # Battery
 battery_tooltip = 1
 battery_low_status = 10
-battery_low_cmd = notify "battery low"
-battery_font_color = #797D83 100
+battery_font_color = #ffffff 100
 bat1_format = %p
 bat2_format = %h:%m
 bat1_font = Source Code Pro 12
@@ -179,9 +178,13 @@ battery_hide = 101
 # Battery icon
 execp = new
 execp_command = ~/.config/tint2/battery-icon.sh
+execp_has_icon = 1
+execp_cache_icon = 1
 execp_interval = 10
-execp_font = Source Code Pro 18
-execp_font_color = #797D83 100
+execp_icon_h = 35
+execp_icon_w = 25
+execp_font = Source Code Pro 12
+execp_font_color = #ffffff 100
 
 #-------------------------------------
 # Tooltip

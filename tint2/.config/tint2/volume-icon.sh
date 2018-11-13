@@ -1,25 +1,17 @@
+#!/bin/zsh
+
+num_icons=4
+
 if [[ $(pamixer --get-mute) == "true" ]]; then
-  level="mute"
-  icon=''
+  level='mute'
+  icon='mute'
 else
   level=$(pamixer --get-volume)
 
-  if [ $level = 0 ]; then
-    icon=''
-  elif [ $level -lt 33 ]; then
-    icon=''
-  elif [ $level -lt 66 ]; then
-    icon=''
-  else
-    icon=''
-  fi
-
+  ((icon = level * num_icons / 101))
   level="$level%"
 fi
 
-open_cmd="%{A:pavucontrol:}"
-set_cmd="%{A3:pamixer --set-volume 20:}"
-inc_cmd="%{A4:pamixer -i 5:}"
-dec_cmd="%{A5:pamixer -d 5:}"
+echo "$HOME/.config/tint2/icons/volume_$icon.svg"
+echo "$level"
 
-echo "$icon"

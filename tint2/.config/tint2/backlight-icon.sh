@@ -1,22 +1,10 @@
 #!/bin/zsh
 
+num_icons=7
 level="$(xbacklight | awk 'END { print int(($0 / 5) + 0.5) * 5 }')"
 
-if (( $level <= 14 )); then
-  icon=''
-elif (( $level <= 28 )); then
-  icon=''
-elif (( $level <= 42 )); then
-  icon=''
-elif (( $level <= 56 )); then
-  icon=''
-elif (( $level <= 70 )); then
-  icon=''
-elif (( $level <= 84 )); then
-  icon=''
-else
-  icon=''
-fi
+((icon = level * num_icons / 101))
 
-echo "$icon"
+echo "$HOME/.config/tint2/icons/brightness_$icon.svg"
+echo "$level%"
 

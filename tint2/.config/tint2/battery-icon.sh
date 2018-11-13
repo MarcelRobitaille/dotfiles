@@ -1,19 +1,14 @@
+#!/bin/zsh
+
+num_icons=6
 lvl="$(cat /sys/class/power_supply/BAT1/capacity)"
-stat="$(cat /sys/class/power_supply/BAT1/status)"
-remaining="$(acpi | awk '{ print $5 }')"
-remaining="${remaining:0:5}"
+stat="$(cat /sys/class/power_supply/BAT1/status |  tr "[:upper:]" "[:lower:]")"
 
-if [[ $stat == "Charging" ]]; then
-  icon=''
-elif (($lvl > 20)); then
-  icon=''
-else
-  icon=''
+if [[ "$stat" != "discharging" ]]; then
+  stat="charging"
 fi
 
-if [ -n "$remaining" ]; then
-  remaining=" ($remaining)"
-fi
+((icon = lvl * num_icons / 101))
 
-echo -e "$icon"
+echo "$HOME/.config/tint2/icons/battery_${stat}_${icon}.svg"
 
