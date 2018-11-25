@@ -2,6 +2,8 @@
 
 [global]
   font = Fira Sans 12
+  frame_width = 0
+  frame_color = "#000000"
 
   # allow a small subset of html markup:
   # <b>bold</b>
@@ -11,7 +13,7 @@
   #
   # for a complete reference see http://developer.gnome.org/pango/stable/PangoMarkupFormat.html
   # If markup is not allowed, those tags will be stripped out of the message.
-  allow_markup = yes
+  markup = yes
 
   # The format of the message. Possible variables are:
   #   %a  appname
@@ -126,11 +128,7 @@
   browser = /usr/bin/firefox -new-tab
 
   icon_position = left
-  icon_folders = /home/marcel/.icons/dunst/:/usr/share/icons/Paper/48x48/places:/home/marcel/.icons/flat_remix/status/:/home/marcel/.icons/flat_remix/apps/scalable/:/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-
-[frame]
-  width = 0
-  color = "#000000"
+  icon_path = /home/marcel/.icons/dunst/:/usr/share/icons/Paper/48x48/places:/home/marcel/.icons/flat_remix/status/:/home/marcel/.icons/flat_remix/apps/scalable/:/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
 [shortcuts]
   # shortcuts are specified as [modifier+][modifier+]...key
