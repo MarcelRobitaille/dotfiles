@@ -525,6 +525,8 @@ imap <C-_> <C-r>=substitute(&commentstring, '%s', '', '')<CR>
 " Set commentstring for zsh
 autocmd FileType zsh setlocal commentstring=#\ %s
 
+" Set commentstring for matlab
+autocmd FileType matlab setlocal commentstring=%\ %s
 
 let g:tex_conceal = ""
 nnoremap <leader>t <Plug>vimtex-compile
