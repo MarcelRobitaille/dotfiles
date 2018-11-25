@@ -37,6 +37,9 @@ system-config-printer-applet &
 # Panels
 tint2 &
 
+# Notification deamon
+dunst -print &> /var/log/dunst &
+
 # Autolock screen
 # xautolock \
   # -time 1 \
