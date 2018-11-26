@@ -38,6 +38,7 @@ system-config-printer-applet &
 tint2 &
 
 # Notification deamon
+killall dunst
 dunst -print &> /var/log/dunst &
 
 # Autolock screen
