@@ -16,66 +16,237 @@ config:
   showdiff: false
   workdir: ~/.config/dotdrop
 dotfiles:
-  f_tmux.conf:
-    dst: ~/.tmux.conf
-    src: ./tmux/.tmux.conf
-    link: true
+
+  # Alacritty
   f_alacritty.yml:
     dst: ~/.config/alacritty/alacritty.yml
-    src: ./alacritty/.config/alacritty/alacritty.yml
+    src: ./alacritty/alacritty.yml
     link: true
+
+  # Bin
   d_bin:
     dst: ~/bin/
     src: ./bin/bin/
     link: true
+
+  # Compton
   f_compton.conf:
     dst: ~/.config/compton/compton.conf
-    src: ./compton/.config/compton/compton.conf
+    src: ./compton/compton.conf
     link: true
+
+  # Ctags
   f_ctags:
     dst: ~/.ctags
     src: ./ctags/.ctags
     link: true
+
+  # Dunst
   f_dunstrc:
     dst: ~/.config/dunst/dunstrc
-    src: ./dunst/.config/dunst/dunstrc
+    src: ./dunst/dunstrc
     link: true
   d_dunst_icons:
     dst: ~/.icons/dunst/
-    src: ./dunst/.icons/dunst/
-    link: true
-  f_gitconfig:
-    dst: ~/.gitconfig
-    src: ./git/.gitconfig
-    link: true
-  d_gtk:
-    dst: ~/.config/gtk-3.0/
-    src: ./gtk/.config/gtk-3.0/
-    link: true
-  f_lead:
-    dst: ~/.config/lead/lead.conf
-    src: ./lead/.config/lead/lead.conf
-    link: true
-  f_vimrc:
-    dst: ~/.vimrc
-    src: vimrc
-    actions:
-     - vim-plug-install
-     - vim-plug
-  d_tint2:
-    dst: ~/.config/tint2/
-    src: ./tint2/
+    src: ./dunst/icons/
+
+  # Firefox
   d_firefox:
     dst: /tmp/.dotdrop/firefox_install/
     src: ./firefox/
     actions:
       - firefox_install
+
+  # Git
+  f_gitconfig:
+    dst: ~/.gitconfig
+    src: ./git/.gitconfig
+    link: true
+
+  # GTK
+  d_gtk:
+    dst: ~/.config/gtk-3.0/
+    src: ./gtk/
+
+  # Lead
+  f_lead:
+    dst: ~/.config/lead/lead.conf
+    src: ./lead/lead.conf
+    link: true
+
+  # Linters
+  d_linters:
+    dst: ~/
+    src: ./linters/
+
+  # MPD
+  f_mpd:
+    dst: ~/.config/mpd/mpd.conf
+    src: ./mpd/mpd.conf
+    link: true
+
+  # MyCLI
+  f_myclirc:
+    dst: ~/.myclirc
+    src: ./mycli/.myclirc
+    link: true
+
+  # ncmpcpp
+  f_ncmpcpp:
+    dst: ~/.config/ncmpcpp/config
+    src: ./ncmpcpp/config
+    link: true
+
+  # neofetch
+  f_neofetch:
+    dst: ~/.config/neofetch/config
+    src: ./neofetch/config
+    link: true
+
+  # NPM
+  f_npmrc:
+    dst: ~/.npmrc
+    src: ./npm/.npmrc
+    link: true
+
+  # openbox
+  d_openbox:
+    dst: ~/.config/openbox/
+    src: ./openbox/config/
+  d_openbox_theme:
+    dst: ~/.local/share/themes/Arc-Dark/openbox-3/
+    src: ./openbox/theme/
+
+  # Ranger
+  d_ranger:
+    dst: ~/.config/ranger/
+    src: ./ranger/
+
+  # Redshift
+  f_redshift:
+    dst: ~/.config/redshift.conf
+    src: ./redshift/redshift.conf
+    link: true
+
+  # Rofi pass
+  f_rofi-pass:
+    dst: ~/.config/rofi-pass/config
+    src: ./rofi-pass/config
+    link: true
+
+  # setxkbmap
+  f_setxkbmap:
+    dst: ~/.config/setxkbmap.conf
+    src: ./setxkbmap/setxkbmap.conf
+    link: true
+
+  # sxhkd
+  f_sxhkdrc:
+    dst: ~/.config/sxhkd/sxhkdrc
+    src: ./sxhkd/sxhkdrc
+    link: true
+
+  # Termite
+  f_termite:
+    dst: ~/.config/termite/config
+    src: ./termite/config
+    link: true
+
+  # Tern
+  f_tern:
+    dst: ~/.tern-project
+    src: ./tern/.tern-project
+    link: true
+
+  # Thunar
+  f_thunar:
+    dst: ~/.config/Thunar/uca.xml
+    src: ./thunar/uca.xml
+    link: true
+
+  # tint2
+  d_tint2:
+    dst: ~/.config/tint2/
+    src: ./tint2/
+
+  # tmux
+  f_tmux:
+    dst: ~/.tmux.conf
+    src: ./tmux/.tmux.conf
+    link: true
+
+  # tmuxinator
+  d_tmuxinator:
+    dst: ~/.config/tmuxinator/
+    src: ./tmuxinator/
+
+  f_vim:
+    dst: ~/.vim/
+    src: ./vim/
+    actions:
+     - vim-plug-install
+     - vim-plug
+
+  # X
+  d_x:
+    dst: ~/
+    src: ./X/
+
+  # yay
+  f_yay:
+    dst: ~/.config/yay/config.json
+    src: ./yay/config.json
+    link: true
+
+  # Zathura
+  f_zathura:
+    dst: ~/.config/zathura/zathurarc
+    src: ./zathura/zathurarc
+    link: true
+
+  # zsh
+  d_zsh:
+    dst: ~/.oh-my-zsh/
+    src: ./zsh/
+
 profiles:
   Zeus:
     dotfiles:
-    - f_tmux.conf
+    - f_tmux
   Hermes:
     dotfiles:
-    - d_tint2
+    - f_alacritty.yml
+    - d_bin
+    - f_compton.conf
+    - f_ctags
+    - f_dunstrc
+    - d_dunst_icons
     - d_firefox
+    - f_gitconfig
+    - d_gtk
+    - f_lead
+    - d_linters
+    - f_mpd
+    - f_myclirc
+    - f_ncmpcpp
+    - f_neofetch
+    - f_npmrc
+    - d_openbox
+    - d_openbox_theme
+    - d_ranger
+    - f_redshift
+    - f_rofi-pass
+    - f_setxkbmap
+    - f_sxhkdrc
+    - f_termite
+    - f_tern
+    - f_thunar
+    - d_tint2
+    - f_tmux
+    - d_tmuxinator
+    - f_vim
+    - d_x
+    - f_yay
+    - f_zathura
+    - d_zsh
 

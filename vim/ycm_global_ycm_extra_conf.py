@@ -171,6 +171,7 @@ def get_platformio_environment(wdir):
     # your first `platformio run`.
     _includes.insert(0, wdir + "/src")
     _includes.insert(0, wdir + "/.pioenvs")
+    _includes.insert(0, wdir + "/Inc")
 
     # Create "-I<include_file>" list
     inc_list = []
