@@ -15,7 +15,7 @@ plugins=(git pass vi-mode)
 
 source "$ZSH/oh-my-zsh.sh"
 
-for file in $HOME/.dotfiles/omzsh/{exports,aliases,functions,secret}.sh; do
+for file in $ZSH/custom/{exports,aliases,functions,secret}.sh; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 
