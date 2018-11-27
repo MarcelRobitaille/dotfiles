@@ -1,3 +1,9 @@
+actions:
+  pre:
+    vim-plug-install: test -e ~/.vim/autoload/plug.vim || (mkdir -p ~/.vim/autoload; curl
+      -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim)
+  vim-plug: vim +PlugInstall +qall
+  firefox_install: mv /tmp/.dotdrop/firefox_install/* $(find ~/.mozilla/firefox -name '*.default')/chrome
 config:
   backup: true
   banner: true
@@ -50,7 +56,26 @@ dotfiles:
     dst: ~/.config/lead/lead.conf
     src: ./lead/.config/lead/lead.conf
     link: true
+  f_vimrc:
+    dst: ~/.vimrc
+    src: vimrc
+    actions:
+     - vim-plug-install
+     - vim-plug
+  d_tint2:
+    dst: ~/.config/tint2/
+    src: ./tint2/
+  d_firefox:
+    dst: /tmp/.dotdrop/firefox_install/
+    src: ./firefox/
+    actions:
+      - firefox_install
 profiles:
   Zeus:
     dotfiles:
     - f_tmux.conf
+  Hermes:
+    dotfiles:
+    - d_tint2
+    - d_firefox
+

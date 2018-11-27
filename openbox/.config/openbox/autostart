@@ -5,7 +5,7 @@
 export PATH="$PATH:$HOME/bin/"
 
 # Use detected monitor layout
-hash autorandr 2&>1 > /dev/null && autorandr -c
+hash autorandr &> /dev/null && autorandr -c
 
 # Restore desktop background
 ~/.fehbg
@@ -38,6 +38,7 @@ system-config-printer-applet &
 tint2 &
 
 # Notification deamon
+killall dunst
 dunst -print &> /var/log/dunst &
 
 # Autolock screen

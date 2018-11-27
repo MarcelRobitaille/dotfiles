@@ -35,7 +35,11 @@ border_color_pressed = #deeead 100
 
 #-------------------------------------
 # Panel
+{%@@ if profile == "Hermes" @@%}
 panel_items = T:S:E:E:E:EBC
+{%@@ elif profile == "Zeus" @@%}
+panel_items = T:S:E:E:C
+{%@@ endif @@%}
 panel_size = 100% 35
 panel_margin = 0 0
 panel_padding = 0 0 0
@@ -107,7 +111,7 @@ systray_background_id = 0
 systray_sort = ascending
 systray_icon_size = 24
 systray_icon_asb = 100 0 0
-systray_monitor = 2
+systray_monitor = 1
 systray_name_filter =
 
 #-------------------------------------
