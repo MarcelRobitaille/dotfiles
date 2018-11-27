@@ -1,0 +1,56 @@
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: .
+  ignoreempty: false
+  keepdot: false
+  link_by_default: false
+  longkey: false
+  showdiff: false
+  workdir: ~/.config/dotdrop
+dotfiles:
+  f_tmux.conf:
+    dst: ~/.tmux.conf
+    src: ./tmux/.tmux.conf
+    link: true
+  f_alacritty.yml:
+    dst: ~/.config/alacritty/alacritty.yml
+    src: ./alacritty/.config/alacritty/alacritty.yml
+    link: true
+  d_bin:
+    dst: ~/bin/
+    src: ./bin/bin/
+    link: true
+  f_compton.conf:
+    dst: ~/.config/compton/compton.conf
+    src: ./compton/.config/compton/compton.conf
+    link: true
+  f_ctags:
+    dst: ~/.ctags
+    src: ./ctags/.ctags
+    link: true
+  f_dunstrc:
+    dst: ~/.config/dunst/dunstrc
+    src: ./dunst/.config/dunst/dunstrc
+    link: true
+  d_dunst_icons:
+    dst: ~/.icons/dunst/
+    src: ./dunst/.icons/dunst/
+    link: true
+  f_gitconfig:
+    dst: ~/.gitconfig
+    src: ./git/.gitconfig
+    link: true
+  d_gtk:
+    dst: ~/.config/gtk-3.0/
+    src: ./gtk/.config/gtk-3.0/
+    link: true
+  f_lead:
+    dst: ~/.config/lead/lead.conf
+    src: ./lead/.config/lead/lead.conf
+    link: true
+profiles:
+  Zeus:
+    dotfiles:
+    - f_tmux.conf
