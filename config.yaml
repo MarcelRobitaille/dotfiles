@@ -20,7 +20,7 @@ dotfiles:
   # Alacritty
   f_alacritty.yml:
     dst: ~/.config/alacritty/alacritty.yml
-    src: ./alacritty/.config/alacritty/alacritty.yml
+    src: ./alacritty/alacritty.yml
     link: true
 
   # Bin
@@ -32,7 +32,7 @@ dotfiles:
   # Compton
   f_compton.conf:
     dst: ~/.config/compton/compton.conf
-    src: ./compton/.config/compton/compton.conf
+    src: ./compton/compton.conf
     link: true
 
   # Ctags
@@ -44,12 +44,11 @@ dotfiles:
   # Dunst
   f_dunstrc:
     dst: ~/.config/dunst/dunstrc
-    src: ./dunst/.config/dunst/dunstrc
+    src: ./dunst/dunstrc
     link: true
   d_dunst_icons:
     dst: ~/.icons/dunst/
-    src: ./dunst/.icons/dunst/
-    link: true
+    src: ./dunst/icons/
 
   # Firefox
   d_firefox:
@@ -72,7 +71,7 @@ dotfiles:
   # Lead
   f_lead:
     dst: ~/.config/lead/lead.conf
-    src: ./lead/.config/lead/lead.conf
+    src: ./lead/lead.conf
     link: true
 
   # Linters
