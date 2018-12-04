@@ -196,3 +196,16 @@
 ## This notification will not be displayed
 #    summary = "foobar"
 #    format = ""
+
+#
+# Rules
+#
+
+[mailspring]
+  appname="Mailspring"
+  new_icon="Mailspring"
+
+[slack]
+  appname="Slack"
+  new_icon="slack"
+
