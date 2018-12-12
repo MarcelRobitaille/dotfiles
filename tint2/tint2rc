@@ -111,7 +111,11 @@ systray_background_id = 0
 systray_sort = ascending
 systray_icon_size = 24
 systray_icon_asb = 100 0 0
+{%@@ if profile == "Hermes" @@%}
 systray_monitor = 1
+{%@@ elif profile == "Zeus" @@%}
+systray_monitor = 2
+{%@@ endif @@%}
 systray_name_filter =
 
 #-------------------------------------
