@@ -1,0 +1,105 @@
+###
+# [TypeNameOfPlugin]
+# Disabled:    Set to true to avoid loading the plugin. By default all
+#              plugins are loaded.
+# Priority:    Priority of the plugin if more plugins support the same
+#              uri-scheme / mime-type combination.
+# Locations:   ;-separated path list the plugin will be used in. If the
+#              source file is not a child of one of the locations, the
+#              plugin won't be used and another plugin with a lower
+#              priority will be tried.
+#              Absolute paths, environement variables, ~/ and ~username/
+#              are allowed. Leave empty to allow all locations.
+# MaxFileSize: Maximum size of the source file the plugin will still
+#              try to generate a plugin for. The size is in bytes,
+#              0 disabled the check.
+#
+# For more information see http://docs.xfce.org/xfce/thunar/tumbler
+###
+
+###
+# Image Thumbnailers
+###
+
+# Jpeg thumbnailer (from exif data if possible)
+[JPEGThumbnailer]
+Disabled=false
+Priority=3
+Locations=~
+MaxFileSize=0
+
+# Supports all type GdkPixbuf supports
+[PixbufThumbnailer]
+Disabled=false
+Priority=2
+Locations=~
+MaxFileSize=0
+
+# RAW image files using libopenraw
+[RawThumbnailer]
+Disabled=false
+Priority=1
+Locations=~
+MaxFileSize=0
+
+###
+# Video Thumbnailers
+###
+
+# Download cover from omdbapi.com or themoviedb.org if an
+# API key is given. This plugin is disabled because it
+# sends your (private) movie names over the internet.
+[CoverThumbnailer]
+Disabled=true
+Priority=3
+Locations=~
+MaxFileSize=0
+#APIKey=your-api-key-from-themoviedb.org
+
+# ffmpegthumbnailer plugin
+[FfmpegThumbnailer]
+Disabled=false
+Priority=2
+Locations=~
+MaxFileSize=0
+
+# GStreamer plugin
+[GstThumbnailer]
+Disabled=false
+Priority=1
+Locations=~
+MaxFileSize=0
+
+###
+# Other Thumbnailers
+###
+
+# FreeType thumbnailer
+[FontThumbnailer]
+Disabled=false
+Priority=1
+Locations=~
+MaxFileSize=0
+
+
+# PDF/PS thumbnailer
+[PopplerThumbnailer]
+Disabled=false
+Priority=1
+Locations=~
+MaxFileSize=0
+
+# Open document thumbnailer (ODF)
+[OdfThumbnailer]
+Disabled=false
+Priority=1
+Locations=~
+MaxFileSize=0
+
+# thumnailers provided by .thumbnailer desktop files
+[DesktopThumbnailer]
+Disabled=false
+Priority=1
+Locations=~
+MaxFileSize=0
+

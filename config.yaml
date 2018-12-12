@@ -163,6 +163,10 @@ dotfiles:
     dst: ~/.config/Thunar/uca.xml
     src: ./thunar/uca.xml
     link: true
+  f_tumbler:
+    dst: ~/.config/tumbler/tumbler.rc
+    src: ./thunar/tumbler.rc
+    link: true
 
   # tint2
   d_tint2:
@@ -238,6 +242,7 @@ profiles:
     - f_termite
     - f_tern
     - f_thunar
+    - f_tumbler
     - d_tint2
     - f_tmux
     - d_tmuxinator
@@ -274,6 +279,7 @@ profiles:
     - f_termite
     - f_tern
     - f_thunar
+    - f_tumbler
     - d_tint2
     - f_tmux
     - d_tmuxinator
