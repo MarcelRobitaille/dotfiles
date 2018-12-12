@@ -212,7 +212,40 @@ dotfiles:
 profiles:
   Zeus:
     dotfiles:
+    - f_alacritty.yml
+    - d_bin
+    - f_compton.conf
+    - f_ctags
+    - f_dunstrc
+    - d_dunst_icons
+    - d_firefox
+    - f_gitconfig
+    - d_gtk
+    - f_lead
+    - d_linters
+    - f_mpd
+    - f_myclirc
+    - f_ncmpcpp
+    - f_neofetch
+    - f_npmrc
+    - d_openbox
+    - d_openbox_theme
+    - d_ranger
+    - f_redshift
+    - f_rofi-pass
+    - f_setxkbmap
+    - f_sxhkdrc
+    - f_termite
+    - f_tern
+    - f_thunar
+    - d_tint2
     - f_tmux
+    - d_tmuxinator
+    - f_vim
+    - d_x
+    - f_yay
+    - f_zathura
+    - d_zsh
   Hermes:
     dotfiles:
     - f_alacritty.yml
