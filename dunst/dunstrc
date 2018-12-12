@@ -122,7 +122,7 @@
   startup_notification = false
 
   # dmenu path
-  dmenu = /usr/bin/dmenu -p dunst:
+  dmenu = /usr/bin/rofi -dmenu
 
   # browser for opening urls in context menu
   browser = /usr/bin/firefox -new-tab
@@ -146,7 +146,7 @@
   history = mod4+n
 
   # context menu
-  context = mod4+shift+i
+  context = mod4+a
 
 [urgency_low]
   # IMPORTANT: colors have to be defined in quotation marks.
@@ -196,3 +196,16 @@
 ## This notification will not be displayed
 #    summary = "foobar"
 #    format = ""
+
+#
+# Rules
+#
+
+[mailspring]
+  appname="Mailspring"
+  new_icon="Mailspring"
+
+[slack]
+  appname="Slack"
+  new_icon="slack"
+

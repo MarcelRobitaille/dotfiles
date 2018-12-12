@@ -41,6 +41,9 @@ tint2 &
 killall dunst
 dunst -print &> /var/log/dunst &
 
+# Mail client
+mailspring --background &> /var/log/mailspring &
+
 # Autolock screen
 # xautolock \
   # -time 1 \
