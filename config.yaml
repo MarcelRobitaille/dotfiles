@@ -21,6 +21,11 @@ dotfiles:
   f_alacritty.yml:
     dst: ~/.config/alacritty/alacritty.yml
     src: ./alacritty/alacritty.yml
+
+  # Autorandr
+  f_postswitch:
+    dst: ~/.config/autorandr/postswitch
+    src: ./autorandr/postswitch
     link: true
 
   # Bin
@@ -254,6 +259,7 @@ profiles:
   Hermes:
     dotfiles:
     - f_alacritty.yml
+    - f_postswitch
     - d_bin
     - f_compton.conf
     - f_ctags
