@@ -81,7 +81,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'AndrewRadev/splitjoin.vim'
 
 " Spelling and grammar checking
-Plug 'vim-scripts/LanguageTool'
+Plug 'rhysd/vim-grammarous'
 
 Plug 'airblade/vim-accent'
 
@@ -543,7 +543,8 @@ autocmd FileType matlab setlocal commentstring=%\ %s
 let g:tex_conceal = ""
 nnoremap <leader>t <Plug>vimtex-compile
 
-let g:languagetool_jar='/usr/share/java/languagetool/languagetool-commandline.jar'
+let g:grammarous#languagetool_cmd = '/usr/bin/languagetool'
+let g:grammarous#use_vim_spelllang = 1
 
 let g:pymode_options_colorcolumn = 0
 let g:pymode_folding = 0
