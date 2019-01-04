@@ -64,7 +64,7 @@ dotfiles:
 
   # Git
   f_gitconfig:
-    dst: ~/.gitconfig
+    dst: ~/.config/git/config
     src: ./git/.gitconfig
     link: true
 
