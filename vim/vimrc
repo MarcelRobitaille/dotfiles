@@ -318,6 +318,12 @@ set complete+=kspell
 "  Plugins settings  "
 """"""""""""""""""""""
 
+"
+" Surround
+"
+
+let g:surround_{char2nr('f')} = "\1function\1(\r)"
+
 
 "
 " Ale
