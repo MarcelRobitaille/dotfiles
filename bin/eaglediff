@@ -1,0 +1,109 @@
+#!/usr/bin/env python
+import shutil
+import os
+import sys
+from PIL import Image, ImageTk, ImageChops
+import tkinter
+import subprocess
+
+EAGLE_PATH = "/usr/bin/eagle"
+
+
+def cleanup(signal=None, frame=None):
+    print('Cleaning up...')
+
+    try:
+        root.destroy()
+    except Exception:
+        pass
+
+    for filename in tmp_files:
+        try:
+            os.remove(filename)
+        except Exception:
+            pass
+
+    sys.exit(0)
+
+
+def get_eagle_filename(orig_file):
+    filename, extension = os.path.splitext(orig_file)
+    filename = os.path.basename(filename)
+
+    if extension in ('.brd', 'sch'):
+        return orig_file
+
+    extension = {
+        'b': 'brd',
+        's': 'sch',
+    }[extension[1]]
+
+    filename = f'/tmp/eaglediff-{filename}.{extension}'
+
+    shutil.copyfile(orig_file, filename)
+    return filename
+
+
+image_files = [f"/tmp/eaglediff-{i}.png" for i in ['A', 'B']]
+tmp_files = image_files.copy()
+
+try:
+
+    for i, filename in enumerate(image_files):
+        subprocess.call([
+            EAGLE_PATH,
+            '-C',
+            f"export image {filename} 400;quit",
+            get_eagle_filename(sys.argv[i + 1]),
+        ])
+
+    root = tkinter.Tk()
+    root.resizable(0, 0)
+
+    IMAGE_WIDTH = 640
+    dimensions = None
+
+    images = []
+    tkimages = []
+
+    for filename in image_files:
+        image = Image.open(filename)
+        ratio = float(image.size[0]) / float(image.size[1])
+
+        if dimensions is None:
+            image_height = int(IMAGE_WIDTH / ratio)
+            dimensions = (IMAGE_WIDTH, image_height)
+
+        image = image.resize(dimensions, Image.ANTIALIAS)
+        images.append(image)
+        tkimage = ImageTk.PhotoImage(image)
+        tkimages.append(tkimage)
+
+    diff = ImageChops.difference(*images)
+    diff = diff.resize(dimensions, Image.ANTIALIAS)
+    tk_diff = ImageTk.PhotoImage(diff)
+    overlay = ImageChops.screen(*images)
+    overlay = overlay.resize(dimensions, Image.ANTIALIAS)
+    tk_overlay = ImageTk.PhotoImage(overlay)
+
+    root.geometry(f'{dimensions[0] * 2 + 1}x{dimensions[1] * 2 + 1}')
+    tkinter.Label(root, image=tkimages[0]).grid(row=0, column=0)
+    tkinter.Label(root, image=tkimages[1]).grid(row=0, column=1)
+    tkinter.Label(root, image=tk_diff).grid(row=1, column=0)
+    tkinter.Label(root, image=tk_overlay).grid(row=1, column=1)
+
+    def wakeup():
+        root.after(50, wakeup)
+
+    root.title('Image diff')
+    root.after(50, wakeup)
+    root.mainloop()
+
+except Exception as exception:
+    print(exception)
+    cleanup()
+except KeyboardInterrupt:
+    cleanup()
+
+cleanup()
+
