@@ -59,7 +59,7 @@ dotfiles:
 
   # Firefox
   firefox:
-    dst: "{{@@ mozilla_path @@}}/chrome"
+    dst: "{{@@ mozilla_path @@}}"
     src: ./firefox/
 
   # Git
