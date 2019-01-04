@@ -84,6 +84,7 @@ dotfiles:
   linters:
     dst: ~/
     src: ./linters/
+    link_children: true
 
   # MPD
   mpd:
@@ -200,11 +201,13 @@ dotfiles:
     actions:
      - vim-plug-install
      - vim-plug
+    link_children: true
 
   # X
   x:
     dst: ~/
     src: ./X/
+    link_children: true
 
   # yay
   yay:
