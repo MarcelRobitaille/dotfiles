@@ -10,11 +10,10 @@ for RES in $SR; do
   rectangles+="rectangle $CX,$CY $((CX+300)),$((CY-80)) "
 done
 
-TMPBG=/tmp/screen.png
-scrot $TMPBG && convert $TMPBG -scale 5% -scale 2000% -draw "fill black fill-opacity 0.4 $rectangles" $TMPBG
+# TMPBG=/tmp/screen.png
+# scrot $TMPBG && convert $TMPBG -scale 5% -scale 2000% -draw "fill black fill-opacity 0.4 $rectangles" $TMPBG
 
 i3lock \
-  -i $TMPBG \
   --timepos="x-90:h-ch-20" \
   --datepos="tx+24:ty+25" \
   --clock --datestr "Type password to unlock..." \
@@ -23,7 +22,7 @@ i3lock \
   --insidevercolor=fecf4dff --insidewrongcolor=d23c3dff \
   --ringvercolor=ffffffff --ringwrongcolor=ffffffff --indpos="x+290:h-120" \
   --radius=20 --ring-width=3 --veriftext="" --wrongtext="" \
-  --textcolor="ffffffff" --timecolor="ffffffff" --datecolor="ffffffff"
+  --textcolor=ffffffff --timecolor=ffffffff --datecolor=ffffffff
 
 rm $TMPBG
 
