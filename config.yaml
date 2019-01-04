@@ -2,6 +2,16 @@ actions:
   pre:
     vim-plug-install: test -e ~/.vim/autoload/plug.vim || (mkdir -p ~/.vim/autoload; curl
       -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim)
+    # spaceship-install: test -e {{ env['ZSH_CUSTOM'] }}/themes/spaceship-prompt/spaceship.zsh-theme ||
+    #   (git clone https://github.com/denysdovhan/spaceship-prompt.git {{ env['ZSH_CUSTOM'] }}/themes/spaceship-prompt;
+    #   ln -s {{ env['ZSH_CUSTOM'] }}/themes/spaceship-prompt/spaceship.zsh-theme {{ env['ZSH_CUSTOM'] }}/themes/spaceship.zsh-theme)
+    spaceship-install: test -e ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme ||
+      (git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt;
+      ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme)
+    tmuxinator-completion: test -e ~/.oh-my-zsh/custom/plugins/tmuxinator.zsh ||
+      (git clone https://github.com/tmuxinator/tmuxinator.git /tmp/tmuxinator;
+      mkdir -p ~/.oh-my-zsh/custom/plugins;
+      cp /tmp/tmuxinator/completion/tmuxinator.zsh ~/.oh-my-zsh/custom/plugins/)
   vim-plug: vim +PlugInstall +qall
 dynvariables:
   mozilla_path: find ~/.mozilla/firefox -name '*.default'
@@ -229,6 +239,9 @@ dotfiles:
   zsh_custom:
     dst: ~/.oh-my-zsh/custom/
     src: ./zsh/custom/
+    actions:
+    - spaceship-install
+    - tmuxinator-completion
 
 profiles:
   Zeus:
