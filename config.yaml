@@ -55,6 +55,7 @@ dotfiles:
   d_dunst_icons:
     dst: ~/.icons/dunst/
     src: ./dunst/icons/
+    link: true
 
   # Firefox
   d_firefox:
