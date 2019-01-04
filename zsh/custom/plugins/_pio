@@ -1,0 +1,142 @@
+# vim: ft=zsh
+
+_pio () {
+  local cmd
+  if (( CURRENT > 2)); then
+    cmd=${words[2]}
+    # Set the context for the subcommand.
+    curcontext="${curcontext%:*:*}:pass-$cmd"
+    # Narrow the range of words we are looking at to exclude `pass'
+    (( CURRENT-- ))
+    shift words
+    # Run the completion for the subcommand
+    case "${cmd}" in
+      account)
+        # TODO
+        ;;
+      boards)
+        # TODO
+        ;;
+      ci)
+        # TODO
+        ;;
+      debug)
+        # TODO
+        ;;
+      device|serialports)
+        if [ $CURRENT = 2 ]; then
+          local -a subcommands
+          subcommands=(
+            "list:List devices"
+            "monitor:Monitor device (Serial)"
+          )
+          _describe -t commands "$cmd" subcommands
+        else
+          _pio_complete_device
+        fi
+        ;;
+      home)
+        # TODO
+        ;;
+      init)
+        # TODO
+        ;;
+      lib)
+        # TODO
+        ;;
+      platform)
+        # TODO
+        ;;
+      remote)
+        # TODO
+        ;;
+      run)
+        # TODO: Detect file path with --project-dir
+        local ini_filename=./platformio.ini
+
+        local environments
+        [ -f $ini_filename ] && environments=$(cat $ini_filename | gawk 'match($0, /^\[env:(.*)\]/, a) {print a[1]}')
+
+        local targets=$(echo -n "((
+clean\:delete compiled object files, libraries and firmware/program binaries
+upload\:firmware \"auto-upload\" for embedded platforms
+debug\:build using debug configuration
+program\:firmware \"auto-upload\" for embedded platforms using external programmer
+fuses\:set fuse bits
+buildfs\:upload files to file system SPIFFS
+uploadfs\:upload files to file system SPIFFS
+size\:print the size of the sections in a firmware/program
+checkprogsize\:check the maximum allowed firmware size for uploading
+erase\:erase device flash
+monitor\:automatically start platformio device monitor after success build operation
+envdump\:dump current build environment
+idedata\:export build environment for IDE
+))" | sed -e 's/ /\\ /g' -e 's/\n\s\*/ /g')
+
+        _arguments \
+          "--upload-port=[Custom upload port of embedded board]:::_path_files -W /dev/ -g 'tty*' -P /dev/" \
+          {-d,--project-dir=}"[Specify the path to project directory]:::_files" \
+          {-e,--environment=}"[Process specified environments]:::($environments)" \
+          {-t,--target=}"[Process specified targets]:::$targets" \
+          {-s,--silent}"[Suppress progress reporting]" \
+          {-v,--verbose}"[Shows detailed information when processing environments]" \
+          "--disable-auto-clean[Disable auto-clean of build_dir when “platformio.ini” (Project Configuration File) or src_dir (project structure) have been modified]"
+        ;;
+      settings)
+        # TODO
+        ;;
+      test)
+        # TODO
+        ;;
+      update)
+        # TODO
+        ;;
+      upgrade)
+        # TODO
+        ;;
+    esac
+  else
+    local -a subcommands
+    subcommands=(
+      "account:Manage PIO Account"
+      "boards:Embedded Board Explorer"
+      "ci:Continuous Integration"
+      "debug:PIO Unified Debugger"
+      "device:Monitor device or list existing"
+      "serialports:Monitor device or list existing"
+      "home:PIO Home"
+      "init:Initialize PlatformIO project or update existing"
+      "lib:Library Manager"
+      "platform:Platform Manager"
+      "remote:PIO Remote"
+      "run:Process project environments"
+      "settings:Manage PlatformIO settings"
+      "test:Local Unit Testing"
+      "update:Update installed platforms, packages and libraries"
+      "upgrade:Upgrade PlatformIO to the latest version"
+    )
+    _describe -t commands 'pio' subcommands
+    _arguments \
+      "--version[Show the version and exit]" \
+      {-f,--force}"[Force to accept any confirmation prompts]" \
+      {-c,--caller}"[Caller ID (service)]" \
+      {-h,--help}"[Show help message and exit]"
+  fi
+}
+
+_pio_complete_device() {
+  local cmd
+  cmd=${words[2]}
+  case "$cmd" in
+    monitor)
+      echo "testing"
+      _arguments -C \
+        "--upload-port=[Custom upload port of embedded board]:::_path_files -W /dev/ -g 'tty*' -P /dev/" \
+        "--disable-auto-clean[Disable auto-clean of build_dir when “platformio.ini” (Project Configuration File) or src_dir (project structure) have been modified]"
+      return 0
+      ;;
+  esac
+}
+
+compdef _pio platformio pio
+
