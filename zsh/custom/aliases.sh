@@ -2,7 +2,7 @@ alias term="(sleep .5; wmctrl -r :ACTIVE: -b toggle,maximized_horz,maximized_ver
 
 # Basic functions
 alias clip="xsel -i -b"
-alias incognito="fc -p; SPACESHIP_PROMPT_SYMBOL=' ➜'"
+alias incognito="fc -p; SPACESHIP_CHAR_PREFIX=' '"
 
 # Places
 alias dt="cd ~/Desktop"

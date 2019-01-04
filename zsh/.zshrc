@@ -3,12 +3,12 @@ export FPATH=/usr/share/zsh/site-functions:/usr/share/zsh/functions/Calendar:/us
 
 ZSH_THEME="spaceship"
 SPACESHIP_DIR_TRUNC=0
+SPACESHIP_DIR_TRUNC_REPO=false
 SPACESHIP_BATTERY_SHOW=false
 SPACESHIP_EXEC_TIME_SHOW=false
 SPACESHIP_NODE_SHOW=false
 SPACESHIP_PACKAGE_SHOW=false
 SPACESHIP_PHP_SHOW=false
-SPACESHIP_CHAR_SYMBOL="➜"
 export RPS1="%{$reset_color%}"
 
 plugins=(git pass vi-mode)
