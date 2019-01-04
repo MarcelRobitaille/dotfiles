@@ -52,6 +52,9 @@ Plug 'metakirby5/codi.vim'
 
 Plug 'rickhowe/diffchar.vim'
 
+" Test suite
+Plug 'junegunn/vader.vim'
+
 
 "
 " Convenience
