@@ -101,7 +101,7 @@ Plug 'takac/vim-hardtime'
 Plug 'vim-airline/vim-airline'
 
 " Colourscheme
-Plug 'dylanaraps/wal.vim'
+Plug 'Iambecomeroot/wal.vim'
 
 " File icons
 Plug 'ryanoasis/vim-devicons'
