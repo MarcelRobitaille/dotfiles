@@ -332,6 +332,9 @@ let g:surround_{char2nr('f')} = "\1function\1(\r)"
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
 
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+
 let g:ale_linters = {
 \ 'c': [
 \   'gcc',
