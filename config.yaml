@@ -72,6 +72,7 @@ dotfiles:
   d_gtk:
     dst: ~/.config/gtk-3.0/
     src: ./gtk/
+    link: true
 
   # Lead
   f_lead:
@@ -118,14 +119,16 @@ dotfiles:
   d_openbox:
     dst: ~/.config/openbox/
     src: ./openbox/config/
-  d_openbox_theme:
+    link: true
     dst: ~/.local/share/themes/Arc-Dark/openbox-3/
     src: ./openbox/theme/
+    link: true
 
   # Ranger
   d_ranger:
     dst: ~/.config/ranger/
     src: ./ranger/
+    link: true
 
   # Redshift
   f_redshift:
@@ -188,6 +191,7 @@ dotfiles:
   d_tmuxinator:
     dst: ~/.config/tmuxinator/
     src: ./tmuxinator/
+    link: true
 
   f_vim:
     dst: ~/.vim/
@@ -217,6 +221,7 @@ dotfiles:
   d_zsh:
     dst: ~/.oh-my-zsh/
     src: ./zsh/
+    link: true
 
 profiles:
   Zeus:
