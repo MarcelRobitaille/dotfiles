@@ -223,9 +223,12 @@ dotfiles:
 
   # zsh
   zshrc:
-    dst: ~/.oh-my-zsh/
-    src: ./zsh/
+    dst: ~/.zshrc
+    src: ./zsh/.zshrc
     link: true
+  zsh_custom:
+    dst: ~/.oh-my-zsh/custom/
+    src: ./zsh/custom/
 
 profiles:
   Zeus:
@@ -265,6 +268,7 @@ profiles:
     - yay
     - zathura
     - zshrc
+    - zsh_custom
   Hermes:
     dotfiles:
     - alacritty.yml
@@ -303,4 +307,5 @@ profiles:
     - yay
     - zathura
     - zshrc
+    - zsh_custom
 
