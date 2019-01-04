@@ -19,181 +19,182 @@ config:
 dotfiles:
 
   # Alacritty
-  f_alacritty.yml:
+  alacritty.yml:
     dst: ~/.config/alacritty/alacritty.yml
     src: ./alacritty/alacritty.yml
 
   # Autorandr
-  f_postswitch:
+  postswitch:
     dst: ~/.config/autorandr/postswitch
     src: ./autorandr/postswitch
     link: true
 
   # Bin
-  d_bin:
+  bin:
     dst: ~/bin/
     src: ./bin/
     link: true
 
   # Compton
-  f_compton.conf:
+  compton.conf:
     dst: ~/.config/compton/compton.conf
     src: ./compton/compton.conf
     link: true
 
   # Ctags
-  f_ctags:
+  ctags:
     dst: ~/.ctags
     src: ./ctags/.ctags
     link: true
 
   # Dunst
-  f_dunstrc:
+  dunstrc:
     dst: ~/.config/dunst/dunstrc
     src: ./dunst/dunstrc
     link: true
-  d_dunst_icons:
+  dunst_icons:
     dst: ~/.icons/dunst/
     src: ./dunst/icons/
     link: true
 
   # Firefox
-  d_firefox:
+  firefox:
     dst: "{{@@ mozilla_path @@}}/chrome"
     src: ./firefox/
 
   # Git
-  f_gitconfig:
+  gitconfig:
     dst: ~/.config/git/config
     src: ./git/.gitconfig
     link: true
 
   # GTK
-  d_gtk:
+  gtk:
     dst: ~/.config/gtk-3.0/
     src: ./gtk/
     link: true
 
   # Lead
-  f_lead:
+  lead:
     dst: ~/.config/lead/lead.conf
     src: ./lead/lead.conf
     link: true
 
   # Linters
-  d_linters:
+  linters:
     dst: ~/
     src: ./linters/
 
   # MPD
-  f_mpd:
+  mpd:
     dst: ~/.config/mpd/mpd.conf
     src: ./mpd/mpd.conf
     link: true
 
   # MyCLI
-  f_myclirc:
+  myclirc:
     dst: ~/.myclirc
     src: ./mycli/.myclirc
     link: true
 
   # ncmpcpp
-  f_ncmpcpp:
+  ncmpcpp:
     dst: ~/.config/ncmpcpp/config
     src: ./ncmpcpp/config
     link: true
 
   # neofetch
-  f_neofetch:
+  neofetch:
     dst: ~/.config/neofetch/config
     src: ./neofetch/config
     link: true
 
   # NPM
-  f_npmrc:
+  npmrc:
     dst: ~/.npmrc
     src: ./npm/.npmrc
     link: true
 
   # openbox
-  d_openbox:
+  openbox:
     dst: ~/.config/openbox/
     src: ./openbox/config/
     link: true
+  openbox_theme:
     dst: ~/.local/share/themes/Arc-Dark/openbox-3/
     src: ./openbox/theme/
     link: true
 
   # Ranger
-  d_ranger:
+  ranger:
     dst: ~/.config/ranger/
     src: ./ranger/
     link: true
 
   # Redshift
-  f_redshift:
+  redshift:
     dst: ~/.config/redshift.conf
     src: ./redshift/redshift.conf
     link: true
 
   # Rofi pass
-  f_rofi-pass:
+  rofi-pass:
     dst: ~/.config/rofi-pass/config
     src: ./rofi-pass/config
     link: true
 
   # setxkbmap
-  f_setxkbmap:
+  setxkbmap:
     dst: ~/.config/setxkbmap.conf
     src: ./setxkbmap/setxkbmap.conf
     link: true
 
   # sxhkd
-  f_sxhkdrc:
+  sxhkdrc:
     dst: ~/.config/sxhkd/sxhkdrc
     src: ./sxhkd/sxhkdrc
     link: true
 
   # Termite
-  f_termite:
+  termite:
     dst: ~/.config/termite/config
     src: ./termite/config
     link: true
 
   # Tern
-  f_tern:
+  tern:
     dst: ~/.tern-project
     src: ./tern/.tern-project
     link: true
 
   # Thunar
-  f_thunar:
+  thunar:
     dst: ~/.config/Thunar/uca.xml
     src: ./thunar/uca.xml
     link: true
-  f_tumbler:
+  tumbler:
     dst: ~/.config/tumbler/tumbler.rc
     src: ./thunar/tumbler.rc
     link: true
 
   # tint2
-  d_tint2:
+  tint2:
     dst: ~/.config/tint2/
     src: ./tint2/
 
   # tmux
-  f_tmux:
+  tmux:
     dst: ~/.tmux.conf
     src: ./tmux/.tmux.conf
     link: true
 
   # tmuxinator
-  d_tmuxinator:
+  tmuxinator:
     dst: ~/.config/tmuxinator/
     src: ./tmuxinator/
     link: true
 
-  f_vim:
+  vim:
     dst: ~/.vim/
     src: ./vim/
     actions:
@@ -201,24 +202,24 @@ dotfiles:
      - vim-plug
 
   # X
-  d_x:
+  x:
     dst: ~/
     src: ./X/
 
   # yay
-  f_yay:
+  yay:
     dst: ~/.config/yay/config.json
     src: ./yay/config.json
     link: true
 
   # Zathura
-  f_zathura:
+  zathura:
     dst: ~/.config/zathura/zathurarc
     src: ./zathura/zathurarc
     link: true
 
   # zsh
-  d_zsh:
+  zshrc:
     dst: ~/.oh-my-zsh/
     src: ./zsh/
     link: true
@@ -226,77 +227,77 @@ dotfiles:
 profiles:
   Zeus:
     dotfiles:
-    - f_alacritty.yml
-    - d_bin
-    - f_compton.conf
-    - f_ctags
-    - f_dunstrc
-    - d_dunst_icons
-    - d_firefox
-    - f_gitconfig
-    - d_gtk
-    - f_lead
-    - d_linters
-    - f_mpd
-    - f_myclirc
-    - f_ncmpcpp
-    - f_neofetch
-    - f_npmrc
-    - d_openbox
-    - d_openbox_theme
-    - d_ranger
-    - f_redshift
-    - f_rofi-pass
-    - f_setxkbmap
-    - f_sxhkdrc
-    - f_termite
-    - f_tern
-    - f_thunar
-    - f_tumbler
-    - d_tint2
-    - f_tmux
-    - d_tmuxinator
-    - f_vim
-    - d_x
-    - f_yay
-    - f_zathura
-    - d_zsh
+    - alacritty.yml
+    - bin
+    - compton.conf
+    - ctags
+    - dunstrc
+    - dunst_icons
+    - firefox
+    - gitconfig
+    - gtk
+    - lead
+    - linters
+    - mpd
+    - myclirc
+    - ncmpcpp
+    - neofetch
+    - npmrc
+    - openbox
+    - openbox_theme
+    - ranger
+    - redshift
+    - rofi-pass
+    - setxkbmap
+    - sxhkdrc
+    - termite
+    - tern
+    - thunar
+    - tumbler
+    - tint2
+    - tmux
+    - tmuxinator
+    - vim
+    - x
+    - yay
+    - zathura
+    - zshrc
   Hermes:
     dotfiles:
-    - f_alacritty.yml
-    - f_postswitch
-    - d_bin
-    - f_compton.conf
-    - f_ctags
-    - f_dunstrc
-    - d_dunst_icons
-    - d_firefox
-    - f_gitconfig
-    - d_gtk
-    - f_lead
-    - d_linters
-    - f_mpd
-    - f_myclirc
-    - f_ncmpcpp
-    - f_neofetch
-    - f_npmrc
-    - d_openbox
-    - d_openbox_theme
-    - d_ranger
-    - f_redshift
-    - f_rofi-pass
-    - f_setxkbmap
-    - f_sxhkdrc
-    - f_termite
-    - f_tern
-    - f_thunar
-    - f_tumbler
-    - d_tint2
-    - f_tmux
-    - d_tmuxinator
-    - f_vim
-    - d_x
-    - f_yay
-    - f_zathura
-    - d_zsh
+    - alacritty.yml
+    - postswitch
+    - bin
+    - compton.conf
+    - ctags
+    - dunstrc
+    - dunst_icons
+    - firefox
+    - gitconfig
+    - gtk
+    - lead
+    - linters
+    - mpd
+    - myclirc
+    - ncmpcpp
+    - neofetch
+    - npmrc
+    - openbox
+    - openbox_theme
+    - ranger
+    - redshift
+    - rofi-pass
+    - setxkbmap
+    - sxhkdrc
+    - termite
+    - tern
+    - thunar
+    - tumbler
+    - tint2
+    - tmux
+    - tmuxinator
+    - vim
+    - x
+    - yay
+    - zathura
+    - zshrc
 
