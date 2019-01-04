@@ -15,11 +15,9 @@ plugins=(git pass vi-mode)
 
 source "$ZSH/oh-my-zsh.sh"
 
-for file in $ZSH/custom/{exports,aliases,functions,secret}.sh; do
-  [ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-
-source "$ZSH/custom/plugins/tmuxinator.zsh"
+for file in $ZSH/custom/{exports,aliases,functions,secret}.sh $ZSH/custom/plugins/*; do
+  [ -r "$file" ] && [ -f "$file" ] && source "$file"
+done
 
 DEFAULT_USER="marcel"
 
