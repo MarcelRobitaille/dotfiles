@@ -32,7 +32,7 @@ dotfiles:
   # Bin
   d_bin:
     dst: ~/bin/
-    src: ./bin/bin/
+    src: ./bin/
     link: true
 
   # Compton
