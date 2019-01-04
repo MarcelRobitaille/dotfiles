@@ -1,0 +1,57 @@
+#!/bin/zsh
+
+# url/%02d.jpg
+interactive_read 2> /tmp/url
+url=$(</tmp/url)
+rm /tmp/url
+
+if [[ $url =~ [0-9][0-9]\.jpg$ ]]; then
+  url=$(echo $url | sed 's/[0-9][0-9]\.jpg$/%02d.jpg/')
+elif [[ $url =~ [0-9]\.jpg$ ]]; then
+  url=$(echo $url | sed 's/[0-9]\.jpg$/%1d.jpg/')
+fi
+echo "Using base url: $url"
+
+i=0
+
+uid=`pwgen 16 1`
+
+type=${url: -3}
+
+while true; do
+  filename="$i.$type"
+
+  if [ -f "$filename" ]; then
+    filename="$i.$uid.$type"
+  fi
+
+  while true; do
+    echo "Downloading $i. Using referer $referer"
+    output=$(wget $(printf "$url" $i) -O "$filename" --referer "$referer" 2> /tmp/wget-log)
+    returnCode=$?
+
+    if [ $returnCode -ne 0 ]; then
+      cat /tmp/wget-log
+    fi
+
+    if  grep -Fq "awaiting response... 403" /tmp/wget-log; then
+      echo -n "Might need referer: "
+      interactive_read 2> /tmp/referer
+      referer=$(</tmp/referer | tr -d '\n')
+      rm /tmp/referer
+    else
+      break
+    fi
+  done
+
+  if [ $returnCode -ne 0 ] || [ "$(file -b --mime-type $filename)" = "text/html" ]; then
+    rm "$filename"
+
+    if (($i > 0)); then
+      break
+    fi
+  fi
+
+  ((i++))
+done
+
