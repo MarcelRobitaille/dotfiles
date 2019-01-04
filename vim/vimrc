@@ -39,6 +39,7 @@ Plug 'tpope/vim-unimpaired'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'airblade/vim-gitgutter'
 
 " Save session
@@ -450,6 +451,14 @@ let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
+
+
+"
+" Git
+"
+
+let g:fugitive_gitlab_domains = ['https://gitlab.robitaille.host']
+let g:fugitive_gitlab_ssh_user = 'gitlab'
 
 
 "
