@@ -7,8 +7,7 @@ clone(){
     FOLDER=$(echo $1 | sed 's/\.git$//' | grep -o "[^\/]*$")
   fi
 
-  git clone $1 $FOLDER
-  cd $FOLDER
+  git clone $1 $FOLDER && cd $FOLDER
 }
 
 # Create a new directory and enter it
