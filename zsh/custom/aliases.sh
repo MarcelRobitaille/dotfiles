@@ -28,3 +28,6 @@ alias fonts="fc-cache -fv"
 alias spaces="sed 's/^/    /'"
 alias :q=exit
 
+# Platformio
+alias sm="pio serialports monitor"
+
