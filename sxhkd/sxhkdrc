@@ -7,10 +7,7 @@
 
 # program launcher
 super + space
-  rofi -show run
-
-ctrl + space
-  rofi -show
+  rofi -show run -matching fuzzy -sorting-method fzf -sort
 
 super + shift + space
   rofi-pass
