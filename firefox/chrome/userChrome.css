@@ -5,6 +5,10 @@
   --url-and-searchbar-background-color: #505050 !important;
 }
 
+#TabsToolbar {
+  background-color: var(--chrome-background-color) !important;
+}
+
 #nav-bar,
 .tabbrowser-tab[selected="true"] .tab-background {
   background-image: none !important;
