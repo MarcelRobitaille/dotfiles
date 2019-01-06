@@ -88,7 +88,7 @@ window.label.text.justify: center
 ### MENU
 menu.border.width: 0
 menu.separator.width: 1
-menu.separator.padding.width: 10
+menu.separator.padding.width: 2
 menu.separator.padding.height: 2
 
 menu.overlap.x: 0
@@ -131,4 +131,39 @@ osd.hilight.bg.color: #5294E2
 osd.unhilight.bg: flat solid
 osd.unhilight.bg.color: #000000
 
-#osd.label.text.font: text shadow
+window.active.button.iconify.unpressed.image.color: #e9b837
+window.active.button.max.unpressed.image.color: #2fa890
+window.active.button.close.unpressed.image.color: #e45b63
+window.active.button.shade.unpressed.image.color: #4ec2e8
+window.active.button.desk.unpressed.image.color: #fec7cd
+
+window.active.button.iconify.pressed.image.color: #e9b837
+window.active.button.max.pressed.image.color: #2fa890
+window.active.button.close.pressed.image.color: #e45b63
+window.active.button.shade.pressed.image.color: #4ec2e8
+window.active.button.desk.pressed.image.color: #fec7cd
+
+window.active.button.iconify.hover.image.color: #e9b837
+window.active.button.max.hover.image.color: #2fa890
+window.active.button.close.hover.image.color: #e45b63
+window.active.button.shade.hover.image.color: #4ec2e8
+window.active.button.desk.hover.image.color: #fec7cd
+
+window.inactive.button.iconify.unpressed.image.color: #e9b837
+window.inactive.button.max.unpressed.image.color: #2fa890
+window.inactive.button.close.unpressed.image.color: #e45b63
+window.inactive.button.shade.unpressed.image.color: #4ec2e8
+window.inactive.button.desk.unpressed.image.color: #fec7cd
+
+window.inactive.button.iconify.pressed.image.color: #e9b837
+window.inactive.button.max.pressed.image.color: #2fa890
+window.inactive.button.close.pressed.image.color: #e45b63
+window.inactive.button.shade.pressed.image.color: #4ec2e8
+window.inactive.button.desk.pressed.image.color: #fec7cd
+
+window.inactive.button.iconify.hover.image.color: #e9b837
+window.inactive.button.max.hover.image.color: #2fa890
+window.inactive.button.close.hover.image.color: #e45b63
+window.inactive.button.shade.hover.image.color: #4ec2e8
+window.inactive.button.desk.hover.image.color: #fec7cd
+
