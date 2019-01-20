@@ -131,15 +131,20 @@ osd.hilight.bg.color: #5294E2
 osd.unhilight.bg: flat solid
 osd.unhilight.bg.color: #000000
 
+window.active.button.toggled.unpressed.image.color: #2fa890
+window.active.button.toggled.hover.image.color: #2fa890
+window.inactive.button.toggled.unpressed.image.color: #2fa890
+window.inactive.button.toggled.hover.image.color: #2fa890
+
 window.active.button.iconify.unpressed.image.color: #e9b837
 window.active.button.max.unpressed.image.color: #2fa890
 window.active.button.close.unpressed.image.color: #e45b63
 window.active.button.shade.unpressed.image.color: #4ec2e8
 window.active.button.desk.unpressed.image.color: #fec7cd
 
-window.active.button.iconify.pressed.image.color: #e9b837
-window.active.button.max.pressed.image.color: #2fa890
-window.active.button.close.pressed.image.color: #e45b63
+window.active.button.iconify.pressed.image.color: #d1a531
+window.active.button.max.pressed.image.color: #2a9781
+window.active.button.close.pressed.image.color: #cd5159
 window.active.button.shade.pressed.image.color: #4ec2e8
 window.active.button.desk.pressed.image.color: #fec7cd
 
@@ -155,9 +160,9 @@ window.inactive.button.close.unpressed.image.color: #e45b63
 window.inactive.button.shade.unpressed.image.color: #4ec2e8
 window.inactive.button.desk.unpressed.image.color: #fec7cd
 
-window.inactive.button.iconify.pressed.image.color: #e9b837
-window.inactive.button.max.pressed.image.color: #2fa890
-window.inactive.button.close.pressed.image.color: #e45b63
+window.inactive.button.iconify.pressed.image.color: #d1a531
+window.inactive.button.max.pressed.image.color: #2a9781
+window.inactive.button.close.pressed.image.color: #cd5159
 window.inactive.button.shade.pressed.image.color: #4ec2e8
 window.inactive.button.desk.pressed.image.color: #fec7cd
 
