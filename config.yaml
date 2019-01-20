@@ -13,6 +13,35 @@ actions:
       mkdir -p ~/.oh-my-zsh/custom/plugins;
       cp /tmp/tmuxinator/completion/tmuxinator.zsh ~/.oh-my-zsh/custom/plugins/)
   vim-plug: vim +PlugInstall +qall
+variables:
+  color_background: '12181e'
+  color_foreground: 'FFFFFD'
+  color_text: '000000'
+  color_cursor: 'ffffff'
+  color_normal_black: '12181e'
+  color_normal_red: 'ad4117'
+  color_normal_green: '659b45'
+  color_normal_yellow: 'b8cc4b'
+  color_normal_blue: '3a74bc'
+  color_normal_magenta: 'bdcb92'
+  color_normal_cyan: '96744A'
+  color_normal_white: 'e3e2e1'
+  color_bright_black: '5b7083'
+  color_bright_red: 'f6f2b9'
+  color_bright_green: '8d9fba'
+  color_bright_yellow: '7fd84b'
+  color_bright_blue: 'e6c675'
+  color_bright_magenta: 'e7ff5f'
+  color_bright_cyan: 'd19851'
+  color_bright_white: 'fffffd'
+  color_dim_black: '333333'
+  color_dim_red: 'f2777a'
+  color_dim_green: '99cc99'
+  color_dim_yellow: 'ffcc66'
+  color_dim_blue: '6699cc'
+  color_dim_magenta: 'cc99cc'
+  color_dim_cyan: '66cccc'
+  color_dim_white: 'dddddd'
 dynvariables:
   mozilla_path: find ~/.mozilla/firefox -name '*.default'
 config:
@@ -134,7 +163,6 @@ dotfiles:
   openbox_theme:
     dst: ~/.local/share/themes/Arc-Dark/openbox-3/
     src: ./openbox/theme/
-    link: true
 
   # Ranger
   ranger:
@@ -170,7 +198,6 @@ dotfiles:
   termite:
     dst: ~/.config/termite/config
     src: ./termite/config
-    link: true
 
   # Tern
   tern:

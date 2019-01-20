@@ -1,5 +1,5 @@
 :root {
-  --chrome-background-color: #12181e !important;
+  --chrome-background-color: #{{@@ color_normal_black @@}} !important;
   --tab-line-color: #325f93 !important;
   --toolbarbutton-icon-fill-attention: #CF5323 !important;
   --url-and-searchbar-background-color: #505050 !important;

@@ -4,25 +4,25 @@ dynamic_title = false
 icon_name = terminal
 
 [colors]
-background = #12181e
-foreground = #FFFFFD
-cursor = #FFFFFD
-cursor_foreground = #12181e
+background = #{{@@ color_background @@}}
+foreground = #{{@@ color_foreground @@}}
+cursor = #{{@@ color_cursor @@}}
+cursor_foreground = #{{@@ color_text @@}}
 
-color0 = #12181e
-color1 = #ad4117
-color2 = #659b45
-color3 = #b8cc4b
-color4 = #426da2
-color5 = #bdcb92
-color6 = #96744A
-color7 = #e3e2e1
-color8 = #5b7083
-color9 = #f6f2b9
-color10 = #8d9fba
-color11 = #7fd84b
-color12 = #e6c675
-color13 = #e7ff5f
-color14 = #d19851
-color15 = #fffffd
+color0 = #{{@@ color_normal_black @@}}
+color1 = #{{@@ color_normal_red @@}}
+color2 = #{{@@ color_normal_green @@}}
+color3 = #{{@@ color_normal_yellow @@}}
+color4 = #{{@@ color_normal_blue @@}}
+color5 = #{{@@ color_normal_magenta @@}}
+color6 = #{{@@ color_normal_cyan @@}}
+color7 = #{{@@ color_normal_white @@}}
+color8 = #{{@@ color_bright_black @@}}
+color9 = #{{@@ color_bright_red @@}}
+color10 = #{{@@ color_bright_green @@}}
+color11 = #{{@@ color_bright_yellow @@}}
+color12 = #{{@@ color_bright_blue @@}}
+color13 = #{{@@ color_bright_magenta @@}}
+color14 = #{{@@ color_bright_cyan @@}}
+color15 = #{{@@ color_bright_white @@}}
 
