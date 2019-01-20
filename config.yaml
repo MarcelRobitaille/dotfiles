@@ -42,6 +42,25 @@ variables:
   color_dim_magenta: 'cc99cc'
   color_dim_cyan: '66cccc'
   color_dim_white: 'dddddd'
+
+  standard_ignored_folders:
+    - '.git'
+    - '.pioenvs'
+    - '.piolibdeps'
+    - 'env'
+    - 'build'
+    - 'public'
+    - 'vendor'
+    - 'htmlcov'
+    - 'node_modules'
+    - '__pycache__'
+
+  standard_ignored_files:
+    - 'tags'
+    - '*.swp'
+    - 'yarn.*'
+    - 'package-lock.json'
+
 dynvariables:
   mozilla_path: find ~/.mozilla/firefox -name '*.default'
 config:
@@ -72,7 +91,6 @@ dotfiles:
   bin:
     dst: ~/bin/
     src: ./bin/
-    link: true
 
   # Compton
   compton.conf:

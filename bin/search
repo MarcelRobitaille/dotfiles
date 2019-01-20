@@ -26,19 +26,14 @@ grep \
   -n \
   -R \
   -l \
-  --exclude-dir '.git' \
-  --exclude-dir 'node_modules' \
-  --exclude-dir 'public' \
-  --exclude-dir 'build' \
-  --exclude-dir 'vendor' \
-  --exclude-dir 'env' \
-  --exclude-dir '__pycache__' \
-  --exclude 'package.json' \
-  --exclude 'package-lock.json' \
-  --exclude 'yarn.*' \
-  --exclude '*.swp' \
-  --exclude 'tags' \
+  {%@@ for folder in standard_ignored_folders @@%}
+  --exclude-dir '{{@@ folder @@}}' \
+  {%@@ endfor @@%}
+  {%@@ for file in standard_ignored_files @@%}
+  --exclude '{{@@ file @@}}' \
+  {%@@ endfor @@%}
   --exclude 'README.html' \
+  --exclude 'package.json' \
   "$1" \
   . |
 
