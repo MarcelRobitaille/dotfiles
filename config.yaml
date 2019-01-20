@@ -176,6 +176,15 @@ dotfiles:
     src: ./redshift/redshift.conf
     link: true
 
+  repetier_cura:
+    dst: ~/.local/share/RepetierHost/
+    src: ./repetier/cura/
+    link_children: true
+  repetier_printers:
+    dst: ~/.mono/registry/CurrentUser/software/repetier/printer/
+    src: ./repetier/printers
+    link_children: true
+
   # Rofi pass
   rofi-pass:
     dst: ~/.config/rofi-pass/config
@@ -293,6 +302,8 @@ profiles:
     - openbox_theme
     - ranger
     - redshift
+    - repetier_printers
+    - repetier_cura
     - rofi-pass
     - setxkbmap
     - sxhkdrc
