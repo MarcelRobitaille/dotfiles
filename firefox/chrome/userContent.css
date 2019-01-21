@@ -37,14 +37,14 @@
  * OneNote
  ****************************************/
 
-.WACInteractiveView.Ltr.WACViewPanel {
-  background-color: white !important;
-  color: black !important;
-}
-.WACInteractiveView.Ltr.WACViewPanel .Paragraph,
-.WACInteractiveView.Ltr.WACViewPanel .TextRun {
-  color: inherit !important;
-}
+/* .WACInteractiveView.Ltr.WACViewPanel { */
+/*   background-color: white !important; */
+/*   color: black !important; */
+/* } */
+/* .WACInteractiveView.Ltr.WACViewPanel .Paragraph, */
+/* .WACInteractiveView.Ltr.WACViewPanel .TextRun { */
+/*   color: inherit !important; */
+/* } */
 
 
 /**
@@ -54,10 +54,10 @@
 @-moz-document url-prefix("https://disable.www.messenger.com/") {
   div[role="banner"] {
     border-bottom: 1px solid #1c242d !important;
-    background: #12181e !important;
+    background: #{{@@ color_normal_black @@}} !important;
   }
   div[role="banner"] + div {
-    background: #12181e !important;
+    background: #{{@@ color_normal_black @@}} !important;
   }
   div[role="banner"] h1 {
     color: #fffffd !important;
@@ -86,7 +86,7 @@
   }
 
   div[role="main"] {
-    background: #12181e !important;
+    background: #{{@@ color_normal_black @@}} !important;
     border-left: 1px solid #1c242d !important;
   }
   div[role="main"] > span > div:first-child {

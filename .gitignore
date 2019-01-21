@@ -5,4 +5,5 @@ secret*
 Session.vim
 __pycache__
 config.sh
+.ropeproject
 

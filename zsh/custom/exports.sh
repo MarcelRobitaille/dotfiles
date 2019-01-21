@@ -20,13 +20,9 @@ export FZF_DEFAULT_COMMAND='ag -l \
   --hidden \
   --follow \
   --skip-vcs-ignores \
-  --ignore .git \
-  --ignore node_modules \
-  --ignore public \
-  --ignore build \
-  --ignore vendor \
-  --ignore env \
-  --ignore __pycache__ \
+  {%@@ for folder in standard_ignored_folders @@%}
+  --ignore {{@@ folder @@}} \
+  {%@@ endfor @@%}
   -g ""'
 
 export KEYTIMEOUT=1
