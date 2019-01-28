@@ -225,6 +225,7 @@ dotfiles:
     dst: ~/.sqliterc
     src: ./sqlite/.sqliterc
     link: true
+
   # sxhkd
   sxhkdrc:
     dst: ~/.config/sxhkd/sxhkdrc
@@ -265,7 +266,7 @@ dotfiles:
 
   # tmuxinator
   tmuxinator:
-    dst: ~/.config/tmuxinator/
+    dst: ~/.tmuxinator/
     src: ./tmuxinator/
     link: true
 
