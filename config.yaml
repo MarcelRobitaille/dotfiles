@@ -55,6 +55,10 @@ variables:
     - 'htmlcov'
     - 'node_modules'
     - '__pycache__'
+    - 'jest-coverage'
+    - 'static'
+    - 'static.debug'
+    - '__snapshots__'
 
   standard_ignored_files:
     - 'tags'
