@@ -74,7 +74,8 @@ Plug 'mattn/emmet-vim'
 " Linting
 Plug 'w0rp/ale'
 
-Plug 'tranvansang/vim-close-pair'
+Plug 'tpope/vim-ragtag'
+" Plug 'tranvansang/vim-close-pair'
 " Plug 'Raimondi/delimitMate'
 
 Plug 'Valloric/YouCompleteMe'
