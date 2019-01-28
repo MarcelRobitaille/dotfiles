@@ -471,13 +471,15 @@ let g:NERDTreeGitStatusWithFlags = 0
 let NERDTreeIgnore = ['\.git$', '\.pioenvs$', '\.swp']
 
 " Folders
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
+let g:NERDTreeDirArrowExpandable = "\u00a0"
+let g:NERDTreeDirArrowCollapsible = "\u00a0"
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 
 " Use pretty icons
-let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
 
 " Prevent brackets around icons when sourcing vimrc
 if exists('g:loaded_webdevicons')
