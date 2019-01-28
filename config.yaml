@@ -5,6 +5,7 @@ actions:
     # spaceship-install: test -e {{ env['ZSH_CUSTOM'] }}/themes/spaceship-prompt/spaceship.zsh-theme ||
     #   (git clone https://github.com/denysdovhan/spaceship-prompt.git {{ env['ZSH_CUSTOM'] }}/themes/spaceship-prompt;
     #   ln -s {{ env['ZSH_CUSTOM'] }}/themes/spaceship-prompt/spaceship.zsh-theme {{ env['ZSH_CUSTOM'] }}/themes/spaceship.zsh-theme)
+    oh-my-zsh-install: test -e ~/.oh-my-zsh/oh-my-zsh.sh || (rm -rf ~/.oh-my-zsh; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)")
     spaceship-install: test -e ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme ||
       (git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt;
       ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme)
@@ -54,6 +55,10 @@ variables:
     - 'htmlcov'
     - 'node_modules'
     - '__pycache__'
+    - 'jest-coverage'
+    - 'static'
+    - 'static.debug'
+    - '__snapshots__'
 
   standard_ignored_files:
     - 'tags'
@@ -221,6 +226,12 @@ dotfiles:
     src: ./setxkbmap/setxkbmap.conf
     link: true
 
+  # sqlite
+  sqliterc:
+    dst: ~/.sqliterc
+    src: ./sqlite/.sqliterc
+    link: true
+
   # sxhkd
   sxhkdrc:
     dst: ~/.config/sxhkd/sxhkdrc
@@ -261,7 +272,7 @@ dotfiles:
 
   # tmuxinator
   tmuxinator:
-    dst: ~/.config/tmuxinator/
+    dst: ~/.tmuxinator/
     src: ./tmuxinator/
     link: true
 
@@ -300,6 +311,7 @@ dotfiles:
     dst: ~/.oh-my-zsh/custom/
     src: ./zsh/custom/
     actions:
+    - oh-my-zsh-install
     - spaceship-install
     - tmuxinator-completion
 
@@ -385,4 +397,18 @@ profiles:
     - zathura
     - zshrc
     - zsh_custom
+  marcel-VirtualBox:
+    dotfiles:
+    - vim
+    - zshrc
+    - zsh_custom
+    - tmux
+    - x
+    - alacritty.yml
+    - setxkbmap
+    - ctags
+    - bin
+    - tern
+    - sqliterc
+    - tmuxinator
 

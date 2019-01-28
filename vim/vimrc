@@ -18,13 +18,15 @@ Plug 'wellle/targets.vim'
 
 " Tree view
 Plug 'scrooloose/nerdtree'
-Plug 'robinfehr/nerdtree-git-plugin'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'tsony-tsonev/nerdtree-git-plugin'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Better history
 Plug 'mbbill/undotree'
 
 " Fuzzy file finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Enable dot repetition for plugins
 Plug 'tpope/vim-repeat'
@@ -72,10 +74,11 @@ Plug 'mattn/emmet-vim'
 " Linting
 Plug 'w0rp/ale'
 
-Plug 'tranvansang/vim-close-pair'
+Plug 'tpope/vim-ragtag'
+" Plug 'tranvansang/vim-close-pair'
 " Plug 'Raimondi/delimitMate'
 
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --js-completer --clang-completer' }
 
 " Switch between single line and multi line statemnts
 Plug 'AndrewRadev/splitjoin.vim'
@@ -155,6 +158,13 @@ set mouse=a
 
 filetype plugin indent on
 
+" Use global swap file
+" Then use `vim -L` for list of open files
+if !isdirectory($HOME . "/.vim/swap")
+  call mkdir($HOME . "/.vim/swap", "p")
+endif
+set directory=~/.vim/swap
+
 
 "
 " Appearance
@@ -172,10 +182,19 @@ set linebreak
 
 " Show (certain) invisibles
 set list
-set listchars=trail:·,tab:>-
+set listchars=trail:·,tab:\|\ 
 
 " Indentation
-set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
+set tabstop=2 softtabstop=2 shiftwidth=2 smarttab
+set autoindent
+set copyindent
+set preserveindent
+
+" Indent with tabs, align with spaces
+" I am agaisnt lining up code as this creates unecessary changes when diffing,
+" but it is needed for comment blocks with a single leading space
+" set cindent
+" set cinoptions=(0,u0,U0
 set cinoptions=l1
 
 " Line numbers
@@ -355,7 +374,9 @@ let g:ale_fixers = {
 
 let g:ale_c_parse_makefile = 1
 let g:ale_c_gcc_parse_makefile = 1
-let g:ale_python_flake8_options = "--ignore=W391"
+let g:ale_python_flake8_options = '--ignore=W391'
+
+let g:ale_python_pylint_options = '--rcfile=' . getcwd() . '/pylintrc'
 
 let g:pymode_python = 'python3'
 
@@ -421,9 +442,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Remove colon after buffer number
-let g:airline#extensions#tabline#buffer_nr_format = '%s '
-
-
 
 "
 " NERDTree
@@ -449,19 +467,21 @@ let g:NERDTreeGitStatusNodeColorization = 1
 let g:NERDTreeGitStatusWithFlags = 0
 
 " Show files matching .gitignore
-let g:NERDTreeShowIgnoredStatus = 1
+" let g:NERDTreeShowIgnoredStatus = 1
 
 " Files to be hidden
 let NERDTreeIgnore = ['\.git$', '\.pioenvs$', '\.swp']
 
 " Folders
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
+let g:NERDTreeDirArrowExpandable = "\u00a0"
+let g:NERDTreeDirArrowCollapsible = "\u00a0"
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 
 " Use pretty icons
-let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
 
 " Prevent brackets around icons when sourcing vimrc
 if exists('g:loaded_webdevicons')
@@ -472,6 +492,22 @@ endif
 "
 " Git
 "
+
+" Delete fugitive buffers after close
+augroup fugitive_close
+	autocmd BufReadPost fugitive://* set bufhidden=delete
+augroup END
+
+set previewheight=12
+augroup previewheight
+	autocmd BufEnter ?* call PreviewHeightWorkAround()
+	function! PreviewHeightWorkAround()
+  	if &previewwindow
+    	exec 'setlocal winheight='.&previewheight
+    	exec 'resize '.&previewheight
+  	endif
+	endfunction
+augroup END
 
 let g:fugitive_gitlab_domains = ['https://gitlab.robitaille.host']
 let g:fugitive_gitlab_ssh_user = 'gitlab'
