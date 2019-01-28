@@ -119,6 +119,12 @@ dotfiles:
     dst: "{{@@ mozilla_path @@}}"
     src: ./firefox/
 
+  # Flake 8 python linter
+  flake8:
+    dst: ~/.config/flake8
+    src: ./flake8/flake8
+    link: true
+
   # Git
   gitconfig:
     dst: ~/.config/git/config
@@ -307,6 +313,7 @@ profiles:
     - dunstrc
     - dunst_icons
     - firefox
+    - flake8
     - gitconfig
     - gtk
     - lead
@@ -348,6 +355,7 @@ profiles:
     - dunstrc
     - dunst_icons
     - firefox
+    - flake8
     - gitconfig
     - gtk
     - lead
