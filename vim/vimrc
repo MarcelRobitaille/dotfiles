@@ -158,6 +158,13 @@ set mouse=a
 
 filetype plugin indent on
 
+" Use global swap file
+" Then use `vim -L` for list of open files
+if !isdirectory($HOME . "/.vim/swap")
+  call mkdir($HOME . "/.vim/swap", "p")
+endif
+set directory=~/.vim/swap
+
 
 "
 " Appearance
