@@ -51,6 +51,7 @@ variables:
     - 'env'
     - 'build'
     - 'public'
+    - 'static'
     - 'vendor'
     - 'htmlcov'
     - 'node_modules'

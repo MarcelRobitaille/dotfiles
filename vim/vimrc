@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dotenv'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-ragtag'
 
 " Add more targets
 Plug 'wellle/targets.vim'
@@ -115,6 +116,11 @@ Plug 'Yggdroot/indentLine'
 " Automatically remove search highlighting
 Plug 'haya14busa/incsearch.vim'
 
+Plug 'chrisbra/Colorizer'
+
+" Colour manipulation
+Plug 'romgrk/lib.kom'
+
 " Syntax plugins
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -124,8 +130,9 @@ Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'lervag/vimtex'
-Plug 'klen/python-mode'
+" Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'statico/vim-javascript-sql'
+Plug 'Vimjas/vim-python-pep8-indent'
 " Plug 'hdima/python-syntax'
 " Plug 'nvie/vim-flake8'
 
@@ -156,7 +163,8 @@ let mapleader = " "
 " Scroll with mousewheel
 set mouse=a
 
-filetype plugin indent on
+" filetype plugin indent on
+filetype plugin indent off
 
 " Use global swap file
 " Then use `vim -L` for list of open files
@@ -625,4 +633,11 @@ endfunction
 
 let g:user_completion_chain = ['accent#AccentCompletion', 'youcompleteme#Complete']
 set completefunc=CompletionChain
+
+nnoremap <leader>- color#Test(expand('<cword>'))
+            \? '"_ciw' . color#Darken(expand('<cword>')) . "\<Esc>"
+            \: "\<Nop>"
+nnoremap <M-=> color#Test(expand('<cword>'))
+            \? '"_ciw' . color#Lighten(expand('<cword>')) . "\<Esc>"
+            \: "\<Nop>"
 
