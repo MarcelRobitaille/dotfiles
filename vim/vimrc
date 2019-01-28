@@ -357,6 +357,8 @@ let g:ale_c_parse_makefile = 1
 let g:ale_c_gcc_parse_makefile = 1
 let g:ale_python_flake8_options = "--ignore=W391"
 
+let g:pymode_python = 'python3'
+
 nnoremap <leader>f :ALEFix<CR>
 
 
