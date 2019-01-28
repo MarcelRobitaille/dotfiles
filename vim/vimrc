@@ -18,13 +18,15 @@ Plug 'wellle/targets.vim'
 
 " Tree view
 Plug 'scrooloose/nerdtree'
-Plug 'robinfehr/nerdtree-git-plugin'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'tsony-tsonev/nerdtree-git-plugin'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Better history
 Plug 'mbbill/undotree'
 
 " Fuzzy file finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Enable dot repetition for plugins
 Plug 'tpope/vim-repeat'
