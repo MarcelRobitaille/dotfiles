@@ -465,7 +465,7 @@ let g:NERDTreeGitStatusNodeColorization = 1
 let g:NERDTreeGitStatusWithFlags = 0
 
 " Show files matching .gitignore
-let g:NERDTreeShowIgnoredStatus = 1
+" let g:NERDTreeShowIgnoredStatus = 1
 
 " Files to be hidden
 let NERDTreeIgnore = ['\.git$', '\.pioenvs$', '\.swp']
