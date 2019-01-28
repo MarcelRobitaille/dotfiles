@@ -78,7 +78,7 @@ Plug 'tpope/vim-ragtag'
 " Plug 'tranvansang/vim-close-pair'
 " Plug 'Raimondi/delimitMate'
 
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --js-completer --clang-completer' }
 
 " Switch between single line and multi line statemnts
 Plug 'AndrewRadev/splitjoin.vim'
