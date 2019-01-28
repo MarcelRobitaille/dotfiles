@@ -491,6 +491,12 @@ endif
 " Git
 "
 
+" Delete fugitive buffers after close
+augroup fugitive_close
+	autocmd BufReadPost fugitive://* set bufhidden=delete
+augroup END
+
+
 let g:fugitive_gitlab_domains = ['https://gitlab.robitaille.host']
 let g:fugitive_gitlab_ssh_user = 'gitlab'
 
