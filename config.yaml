@@ -399,5 +399,7 @@ profiles:
     - setxkbmap
     - ctags
     - bin
+    - tern
     - sqliterc
+    - tmuxinator
 
