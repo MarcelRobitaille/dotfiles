@@ -185,7 +185,16 @@ set list
 set listchars=trail:·,tab:\|\ 
 
 " Indentation
-set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
+set tabstop=2 softtabstop=2 shiftwidth=2 smarttab
+set autoindent
+set copyindent
+set preserveindent
+
+" Indent with tabs, align with spaces
+" I am agaisnt lining up code as this creates unecessary changes when diffing,
+" but it is needed for comment blocks with a single leading space
+" set cindent
+" set cinoptions=(0,u0,U0
 set cinoptions=l1
 
 " Line numbers
