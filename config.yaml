@@ -220,6 +220,11 @@ dotfiles:
     src: ./setxkbmap/setxkbmap.conf
     link: true
 
+  # sqlite
+  sqliterc:
+    dst: ~/.sqliterc
+    src: ./sqlite/.sqliterc
+    link: true
   # sxhkd
   sxhkdrc:
     dst: ~/.config/sxhkd/sxhkdrc
@@ -394,4 +399,5 @@ profiles:
     - setxkbmap
     - ctags
     - bin
+    - sqliterc
 
