@@ -1,2 +1,2 @@
-user_pref("widget.content.gtk-theme-override", true);
+user_pref("widget.content.gtk-theme-override", "Arc");
 

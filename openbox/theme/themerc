@@ -17,7 +17,17 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-### WINDOW
+# Docs: http://openbox.org/wiki/Help:Themes#max_toggled_hover.xbm
+# Inspiration:
+# https://github.com/addy-dclxvi/openbox-theme-collections
+# https://github.com/addy-dclxvi/Openbox-Theme-Collections
+#
+# Do something with vimix eventually?
+# https://github.com/vinceliuice/vimix-gtk-themes
+#
+# Doesn't really fit here but mailspring?
+# https://github.com/mjohnson8165/mailspring-arc-dark
+
 border.width: 1
 
 window.client.padding.width: 0
