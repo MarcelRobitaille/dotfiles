@@ -344,6 +344,10 @@ augroup END
 " Autocomplete words when spell is set
 set complete+=kspell
 
+iabbrev PropTYpes PropTypes
+iabbrev withSTyles withStyles
+iabbrev THis This
+iabbrev funx func
 
 """"""""""""""""""""""
 "  Plugins settings  "
