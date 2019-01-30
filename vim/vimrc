@@ -164,8 +164,7 @@ let mapleader = " "
 " Scroll with mousewheel
 set mouse=a
 
-" filetype plugin indent on
-filetype plugin indent off
+filetype plugin indent on
 
 " Use global swap file
 " Then use `vim -L` for list of open files
