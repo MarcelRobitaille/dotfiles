@@ -192,7 +192,7 @@ set linebreak
 
 " Show (certain) invisibles
 set list
-set listchars=trail:·,tab:\|\ 
+set listchars=trail:·,tab:\|\ ,
 
 " Indentation
 set tabstop=2 softtabstop=2 shiftwidth=2 smarttab
