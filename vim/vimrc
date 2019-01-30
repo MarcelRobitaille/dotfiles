@@ -178,6 +178,8 @@ set directory=~/.vim/swap
 " Appearance
 "
 
+set fileformats=unix
+
 " Syntax highlighting
 syntax on
 
