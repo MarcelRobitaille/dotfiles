@@ -346,9 +346,11 @@ augroup END
 set complete+=kspell
 
 iabbrev PropTYpes PropTypes
+iabbrev propTYpes propTypes
 iabbrev withSTyles withStyles
 iabbrev THis This
 iabbrev funx func
+iabbrev COmponent Component
 
 
 """"""""""""""""""""""
