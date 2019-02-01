@@ -208,7 +208,7 @@ set preserveindent
 " set cinoptions=(0,u0,U0
 set cinoptions=l1
 
-autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " Line numbers
 set number
