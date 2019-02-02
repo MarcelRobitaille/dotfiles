@@ -652,4 +652,3 @@ nnoremap <leader>- color#Test(expand('<cword>'))
 nnoremap <M-=> color#Test(expand('<cword>'))
 						\? '"_ciw' . color#Lighten(expand('<cword>')) . "\<Esc>"
 						\: "\<Nop>"
-
