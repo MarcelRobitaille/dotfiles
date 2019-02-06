@@ -11,7 +11,7 @@ SPACESHIP_PACKAGE_SHOW=false
 SPACESHIP_PHP_SHOW=false
 export RPS1="%{$reset_color%}"
 
-plugins=(git pass vi-mode)
+plugins=(git pass vi-mode django)
 
 source "$ZSH/oh-my-zsh.sh"
 

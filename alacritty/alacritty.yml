@@ -100,46 +100,46 @@ render_timer: false
 colors:
   # Default colors
   primary:
-    background: '0x12181e'
-    foreground: '0xFFFFFD'
+    background: '0x{{@@ color_background @@}}'
+    foreground: '0x{{@@ color_foreground @@}}'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x000000'
-    cursor: '0xffffff'
+    text: '0x{{@@ color_text @@}}'
+    cursor: '0x{{@@ color_cursor @@}}'
 
   # Normal colors
   normal:
-    black:   '0x12181e'
-    red:     '0xad4117'
-    green:   '0x659b45'
-    yellow:  '0xb8cc4b'
-    blue:    '0x3a74bc'
-    magenta: '0xbdcb92'
-    cyan:    '0x96744A'
-    white:   '0xe3e2e1'
+    black: '0x{{@@ color_normal_black @@}}'
+    red: '0x{{@@ color_normal_red @@}}'
+    green: '0x{{@@ color_normal_green @@}}'
+    yellow: '0x{{@@ color_normal_yellow @@}}'
+    blue: '0x{{@@ color_normal_blue @@}}'
+    magenta: '0x{{@@ color_normal_magenta @@}}'
+    cyan: '0x{{@@ color_normal_cyan @@}}'
+    white: '0x{{@@ color_normal_white @@}}'
 
   # Bright colors
   bright:
-    black:   '0x5b7083'
-    red:     '0xf6f2b9'
-    green:   '0x8d9fba'
-    yellow:  '0x7fd84b'
-    blue:    '0xe6c675'
-    magenta: '0xe7ff5f'
-    cyan:    '0xd19851'
-    white:   '0xfffffd'
+    black: '0x{{@@ color_bright_black @@}}'
+    red: '0x{{@@ color_bright_red @@}}'
+    green: '0x{{@@ color_bright_green @@}}'
+    yellow: '0x{{@@ color_bright_yellow @@}}'
+    blue: '0x{{@@ color_bright_blue @@}}'
+    magenta: '0x{{@@ color_bright_magenta @@}}'
+    cyan: '0x{{@@ color_bright_cyan @@}}'
+    white: '0x{{@@ color_bright_white @@}}'
 
   # Dim colors (Optional)
   dim:
-    black:   '0x333333'
-    red:     '0xf2777a'
-    green:   '0x99cc99'
-    yellow:  '0xffcc66'
-    blue:    '0x6699cc'
-    magenta: '0xcc99cc'
-    cyan:    '0x66cccc'
-    white:   '0xdddddd'
+    black: '0x{{@@ color_dim_black @@}}'
+    red: '0x{{@@ color_dim_red @@}}'
+    green: '0x{{@@ color_dim_green @@}}'
+    yellow: '0x{{@@ color_dim_yellow @@}}'
+    blue: '0x{{@@ color_dim_blue @@}}'
+    magenta: '0x{{@@ color_dim_magenta @@}}'
+    cyan: '0x{{@@ color_dim_cyan @@}}'
+    white: '0x{{@@ color_dim_white @@}}'
 
 # Visual Bell
 #

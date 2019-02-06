@@ -9,7 +9,7 @@ alias dt="cd ~/Desktop"
 alias ll="ls -lah"
 
 # Git
-alias g="hub"
+alias g="git"
 alias s="git status -s"
 alias a="git add "
 alias aa="git add -A"

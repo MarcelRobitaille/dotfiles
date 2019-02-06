@@ -12,19 +12,23 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dotenv'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-ragtag'
 
 " Add more targets
 Plug 'wellle/targets.vim'
 
 " Tree view
 Plug 'scrooloose/nerdtree'
-Plug 'robinfehr/nerdtree-git-plugin'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'tsony-tsonev/nerdtree-git-plugin'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Better history
 Plug 'mbbill/undotree'
 
 " Fuzzy file finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Enable dot repetition for plugins
 Plug 'tpope/vim-repeat'
@@ -72,10 +76,11 @@ Plug 'mattn/emmet-vim'
 " Linting
 Plug 'w0rp/ale'
 
-Plug 'tranvansang/vim-close-pair'
+Plug 'tpope/vim-ragtag'
+" Plug 'tranvansang/vim-close-pair'
 " Plug 'Raimondi/delimitMate'
 
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --js-completer --clang-completer' }
 
 " Switch between single line and multi line statemnts
 Plug 'AndrewRadev/splitjoin.vim'
@@ -112,8 +117,14 @@ Plug 'Yggdroot/indentLine'
 " Automatically remove search highlighting
 Plug 'haya14busa/incsearch.vim'
 
+Plug 'chrisbra/Colorizer'
+
+" Colour manipulation
+Plug 'romgrk/lib.kom'
+
 " Syntax plugins
 Plug 'pangloss/vim-javascript'
+
 Plug 'mxw/vim-jsx'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'digitaltoad/vim-pug'
@@ -121,8 +132,9 @@ Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'lervag/vimtex'
-Plug 'klen/python-mode'
+" Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'statico/vim-javascript-sql'
+Plug 'Vimjas/vim-python-pep8-indent'
 " Plug 'hdima/python-syntax'
 " Plug 'nvie/vim-flake8'
 
@@ -155,10 +167,19 @@ set mouse=a
 
 filetype plugin indent on
 
+" Use global swap file
+" Then use `vim -L` for list of open files
+if !isdirectory($HOME . "/.vim/swap")
+	call mkdir($HOME . "/.vim/swap", "p")
+endif
+set directory=~/.vim/swap
+
 
 "
 " Appearance
 "
+
+set fileformats=unix
 
 " Syntax highlighting
 syntax on
@@ -172,11 +193,22 @@ set linebreak
 
 " Show (certain) invisibles
 set list
-set listchars=trail:·,tab:>-
+set listchars=trail:·,tab:\|\ ,
 
 " Indentation
-set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
+set tabstop=2 softtabstop=2 shiftwidth=2 smarttab
+set autoindent
+set copyindent
+set preserveindent
+
+" Indent with tabs, align with spaces
+" I am agaisnt lining up code as this creates unecessary changes when diffing,
+" but it is needed for comment blocks with a single leading space
+" set cindent
+" set cinoptions=(0,u0,U0
 set cinoptions=l1
+
+autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " Line numbers
 set number
@@ -201,8 +233,8 @@ set nofoldenable
 
 " Highlight characters that go over line length limit
 augroup vimrc_autocmds
-  " autocmd BufEnter *.js highlight OverLength ctermbg=grey
-  " autocmd BufEnter *.js match OverLength /\%82v.*/
+	" autocmd BufEnter *.js highlight OverLength ctermbg=grey
+	" autocmd BufEnter *.js match OverLength /\%82v.*/
 augroup END
 
 
@@ -226,29 +258,29 @@ set hlsearch
 
 " Automatically hide results
 let g:incsearch#auto_nohlsearch = 1
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
+map /	<Plug>(incsearch-forward)
+map ?	<Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
+map n	<Plug>(incsearch-nohl-n)
+map N	<Plug>(incsearch-nohl-N)
+map *	<Plug>(incsearch-nohl-*)
+map #	<Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
 " Underline search results
 let g:incsearch#highlight = {
-\   'match' : {
-\     'group' : 'IncSearchUnderline',
-\     'priority' : '10'
-\   },
-\   'on_cursor' : {
-\     'priority' : '100'
-\   },
-\   'cursor' : {
-\     'group' : 'Search',
-\     'priority' : '1000'
-\   }
+\	 'match' : {
+\		 'group' : 'IncSearchUnderline',
+\		 'priority' : '10'
+\	 },
+\	 'on_cursor' : {
+\		 'priority' : '100'
+\	 },
+\	 'cursor' : {
+\		 'group' : 'Search',
+\		 'priority' : '1000'
+\	 }
 \ }
 
 " Prefer case sensitive matches but allow both
@@ -267,8 +299,8 @@ set hidden
 " Go to nth buffer
 let c = 1
 while c <= 999
-  execute "nnoremap " . c . "<leader> :" . c . "b\<CR>"
-  let c += 1
+	execute "nnoremap " . c . "<leader> :" . c . "b\<CR>"
+	let c += 1
 endwhile
 
 " Shortcut to close only current buffer
@@ -278,7 +310,7 @@ nnoremap <leader>q :bn<CR>:bd #<CR>
 set autoread
 
 function! Autoread(timer)
-  silent checktime %
+	silent checktime %
 endfunction!
 let timer = timer_start(100, 'Autoread', { 'repeat': -1 })
 
@@ -288,7 +320,7 @@ let timer = timer_start(100, 'Autoread', { 'repeat': -1 })
 "
 
 function! RepeatChar(char, count)
-  return repeat(a:char, a:count)
+	return repeat(a:char, a:count)
 endfunction
 
 " Empty line but don't delete it
@@ -307,15 +339,22 @@ set formatoptions+=c
 "
 
 augroup spelling
-  autocmd FileType markdown,gitcommit setlocal spell
+	autocmd FileType markdown,gitcommit setlocal spell
 augroup END
 
 " Autocomplete words when spell is set
 set complete+=kspell
 
+iabbrev PropTYpes PropTypes
+iabbrev propTYpes propTypes
+iabbrev withSTyles withStyles
+iabbrev THis This
+iabbrev funx func
+iabbrev COmponent Component
+
 
 """"""""""""""""""""""
-"  Plugins settings  "
+"	Plugins settings	"
 """"""""""""""""""""""
 
 "
@@ -337,25 +376,29 @@ let g:ale_sign_warning = ''
 
 let g:ale_linters = {
 \ 'c': [
-\   'gcc',
+\	 'gcc',
 \ ],
 \ 'cpp': [
-\   'g++',
+\	 'g++',
 \ ],
 \ 'jsx': [
-\   'eslint',
+\	 'eslint',
 \ ],
 \}
 
 let g:ale_fixers = {
 \ 'javascript': [
-\   'eslint',
+\	 'eslint',
 \ ],
 \}
 
 let g:ale_c_parse_makefile = 1
 let g:ale_c_gcc_parse_makefile = 1
-let g:ale_python_flake8_options = "--ignore=W391"
+let g:ale_python_flake8_options = '--ignore=W391'
+
+let g:ale_python_pylint_options = '--rcfile=' . getcwd() . '/pylintrc'
+
+let g:pymode_python = 'python3'
 
 nnoremap <leader>f :ALEFix<CR>
 
@@ -372,8 +415,8 @@ let g:ycm_filepath_blacklist = {}
 let g:ycm_global_ycm_extra_conf = '/home/marcel/.vim/ycm_global_ycm_extra_conf.py'
 
 let g:ycm_semantic_triggers = {
-  \ 'css': [ 're!^\s{2}', 're!:\s+' ],
-  \ }
+	\ 'css': [ 're!^\s{2}', 're!:\s+' ],
+	\ }
 
 
 "
@@ -396,7 +439,7 @@ let g:airline_powerline_fonts = 1
 set ttimeoutlen=50
 
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+		let g:airline_symbols = {}
 endif
 
 " Hide things that are broken with my fonts or that I don't like the look of
@@ -419,21 +462,18 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Remove colon after buffer number
-let g:airline#extensions#tabline#buffer_nr_format = '%s '
-
-
 
 "
 " NERDTree
 "
 
 augroup nerdstart
-  " Automatically open when starting vim on directory
-  autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+	" Automatically open when starting vim on directory
+	autocmd StdinReadPre * let s:std_in=1
+	autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
-  " Close NERDTree if it's the only thing left
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+	" Close NERDTree if it's the only thing left
+	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 augroup END
 
 " Keybinding to open NERDTree
@@ -447,29 +487,47 @@ let g:NERDTreeGitStatusNodeColorization = 1
 let g:NERDTreeGitStatusWithFlags = 0
 
 " Show files matching .gitignore
-let g:NERDTreeShowIgnoredStatus = 1
+" let g:NERDTreeShowIgnoredStatus = 1
 
 " Files to be hidden
 let NERDTreeIgnore = ['\.git$', '\.pioenvs$', '\.swp']
 
 " Folders
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
+let g:NERDTreeDirArrowExpandable = "\u00a0"
+let g:NERDTreeDirArrowCollapsible = "\u00a0"
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 
 " Use pretty icons
-let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
 
 " Prevent brackets around icons when sourcing vimrc
 if exists('g:loaded_webdevicons')
-  call webdevicons#refresh()
+	call webdevicons#refresh()
 endif
 
 
 "
 " Git
 "
+
+" Delete fugitive buffers after close
+augroup fugitive_close
+	autocmd BufReadPost fugitive://* set bufhidden=delete
+augroup END
+
+set previewheight=12
+augroup previewheight
+	autocmd BufEnter ?* call PreviewHeightWorkAround()
+	function! PreviewHeightWorkAround()
+		if &previewwindow
+			exec 'setlocal winheight='.&previewheight
+			exec 'resize '.&previewheight
+		endif
+	endfunction
+augroup END
 
 let g:fugitive_gitlab_domains = ['https://gitlab.robitaille.host']
 let g:fugitive_gitlab_ssh_user = 'gitlab'
@@ -550,6 +608,7 @@ autocmd FileType vim setlocal commentstring=\"\ %s
 autocmd FileType zsh setlocal commentstring=#\ %s
 autocmd FileType cpp setlocal commentstring=\/\/\ %s
 autocmd FileType matlab setlocal commentstring=%\ %s
+autocmd FileType python setlocal commentstring=#\ %s
 
 let g:tex_conceal = ""
 nnoremap <leader>t <Plug>vimtex-compile
@@ -561,29 +620,35 @@ let g:pymode_options_colorcolumn = 0
 let g:pymode_folding = 0
 
 function! CompletionChain(findstart, base)
-  if a:findstart
-    " Test against the functions one by one
-    for func in g:user_completion_chain
-      let pos = call(func, [a:findstart, a:base])
-      " If a function can complete the prefix,
-      " remember the name and return the result from the function
-      if pos >= 0
-        let s:current_completion = func
-        return pos
-      endif
-    endfor
+	if a:findstart
+		" Test against the functions one by one
+		for func in g:user_completion_chain
+			let pos = call(func, [a:findstart, a:base])
+			" If a function can complete the prefix,
+			" remember the name and return the result from the function
+			if pos >= 0
+				let s:current_completion = func
+				return pos
+			endif
+		endfor
 
-    " No completion can be done
-    unlet! s:current_completion
-    return -1
-  elseif exists('s:current_completion')
-    " Simply pass the arguments to the selected function
-    return call(s:current_completion, [a:findstart, a:base])
-  else
-    return []
-  endif
+		" No completion can be done
+		unlet! s:current_completion
+		return -1
+	elseif exists('s:current_completion')
+		" Simply pass the arguments to the selected function
+		return call(s:current_completion, [a:findstart, a:base])
+	else
+		return []
+	endif
 endfunction
 
 let g:user_completion_chain = ['accent#AccentCompletion', 'youcompleteme#Complete']
 set completefunc=CompletionChain
 
+nnoremap <leader>- color#Test(expand('<cword>'))
+						\? '"_ciw' . color#Darken(expand('<cword>')) . "\<Esc>"
+						\: "\<Nop>"
+nnoremap <M-=> color#Test(expand('<cword>'))
+						\? '"_ciw' . color#Lighten(expand('<cword>')) . "\<Esc>"
+						\: "\<Nop>"

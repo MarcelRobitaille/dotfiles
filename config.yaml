@@ -5,6 +5,7 @@ actions:
     # spaceship-install: test -e {{ env['ZSH_CUSTOM'] }}/themes/spaceship-prompt/spaceship.zsh-theme ||
     #   (git clone https://github.com/denysdovhan/spaceship-prompt.git {{ env['ZSH_CUSTOM'] }}/themes/spaceship-prompt;
     #   ln -s {{ env['ZSH_CUSTOM'] }}/themes/spaceship-prompt/spaceship.zsh-theme {{ env['ZSH_CUSTOM'] }}/themes/spaceship.zsh-theme)
+    oh-my-zsh-install: test -e ~/.oh-my-zsh/oh-my-zsh.sh || (rm -rf ~/.oh-my-zsh; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)")
     spaceship-install: test -e ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme ||
       (git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt;
       ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme)
@@ -13,6 +14,59 @@ actions:
       mkdir -p ~/.oh-my-zsh/custom/plugins;
       cp /tmp/tmuxinator/completion/tmuxinator.zsh ~/.oh-my-zsh/custom/plugins/)
   vim-plug: vim +PlugInstall +qall
+variables:
+  color_background: '12181e'
+  color_foreground: 'FFFFFD'
+  color_text: '000000'
+  color_cursor: 'ffffff'
+  color_normal_black: '12181e'
+  color_normal_red: 'ad4117'
+  color_normal_green: '659b45'
+  color_normal_yellow: 'b8cc4b'
+  color_normal_blue: '3a74bc'
+  color_normal_magenta: 'bdcb92'
+  color_normal_cyan: '96744A'
+  color_normal_white: 'e3e2e1'
+  color_bright_black: '5b7083'
+  color_bright_red: 'f6f2b9'
+  color_bright_green: '8d9fba'
+  color_bright_yellow: '7fd84b'
+  color_bright_blue: 'e6c675'
+  color_bright_magenta: 'e7ff5f'
+  color_bright_cyan: 'd19851'
+  color_bright_white: 'fffffd'
+  color_dim_black: '333333'
+  color_dim_red: 'f2777a'
+  color_dim_green: '99cc99'
+  color_dim_yellow: 'ffcc66'
+  color_dim_blue: '6699cc'
+  color_dim_magenta: 'cc99cc'
+  color_dim_cyan: '66cccc'
+  color_dim_white: 'dddddd'
+
+  standard_ignored_folders:
+    - '.git'
+    - '.pioenvs'
+    - '.piolibdeps'
+    - 'env'
+    - 'build'
+    - 'public'
+    - 'static'
+    - 'vendor'
+    - 'htmlcov'
+    - 'node_modules'
+    - '__pycache__'
+    - 'jest-coverage'
+    - 'static'
+    - 'static.debug'
+    - '__snapshots__'
+
+  standard_ignored_files:
+    - 'tags'
+    - '*.swp'
+    - 'yarn.*'
+    - 'package-lock.json'
+
 dynvariables:
   mozilla_path: find ~/.mozilla/firefox -name '*.default'
 config:
@@ -43,7 +97,6 @@ dotfiles:
   bin:
     dst: ~/bin/
     src: ./bin/
-    link: true
 
   # Compton
   compton.conf:
@@ -71,6 +124,12 @@ dotfiles:
   firefox:
     dst: "{{@@ mozilla_path @@}}"
     src: ./firefox/
+
+  # Flake 8 python linter
+  flake8:
+    dst: ~/.config/flake8
+    src: ./flake8/flake8
+    link: true
 
   # Git
   gitconfig:
@@ -134,7 +193,6 @@ dotfiles:
   openbox_theme:
     dst: ~/.local/share/themes/Arc-Dark/openbox-3/
     src: ./openbox/theme/
-    link: true
 
   # Ranger
   ranger:
@@ -148,6 +206,15 @@ dotfiles:
     src: ./redshift/redshift.conf
     link: true
 
+  repetier_cura:
+    dst: ~/.local/share/RepetierHost/
+    src: ./repetier/cura/
+    link_children: true
+  repetier_printers:
+    dst: ~/.mono/registry/CurrentUser/software/repetier/printer/
+    src: ./repetier/printers
+    link_children: true
+
   # Rofi pass
   rofi-pass:
     dst: ~/.config/rofi-pass/config
@@ -160,6 +227,12 @@ dotfiles:
     src: ./setxkbmap/setxkbmap.conf
     link: true
 
+  # sqlite
+  sqliterc:
+    dst: ~/.sqliterc
+    src: ./sqlite/.sqliterc
+    link: true
+
   # sxhkd
   sxhkdrc:
     dst: ~/.config/sxhkd/sxhkdrc
@@ -170,7 +243,6 @@ dotfiles:
   termite:
     dst: ~/.config/termite/config
     src: ./termite/config
-    link: true
 
   # Tern
   tern:
@@ -201,7 +273,7 @@ dotfiles:
 
   # tmuxinator
   tmuxinator:
-    dst: ~/.config/tmuxinator/
+    dst: ~/.tmuxinator/
     src: ./tmuxinator/
     link: true
 
@@ -240,6 +312,7 @@ dotfiles:
     dst: ~/.oh-my-zsh/custom/
     src: ./zsh/custom/
     actions:
+    - oh-my-zsh-install
     - spaceship-install
     - tmuxinator-completion
 
@@ -253,6 +326,7 @@ profiles:
     - dunstrc
     - dunst_icons
     - firefox
+    - flake8
     - gitconfig
     - gtk
     - lead
@@ -266,6 +340,8 @@ profiles:
     - openbox_theme
     - ranger
     - redshift
+    - repetier_printers
+    - repetier_cura
     - rofi-pass
     - setxkbmap
     - sxhkdrc
@@ -292,6 +368,7 @@ profiles:
     - dunstrc
     - dunst_icons
     - firefox
+    - flake8
     - gitconfig
     - gtk
     - lead
@@ -321,4 +398,18 @@ profiles:
     - zathura
     - zshrc
     - zsh_custom
+  marcel-VirtualBox:
+    dotfiles:
+    - vim
+    - zshrc
+    - zsh_custom
+    - tmux
+    - x
+    - alacritty.yml
+    - setxkbmap
+    - ctags
+    - bin
+    - tern
+    - sqliterc
+    - tmuxinator
 
