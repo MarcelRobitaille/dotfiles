@@ -58,11 +58,11 @@ handle_extension() {
             exit 1;;
 
         # PDF
-        pdf)
+        # pdf)
             # Preview as text conversion
-            pdftotext -l 10 -nopgbrk -q -- "${FILE_PATH}" - && exit 5
-            exiftool "${FILE_PATH}" && exit 5
-            exit 1;;
+            # pdftotext -l 10 -nopgbrk -q -- "${FILE_PATH}" - && exit 5
+            # exiftool "${FILE_PATH}" && exit 5
+            # exit 1;;
 
         # BitTorrent
         torrent)
@@ -70,10 +70,10 @@ handle_extension() {
             exit 1;;
 
         # OpenDocument
-        odt|ods|odp|sxw)
+        # odt|ods|odp|sxw)
             # Preview as text conversion
-            odt2txt "${FILE_PATH}" && exit 5
-            exit 1;;
+            # odt2txt "${FILE_PATH}" && exit 5
+            # exit 1;;
 
         # HTML
         htm|html|xhtml)
@@ -104,6 +104,25 @@ handle_image() {
             # Thumbnail
             ffmpegthumbnailer -i "${FILE_PATH}" -o "${IMAGE_CACHE_PATH}" -s 0 && exit 6
             exit 1;;
+
+        application/pdf)
+            pdftoppm -f 1 -l 1 \
+              -scale-to-x 1920 \
+              -scale-to-y -1 \
+              -singlefile \
+              -jpeg -tiffcompression jpeg \
+              -- "${FILE_PATH}" "${IMAGE_CACHE_PATH%.*}" \
+              && exit 6 || exit 1;;
+
+        application/vnd.openxmlformats-officedocument.wordprocessingml.document|\
+        application/*opendocument*)
+          libreoffice \
+            --headless \
+            --convert-to jpg \
+            "${FILE_PATH}" \
+            --outdir /tmp \
+            && mv -T "/tmp/$(basename ${FILE_PATH%.*}).jpg" "${IMAGE_CACHE_PATH}" \
+            && exit 6 || exit 1;;
     esac
 }
 
@@ -152,10 +171,9 @@ handle_fallback() {
 handle_extension
 MIMETYPE="$( file --dereference --brief --mime-type -- "${FILE_PATH}" )"
 if [[ "${PV_IMAGE_ENABLED}" == 'True' ]]; then
-    handle_image "${MIMETYPE}"
+  handle_image "${MIMETYPE}"
 fi
 handle_mime "${MIMETYPE}"
 handle_fallback
 
 exit 1
-

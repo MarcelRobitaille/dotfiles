@@ -46,7 +46,7 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 # Ruby
 #
 
-export PATH="$PATH:/home/marcel/.gem/ruby/2.4.0/bin"
+export PATH="$PATH:/home/marcel/.gem/ruby/2.6.0/bin"
 
 
 #

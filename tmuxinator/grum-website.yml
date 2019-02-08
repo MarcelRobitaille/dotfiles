@@ -1,0 +1,10 @@
+name: grum-website
+root: ~/code/grum/website
+windows:
+	- vim: vim .
+	- serve:
+			layout: main-vertical
+			panes:
+				- npm start
+				- npm run webpack -- --watch
+	- zsh:
