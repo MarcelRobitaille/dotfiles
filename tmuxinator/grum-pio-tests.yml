@@ -1,8 +1,7 @@
-# vim: set nomodeline:
+# vim: nomodelines=0
 
 name: grum-pio-tests
 root: ~/code/grum/eurobot2019/eurobot2019-platformio-tests
 windows:
   - vim: vim .
   - zsh:
-

@@ -1,4 +1,5 @@
 # vim: modelines=0
+
 name: elumicate
 root: ~/code/elumicate/dashboard
 windows:

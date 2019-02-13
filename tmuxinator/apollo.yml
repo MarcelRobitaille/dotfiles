@@ -1,4 +1,5 @@
 # vim: modelines=0
+
 name: apollo
 root: ~/code/apollo
 windows:
@@ -9,4 +10,3 @@ windows:
         - npm run nodemon
         - npm run gulp
   - zsh:
-
