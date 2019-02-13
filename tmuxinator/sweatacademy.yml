@@ -11,4 +11,3 @@ windows:
   - zsh:
   - ssh: ssh sweatacademy
   - sql: mycli -u SweatAcademy --host www.sweatacademytech.com -D SweatAcademy -p `pass work/SweatAcademy/ec2/mysql/SweatAcademy`
-
