@@ -517,6 +517,9 @@ endfunction
 " Show hidden files
 let NERDTreeShowHidden = 1
 
+" Hide "Press ? for help"
+let NERDTreeMinimalUI = 1
+
 " Use colours not flags
 let g:NERDTreeGitStatusNodeColorization = 1
 let g:NERDTreeGitStatusWithFlags = 0
