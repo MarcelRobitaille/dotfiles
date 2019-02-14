@@ -1,0 +1,36 @@
+#!/bin/zsh
+
+logfile="/var/log/octoload"
+password="$(pass 3dprinting/octoprint/marcel | head -n 1)"
+api_key="$(pass 3dprinting/octoprint/api-key | head -n 1)"
+
+octo_upload() {
+	output=$(/bin/curl \
+		-i -X POST \
+		-H "Content-Type: multipart/form-data" \
+		-H "X-Api-Key: $api_key" \
+		--user marcel:$password \
+		-F "file=@$1" \
+		https://octoprint.robitaille.host/api/files/local)
+
+	if [ $? = 0 ]; then
+		/bin/notify-send --expire-time 10000 --icon "octoload" \
+			"OctoLoad" "Uploaded `/bin/basename $1` to OctoPrint!"
+	else
+		/bin/notify-send --expire-time 10000 --icon "octoload" \
+			"OctoLoad" "An error occured while uploading $1! Check the logs at $logfile for details."
+		printf "%s" "$output" >> "$logfile"
+	fi
+}
+
+if [ "$1" = "watch" ]; then
+	watch_dir="/tmp/octoload"
+	mkdir -p "$watch_dir"
+
+	inotifywait --excludei "[^g][^c][^o]$" -m "$watch_dir" -e create -e moved_to -e close_write |
+		while read path action file; do
+			octo_upload "$path$file"
+		done
+else
+	octo_upload "$1"
+fi

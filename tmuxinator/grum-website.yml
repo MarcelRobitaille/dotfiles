@@ -1,10 +1,12 @@
+# vim: modelines=0
+
 name: grum-website
 root: ~/code/grum/website
 windows:
-	- vim: vim .
-	- serve:
-			layout: main-vertical
-			panes:
-				- npm start
-				- npm run webpack -- --watch
-	- zsh:
+  - vim: vim .
+  - serve:
+      layout: main-vertical
+      panes:
+        - npm start
+        - npm run webpack -- --watch
+  - zsh:

@@ -1,8 +1,7 @@
-# vim: set nomodeline:
+# vim: nomodelines=0
 
 name: dots
 root: ~/.dotfiles
 windows:
   - vim: vim .
   - zsh:
-

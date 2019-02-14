@@ -49,6 +49,9 @@ Plug 'airblade/vim-gitgutter'
 " Save session
 Plug 'tpope/vim-obsession'
 
+" Compare when vim finds a swap file
+Plug 'chrisbra/Recover.vim'
+
 " Word and case variants
 Plug 'tpope/tpope-vim-abolish'
 
@@ -410,7 +413,7 @@ let g:ale_python_pylint_options = '--rcfile=' . getcwd() . '/pylintrc'
 
 let g:pymode_python = 'python3'
 
-nnoremap <leader>f :ALEFix<CR>
+" nnoremap <leader>f :ALEFix<CR>
 
 
 "
@@ -491,8 +494,33 @@ augroup END
 " Keybinding to open NERDTree
 nnoremap <leader>n :NERDTreeToggle<CR>
 
+nnoremap <silent> <Leader>f :NERDTreeFind<CR>
+
+
+" Prevent opening files in NERDTree
+" https://github.com/junegunn/fzf/issues/453#issuecomment-366466757
+
+let g:fzf_layout = { 'window': 'let g:launching_fzf = 1 | keepalt topleft 100split enew' }
+
+autocmd FileType nerdtree let t:nerdtree_winnr = bufwinnr('%')
+autocmd BufWinEnter * call PreventBuffersInNERDTree()
+
+function! PreventBuffersInNERDTree()
+  if bufname('#') =~ 'NERD_tree' && bufname('%') !~ 'NERD_tree'
+    \ && exists('t:nerdtree_winnr') && bufwinnr('%') == t:nerdtree_winnr
+    \ && &buftype == '' && !exists('g:launching_fzf')
+    let bufnum = bufnr('%')
+    close
+    exe 'b ' . bufnum
+  endif
+  if exists('g:launching_fzf') | unlet g:launching_fzf | endif
+endfunction
+
 " Show hidden files
 let NERDTreeShowHidden = 1
+
+" Hide "Press ? for help"
+let NERDTreeMinimalUI = 1
 
 " Use colours not flags
 let g:NERDTreeGitStatusNodeColorization = 1
@@ -543,6 +571,11 @@ augroup END
 
 let g:fugitive_gitlab_domains = ['https://gitlab.robitaille.host']
 let g:fugitive_gitlab_ssh_user = 'gitlab'
+
+" Keybindings for fugitive
+nnoremap <leader>s :Gstatus<CR>
+nnoremap <leader>c :Gcommit<CR>
+nnoremap <leader>d :Gdiff<CR>
 
 
 "
