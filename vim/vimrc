@@ -573,7 +573,7 @@ let g:fugitive_gitlab_ssh_user = 'gitlab'
 " Keybindings for fugitive
 nnoremap <leader>s :Gstatus<CR>
 nnoremap <leader>c :Gcommit<CR>
-nnoremap <leader>d :Gdiff<CR>
+nnoremap <leader>df :Gdiff<CR>
 
 
 "
