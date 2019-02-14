@@ -471,6 +471,8 @@ let g:airline#extensions#tabline#enabled = 1
 " Show buffer numbers in tabline
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
+let g:airline#extensions#whitespace#mixed_indent_algo = 2
+
 " Remove colon after buffer number
 
 "
