@@ -49,6 +49,9 @@ Plug 'airblade/vim-gitgutter'
 " Save session
 Plug 'tpope/vim-obsession'
 
+" Compare when vim finds a swap file
+Plug 'chrisbra/Recover.vim'
+
 " Word and case variants
 Plug 'tpope/tpope-vim-abolish'
 
