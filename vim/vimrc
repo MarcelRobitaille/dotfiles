@@ -499,8 +499,6 @@ nnoremap <silent> <Leader>f :NERDTreeFind<CR>
 " Prevent opening files in NERDTree
 " https://github.com/junegunn/fzf/issues/453#issuecomment-366466757
 
-let g:fzf_layout = { 'window': 'let g:launching_fzf = 1 | keepalt topleft 100split enew' }
-
 autocmd FileType nerdtree let t:nerdtree_winnr = bufwinnr('%')
 autocmd BufWinEnter * call PreventBuffersInNERDTree()
 
