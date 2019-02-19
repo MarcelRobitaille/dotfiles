@@ -157,6 +157,9 @@ let @s = "$[s1z="
 " Convert class method to arrow function
 let @a = "^f(i = f{i=> "
 
+" Convert word under cursor to JavaScript import importing word from material-ui
+let @m = "yiwiimport A from '@material-ui/core/'P"
+
 
 "
 " General settings
