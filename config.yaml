@@ -59,7 +59,6 @@ variables:
     - 'jest-coverage'
     - 'static'
     - 'static.debug'
-    - '__snapshots__'
 
   standard_ignored_files:
     - 'tags'
