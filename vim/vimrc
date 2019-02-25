@@ -622,6 +622,7 @@ colorscheme wal
 let g:vim_json_syntax_conceal = 0
 
 " Enable leading spaces
+let g:indentLine_conceallevel = 1
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
 
