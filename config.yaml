@@ -65,6 +65,7 @@ variables:
     - 'tags'
     - '*.swp'
     - 'yarn.*'
+    - '*.zip'
     - 'package-lock.json'
 
 dynvariables:
