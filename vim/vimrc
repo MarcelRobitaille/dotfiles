@@ -655,6 +655,7 @@ autocmd FileType zsh setlocal commentstring=#\ %s
 autocmd FileType cpp setlocal commentstring=\/\/\ %s
 autocmd FileType matlab setlocal commentstring=%\ %s
 autocmd FileType python setlocal commentstring=#\ %s
+autocmd FileType dosbatch setlocal commentstring=rem\ %s
 
 let g:tex_conceal = ""
 nnoremap <leader>t <Plug>vimtex-compile
