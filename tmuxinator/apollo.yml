@@ -3,7 +3,7 @@
 name: apollo
 root: ~/code/apollo
 windows:
-  vim: vim .
+  - vim: vim .
   - serve:
       layout: main-vertical
       panes:
