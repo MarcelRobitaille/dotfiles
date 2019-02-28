@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: grum-pio
+root: ~/code/grum/eurobot2019/eurobot2019-platformio
+windows:
+  - vim: vim .
+  - zsh:
