@@ -6,4 +6,4 @@ Session.vim
 __pycache__
 config.sh
 .ropeproject
-
+interactive_read
