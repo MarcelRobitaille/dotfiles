@@ -1,4 +1,8 @@
 # vim: ft=zsh
+# http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Completion-System
+# http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zsh-Line-Editor
+# https://github.com/zsh-users/zsh-completions/tree/master/src
+# https://www.reddit.com/r/zsh/comments/aar83e/trouble_with_completion_engine/ecumzff/?context=3
 
 _pio () {
   local cmd
