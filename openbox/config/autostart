@@ -21,6 +21,9 @@ lead &
 compton &
 redshift &
 
+# Panels
+tint2 &
+
 #
 # Panel applets
 #
@@ -33,9 +36,6 @@ nm-applet &
 
 # Printer applet
 system-config-printer-applet &
-
-# Panels
-tint2 &
 
 # Notification deamon
 killall dunst
