@@ -1,4 +1,4 @@
-# vim: nomodeline=0
+# vim: modeline=0
 
 name: grum-python
 root: ~/code/grum/eurobot2019/python

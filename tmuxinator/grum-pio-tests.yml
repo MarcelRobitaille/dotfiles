@@ -1,4 +1,4 @@
-# vim: nomodelines=0
+# vim: modelines=0
 
 name: grum-pio-tests
 root: ~/code/grum/eurobot2019/eurobot2019-platformio-tests

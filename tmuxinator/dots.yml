@@ -1,4 +1,4 @@
-# vim: nomodelines=0
+# vim: modelines=0
 
 name: dots
 root: ~/.dotfiles
