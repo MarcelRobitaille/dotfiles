@@ -7,6 +7,8 @@
       "baseURL": "./",
       "paths": {}
     }
-  }
+  },
+  "dontLoad": [
+		"node_modules/**"
+	]
 }
-
