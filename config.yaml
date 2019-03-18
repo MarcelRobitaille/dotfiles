@@ -412,3 +412,4 @@ profiles:
     - tern
     - sqliterc
     - tmuxinator
+    - flake8
