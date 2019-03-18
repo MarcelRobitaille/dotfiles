@@ -58,6 +58,9 @@ while read match; do
   tput sgr0
 
   # Search file for matches
-  grep "$1" "$match" -n --context=3 | highlight --syntax "$extname" --force --out-format ansi | sed "s/$1/$(tput rev)\0$(tput sgr0)/I"
+  esc=$(printf '\033')
+  grep -i "$1" "$match" -n --context=3 | \
+  	highlight --syntax "$extname" --force --out-format ansi | \
+  	sed "s/\(\[00;[0-9][0-9]m\)\([^\[]*\)\($1\)/$esc\1\2$(tput rev)\3$esc\1/I"
 done
 
