@@ -26,6 +26,7 @@ grep \
   -n \
   -R \
   -l \
+  -i \
   {%@@ for folder in standard_ignored_folders @@%}
   --exclude-dir '{{@@ folder @@}}' \
   {%@@ endfor @@%}
