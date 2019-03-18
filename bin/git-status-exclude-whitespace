@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+for f in $(git ls-files); do
+	test -z "$(git diff -w --ignore-blank-lines $f)" || echo $f;
+done \
+	| sed "s/^/ $(tput setaf 1)M$(tput sgr0) /"
+
+git ls-files --others --exclude-standard | sed "s/^/$(tput setaf 1)??$(tput sgr0) /"
