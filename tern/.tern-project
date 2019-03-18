@@ -5,7 +5,10 @@
   "plugins": {
     "requirejs": {
       "baseURL": "./",
-      "paths": {}
+      "paths": {},
+			"doc_comment": null,
+      "es_modules": {},
+      "node": {}
     }
   },
   "dontLoad": [
