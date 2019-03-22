@@ -1,0 +1,6 @@
+# vim: modelines=0
+
+name: grum-exercices
+root: ~/code/grum/eurobot2019/exercices
+windows:
+  - zsh: echo "https://gitlab.robitaille.host/GRUM/eurobot2019/exercices/exercices-pour-stm32" | clip
