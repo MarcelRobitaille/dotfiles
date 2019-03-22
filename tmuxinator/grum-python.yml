@@ -3,5 +3,5 @@
 name: grum-python
 root: ~/code/grum/eurobot2019/python
 windows:
-  - vim: vim .
-  - zsh:
+  - vim: source env/bin/activate; vim .
+  - zsh: source env/bin/activate
