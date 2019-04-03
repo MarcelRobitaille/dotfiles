@@ -59,6 +59,7 @@ variables:
     - 'jest-coverage'
     - 'static'
     - 'static.debug'
+    - 'migrations'
 
   standard_ignored_files:
     - 'tags'
