@@ -21,8 +21,6 @@ done
 
 DEFAULT_USER="marcel"
 
-eval $(thefuck --alias)
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
