@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: marlin
+root: ~/code/Marlin
+windows:
+  - vim: vim .
+  - zsh:
