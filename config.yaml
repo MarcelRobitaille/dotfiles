@@ -110,6 +110,11 @@ dotfiles:
     src: ./ctags/.ctags
     link: true
 
+  cura:
+    dst: ~/.config/cura/4.0/cura.cfg
+    src: ./cura/cura.cfg
+    link: true
+
   # Dunst
   dunstrc:
     dst: ~/.config/dunst/dunstrc
