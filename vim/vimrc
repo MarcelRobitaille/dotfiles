@@ -340,6 +340,9 @@ let timer = timer_start(100, 'Autoread', { 'repeat': -1 })
 " Disable syntax highlighting for large files
 autocmd BufWinEnter * if line2byte(line("$") + 1) > 1000000 | syntax clear | endif
 
+" `:e`, but relative to current file
+map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+
 
 "
 " Typing
