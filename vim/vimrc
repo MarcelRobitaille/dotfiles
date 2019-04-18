@@ -450,6 +450,9 @@ let g:ycm_semantic_triggers = {
 	\ 'css': [ 're!^\s{2}', 're!:\s+' ],
 	\ }
 
+" Don't confirm loading ycm_extra_conf
+let g:ycm_confirm_extra_conf = 0
+
 
 "
 " Filetype
