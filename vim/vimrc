@@ -474,7 +474,7 @@ let g:airline_powerline_fonts = 1
 set ttimeoutlen=50
 
 if !exists('g:airline_symbols')
-		let g:airline_symbols = {}
+	let g:airline_symbols = {}
 endif
 
 " Hide things that are broken with my fonts or that I don't like the look of
