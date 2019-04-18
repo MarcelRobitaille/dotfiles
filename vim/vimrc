@@ -417,7 +417,10 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
 \ 'javascript': [
-\	 'eslint',
+\ 	'eslint',
+\ ],
+\ 'python': [
+\ 	'autopep8',
 \ ],
 \}
 
