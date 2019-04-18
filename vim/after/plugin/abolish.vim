@@ -5,3 +5,5 @@ Abolish upate update
 Abolish sefl self
 Abolish interrup interrupt
 Abolish lastest latest
+Abolish previsou previous
+Abolish chagne change
