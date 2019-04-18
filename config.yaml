@@ -49,6 +49,7 @@ variables:
     - '.pioenvs'
     - '.piolibdeps'
     - 'env'
+    - 'venv'
     - 'build'
     - 'public'
     - 'static'
