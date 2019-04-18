@@ -359,7 +359,7 @@ nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 
 " Continue comments on next line when max length is reached
-set textwidth=80
+set textwidth=79
 set formatoptions+=c
 
 
