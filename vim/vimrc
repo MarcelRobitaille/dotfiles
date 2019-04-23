@@ -426,7 +426,6 @@ let g:ale_fixers = {
 
 let g:ale_c_parse_makefile = 1
 let g:ale_c_gcc_parse_makefile = 1
-let g:ale_python_flake8_options = '--ignore=W391'
 
 let g:ale_python_pylint_options = '--rcfile=' . getcwd() . '/pylintrc'
 
