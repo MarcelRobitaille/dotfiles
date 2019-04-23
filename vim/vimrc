@@ -147,6 +147,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 " Plug 'hdima/python-syntax'
 " Plug 'Rykka/riv.vim'
 " Plug 'nvie/vim-flake8'
+Plug 'Matt-Deacalion/vim-systemd-syntax'
 
 call plug#end()
 
