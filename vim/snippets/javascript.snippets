@@ -6,4 +6,6 @@ snippet req "commonjs require"
 	const $1 = require('$1')
 snippet imp "es6 import"
 	import $1 from '$1'
-
+snippet setStatePromise "implement this.setStatePromise"
+	setStatePromise = newState =>
+		new Promise(resolve => this.setState(newState, resolve))
