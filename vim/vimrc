@@ -716,6 +716,7 @@ function! CompletionChain(findstart, base)
 	endif
 endfunction
 
+let g:ycm_show_diagnostics_ui = 0
 let g:user_completion_chain = ['accent#AccentCompletion', 'youcompleteme#Complete']
 set completefunc=CompletionChain
 
