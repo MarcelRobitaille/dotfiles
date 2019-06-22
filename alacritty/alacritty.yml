@@ -29,7 +29,7 @@ window:
     x: 20
     y: 20
 
-  start_maximized: true
+  startup_mode: Maximized
   dynamic_padding: true
 
 # The FreeType rasterizer needs to know the device DPI for best results
@@ -89,8 +89,9 @@ font:
   # false.
   use_thin_strokes: true
 
-# Should display the render timer
-render_timer: false
+debug:
+  # Should display the render timer
+  render_timer: false
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
