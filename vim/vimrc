@@ -64,7 +64,7 @@ Plug 'metakirby5/codi.vim'
 
 Plug 'rickhowe/diffchar.vim'
 
-" Test suite
+" Vimscript test suite
 Plug 'junegunn/vader.vim'
 
 
