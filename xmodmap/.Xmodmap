@@ -1,2 +1,8 @@
 keycode 66 = Escape
 clear Lock
+
+! Remap esc to grave
+! So I don't have to use fn+esc for grave
+{%@@ if profile == "Hermes" @@%}
+keycode 9 = grave asciitilde
+{%@@ endif @@%}
