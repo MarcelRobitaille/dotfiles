@@ -1,0 +1,12 @@
+# vim: modelines=0
+
+name: satisloh
+root: ~/code/satisloh/MES_HW_COMM_BOX
+windows:
+  - vim: source venv/bin/activate; vim .
+  - serve:
+      layout: even-vertical
+      panes:
+        - source venv/bin/activate; python manager.py runserver 3030
+        - source venv/bin/activate
+  - zsh: source venv/bin/activate
