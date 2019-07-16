@@ -48,18 +48,15 @@ dunst -print &> /var/log/dunst &
 /home/marcel/bin/octoload watch &
 
 # Autolock screen
-# xautolock \
-  # -time 1 \
-  # -detectsleep \
-  # -locker /home/marcel/bin/lock \
-  # -notify 20 -notifier "notify ' Locking' -w 140 -t 20" \
-  # -killtime 20 -killer "systemctl suspend" \
-  # -corners 0-00 &
-
-#xidlehook \
-#  --timer /home/marcel/bin/lock \
-#  --notify 20 \
-#  --notifier "notify ' Locking' -w 140 -t 20" \
-#  --canceller 'pkill -f "lemonbar -n notification"' \
-#  --not-when-fullscreen #--not-when-audio
-
+xidlehook \
+  --not-when-audio \
+  --not-when-fullscreen \
+	--timer normal 60 \
+		'xbacklight -set 1' \
+		'xbacklight -set 100' \
+  --timer primary 10 \
+		'xbacklight -set 100; gllock' \
+		'' \
+	--timer normal 1800 \
+		'systemctl suspend' \
+		''
