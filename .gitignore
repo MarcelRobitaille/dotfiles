@@ -8,3 +8,4 @@ config.sh
 .ropeproject
 interactive_read
 tags
+*.log
