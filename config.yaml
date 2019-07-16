@@ -261,10 +261,19 @@ dotfiles:
      - vim-plug
     link: link_children
 
-  x:
-    dst: ~/
-    src: ./X/
-    link: link_children
+  xbindkeys:
+    dst: ~/.xbindkeysrc
+    src: ./xbindkeys/.xbindkeysrc
+    link: link
+
+  xmodmap:
+    dst: ~/.Xmodmap
+    src: ./xmodmap/.Xmodmap
+
+  xresources:
+    dst: ~/.Xresources
+    src: ./xresources/.Xresources
+    link: link
 
   yay:
     dst: ~/.config/yay/config.json
@@ -325,7 +334,9 @@ profiles:
     - tmux
     - tmuxinator
     - vim
-    - x
+    - xbindkeys
+    - xmodmap
+    - xresources
     - yay
     - zathura
     - zshrc
@@ -365,7 +376,9 @@ profiles:
     - tmux
     - tmuxinator
     - vim
-    - x
+    - xbindkeys
+    - xmodmap
+    - xresources
     - yay
     - zathura
     - zshrc
@@ -376,7 +389,9 @@ profiles:
     - zshrc
     - zsh_custom
     - tmux
-    - x
+    - xbindkeys
+    - xmodmap
+    - xresources
     - alacritty
     - setxkbmap
     - ctags
