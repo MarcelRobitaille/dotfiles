@@ -78,7 +78,6 @@ config:
   dotpath: .
   ignoreempty: false
   keepdot: false
-  link_by_default: false
   longkey: false
   showdiff: false
   workdir: ~/.config/dotdrop
@@ -93,7 +92,7 @@ dotfiles:
   postswitch:
     dst: ~/.config/autorandr/postswitch
     src: ./autorandr/postswitch
-    link: true
+    link: link
 
   # Bin
   bin:
@@ -104,28 +103,28 @@ dotfiles:
   compton.conf:
     dst: ~/.config/compton/compton.conf
     src: ./compton/compton.conf
-    link: true
+    link: link
 
   # Ctags
   ctags:
     dst: ~/.ctags
     src: ./ctags/.ctags
-    link: true
+    link: link
 
   cura:
     dst: ~/.config/cura/4.0/cura.cfg
     src: ./cura/cura.cfg
-    link: true
+    link: link
 
   # Dunst
   dunstrc:
     dst: ~/.config/dunst/dunstrc
     src: ./dunst/dunstrc
-    link: true
+    link: link
   dunst_icons:
     dst: ~/.icons/dunst/
     src: ./dunst/icons/
-    link: true
+    link: link
 
   # Firefox
   firefox:
@@ -136,67 +135,67 @@ dotfiles:
   flake8:
     dst: ~/.config/flake8
     src: ./flake8/flake8
-    link: true
+    link: link
 
   # Git
   gitconfig:
     dst: ~/.config/git/config
     src: ./git/.gitconfig
-    link: true
+    link: link
 
   # GTK
   gtk:
     dst: ~/.config/gtk-3.0/
     src: ./gtk/
-    link: true
+    link: link
 
   # Lead
   lead:
     dst: ~/.config/lead/lead.conf
     src: ./lead/lead.conf
-    link: true
+    link: link
 
   # Linters
   linters:
     dst: ~/
     src: ./linters/
-    link_children: true
+    link: link_children
 
   # MPD
   mpd:
     dst: ~/.config/mpd/mpd.conf
     src: ./mpd/mpd.conf
-    link: true
+    link: link
 
   # MyCLI
   myclirc:
     dst: ~/.myclirc
     src: ./mycli/.myclirc
-    link: true
+    link: link
 
   # ncmpcpp
   ncmpcpp:
     dst: ~/.config/ncmpcpp/config
     src: ./ncmpcpp/config
-    link: true
+    link: link
 
   # neofetch
   neofetch:
     dst: ~/.config/neofetch/config
     src: ./neofetch/config
-    link: true
+    link: link
 
   # NPM
   npmrc:
     dst: ~/.npmrc
     src: ./npm/.npmrc
-    link: true
+    link: link
 
   # openbox
   openbox:
     dst: ~/.config/openbox/
     src: ./openbox/config/
-    link: true
+    link: link
   openbox_theme:
     dst: ~/.local/share/themes/Arc-Dark/openbox-3/
     src: ./openbox/theme/
@@ -205,46 +204,46 @@ dotfiles:
   ranger:
     dst: ~/.config/ranger/
     src: ./ranger/
-    link: true
+    link: link
 
   # Redshift
   redshift:
     dst: ~/.config/redshift.conf
     src: ./redshift/redshift.conf
-    link: true
+    link: link
 
   repetier_cura:
     dst: ~/.local/share/RepetierHost/
     src: ./repetier/cura/
-    link_children: true
+    link: link_children
   repetier_printers:
     dst: ~/.mono/registry/CurrentUser/software/repetier/printer/
     src: ./repetier/printers
-    link_children: true
+    link: link_children
 
   # Rofi pass
   rofi-pass:
     dst: ~/.config/rofi-pass/config
     src: ./rofi-pass/config
-    link: true
+    link: link
 
   # setxkbmap
   setxkbmap:
     dst: ~/.config/setxkbmap.conf
     src: ./setxkbmap/setxkbmap.conf
-    link: true
+    link: link
 
   # sqlite
   sqliterc:
     dst: ~/.sqliterc
     src: ./sqlite/.sqliterc
-    link: true
+    link: link
 
   # sxhkd
   sxhkdrc:
     dst: ~/.config/sxhkd/sxhkdrc
     src: ./sxhkd/sxhkdrc
-    link: true
+    link: link
 
   # Termite
   termite:
@@ -255,17 +254,17 @@ dotfiles:
   tern:
     dst: ~/.tern-project
     src: ./tern/.tern-project
-    link: true
+    link: link
 
   # Thunar
   thunar:
     dst: ~/.config/Thunar/uca.xml
     src: ./thunar/uca.xml
-    link: true
+    link: link
   tumbler:
     dst: ~/.config/tumbler/tumbler.rc
     src: ./thunar/tumbler.rc
-    link: true
+    link: link
 
   # tint2
   tint2:
@@ -276,13 +275,13 @@ dotfiles:
   tmux:
     dst: ~/.tmux.conf
     src: ./tmux/.tmux.conf
-    link: true
+    link: link
 
   # tmuxinator
   tmuxinator:
     dst: ~/.tmuxinator/
     src: ./tmuxinator/
-    link: true
+    link: link
 
   vim:
     dst: ~/.vim/
@@ -290,31 +289,31 @@ dotfiles:
     actions:
      - vim-plug-install
      - vim-plug
-    link_children: true
+    link: link_children
 
   # X
   x:
     dst: ~/
     src: ./X/
-    link_children: true
+    link: link_children
 
   # yay
   yay:
     dst: ~/.config/yay/config.json
     src: ./yay/config.json
-    link: true
+    link: link
 
   # Zathura
   zathura:
     dst: ~/.config/zathura/zathurarc
     src: ./zathura/zathurarc
-    link: true
+    link: link
 
   # zsh
   zshrc:
     dst: ~/.zshrc
     src: ./zsh/.zshrc
-    link: true
+    link: link
   zsh_custom:
     dst: ~/.oh-my-zsh/custom/
     src: ./zsh/custom/
