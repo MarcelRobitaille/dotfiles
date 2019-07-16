@@ -81,31 +81,26 @@ config:
   longkey: false
   showdiff: false
   workdir: ~/.config/dotdrop
-dotfiles:
 
-  # Alacritty
-  alacritty.yml:
+dotfiles:
+  alacritty:
     dst: ~/.config/alacritty/alacritty.yml
     src: ./alacritty/alacritty.yml
 
-  # Autorandr
-  postswitch:
+  autorandr:
     dst: ~/.config/autorandr/postswitch
     src: ./autorandr/postswitch
     link: link
 
-  # Bin
   bin:
     dst: ~/bin/
     src: ./bin/
 
-  # Compton
-  compton.conf:
+  compton:
     dst: ~/.config/compton/compton.conf
     src: ./compton/compton.conf
     link: link
 
-  # Ctags
   ctags:
     dst: ~/.ctags
     src: ./ctags/.ctags
@@ -116,8 +111,7 @@ dotfiles:
     src: ./cura/cura.cfg
     link: link
 
-  # Dunst
-  dunstrc:
+  dunst:
     dst: ~/.config/dunst/dunstrc
     src: ./dunst/dunstrc
     link: link
@@ -126,72 +120,60 @@ dotfiles:
     src: ./dunst/icons/
     link: link
 
-  # Firefox
   firefox:
     dst: "{{@@ mozilla_path @@}}"
     src: ./firefox/
 
-  # Flake 8 python linter
   flake8:
     dst: ~/.config/flake8
     src: ./flake8/flake8
     link: link
 
-  # Git
-  gitconfig:
+  git:
     dst: ~/.config/git/config
     src: ./git/.gitconfig
     link: link
 
-  # GTK
   gtk:
     dst: ~/.config/gtk-3.0/
     src: ./gtk/
     link: link
 
-  # Lead
   lead:
     dst: ~/.config/lead/lead.conf
     src: ./lead/lead.conf
     link: link
 
-  # Linters
   linters:
     dst: ~/
     src: ./linters/
     link: link_children
 
-  # MPD
   mpd:
     dst: ~/.config/mpd/mpd.conf
     src: ./mpd/mpd.conf
     link: link
 
-  # MyCLI
-  myclirc:
+  mycli:
     dst: ~/.myclirc
     src: ./mycli/.myclirc
     link: link
 
-  # ncmpcpp
   ncmpcpp:
     dst: ~/.config/ncmpcpp/config
     src: ./ncmpcpp/config
     link: link
 
-  # neofetch
   neofetch:
     dst: ~/.config/neofetch/config
     src: ./neofetch/config
     link: link
 
-  # NPM
   npmrc:
     dst: ~/.npmrc
     src: ./npm/.npmrc
     link: link
 
-  # openbox
   openbox:
     dst: ~/.config/openbox/
     src: ./openbox/config/
@@ -200,13 +182,11 @@ dotfiles:
     dst: ~/.local/share/themes/Arc-Dark/openbox-3/
     src: ./openbox/theme/
 
-  # Ranger
   ranger:
     dst: ~/.config/ranger/
     src: ./ranger/
     link: link
 
-  # Redshift
   redshift:
     dst: ~/.config/redshift.conf
     src: ./redshift/redshift.conf
@@ -221,42 +201,35 @@ dotfiles:
     src: ./repetier/printers
     link: link_children
 
-  # Rofi pass
   rofi-pass:
     dst: ~/.config/rofi-pass/config
     src: ./rofi-pass/config
     link: link
 
-  # setxkbmap
   setxkbmap:
     dst: ~/.config/setxkbmap.conf
     src: ./setxkbmap/setxkbmap.conf
     link: link
 
-  # sqlite
-  sqliterc:
+  sqlite:
     dst: ~/.sqliterc
     src: ./sqlite/.sqliterc
     link: link
 
-  # sxhkd
   sxhkdrc:
     dst: ~/.config/sxhkd/sxhkdrc
     src: ./sxhkd/sxhkdrc
     link: link
 
-  # Termite
   termite:
     dst: ~/.config/termite/config
     src: ./termite/config
 
-  # Tern
   tern:
     dst: ~/.tern-project
     src: ./tern/.tern-project
     link: link
 
-  # Thunar
   thunar:
     dst: ~/.config/Thunar/uca.xml
     src: ./thunar/uca.xml
@@ -266,18 +239,15 @@ dotfiles:
     src: ./thunar/tumbler.rc
     link: link
 
-  # tint2
   tint2:
     dst: ~/.config/tint2/
     src: ./tint2/
 
-  # tmux
   tmux:
     dst: ~/.tmux.conf
     src: ./tmux/.tmux.conf
     link: link
 
-  # tmuxinator
   tmuxinator:
     dst: ~/.tmuxinator/
     src: ./tmuxinator/
@@ -291,25 +261,21 @@ dotfiles:
      - vim-plug
     link: link_children
 
-  # X
   x:
     dst: ~/
     src: ./X/
     link: link_children
 
-  # yay
   yay:
     dst: ~/.config/yay/config.json
     src: ./yay/config.json
     link: link
 
-  # Zathura
   zathura:
     dst: ~/.config/zathura/zathurarc
     src: ./zathura/zathurarc
     link: link
 
-  # zsh
   zshrc:
     dst: ~/.zshrc
     src: ./zsh/.zshrc
@@ -325,20 +291,20 @@ dotfiles:
 profiles:
   Zeus:
     dotfiles:
-    - alacritty.yml
+    - alacritty
     - bin
-    - compton.conf
+    - compton
     - ctags
-    - dunstrc
+    - dunst
     - dunst_icons
     - firefox
     - flake8
-    - gitconfig
+    - git
     - gtk
     - lead
     - linters
     - mpd
-    - myclirc
+    - mycli
     - ncmpcpp
     - neofetch
     - npmrc
@@ -366,21 +332,21 @@ profiles:
     - zsh_custom
   Hermes:
     dotfiles:
-    - alacritty.yml
-    - postswitch
+    - alacritty
+    - autorandr
     - bin
-    - compton.conf
+    - compton
     - ctags
-    - dunstrc
+    - dunst
     - dunst_icons
     - firefox
     - flake8
-    - gitconfig
+    - git
     - gtk
     - lead
     - linters
     - mpd
-    - myclirc
+    - mycli
     - ncmpcpp
     - neofetch
     - npmrc
@@ -411,11 +377,11 @@ profiles:
     - zsh_custom
     - tmux
     - x
-    - alacritty.yml
+    - alacritty
     - setxkbmap
     - ctags
     - bin
     - tern
-    - sqliterc
+    - sqlite
     - tmuxinator
     - flake8
