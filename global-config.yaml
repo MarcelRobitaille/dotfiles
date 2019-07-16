@@ -1,0 +1,21 @@
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: .
+  ignoreempty: false
+  keepdot: false
+  longkey: false
+  showdiff: false
+  workdir: ~/.config/dotdrop
+dotfiles:
+  systemd:
+    dst: /etc/systemd/system
+    src: systemd/
+profiles:
+  Zeus:
+    dotfiles:
+    - systemd
+  Hermes:
+    dotfiles:
+    - systemd
