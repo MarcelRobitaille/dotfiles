@@ -101,4 +101,22 @@
 	<patterns>*</patterns>
 	<directories/>
 </action>
+<action>
+	<icon>vlc</icon>
+	<name>Open all in VLC</name>
+	<unique-id>1549658789100044-1</unique-id>
+	<command>vlc --loop --playlist-autostart *.{mp4,avi,mpg,mov,flv,mpeg,webm}</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>vlc</icon>
+	<name>Open all in VLC</name>
+	<unique-id>1549659369515093-2</unique-id>
+	<command>vlc --loop --playlist-autostart %F</command>
+	<description></description>
+	<patterns>*</patterns>
+	<video-files/>
+</action>
 </actions>
