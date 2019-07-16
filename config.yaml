@@ -181,6 +181,7 @@ dotfiles:
   openbox_theme:
     dst: ~/.local/share/themes/Arc-Dark/openbox-3/
     src: ./openbox/theme/
+    link: link
 
   ranger:
     dst: ~/.config/ranger/
