@@ -7,6 +7,6 @@ windows:
   - serve:
       layout: main-vertical
       panes:
-        - npm run nodemon
+        - npm run nodemon -- --exec babel-node .
         - npm run gulp
   - zsh:
