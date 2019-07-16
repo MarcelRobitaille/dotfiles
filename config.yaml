@@ -325,6 +325,7 @@ profiles:
     - repetier_cura
     - rofi-pass
     - setxkbmap
+    - sqlite
     - sxhkdrc
     - termite
     - tern
@@ -367,6 +368,7 @@ profiles:
     - redshift
     - rofi-pass
     - setxkbmap
+    - sqlite
     - sxhkdrc
     - termite
     - tern
