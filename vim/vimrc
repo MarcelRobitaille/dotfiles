@@ -2,154 +2,162 @@
 " Plugins
 "
 
-call plug#begin('~/.vim/plugged')
+" vim-plug directory for vim
+if filereadable($HOME . '/.vim/autoload/plug.vim')
+	let plugged_dir = $HOME . '/.vim/plugged'
+endif
 
+" vim-plug directory for nvim
+if filereadable($XDG_CONFIG_HOME . '/nvim/autoload/plug.vim')
+	let plugged_dir = $XDG_CONFIG_HOME . '/nvim/plugged'
+endif
 
-"
-" Additional functionality
-"
+if exists('plugged_dir')
+	call plug#begin(plugged_dir)
 
-Plug 'tpope/vim-dadbod'
-Plug 'tpope/vim-dotenv'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-ragtag'
-" Helpers for UNIX
-Plug 'tpope/vim-eunuch'
+		"
+		" Additional functionality
+		"
 
-" tags file management
-Plug 'ludovicchabant/vim-gutentags'
+		Plug 'tpope/vim-dadbod'
+		Plug 'tpope/vim-dotenv'
+		Plug 'tpope/vim-commentary'
+		Plug 'tpope/vim-ragtag'
+		" Helpers for UNIX
+		Plug 'tpope/vim-eunuch'
 
-" Add more targets
-Plug 'wellle/targets.vim'
+		" tags file management
+		Plug 'ludovicchabant/vim-gutentags'
 
-" Tree view
-Plug 'scrooloose/nerdtree'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'tsony-tsonev/nerdtree-git-plugin'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+		" Add more targets
+		Plug 'wellle/targets.vim'
 
-" Better history
-Plug 'mbbill/undotree'
+		" Tree view
+		Plug 'scrooloose/nerdtree'
+		" Plug 'Xuyuanp/nerdtree-git-plugin'
+		" Plug 'tsony-tsonev/nerdtree-git-plugin'
+		" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-" Fuzzy file finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+		" Better history
+		Plug 'mbbill/undotree'
 
-" Enable dot repetition for plugins
-Plug 'tpope/vim-repeat'
+		" Fuzzy file finder
+		Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+		Plug 'junegunn/fzf.vim'
 
-" Surround blocks with characters
-Plug 'tpope/vim-surround'
+		" Enable dot repetition for plugins
+		Plug 'tpope/vim-repeat'
 
-" Pairs of handy pairs mappings
-" Good for moving lines and such
-Plug 'tpope/vim-unimpaired'
+		" Surround blocks with characters
+		Plug 'tpope/vim-surround'
 
-" Git
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'shumphrey/fugitive-gitlab.vim'
-Plug 'airblade/vim-gitgutter'
+		" Pairs of handy pairs mappings
+		" Good for moving lines and such
+		Plug 'tpope/vim-unimpaired'
 
-" Save session
-Plug 'tpope/vim-obsession'
+		" Git
+		Plug 'tpope/vim-fugitive'
+		Plug 'tpope/vim-rhubarb'
+		Plug 'shumphrey/fugitive-gitlab.vim'
+		Plug 'airblade/vim-gitgutter'
 
-" Compare when vim finds a swap file
-Plug 'chrisbra/Recover.vim'
+		" Save session
+		Plug 'tpope/vim-obsession'
 
-" Word and case variants
-Plug 'tpope/tpope-vim-abolish'
+		" Compare when vim finds a swap file
+		Plug 'chrisbra/Recover.vim'
 
-Plug 'metakirby5/codi.vim'
+		" Word and case variants
+		Plug 'tpope/tpope-vim-abolish'
 
-Plug 'rickhowe/diffchar.vim'
+		Plug 'metakirby5/codi.vim'
 
-" Vimscript test suite
-Plug 'junegunn/vader.vim'
+		Plug 'rickhowe/diffchar.vim'
 
+		" Vimscript test suite
+		Plug 'junegunn/vader.vim'
 
-"
-" Convenience
-"
+		"
+		" Convenience
+		"
 
-" Open files in last place
-Plug 'farmergreg/vim-lastplace'
+		" Open files in last place
+		Plug 'farmergreg/vim-lastplace'
 
-" Snippet engine
-Plug 'SirVer/ultisnips'
+		" Snippet engine
+		Plug 'SirVer/ultisnips'
 
-" Emmet
-Plug 'mattn/emmet-vim'
+		" Emmet
+		Plug 'mattn/emmet-vim'
 
-" Linting
-Plug 'w0rp/ale'
+		" Linting
+		Plug 'w0rp/ale'
 
-Plug 'tpope/vim-ragtag'
-" Plug 'tranvansang/vim-close-pair'
-" Plug 'Raimondi/delimitMate'
+		Plug 'tpope/vim-ragtag'
+		" Plug 'tranvansang/vim-close-pair'
+		" Plug 'Raimondi/delimitMate'
 
-Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --js-completer --clang-completer' }
+		Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --js-completer --clang-completer' }
 
-" Switch between single line and multi line statemnts
-Plug 'AndrewRadev/splitjoin.vim'
+		" Switch between single line and multi line statemnts
+		Plug 'AndrewRadev/splitjoin.vim'
 
-" Spelling and grammar checking
-Plug 'rhysd/vim-grammarous'
+		" Spelling and grammar checking
+		Plug 'rhysd/vim-grammarous'
 
-Plug 'airblade/vim-accent'
+		Plug 'airblade/vim-accent'
 
+		"
+		" Inconvinience
+		"
 
-"
-" Inconvinience
-"
+		Plug 'takac/vim-hardtime'
 
-Plug 'takac/vim-hardtime'
+		"
+		" Appearance
+		"
 
+		" Status bar
+		Plug 'vim-airline/vim-airline'
 
-"
-" Appearance
-"
+		" Colourscheme
+		Plug 'Iambecomeroot/wal.vim'
 
-" Status bar
-Plug 'vim-airline/vim-airline'
+		" File icons
+		Plug 'ryanoasis/vim-devicons'
 
-" Colourscheme
-Plug 'Iambecomeroot/wal.vim'
+		" Indent guides
+		Plug 'Yggdroot/indentLine'
 
-" File icons
-Plug 'ryanoasis/vim-devicons'
+		" Automatically remove search highlighting
+		Plug 'haya14busa/incsearch.vim'
 
-" Indent guides
-Plug 'Yggdroot/indentLine'
+		Plug 'chrisbra/Colorizer'
 
-" Automatically remove search highlighting
-Plug 'haya14busa/incsearch.vim'
+		" Colour manipulation
+		Plug 'romgrk/lib.kom'
 
-Plug 'chrisbra/Colorizer'
+		" Syntax plugins
+		Plug 'pangloss/vim-javascript'
+		Plug 'Galooshi/vim-import-js'
 
-" Colour manipulation
-Plug 'romgrk/lib.kom'
+		Plug 'mxw/vim-jsx'
+		Plug 'mustache/vim-mustache-handlebars'
+		Plug 'digitaltoad/vim-pug'
+		Plug 'elzr/vim-json'
+		Plug 'plasticboy/vim-markdown'
+		Plug 'heavenshell/vim-jsdoc'
+		Plug 'lervag/vimtex'
+		" Plug 'python-mode/python-mode', { 'branch': 'develop' }
+		Plug 'statico/vim-javascript-sql'
+		Plug 'Vimjas/vim-python-pep8-indent'
+		" Plug 'hdima/python-syntax'
+		" Plug 'Rykka/riv.vim'
+		" Plug 'nvie/vim-flake8'
+		Plug 'Matt-Deacalion/vim-systemd-syntax'
 
-" Syntax plugins
-Plug 'pangloss/vim-javascript'
-Plug 'Galooshi/vim-import-js'
-
-Plug 'mxw/vim-jsx'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'digitaltoad/vim-pug'
-Plug 'elzr/vim-json'
-Plug 'plasticboy/vim-markdown'
-Plug 'heavenshell/vim-jsdoc'
-Plug 'lervag/vimtex'
-" Plug 'python-mode/python-mode', { 'branch': 'develop' }
-Plug 'statico/vim-javascript-sql'
-Plug 'Vimjas/vim-python-pep8-indent'
-" Plug 'hdima/python-syntax'
-" Plug 'Rykka/riv.vim'
-" Plug 'nvie/vim-flake8'
-Plug 'Matt-Deacalion/vim-systemd-syntax'
-
-call plug#end()
+	call plug#end()
+endif
 
 let g:riv_python_rst_hl=1
 
