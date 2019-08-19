@@ -644,7 +644,7 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 "
 
 " Colourscheme settings
-colorscheme wal
+silent! colorscheme wal
 
 
 "
