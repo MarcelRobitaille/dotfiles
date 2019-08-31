@@ -5,16 +5,16 @@
  ****************************************/
 
 @-moz-document url-prefix("https://trello.com/") {
-  .day-cell {
-    height: 200px !important;
-  }
-  .calendar-list-header {
-    font-size: 12px;
-    display: block !important;
-  }
-    .calendar-list-header > .icon-sm.icon-list {
-      display: none !important;
-    }
+	.day-cell {
+		height: 200px !important;
+	}
+	.calendar-list-header {
+		font-size: 12px;
+		display: block !important;
+	}
+		.calendar-list-header > .icon-sm.icon-list {
+			display: none !important;
+		}
 }
 
 
@@ -23,13 +23,16 @@
  ****************************************/
 
 @-moz-document url-prefix("https://www.facebook.com/") {
-  #pagelet_dock,
-  #pagelet_sidebar {
-    display: none;
-  }
-  #globalContainer {
-    padding-right: 0;
-  }
+	#pagelet_dock,
+	#pagelet_sidebar {
+		display: none;
+	}
+	#globalContainer {
+		padding-right: 0;
+	}
+	#pagelet_growth_expanding_cta {
+		display: none;
+	}
 }
 
 
@@ -52,136 +55,135 @@
  ****************************************/
 
 @-moz-document url-prefix("https://disable.www.messenger.com/") {
-  div[role="banner"] {
-    border-bottom: 1px solid #1c242d !important;
-    background: #{{@@ color_normal_black @@}} !important;
-  }
-  div[role="banner"] + div {
-    background: #{{@@ color_normal_black @@}} !important;
-  }
-  div[role="banner"] h1 {
-    color: #fffffd !important;
-  }
-  div[role="banner"] + div input {
-    background: #1c242d !important;
-  }
-  div[role="banner"] + div input::placeholder {
-    color: #fffffd !important;
-  }
-  ul[aria-label="Conversation List"] > li[aria-relevant="additions text"]:not([aria-live="polite"]){
-    background: #1c242d !important;
-  }
+	div[role="banner"] {
+		border-bottom: 1px solid #1c242d !important;
+		background: #{{@@ color_normal_black @@}} !important;
+	}
+	div[role="banner"] + div {
+		background: #{{@@ color_normal_black @@}} !important;
+	}
+	div[role="banner"] h1 {
+		color: #fffffd !important;
+	}
+	div[role="banner"] + div input {
+		background: #1c242d !important;
+	}
+	div[role="banner"] + div input::placeholder {
+		color: #fffffd !important;
+	}
+	ul[aria-label="Conversation List"] > li[aria-relevant="additions text"]:not([aria-live="polite"]){
+		background: #1c242d !important;
+	}
 
-  /* Conversation last message */
-  div[aria-label="Conversations"] a > div > div:nth-child(2) > div:nth-child(2) > span,
-  /* Contact last-activity timestamp */
-  ul[aria-label="Conversation List"] .timestamp,
-  /* New message text */
-  div[aria-label="Conversations"] a > div > div:nth-child(2) > div:first-child,
-  /* Contact name */
-  ul[aria-label="Conversation List"] a > div > div:nth-child(2) > div:first-child > span,
-  /* Search results */
-  ul[role="listbox"] a > div > div:nth-child(2) > div > div {
-    color: #fffffd !important;
-  }
+	/* Conversation last message */
+	div[aria-label="Conversations"] a > div > div:nth-child(2) > div:nth-child(2) > span,
+	/* Contact last-activity timestamp */
+	ul[aria-label="Conversation List"] .timestamp,
+	/* New message text */
+	div[aria-label="Conversations"] a > div > div:nth-child(2) > div:first-child,
+	/* Contact name */
+	ul[aria-label="Conversation List"] a > div > div:nth-child(2) > div:first-child > span,
+	/* Search results */
+	ul[role="listbox"] a > div > div:nth-child(2) > div > div {
+		color: #fffffd !important;
+	}
 
-  div[role="main"] {
-    background: #{{@@ color_normal_black @@}} !important;
-    border-left: 1px solid #1c242d !important;
-  }
-  div[role="main"] > span > div:first-child {
-    border-bottom: 1px solid #1c242d !important;
-  }
-  /* Contact name */
-  div[role="main"] > span > div:first-child h2,
-  div[role="main"] > span > div:first-child h2 + div {
-    color: #fffffd !important;
-  }
+	div[role="main"] {
+		background: #{{@@ color_normal_black @@}} !important;
+		border-left: 1px solid #1c242d !important;
+	}
+	div[role="main"] > span > div:first-child {
+		border-bottom: 1px solid #1c242d !important;
+	}
+	/* Contact name */
+	div[role="main"] > span > div:first-child h2,
+	div[role="main"] > span > div:first-child h2 + div {
+		color: #fffffd !important;
+	}
 
-  /* Name */
-  div[role="main"] h5 {
-    color: #fffffd !important;
-  }
-  /* Other people's messages */
-  div[role="main"] h5 ~ div[message="[object Object]"] > div[threadcustomcolor] {
-    color: #fffffd !important;
-    background: #1c242d !important;
-  }
-  /* URLs */
-  div[role="main"] h5 ~ div[message="[object Object]"] > div[threadcustomcolor] a[data-lynx-uri],
-  /* URLs with thumbnails */
-  div[role="main"] h5 ~ div[message="[object Object]"] a[data-lynx-uri] div {
-    color: #fffffd !important;
-    text-decoration: underline;
-  }
+	/* Name */
+	div[role="main"] h5 {
+		color: #fffffd !important;
+	}
+	/* Other people's messages */
+	div[role="main"] h5 ~ div[message="[object Object]"] > div[threadcustomcolor] {
+		color: #fffffd !important;
+		background: #1c242d !important;
+	}
+	/* URLs */
+	div[role="main"] h5 ~ div[message="[object Object]"] > div[threadcustomcolor] a[data-lynx-uri],
+	/* URLs with thumbnails */
+	div[role="main"] h5 ~ div[message="[object Object]"] a[data-lynx-uri] div {
+		color: #fffffd !important;
+		text-decoration: underline;
+	}
 
-  /* Typing bubble */
-  div[aria-label="Messages"] > div:last-child > div > div:last-child > div > div {
-    background: #1c242d !important;
-  }
-  div[aria-label="Messages"] > div:last-child > div > div:last-child > div > div > div > div > div {
-    background: #fffffd !important;
-  }
+	/* Typing bubble */
+	div[aria-label="Messages"] > div:last-child > div > div:last-child > div > div {
+		background: #1c242d !important;
+	}
+	div[aria-label="Messages"] > div:last-child > div > div:last-child > div > div > div > div > div {
+		background: #fffffd !important;
+	}
 
-  /* React button */
-  div[role="main"] h5 ~ div[message="[object Object]"] .preview > div,
-  div[role="main"] h5 ~ div[message="[object Object]"] .preview > div:first-child > span {
-    background: #1c242d !important;
-  }
+	/* React button */
+	div[role="main"] h5 ~ div[message="[object Object]"] .preview > div,
+	div[role="main"] h5 ~ div[message="[object Object]"] .preview > div:first-child > span {
+		background: #1c242d !important;
+	}
 
-  /* My messages (different colours) */
-  div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor] + span[title] {
-    color: #fffffd !important;
-  }
-  div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#FA3C4C"],
-  div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#FA3C4C"] + span[title] {
-    background: #ad4117 !important;
-  }
-  div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#FA3C4C"] + a + span[title] {
-    color: #ad4117 !important;
-  }
-  div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#0084ff"],
-  div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#0084ff"] + span[title] {
-    background: #426da2 !important;
-  }
-  div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#0084ff"] + a + span[title] {
-    color: #426da2 !important;
-  }
-  div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#20CEF5"],
-  div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#20CEF5"] + span[title] {
-    background: #659b45 !important;
-  }
-  div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#20CEF5"] + a + span[title] {
-    color: #659b45 !important;
-  }
+	/* My messages (different colours) */
+	div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor] + span[title] {
+		color: #fffffd !important;
+	}
+	div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#FA3C4C"],
+	div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#FA3C4C"] + span[title] {
+		background: #ad4117 !important;
+	}
+	div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#FA3C4C"] + a + span[title] {
+		color: #ad4117 !important;
+	}
+	div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#0084ff"],
+	div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#0084ff"] + span[title] {
+		background: #426da2 !important;
+	}
+	div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#0084ff"] + a + span[title] {
+		color: #426da2 !important;
+	}
+	div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#20CEF5"],
+	div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#20CEF5"] + span[title] {
+		background: #659b45 !important;
+	}
+	div[role="main"] h5.accessible_elem ~ div[message="[object Object]"] > div[threadcustomcolor="#20CEF5"] + a + span[title] {
+		color: #659b45 !important;
+	}
 
-  /* Main text field */
-  div[role="main"] > span > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div[role="region"] {
-    border-top: 1px solid #1c242d !important;
-  }
-  div[role="combobox"][contenteditable="true"] {
-    color: #fffffd !important;
-  }
+	/* Main text field */
+	div[role="main"] > span > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div[role="region"] {
+		border-top: 1px solid #1c242d !important;
+	}
+	div[role="combobox"][contenteditable="true"] {
+		color: #fffffd !important;
+	}
 
-  /* Hide useless line at the bottom of the page */
-  .chatAttachmentShelf {
-    border-top: 0 !important;
-  }
+	/* Hide useless line at the bottom of the page */
+	.chatAttachmentShelf {
+		border-top: 0 !important;
+	}
 
-  /* Side panel contact name */
-  div[data-testid="info_panel"] h3 + div span > a {
-    color: #fffffd !important;
-    text-decoration: underline;
-  }
-  div[data-testid="info_panel"] h3 + div:nth-child(2) > div:first-child > div:last-child > div:nth-child(2) > div {
-    color: #fffffd !important;
-  }
-  /* Side panel section headings */
-  div[data-testid="info_panel"] h4[aria-expanded] {
-    color: #fffffd !important;
-  }
-  div[data-testid="info_panel"] h4[aria-expanded] + div div {
-    color: #fffffd !important;
-  }
+	/* Side panel contact name */
+	div[data-testid="info_panel"] h3 + div span > a {
+		color: #fffffd !important;
+		text-decoration: underline;
+	}
+	div[data-testid="info_panel"] h3 + div:nth-child(2) > div:first-child > div:last-child > div:nth-child(2) > div {
+		color: #fffffd !important;
+	}
+	/* Side panel section headings */
+	div[data-testid="info_panel"] h4[aria-expanded] {
+		color: #fffffd !important;
+	}
+	div[data-testid="info_panel"] h4[aria-expanded] + div div {
+		color: #fffffd !important;
+	}
 }
-
