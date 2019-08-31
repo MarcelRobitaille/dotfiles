@@ -71,7 +71,7 @@
 	<directories/>
 </action>
 <action>
-	<icon>acroread</icon>
+	<icon>application-pdf</icon>
 	<name>Merge pdf</name>
 	<unique-id>1544739716025972-1</unique-id>
 	<command>pdfunite %F &quot;$(zenity --entry --text=&apos;Filename: &apos; --entry-text=&apos;merged.pdf&apos;)&quot;</command>
@@ -80,7 +80,7 @@
 	<other-files/>
 </action>
 <action>
-	<icon>indicator-trashindicator</icon>
+	<icon>user-trash</icon>
 	<name>Permenantly delete</name>
 	<unique-id>1545278848278279-1</unique-id>
 	<command>zenity --question --text=&quot;Are you sure you want to permenantly delete theses items?&quot; &amp;&amp; rm %F</command>
@@ -93,7 +93,7 @@
 	<video-files/>
 </action>
 <action>
-	<icon>indicator-trashindicator</icon>
+	<icon>user-trash</icon>
 	<name>Permenantly delete folder</name>
 	<unique-id>1545279112907161-2</unique-id>
 	<command>zenity --question --text=&quot;Are you sure you want to permenantly delete this folder?&quot; &amp;&amp; rm -rf %f</command>
