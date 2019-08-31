@@ -118,5 +118,13 @@
 	<description></description>
 	<patterns>*</patterns>
 	<video-files/>
+	<icon>insert-image</icon>
+	<name>Replace with image in clipboard</name>
+	<unique-id>1550951097580918-1</unique-id>
+	<command>xclip -selection clipboard -target image/png -out &gt; %f</command>
+	<description>Replace selected image with the one in the clipboard.</description>
+	<patterns>*.png</patterns>
+	<image-files/>
+	<other-files/>
 </action>
 </actions>
