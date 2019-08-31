@@ -22,6 +22,7 @@ brother-dcpl2540dw-cups
 brother-mfc-j485dw
 brscan4
 bzip2
+catfish
 cava
 chromium
 cloc
