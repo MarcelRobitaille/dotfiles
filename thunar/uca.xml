@@ -127,4 +127,13 @@
 	<image-files/>
 	<other-files/>
 </action>
+<action>
+	<icon>applications-internet</icon>
+	<name>New URL shortcut</name>
+	<unique-id>1567274294183202-1</unique-id>
+	<command>python $HOME/bin/create_url_shortcut.py $(zenity --entry --text &quot;URL for shortcut:&quot;) %f &gt;/tmp/custom_action.log 2&gt;&amp;1 || cat /tmp/custom_action.log | zenity --text-info</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
 </actions>
