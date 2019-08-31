@@ -211,12 +211,15 @@ psmisc
 pulseaudio
 pv
 pydf
+python-click
 python-cryptography
 python-dateutil
 python-gobject2
 python-matplotlib
 python-pip
 python-pyalsa
+python-requests
+python-slugify
 python-smbus-git
 python2-chardet
 python2-idna
