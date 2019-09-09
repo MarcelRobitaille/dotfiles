@@ -45,6 +45,8 @@ if exists('plugged_dir')
 		Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 		Plug 'junegunn/fzf.vim'
 
+		Plug 'wincent/ferret'
+
 		" Enable dot repetition for plugins
 		Plug 'tpope/vim-repeat'
 
