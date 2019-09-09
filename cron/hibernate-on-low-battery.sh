@@ -2,7 +2,7 @@
 
 threshold=15
 
-acpi -b | awk -F'[,:%]' '{print $2, $3}' | {
+acpi -b | tail -1 | awk -F'[,:%]' '{print $2, $3}' | {
   read -r status capacity
 
   if [ "$status" = Discharging -a "$capacity" -lt $threshold ]; then
@@ -20,7 +20,7 @@ acpi -b | awk -F'[,:%]' '{print $2, $3}' | {
   fi
 }
 
-acpi -b | awk -F'[,:%]' '{print $2, $3}' | {
+acpi -b | tail -1 | awk -F'[,:%]' '{print $2, $3}' | {
   read -r status capacity
 
   if [ "$status" = Discharging -a "$capacity" -lt $threshold ]; then
@@ -28,4 +28,3 @@ acpi -b | awk -F'[,:%]' '{print $2, $3}' | {
     sudo systemctl hibernate
   fi
 }
-
