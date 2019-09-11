@@ -96,8 +96,6 @@ if exists('plugged_dir')
 		Plug 'w0rp/ale'
 
 		Plug 'tpope/vim-ragtag'
-		" Plug 'tranvansang/vim-close-pair'
-		" Plug 'Raimondi/delimitMate'
 
 		Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --js-completer --clang-completer' }
 
