@@ -33,7 +33,7 @@ if exists('plugged_dir')
 		Plug 'wellle/targets.vim'
 
 		" Tree view
-		Plug 'scrooloose/nerdtree'
+		Plug 'scrooloose/nerdtree', { 'on': [ 'NERDTree', 'NERDTreeToggle', 'NERDTreeFind' ] }
 		" Plug 'Xuyuanp/nerdtree-git-plugin'
 		" Plug 'tsony-tsonev/nerdtree-git-plugin'
 		" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
