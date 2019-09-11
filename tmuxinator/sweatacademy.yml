@@ -3,7 +3,7 @@
 name: SweatAcademy
 root: ~/code/SweatAcademy/website
 windows:
-  - vim: vim .
+  - nvim: nvim .
   - serve:
       layout: main-vertical
       panes:

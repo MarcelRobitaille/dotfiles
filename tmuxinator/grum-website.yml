@@ -3,7 +3,7 @@
 name: grum-website
 root: ~/code/grum/website
 windows:
-  - vim: vim .
+  - nvim: nvim .
   - serve:
       layout: main-vertical
       panes:

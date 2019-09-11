@@ -3,7 +3,7 @@
 name: elumicate
 root: ~/code/elumicate/dashboard
 windows:
-  - vim: vim .
+  - nvim: nvim .
   - serve:
     layout: main-vertical
     panes:

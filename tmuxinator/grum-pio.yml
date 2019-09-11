@@ -3,5 +3,5 @@
 name: grum-pio
 root: ~/code/grum/eurobot2019/eurobot2019-platformio
 windows:
-  - vim: vim .
+  - nvim: nvim .
   - zsh:

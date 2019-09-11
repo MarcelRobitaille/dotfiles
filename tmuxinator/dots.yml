@@ -3,5 +3,5 @@
 name: dots
 root: ~/.dotfiles
 windows:
-  - vim: vim .
+  - nvim: nvim .
   - zsh:
