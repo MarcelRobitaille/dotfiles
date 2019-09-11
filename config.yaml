@@ -1,5 +1,8 @@
 actions:
   pre:
+    nvim-install-plug: test -e ~/.local/share/nvim/site/autoload/plug.vim || (mkdir -p ~/.local/share/nvim/site/autoload/plug.vim; curl
+      -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim)
     vim-plug-install: test -e ~/.vim/autoload/plug.vim || (mkdir -p ~/.vim/autoload; curl
       -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim)
     # spaceship-install: test -e {{ env['ZSH_CUSTOM'] }}/themes/spaceship-prompt/spaceship.zsh-theme ||
@@ -14,6 +17,7 @@ actions:
       mkdir -p ~/.oh-my-zsh/custom/plugins;
       cp /tmp/tmuxinator/completion/tmuxinator.zsh ~/.oh-my-zsh/custom/plugins/)
   vim-plug: vim +PlugInstall +qall
+  nvim-plug-install: nvim +PlugInstall +qall
   update_crontab: "cat /tmp/dotdrop-crontab | crontab -"
 variables:
   color_background: '12181e'
@@ -180,6 +184,14 @@ dotfiles:
     dst: ~/.config/neofetch/config
     src: ./neofetch/config
     link: link
+
+  neovim:
+    dst: ~/.config/nvim
+    src: ./vim/
+    actions:
+     - nvim-install-plug
+     - nvim-plug-install
+    link: link_children
 
   npmrc:
     dst: ~/.npmrc
@@ -375,6 +387,7 @@ profiles:
     - mycli
     - ncmpcpp
     - neofetch
+    - neovim
     - npmrc
     - openbox
     - openbox_theme
