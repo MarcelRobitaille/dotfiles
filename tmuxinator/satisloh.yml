@@ -5,7 +5,7 @@ root: ~/code/satisloh/MES_HW_COMM_BOX
 windows:
   - nvim: source venv/bin/activate; nvim .
   - serve:
-      layout: even-vertical
+      layout: even-horizontal
       panes:
         - source venv/bin/activate; python manager.py runserver 3030
         - source venv/bin/activate

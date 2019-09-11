@@ -5,7 +5,7 @@ root: ~/code/SweatAcademy/website
 windows:
   - nvim: nvim .
   - serve:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - npm run nodemon
         - npm run gulp

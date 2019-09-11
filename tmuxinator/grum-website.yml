@@ -5,7 +5,7 @@ root: ~/code/grum/website
 windows:
   - nvim: nvim .
   - serve:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - npm start
         - npm run webpack -- --watch

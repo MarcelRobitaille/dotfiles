@@ -5,7 +5,7 @@ root: ~/code/elumicate/dashboard
 windows:
   - nvim: nvim .
   - serve:
-    layout: main-vertical
+    layout: even-horizontal
     panes:
       # - ./serve
       - gulp
