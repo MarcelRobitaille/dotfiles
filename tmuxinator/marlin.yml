@@ -3,5 +3,5 @@
 name: marlin
 root: ~/code/Marlin
 windows:
-  - nvim: nvim .
+  - nvim: nvim
   - zsh:

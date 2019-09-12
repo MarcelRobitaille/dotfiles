@@ -3,7 +3,7 @@
 name: satisloh
 root: ~/code/satisloh/MES_HW_COMM_BOX
 windows:
-  - nvim: source venv/bin/activate; nvim .
+  - nvim: source venv/bin/activate; nvim
   - serve:
       layout: even-horizontal
       panes:

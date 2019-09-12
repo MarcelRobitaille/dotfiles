@@ -3,5 +3,5 @@
 name: grum-pio-tests
 root: ~/code/grum/eurobot2019/eurobot2019-platformio-tests
 windows:
-  - nvim: nvim .
+  - nvim: nvim
   - zsh:

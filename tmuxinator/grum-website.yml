@@ -3,7 +3,7 @@
 name: grum-website
 root: ~/code/grum/website
 windows:
-  - nvim: nvim .
+  - nvim: nvim
   - serve:
       layout: even-horizontal
       panes:
