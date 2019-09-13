@@ -23,6 +23,9 @@ export FZF_DEFAULT_COMMAND='ag -l \
   {%@@ for folder in standard_ignored_folders @@%}
   --ignore {{@@ folder @@}} \
   {%@@ endfor @@%}
+  {%@@ for file in standard_ignored_files @@%}
+  --ignore "{{@@ file @@}}" \
+  {%@@ endfor @@%}
   -g ""'
 
 export KEYTIMEOUT=1
