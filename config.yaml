@@ -72,6 +72,14 @@ variables:
     - '*.swp'
     - 'yarn.*'
     - '*.zip'
+    - '*.aux'
+    - '*.fdb_latexmk'
+    - '*.fls'
+    - '*.log'
+    - '*.out'
+    - '*.pdf'
+    - '*.synctex.gz'
+    - '*.xdv'
     - 'package-lock.json'
 
 dynvariables:
