@@ -1,4 +1,4 @@
-set window-icon /usr/share/icons/Flat-Remix/apps/scalable/application-pdf.svg
+set window-icon application-pdf
 set selection-clipboard clipboard
 set window-title-basename true
 
