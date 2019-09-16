@@ -99,7 +99,7 @@ Select Case fileSystemObject.GetExtensionName(inputFile)
     document.Close
     wordApplication.Quit
 
-  Case "pptx"
+  Case "pptx", "ppt"
 
     Set powerpointApplication = CreateObject("PowerPoint.Application")
 
