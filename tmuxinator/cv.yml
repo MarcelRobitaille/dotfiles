@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: cv
+root: ~/Documents/curricula-vitae
+windows:
+  - nvim: nvim
+  - zsh:
