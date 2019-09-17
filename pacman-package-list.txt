@@ -191,6 +191,7 @@ pacman
 pamixer
 pandoc
 paper-icon-theme
+papirus-icon-theme
 patch
 pavucontrol
 pciutils
