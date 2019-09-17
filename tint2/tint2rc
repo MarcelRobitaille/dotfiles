@@ -127,7 +127,7 @@ time2_font = Source Code Pro 9
 clock_font_color = #ffffff 100
 clock_padding = 15 0
 clock_background_id = 0
-clock_lclick_command = 'dzen-calendar'
+clock_lclick_command = 'minetime'
 
 #-------------------------------------
 # Keyboard
