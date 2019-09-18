@@ -355,6 +355,7 @@ profiles:
     - ncmpcpp
     - neofetch
     - npmrc
+    - neovim
     - openbox
     - openbox_theme
     - ranger
@@ -402,6 +403,7 @@ profiles:
     - neofetch
     - neovim
     - npmrc
+    - neovim
     - openbox
     - openbox_theme
     - ranger
