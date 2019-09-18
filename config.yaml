@@ -70,7 +70,7 @@ variables:
     - 'migrations'
 
   standard_ignored_files:
-    - 'tags'
+    - 'tags*'
     - '*.swp'
     - 'yarn.*'
     - '*.zip'
