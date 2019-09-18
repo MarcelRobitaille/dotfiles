@@ -19,6 +19,7 @@ actions:
   vim-plug: vim +PlugInstall +qall
   nvim-plug-install: nvim +PlugInstall +qall
   update_crontab: "cat /tmp/dotdrop-crontab | crontab -"
+
 variables:
   color_background: '12181e'
   color_foreground: 'FFFFFD'
