@@ -65,6 +65,7 @@ findutils
 firefox
 flake8
 flat-remix-git
+flat-remix-gtk
 flex
 fontforge
 frei0r-plugins
