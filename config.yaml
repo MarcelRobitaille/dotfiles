@@ -81,6 +81,8 @@ variables:
     - '*.synctex.gz'
     - '*.xdv'
     - 'package-lock.json'
+    - '*.cut'
+    - '*.synctex(busy)'
 
 dynvariables:
   mozilla_path: find ~/.mozilla/firefox -name '*.default'
