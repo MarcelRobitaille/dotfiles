@@ -57,6 +57,7 @@ variables:
     - 'env'
     - 'venv'
     - 'build'
+    - 'dist'
     - 'public'
     - 'static'
     - 'vendor'
