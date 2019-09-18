@@ -149,7 +149,7 @@ dotfiles:
     link: link
 
   firefox:
-    dst: "{{@@ mozilla_path @@}}"
+    dst: '{{@@ mozilla_path @@}}'
     src: ./firefox/
 
   flake8:
