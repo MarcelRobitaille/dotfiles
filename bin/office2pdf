@@ -7,37 +7,37 @@ VM_USERNAME="marcel"
 VM_PASSWORD="$(pass programming/virtualmachine)"
 
 guestcontrol() {
-  VBoxManage guestcontrol \
-    $VM_UUID \
-    --username "$VM_USERNAME" --password "$VM_PASSWORD" \
-    $*
+	VBoxManage guestcontrol \
+		$VM_UUID \
+		--username "$VM_USERNAME" --password "$VM_PASSWORD" \
+		$*
 }
 
 # Ensure virtual machine running
 if [[ `vboxmanage showvminfo $VM_UUID | grep -c "running (since"` == '0' ]];
-  then
-    zenity --text="Your virtual machine is not running." --error
-    exit 1
-  fi
+	then
+		zenity --text="Your virtual machine is not running." --error
+		exit 1
+	fi
 
 if ! guestcontrol stat "C:\\Users\\$VM_USERNAME\\bin\\" > /dev/null; then
-  guestcontrol run -- \
-    "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" \
-    -command "mkdir C:\\Users\\$VM_USERNAME\\bin\\" \
-    > /dev/null
+	guestcontrol run -- \
+		"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" \
+		-command "mkdir C:\\Users\\$VM_USERNAME\\bin\\" \
+		> /dev/null
 fi
 
 if ! guestcontrol stat "C:\\Users\\$VM_USERNAME\\bin\\office2pdf.vbs" \
-  > /dev/null; then
-    echo "Installing VB script"
+	> /dev/null; then
+		echo "Installing VB script"
 
-    cp "$(dirname $0)/office2pdf.vbs" /tmp
+		cp "$(dirname $0)/office2pdf.vbs" /tmp
 
-    guestcontrol run -- \
-      "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" \
-      -command \
-      "move \\\\vboxsrv\\tmp\\office2pdf.vbs C:\\Users\\$VM_USERNAME\\bin\\"
-  fi
+		guestcontrol run -- \
+			"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" \
+			-command \
+			"move \\\\vboxsrv\\tmp\\office2pdf.vbs C:\\Users\\$VM_USERNAME\\bin\\"
+	fi
 
 # Loop through files passed
 ORIG_IFS=$IFS
@@ -45,29 +45,29 @@ IFS=`echo -n "\n\b"`
 
 for filename in `echo "$@" | sed 's/\(\(.ppt\|.pptm\|.pptx\|.doc\|.docx\)[ ]*\)/\2\n/g'`; do
 
-  dir=`dirname "$filename"`
-  input=`basename "$filename"`
-  output=`echo "$input" | sed 's/\(ppt\|pptm\|pptx\|doc\|docx\)$/pdf/'`
+	dir=`dirname "$filename"`
+	input=`basename "$filename"`
+	output=`echo "$input" | sed 's/\(ppt\|pptm\|pptx\|doc\|docx\)$/pdf/'`
 
-  # Generate uuid to avoid conflicts in /tmp
-  uuid=`openssl rand -hex 12`
+	# Generate uuid to avoid conflicts in /tmp
+	uuid=`openssl rand -hex 12`
 
-  # Move current file to /tmp
-  cd "$dir"
-  cp "./$input" "/tmp/$uuid-$input"
+	# Move current file to /tmp
+	cd "$dir"
+	cp "./$input" "/tmp/$uuid-$input"
 
-  # Run VB script to convert to pdf
-  guestcontrol run \
-    "C:\\Windows\\System32\\cscript.exe" \
-    "C:\\Users\\$VM_USERNAME\\bin\\office2pdf.vbs" \
-    "\\\\vboxsrv\\tmp\\$uuid-$input" \
-    "\\\\vboxsrv\\tmp\\$uuid-$output"
+	# Run VB script to convert to pdf
+	guestcontrol run \
+		"C:\\Windows\\System32\\cscript.exe" \
+		"C:\\Users\\$VM_USERNAME\\bin\\office2pdf.vbs" \
+		"\\\\vboxsrv\\tmp\\$uuid-$input" \
+		"\\\\vboxsrv\\tmp\\$uuid-$output"
 
-  # Move result back to current wirectory
-  mv "/tmp/$uuid-$output" "./$output"
+	# Move result back to current wirectory
+	mv "/tmp/$uuid-$output" "./$output"
 
-  # Remove temporary file
-  rm "/tmp/$uuid-$input"
+	# Remove temporary file
+	rm "/tmp/$uuid-$input"
 
 done
 
