@@ -101,6 +101,7 @@ config:
   longkey: false
   showdiff: false
   workdir: ~/.config/dotdrop
+  link_on_import: nolink
 
 dotfiles:
   alacritty:
