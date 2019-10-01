@@ -102,6 +102,7 @@ config:
   showdiff: false
   workdir: ~/.config/dotdrop
   link_on_import: nolink
+  minversion: 0.29.4
 
 dotfiles:
   alacritty:
