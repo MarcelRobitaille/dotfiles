@@ -272,7 +272,6 @@ dotfiles:
   thunar:
     dst: ~/.config/Thunar/uca.xml
     src: ./thunar/uca.xml
-    link: link
 
   tumbler:
     dst: ~/.config/tumbler/tumbler.rc
