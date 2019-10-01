@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 VM_UUID="22179f7e-6102-4e21-b00a-f692be50daed"
 VM_USERNAME="marcel"
