@@ -20,11 +20,14 @@ if [[ `vboxmanage showvminfo $VM_UUID | grep -c "running (since"` == '0' ]];
 		exit 1
 	fi
 
-# Loop through files passed
-ORIG_IFS=$IFS
-IFS=`echo -n "\n\b"`
+IFS=';' read -ra files <<< "$(echo $@ | sed 's/\(\(.ppt\|.pptm\|.pptx\|.doc\|.docx\)[ ]*\)/\2;/g')"
+length="${#files[@]}"
 
-for filename in `echo "$@" | sed 's/\(\(.ppt\|.pptm\|.pptx\|.doc\|.docx\)[ ]*\)/\2\n/g'`; do
+for i in "${!files[@]}"; do
+	echo $((i*100/length))
+	echo "# Processing file `basename \"${files[$i]}\"` ($((i+1)) of $length)."
+
+	filename=${files[$i]}
 
 	dir=`dirname "$filename"`
 	input=`basename "$filename"`
@@ -49,8 +52,4 @@ for filename in `echo "$@" | sed 's/\(\(.ppt\|.pptm\|.pptx\|.doc\|.docx\)[ ]*\)/
 
 	# Remove temporary file
 	rm "/tmp/$uuid-$input"
-
-done
-
-IFS=$ORIG_IFS
-
+done | ([ $length -gt 1 ] && zenity --progress --percentage=0 --auto-close --no-cancel --width=400 --title="Microsoft Office to PDF")
