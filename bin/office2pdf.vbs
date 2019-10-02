@@ -109,7 +109,7 @@ Select Case fileSystemObject.GetExtensionName(inputFile)
 		Set presentation = powerpointApplication.ActivePresentation
 		Set objPrintOptions = presentation.PrintOptions
 
-		objPrintOptions.Ranges.Add 1,presentation.Slides.Count
+		objPrintOptions.Ranges.Add presentation.Slides(1).SlideNumber,(presentation.Slides.Count+presentation.Slides(1).SlideNumber-1)
 		objPrintOptions.RangeType = ppShowAll
 
 		' Reference for this at http://msdn.microsoft.com/en-us/library/office/ff746080.aspx
