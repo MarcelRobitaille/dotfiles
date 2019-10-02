@@ -97,7 +97,14 @@ if exists('plugged_dir')
 
 		Plug 'tpope/vim-ragtag'
 
-		Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --js-completer --clang-completer' }
+		" Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --js-completer --clang-completer' }
+		if has('nvim')
+			Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+		else
+			Plug 'Shougo/deoplete.nvim'
+			Plug 'roxma/nvim-yarp'
+			Plug 'roxma/vim-hug-neovim-rpc'
+		endif
 
 		" Switch between single line and multi line statemnts
 		Plug 'AndrewRadev/splitjoin.vim'
@@ -453,22 +460,10 @@ let g:pymode_python = 'python3'
 
 
 "
-" You Complete Me
+" deoplete
 "
 
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_filepath_blacklist = {}
-
-let g:ycm_global_ycm_extra_conf = '/home/marcel/.vim/ycm_global_ycm_extra_conf.py'
-
-let g:ycm_semantic_triggers = {
-	\ 'css': [ 're!^\s{2}', 're!:\s+' ],
-	\ }
-
-" Don't confirm loading ycm_extra_conf
-let g:ycm_confirm_extra_conf = 0
+let g:deoplete#enable_at_startup = 1
 
 
 "
