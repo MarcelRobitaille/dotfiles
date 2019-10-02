@@ -344,11 +344,6 @@ nnoremap <leader>q :bn<CR>:bd #<CR>
 " Automatically update files
 set autoread
 
-function! Autoread(timer)
-	silent checktime %
-endfunction!
-let timer = timer_start(100, 'Autoread', { 'repeat': -1 })
-
 " Disable syntax highlighting for large files
 autocmd BufWinEnter * if line2byte(line("$") + 1) > 1000000 | syntax clear | endif
 
