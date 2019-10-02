@@ -20,25 +20,6 @@ if [[ `vboxmanage showvminfo $VM_UUID | grep -c "running (since"` == '0' ]];
 		exit 1
 	fi
 
-if ! guestcontrol stat "C:\\Users\\$VM_USERNAME\\bin\\" > /dev/null; then
-	guestcontrol run -- \
-		"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" \
-		-command "mkdir C:\\Users\\$VM_USERNAME\\bin\\" \
-		> /dev/null
-fi
-
-if ! guestcontrol stat "C:\\Users\\$VM_USERNAME\\bin\\office2pdf.vbs" \
-	> /dev/null; then
-		echo "Installing VB script"
-
-		cp "$(dirname $0)/office2pdf.vbs" /tmp
-
-		guestcontrol run -- \
-			"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" \
-			-command \
-			"move \\\\vboxsrv\\tmp\\office2pdf.vbs C:\\Users\\$VM_USERNAME\\bin\\"
-	fi
-
 # Loop through files passed
 ORIG_IFS=$IFS
 IFS=`echo -n "\n\b"`
@@ -59,7 +40,7 @@ for filename in `echo "$@" | sed 's/\(\(.ppt\|.pptm\|.pptx\|.doc\|.docx\)[ ]*\)/
 	# Run VB script to convert to pdf
 	guestcontrol run \
 		"C:\\Windows\\System32\\cscript.exe" \
-		"C:\\Users\\$VM_USERNAME\\bin\\office2pdf.vbs" \
+		"\\\\vboxsrv\\marcel\\bin\\office2pdf.vbs" \
 		"\\\\vboxsrv\\tmp\\$uuid-$input" \
 		"\\\\vboxsrv\\tmp\\$uuid-$output"
 
