@@ -697,6 +697,7 @@ vmap <C-_> <Plug>Commentary
 imap <C-_> <C-r>=substitute(&commentstring, '%s', '', '')<CR>
 
 " Set comment strings
+autocmd FileType vb setlocal commentstring=\'\ %s
 autocmd FileType vim setlocal commentstring=\"\ %s
 autocmd FileType zsh setlocal commentstring=#\ %s
 autocmd FileType cpp setlocal commentstring=\/\/\ %s
