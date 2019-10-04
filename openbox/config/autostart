@@ -14,9 +14,6 @@ hash autorandr &> /dev/null && autorandr -c
 xbindkeys &
 setxkbmap -config $HOME/.config/setxkbmap.conf &
 
-# Hot corners
-lead &
-
 # Compositing
 compton &
 redshift &
