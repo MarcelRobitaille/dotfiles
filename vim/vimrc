@@ -446,13 +446,6 @@ nnoremap <leader>df :Gdiff<CR>
 nnoremap <C-p> :FZF<CR>
 
 
-"
-" Snippets
-"
-
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
-
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 
