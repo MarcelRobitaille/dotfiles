@@ -433,25 +433,6 @@ nnoremap <silent> <Leader>f :NERDTreeFind<CR>
 " Git
 "
 
-" Delete fugitive buffers after close
-augroup fugitive_close
-	autocmd BufReadPost fugitive://* set bufhidden=delete
-augroup END
-
-set previewheight=12
-augroup previewheight
-	autocmd BufEnter ?* call PreviewHeightWorkAround()
-	function! PreviewHeightWorkAround()
-		if &previewwindow
-			exec 'setlocal winheight='.&previewheight
-			exec 'resize '.&previewheight
-		endif
-	endfunction
-augroup END
-
-let g:fugitive_gitlab_domains = ['https://gitlab.robitaille.host']
-let g:fugitive_gitlab_ssh_user = 'gitlab'
-
 " Keybindings for fugitive
 nnoremap <leader>s :Gstatus<CR>
 nnoremap <leader>c :Gcommit<CR>
