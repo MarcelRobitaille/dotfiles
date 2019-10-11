@@ -6,6 +6,7 @@ VM_UUID="22179f7e-6102-4e21-b00a-f692be50daed"
 VM_USERNAME="marcel"
 VM_PASSWORD="$(pass programming/virtualmachine)"
 
+
 guestcontrol() {
 	VBoxManage guestcontrol \
 		$VM_UUID \
@@ -29,27 +30,31 @@ for i in "${!files[@]}"; do
 
 	filename=${files[$i]}
 
-	dir=`dirname "$filename"`
-	input=`basename "$filename"`
-	output=`echo "$input" | sed 's/\(ppt\|pptm\|pptx\|doc\|docx\)$/pdf/'`
-
 	# Generate uuid to avoid conflicts in /tmp
 	uuid=`openssl rand -hex 12`
 
+	dir=`dirname "$filename"`
+	input=`basename "$filename"`
+	extension="${input##*.}"
+	output="${input/$extension/pdf}"
+	tmpName="$uuid-$(slugify ${input%.*})"
+	tmpInput="$tmpName.$extension"
+	tmpOutput="$tmpName.pdf"
+
 	# Move current file to /tmp
 	cd "$dir"
-	cp "./$input" "/tmp/$uuid-$input"
+	cp "./$input" "/tmp/$tmpInput"
 
 	# Run VB script to convert to pdf
 	guestcontrol run \
 		"C:\\Windows\\System32\\cscript.exe" \
 		"\\\\vboxsrv\\marcel\\bin\\office2pdf.vbs" \
-		"\\\\vboxsrv\\tmp\\$uuid-$input" \
-		"\\\\vboxsrv\\tmp\\$uuid-$output"
+		"\\\\vboxsrv\\tmp\\$tmpInput" \
+		"\\\\vboxsrv\\tmp\\$tmpOutput"
 
 	# Move result back to current wirectory
-	mv "/tmp/$uuid-$output" "./$output"
+	mv "/tmp/$tmpOutput" "./$output"
 
 	# Remove temporary file
-	rm "/tmp/$uuid-$input"
+	rm "/tmp/$tmpInput"
 done | ([ $length -gt 1 ] && zenity --progress --percentage=0 --auto-close --no-cancel --width=400 --title="Microsoft Office to PDF" || true)
