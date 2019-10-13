@@ -482,13 +482,6 @@ imap <C-_> <C-r>=substitute(&commentstring, '%s', '', '')<CR>
 let g:tex_conceal = ""
 nnoremap <leader>t <Plug>vimtex-compile
 
-let g:grammarous#languagetool_cmd = '/usr/bin/languagetool'
-let g:grammarous#use_vim_spelllang = 1
-
-let g:grammarous#disabled_rules = {
-	\ 'tex' : ['FR_SPELLING_RULE', 'FRENCH_WHITESPACE'],
-	\ }
-
 let g:pymode_options_colorcolumn = 0
 let g:pymode_folding = 0
 
