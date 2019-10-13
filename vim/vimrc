@@ -379,13 +379,6 @@ silent! colorscheme wal
 " Don't remove quotes from json
 let g:vim_json_syntax_conceal = 0
 
-
-"
-" Emmet
-"
-
-let g:user_emmet_expandabbr_key = "<s-tab>"
-
 let g:NERDSpaceDelims = 1
 
 
