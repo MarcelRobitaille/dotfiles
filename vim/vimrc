@@ -353,13 +353,6 @@ let g:pymode_python = 'python3'
 
 
 "
-" deoplete
-"
-
-let g:deoplete#enable_at_startup = 1
-
-
-"
 " Filetype
 "
 
