@@ -456,26 +456,8 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 " Colourscheme settings
 silent! colorscheme wal
 
-
-"
-" Indent line
-"
-
 " Don't remove quotes from json
 let g:vim_json_syntax_conceal = 0
-
-" Don't conceal so much in markdown
-let g:indentLine_conceallevel = 1
-
-" Show markdown backticks
-call matchadd('Conceal', '`', 10, -1, {'conceal': '`'})
-
-" Enable leading spaces
-let g:indentLine_leadingSpaceEnabled = 1
-let g:indentLine_leadingSpaceChar = '·'
-
-" Exclude NERDTree
-let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*']
 
 
 "
