@@ -403,8 +403,6 @@ let g:user_emmet_expandabbr_key = "<s-tab>"
 
 let g:NERDSpaceDelims = 1
 
-vmap <C-_> <Plug>Commentary
-
 " Insert current comment leader replacing %s
 imap <C-_> <C-r>=substitute(&commentstring, '%s', '', '')<CR>
 
