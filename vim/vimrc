@@ -365,6 +365,4 @@ let g:vim_json_syntax_conceal = 0
 
 let g:NERDSpaceDelims = 1
 
-
-let g:tex_conceal = ""
 set conceallevel=0
