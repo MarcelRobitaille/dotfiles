@@ -59,6 +59,7 @@ fi
 # Select application based on file extension
 case "$extension" in
 	pdf ) app="$([ $gnome = true ] && echo evince || echo zathura)";;
+	jpg | png ) app="eog";;
 esac
 
 # Open file in app
