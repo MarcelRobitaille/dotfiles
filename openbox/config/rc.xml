@@ -203,6 +203,18 @@
 		<keybind key="W-d">
 			<action name="ToggleShowDesktop"/>
 		</keybind>
+		<keybind key="C-S-h">
+			<action name="GoToDesktop">
+				<to>left</to>
+				<wrap>yes</wrap>
+			</action>
+		</keybind>
+		<keybind key="C-S-l">
+			<action name="GoToDesktop">
+				<to>right</to>
+				<wrap>yes</wrap>
+			</action>
+		</keybind>
 		<keybind key="A-F4">
 			<action name="Close"/>
 		</keybind>
