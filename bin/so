@@ -1,0 +1,65 @@
+#!/bin/bash
+#
+#    _____                      __     ____
+#   / ___/____ ___  ____ ______/ /_   / __ \____  ___  ____
+#   \__ \/ __ `__ \/ __ `/ ___/ __/  / / / / __ \/ _ \/ __ \
+#  ___/ / / / / / / /_/ / /  / /_   / /_/ / /_/ /  __/ / / /
+# /____/_/ /_/ /_/\__,_/_/   \__/   \____/ .___/\___/_/ /_/
+#                                       /_/
+# Open a file or directory "smartly" (using the correct application).
+
+usage() {
+  cat << EOF
+   _____                      __     ____
+  / ___/____ ___  ____ ______/ /_   / __ \____  ___  ____
+  \__ \/ __ \`__ \/ __ \`/ ___/ __/  / / / / __ \/ _ \/ __ \\
+ ___/ / / / / / / /_/ / /  / /_   / /_/ / /_/ /  __/ / / /
+/____/_/ /_/ /_/\__,_/_/   \__/   \____/ .___/\___/_/ /_/
+                                      /_/
+Open a file or directory "smartly" (using the correct application).
+
+Usage: so [options] <filename>
+EOF
+}
+
+# Flag to used gnome apps instead (nautilus, evince)
+gnome=false
+
+OPTS=`getopt --options g --long gnome --name 'so' -- "$@"`
+eval set -- "$OPTS"
+
+while true; do
+	case "$1" in
+		-g | --gnome ) gnome=true; shift ;;
+		-- ) shift; break ;;
+		* ) break ;;
+	esac
+done
+
+shift $(($OPTIND - 1))
+
+# Ensure filename given
+if [[ $# -eq 0 ]]; then
+	usage
+	exit 1
+fi
+
+filename="$1"
+extension="${filename##*.}"
+
+# Open directories in file explorer
+if [ -d "$filename" ]; then
+	file_explorer="$([ $gnome = true ] && echo nautilus || echo thunar)"
+
+	fetab --app "$file_explorer" "$filename"
+
+	exit
+fi
+
+# Select application based on file extension
+case "$extension" in
+	pdf ) app="$([ $gnome = true ] && echo evince || echo zathura)";;
+esac
+
+# Open file in app
+(setsid $app "$filename" > /dev/null 2>&1 &)
