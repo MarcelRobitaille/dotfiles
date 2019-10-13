@@ -261,15 +261,6 @@ augroup vimrc_autocmds
 augroup END
 
 
-"
-" Navigation
-"
-
-" Quick pane cycling
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 
 "
@@ -335,8 +326,6 @@ set autoread
 " Disable syntax highlighting for large files
 autocmd BufWinEnter * if line2byte(line("$") + 1) > 1000000 | syntax clear | endif
 
-" `:e`, but relative to current file
-map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 
 "
@@ -430,13 +419,6 @@ nnoremap <leader>c :Gcommit<CR>
 nnoremap <leader>df :Gdiff<CR>
 
 
-"
-" FZF
-"
-
-nnoremap <C-p> :FZF<CR>
-
-
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 
@@ -464,7 +446,6 @@ let g:user_emmet_expandabbr_key = "<s-tab>"
 
 let g:NERDSpaceDelims = 1
 
-nmap <C-_> <Plug>CommentaryLine
 vmap <C-_> <Plug>Commentary
 
 " Insert current comment leader replacing %s
