@@ -1,0 +1,72 @@
+#!/bin/bash
+#
+#     _______ __     ______           __                    ______      __
+#    / ____(_) /__  / ____/  ______  / /___  ________  ____/_  __/___ _/ /_
+#   / /_  / / / _ \/ __/ | |/_/ __ \/ / __ \/ ___/ _ \/ ___// / / __ `/ __ \
+#  / __/ / / /  __/ /____>  </ /_/ / / /_/ / /  /  __/ /   / / / /_/ / /_/ /
+# /_/   /_/_/\___/_____/_/|_/ .___/_/\____/_/   \___/_/   /_/  \__,_/_.___/
+#                          /_/
+#
+# Open directory in new file manager tab instead of window (e.g., Thunar).
+#
+# Credits:
+# happysadhu: https://forums.linuxmint.com/viewtopic.php?t=244076
+# zuba: https://askubuntu.com/questions/55656/open-nautilus-as-new-tab-in-existing-window
+
+app=thunar
+
+OPTS=`getopt --options a: --long app: --name 'fetab' -- "$@"`
+eval set -- "$OPTS"
+
+while true; do
+	case "$1" in
+		-a | --app ) app="$2"; shift 2 ;;
+		-- ) shift; break ;;
+		* ) break ;;
+	esac
+done
+
+shift $(($OPTIND - 1))
+
+if [[ $# -eq 0 ]]; then
+	echo 'Open a folder in a new file explorer tab.'
+	echo 'Usage: thunartab <path to open>'
+	exit 1
+fi
+
+filepath=$1
+
+# If file given, open basename
+if [ -f "$filepath" ]; then
+	filepath="$(basename $filepath)"
+fi
+
+# Exit if given file doesn't exist
+if [ ! -d "$filepath" ]; then
+	echo "No such directory: $filepath"
+	exit 1
+fi
+
+# Check for running instances of $app on current desktop/workspace
+wid=($(xdotool search --desktop $(xdotool get_desktop) --class $app))
+lastwid=${wid[*]: -1} # Get PID of newest active thunar window
+
+# If $wid is null launch app with filepath
+if [ -z $wid ]; then
+	(setsid $app "$filepath" > /dev/null 2>&1 &)
+
+# If app is already running, activate it and use shortcuts to paste filepath into path bar
+else
+
+	# Save existing clipboard value
+	oldclip="$(xclip -o -sel clip)"
+
+	# Put file path in clipboard
+	echo -n "$filepath" | xclip -i -sel clip
+
+	# Open new tab and paste file path
+	xdotool windowactivate --sync $lastwid key ctrl+t ctrl+l ctrl+v Return
+
+	# Put original clipboard contents back in clipboard
+	echo -n "$oldclip" | xclip -i -sel clip
+fi
