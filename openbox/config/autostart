@@ -54,10 +54,10 @@ xidlehook \
   --not-when-audio \
   --not-when-fullscreen \
 	--timer normal 60 \
-		'xbacklight -set 1' \
-		'xbacklight -set 100' \
+		'xbacklight -get | tee /tmp/xbacklight_previous_value; xbacklight -set 1' \
+		'xbacklight -set $(</tmp/xbacklight_previous_value)' \
   --timer primary 10 \
-		'xbacklight -set 100; gllock' \
+		'gllock; xbacklight -set $(</tmp/xbacklight_previous_value)' \
 		'' \
 	--timer normal 1800 \
 		'systemctl suspend' \
