@@ -376,9 +376,6 @@ set shortmess+=F
 
 
 
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-
 "
 " Wal
 "
