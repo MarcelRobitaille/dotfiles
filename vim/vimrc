@@ -351,13 +351,7 @@ set complete+=kspell
 let g:pymode_python = 'python3'
 
 
-
-"
-" Filetype
-"
-
 let g:javascript_plugin_jsdoc = 1
-
 " Supposed to make leaving insert mode faster
 set ttimeoutlen=50
 
@@ -366,12 +360,6 @@ set laststatus=2
 
 " Hide default status bar
 set shortmess+=F
-
-
-
-"
-" Wal
-"
 
 " Colourscheme settings
 silent! colorscheme wal
