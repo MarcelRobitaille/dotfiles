@@ -396,15 +396,8 @@ let g:vim_json_syntax_conceal = 0
 
 let g:user_emmet_expandabbr_key = "<s-tab>"
 
-
-"
-" Commentary
-"
-
 let g:NERDSpaceDelims = 1
 
-" Insert current comment leader replacing %s
-imap <C-_> <C-r>=substitute(&commentstring, '%s', '', '')<CR>
 
 let g:tex_conceal = ""
 
