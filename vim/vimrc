@@ -317,27 +317,16 @@ while c <= 999
 	let c += 1
 endwhile
 
-" Shortcut to close only current buffer
-nnoremap <leader>q :bn<CR>:bd #<CR>
-
 " Automatically update files
 set autoread
 
 " Disable syntax highlighting for large files
 autocmd BufWinEnter * if line2byte(line("$") + 1) > 1000000 | syntax clear | endif
 
-
-
-"
-" Typing
-"
-
 function! RepeatChar(char, count)
 	return repeat(a:char, a:count)
 endfunction
 
-" Empty line but don't delete it
-nnoremap <leader>dd 0D
 
 nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
@@ -359,21 +348,8 @@ augroup END
 set complete+=kspell
 
 
-""""""""""""""""""""""
-"	Plugins settings	"
-""""""""""""""""""""""
-
-"
-" Ale
-"
-
-nmap <silent> <leader>k <Plug>(ale_previous_wrap)
-nmap <silent> <leader>j <Plug>(ale_next_wrap)
-
-
 let g:pymode_python = 'python3'
 
-" nnoremap <leader>f :ALEFix<CR>
 
 
 "
@@ -398,25 +374,6 @@ set laststatus=2
 " Hide default status bar
 set shortmess+=F
 
-
-"
-" NERDTree
-"
-
-" Keybinding to open NERDTree
-nnoremap <leader>n :NERDTreeToggle<CR>
-
-nnoremap <silent> <Leader>f :NERDTreeFind<CR>
-
-
-"
-" Git
-"
-
-" Keybindings for fugitive
-nnoremap <leader>s :Gstatus<CR>
-nnoremap <leader>c :Gcommit<CR>
-nnoremap <leader>df :Gdiff<CR>
 
 
 let g:SuperTabDefaultCompletionType = '<C-n>'
@@ -452,17 +409,10 @@ vmap <C-_> <Plug>Commentary
 imap <C-_> <C-r>=substitute(&commentstring, '%s', '', '')<CR>
 
 let g:tex_conceal = ""
-nnoremap <leader>t <Plug>vimtex-compile
 
 let g:pymode_options_colorcolumn = 0
 let g:pymode_folding = 0
 
-nnoremap <leader>- color#Test(expand('<cword>'))
-						\? '"_ciw' . color#Darken(expand('<cword>')) . "\<Esc>"
-						\: "\<Nop>"
-nnoremap <M-=> color#Test(expand('<cword>'))
-						\? '"_ciw' . color#Lighten(expand('<cword>')) . "\<Esc>"
-						\: "\<Nop>"
 function! GetVisual()
 	try
 		let v_save = @v
