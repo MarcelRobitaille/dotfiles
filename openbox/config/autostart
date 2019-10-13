@@ -47,6 +47,8 @@ dunst -print &> /var/log/dunst &
 # OctoPrint automated uploader
 /home/marcel/bin/octoload watch &
 
+thunar --daemon &
+
 # Autolock screen
 xidlehook \
   --not-when-audio \
