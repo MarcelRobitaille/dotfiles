@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: soi
+root: ~/Documents/statement-of-interest
+windows:
+  - nvim: nvim
+  - zsh:
