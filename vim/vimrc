@@ -479,15 +479,6 @@ vmap <C-_> <Plug>Commentary
 " Insert current comment leader replacing %s
 imap <C-_> <C-r>=substitute(&commentstring, '%s', '', '')<CR>
 
-" Set comment strings
-autocmd FileType vb setlocal commentstring=\'\ %s
-autocmd FileType vim setlocal commentstring=\"\ %s
-autocmd FileType zsh setlocal commentstring=#\ %s
-autocmd FileType cpp setlocal commentstring=\/\/\ %s
-autocmd FileType matlab setlocal commentstring=%\ %s
-autocmd FileType python setlocal commentstring=#\ %s
-autocmd FileType dosbatch setlocal commentstring=rem\ %s
-
 let g:tex_conceal = ""
 nnoremap <leader>t <Plug>vimtex-compile
 
