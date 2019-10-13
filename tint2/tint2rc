@@ -144,9 +144,8 @@ execp_lclick_command = keyboard toggle us ca
 # Volume
 execp = new
 execp_command = ~/.config/tint2/volume-icon.sh
-execp_interval = 10
+execp_continuous = 2
 execp_has_icon = 1
-execp_cache_icon = 1
 execp_icon_h = 20
 execp_font = Source Code Pro 12
 execp_font_color = #ffffff 100
