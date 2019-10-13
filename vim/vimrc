@@ -347,10 +347,6 @@ augroup END
 " Autocomplete words when spell is set
 set complete+=kspell
 
-
-let g:pymode_python = 'python3'
-
-
 let g:javascript_plugin_jsdoc = 1
 " Supposed to make leaving insert mode faster
 set ttimeoutlen=50
@@ -371,7 +367,4 @@ let g:NERDSpaceDelims = 1
 
 
 let g:tex_conceal = ""
-
-let g:pymode_options_colorcolumn = 0
-let g:pymode_folding = 0
 set conceallevel=0
