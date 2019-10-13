@@ -54,7 +54,7 @@ xidlehook \
   --not-when-audio \
   --not-when-fullscreen \
 	--timer normal 60 \
-		'xbacklight -get | tee /tmp/xbacklight_previous_value; xbacklight -set 1' \
+		'pgrep -x gllock || xbacklight -get | tee /tmp/xbacklight_previous_value; xbacklight -set 1' \
 		'xbacklight -set $(</tmp/xbacklight_previous_value)' \
   --timer primary 10 \
 		'gllock; xbacklight -set $(</tmp/xbacklight_previous_value)' \
