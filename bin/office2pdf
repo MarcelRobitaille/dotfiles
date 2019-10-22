@@ -57,4 +57,4 @@ for i in "${!files[@]}"; do
 
 	# Remove temporary file
 	rm "/tmp/$tmpInput"
-done | ([ $length -gt 1 ] && zenity --progress --percentage=0 --auto-close --no-cancel --width=400 --title="Microsoft Office to PDF" || true)
+done | ([ $length -gt 1 ] && zenity --progress --percentage=0 --auto-close --no-cancel --width=400 --title="Microsoft Office to PDF" || cat)
