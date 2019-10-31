@@ -161,7 +161,8 @@ if exists('plugged_dir')
 		" Plug 'hdima/python-syntax'
 		" Plug 'Rykka/riv.vim'
 		" Plug 'nvie/vim-flake8'
-		Plug 'Matt-Deacalion/vim-systemd-syntax'
+		Plug 'Matt-Deacalion/vim-systemd-syntax', { 'for': 'systemd' }
+		Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 
 	call plug#end()
 endif
