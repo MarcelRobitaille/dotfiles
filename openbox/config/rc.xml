@@ -348,26 +348,6 @@
 				<action name="FocusToBottom"/>
 				<action name="Unfocus"/>
 			</mousebind>
-			<mousebind action="Click" button="A-Up">
-				<action name="GoToDesktop">
-					<to>previous</to>
-				</action>
-			</mousebind>
-			<mousebind action="Click" button="A-Down">
-				<action name="GoToDesktop">
-					<to>previous</to>
-				</action>
-			</mousebind>
-			<mousebind action="Click" button="C-A-Up">
-				<action name="GoToDesktop">
-					<to>next</to>
-				</action>
-			</mousebind>
-			<mousebind action="Click" button="C-A-Down">
-				<action name="GoToDesktop">
-					<to>next</to>
-				</action>
-			</mousebind>
 			<mousebind action="Click" button="A-S-Up">
 				<action name="SendToDesktop">
 					<to>previous</to>
