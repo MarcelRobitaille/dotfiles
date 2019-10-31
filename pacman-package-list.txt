@@ -169,7 +169,7 @@ namebench
 nano
 nerd-fonts-source-code-pro
 netctl
-nextcloud-client-git
+nextcloud-client
 nginx
 nodejs
 npm
