@@ -333,6 +333,10 @@ nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 
 " Continue comments on next line when max length is reached
 set textwidth=79
+
+if executable('par')
+	set equalprg=par
+endif
 set formatoptions+=c
 
 
