@@ -1,0 +1,22 @@
+#!/bin/bash
+
+inotifywait -m . --exclude "[^m]$" -e create -e moved_to |
+	while read path event filename; do
+
+		echo "Rerunning $filename..."
+
+		# Remove file extension
+		filename="${filename%.*}"
+
+		wid=($(xdotool search --desktop $(xdotool get_desktop) --class matlab))
+		lastwid=${wid[*]: -1}
+
+		# Open new tab and paste file path
+		xdotool windowfocus --sync $lastwid
+		xdotool windowactivate --sync $lastwid type --delay 0 $filename
+		xdotool windowactivate --sync $lastwid key Return
+
+		xdotool windowminimize $lastwid
+
+		echo "Done."
+	done
