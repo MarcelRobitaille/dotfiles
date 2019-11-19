@@ -52,6 +52,9 @@ minetime --hidden &
 
 thunar --daemon &
 
+# Bluetooth daemon
+blueman-applet &
+
 # Autolock screen
 xidlehook \
   --not-when-audio \
