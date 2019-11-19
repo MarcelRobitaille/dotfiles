@@ -301,6 +301,11 @@
 				<command>escrotum --select --exec 'eog $f'</command>
 			</action>
 		</keybind>
+		<keybind key="C-S-Print">
+			<action name="Execute">
+				<command>escrotum --select --exec 'gimp $f'</command>
+			</action>
+		</keybind>
 		<keybind key="W-k">
 			<action name="Execute">
 				<command>/home/marcel/bin/keyboard toggle us ca</command>
