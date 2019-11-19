@@ -293,17 +293,12 @@
 		</keybind>
 		<keybind key="Print">
 			<action name="Execute">
-				<command>gscreenshot-cli -sc</command>
+				<command>escrotum --select --clipboard</command>
 			</action>
 		</keybind>
 		<keybind key="S-Print">
 			<action name="Execute">
-				<command>gscreenshot-cli -sco</command>
-			</action>
-		</keybind>
-		<keybind key="A-print">
-			<action name="Execute">
-				<command>gscreenshot</command>
+				<command>escrotum --select --exec 'eog $f'</command>
 			</action>
 		</keybind>
 		<keybind key="W-k">
