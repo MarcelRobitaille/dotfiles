@@ -551,36 +551,6 @@
 			</mousebind>
 		</context>
 		<context name="Desktop">
-			<mousebind action="Click" button="Up">
-				<action name="GoToDesktop">
-					<to>next</to>
-				</action>
-			</mousebind>
-			<mousebind action="Click" button="Down">
-				<action name="GoToDesktop">
-					<to>previous</to>
-				</action>
-			</mousebind>
-			<mousebind action="Click" button="A-Up">
-				<action name="GoToDesktop">
-					<to>previous</to>
-				</action>
-			</mousebind>
-			<mousebind action="Click" button="A-Down">
-				<action name="GoToDesktop">
-					<to>next</to>
-				</action>
-			</mousebind>
-			<mousebind action="Click" button="C-A-Up">
-				<action name="GoToDesktop">
-					<to>previous</to>
-				</action>
-			</mousebind>
-			<mousebind action="Click" button="C-A-Down">
-				<action name="GoToDesktop">
-					<to>next</to>
-				</action>
-			</mousebind>
 			<mousebind action="Press" button="Left">
 				<action name="Focus"/>
 				<action name="Raise"/>
