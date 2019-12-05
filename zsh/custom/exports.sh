@@ -3,6 +3,7 @@ export PATH="/home/marcel/bin/:/usr/bin:/usr/local/bin:/usr/lib/jvm/java-7-openj
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="/usr/bin/env nvim"
 export VISUAL="$EDITOR"
+export SUDO_EDITOR="$EDITOR"
 export CHEATCOLORS=true
 export CHERE_INVOKING=1
 export TERM=xterm-256color
