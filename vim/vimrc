@@ -97,14 +97,15 @@ if exists('plugged_dir')
 
 		Plug 'tpope/vim-ragtag'
 
+		Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 		" Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --js-completer --clang-completer' }
-		if has('nvim')
-			Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-		else
-			Plug 'Shougo/deoplete.nvim'
-			Plug 'roxma/nvim-yarp'
-			Plug 'roxma/vim-hug-neovim-rpc'
-		endif
+		" if has('nvim')
+		" 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+		" else
+		" 	Plug 'Shougo/deoplete.nvim'
+		" 	Plug 'roxma/nvim-yarp'
+		" 	Plug 'roxma/vim-hug-neovim-rpc'
+		" endif
 
 		" Switch between single line and multi line statemnts
 		Plug 'AndrewRadev/splitjoin.vim'
