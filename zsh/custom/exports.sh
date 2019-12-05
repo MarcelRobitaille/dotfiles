@@ -1,7 +1,7 @@
 export PATH="/home/marcel/bin/:/usr/bin:/usr/local/bin:/usr/lib/jvm/java-7-openjdk/bin/:$PATH"
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export EDITOR="/usr/bin/env vim"
+export EDITOR="/usr/bin/env nvim"
 export VISUAL="$EDITOR"
 export CHEATCOLORS=true
 export CHERE_INVOKING=1
