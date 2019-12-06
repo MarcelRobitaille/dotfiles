@@ -1,5 +1,9 @@
 function! SetupCommentary()
 
+	if exists('g:debug_plugin_settings')
+		echom 'Setting up commentary...'
+	endif
+
 	autocmd FileType vb setlocal commentstring=\'\ %s
 	autocmd FileType vim setlocal commentstring=\"\ %s
 	autocmd FileType zsh setlocal commentstring=#\ %s

@@ -1,5 +1,9 @@
 function SetupSurround()
 
+	if exists('g:debug_plugin_settings')
+		echom 'Setting up Surround...'
+	endif
+
 	" Surround with parentheses with function name in front
 	let g:surround_{char2nr('f')} = "\1function\1(\r)"
 

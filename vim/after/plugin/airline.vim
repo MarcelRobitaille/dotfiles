@@ -1,5 +1,9 @@
 function! SetupAirline()
 
+	if exists('g:debug_plugin_settings')
+		echom 'Setting up airline...'
+	endif
+
 	" Use powerline fonts
 	let g:airline_powerline_fonts = 1
 

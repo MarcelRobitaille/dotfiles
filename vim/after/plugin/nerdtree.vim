@@ -1,5 +1,9 @@
 function SetupNERDTree()
 
+	if exists('g:debug_plugin_settings')
+		echom 'Setting up NERDTree...'
+	endif
+
 	" Show hidden files
 	let NERDTreeShowHidden = 1
 

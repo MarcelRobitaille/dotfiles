@@ -1,5 +1,9 @@
 function! SetupGrammarous()
 
+	if exists('g:debug_plugin_settings')
+		echom 'Setting up Grammarous...'
+	endif
+
 	let g:grammarous#languagetool_cmd = '/usr/bin/languagetool'
 	let g:grammarous#use_vim_spelllang = 1
 

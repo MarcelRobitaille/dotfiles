@@ -1,5 +1,9 @@
 function! SetupFugitive()
 
+	if exists('g:debug_plugin_settings')
+		echom 'Setting up fugitive...'
+	endif
+
 	" Delete fugitive buffers after close
 	augroup fugitive_close
 		autocmd BufReadPost fugitive://* set bufhidden=delete

@@ -1,4 +1,9 @@
 function SetupTex()
+
+	if exists('g:debug_plugin_settings')
+		echom 'Setting up tex...'
+	endif
+
 	let g:tex_conceal = ''
 endfunction
 

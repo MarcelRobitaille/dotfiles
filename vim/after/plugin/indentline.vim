@@ -1,5 +1,9 @@
 function! SetupIndentLine()
 
+	if exists('g:debug_plugin_settings')
+		echom 'Setting up IndentLine...'
+	endif
+
 	" Don't conceal so much in markdown
 	let g:indentLine_conceallevel = 1
 

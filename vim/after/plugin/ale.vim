@@ -1,4 +1,9 @@
 function! SetupAle()
+
+	if exists('g:debug_plugin_settings')
+		echom 'Setting up ale...'
+	endif
+
 	let g:ale_sign_error = ''
 	let g:ale_sign_warning = ''
 

@@ -1,5 +1,9 @@
 function! SetupUltiSnips()
 
+	if exists('g:debug_plugin_settings')
+		echom 'Setting up UltiSnips...'
+	endif
+
 	let g:UltiSnipsExpandTrigger = "<tab>"
 	let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
 

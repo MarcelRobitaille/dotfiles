@@ -1,5 +1,9 @@
 function! SetupCoC()
 
+	if exists('g:debug_plugin_settings')
+		echom 'Loading CoC settings...'
+	endif
+
 	" Better display for messages
 	set cmdheight=2
 
