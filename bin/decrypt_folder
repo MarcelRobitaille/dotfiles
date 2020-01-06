@@ -4,8 +4,8 @@ set -e
 
 filename="$(realpath $1)"
 
-# Support /tmp on android systems
-tmp=$([ -d /tmp ] && echo '/tmp' || echo '/data/local/tmp')
+# Android doesn't have `/tmp`. Use `$HOME` instead
+tmp=$([ -d /tmp ] && echo "/tmp" || echo "$HOME")
 
 if [ -z "$filename" ]; then
 	echo "Please give an encrypted archive to decrypt."
