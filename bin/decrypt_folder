@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+
+filename="$(realpath $1)"
+
+# Support /tmp on android systems
+tmp=$([ -d /tmp ] && echo '/tmp' || echo '/data/local/tmp')
+
+if [ -z "$filename" ]; then
+	echo "Please give an encrypted archive to decrypt."
+	exit 1
+fi
+
+mkdir -p "$tmp/gpgtar"
+cd "$tmp/gpgtar"
+
+output_folder="$(gpgtar --decrypt --verbose $filename 2>&1 | awk '{ if ($2 == "created") print $3 }' | sed -e "s/^'//" -e "s/'$//")"
+output_folder="$(realpath $output_folder)"
+echo $output_folder
+cd - > /dev/null

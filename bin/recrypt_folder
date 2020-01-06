@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -e
+
+filename="$(realpath $1)"
+
+# Support /tmp on android systems
+tmp=$([ -d /tmp ] && echo '/tmp' || echo '/data/local/tmp')
+
+if [ -z "$filename" ]; then
+	echo "Please give an encrypted archive to update."
+	exit 1
+fi
+
+if [[ ! "$(file -b $filename)" =~ "PGP RSA encrypted session key"* ]]; then
+	echo "$filename is not an encrypted archive."
+	exit 1
+fi
+
+tmpdir="$(find "$tmp/gpgtar" -regex ".*\/$(basename $filename | cut -f 1 -d '.')_[0-9]_" | sort | tail -n1)"
+
+gpgtar --encrypt --output "$filename" --recipient marcelrobitaille11@gmail.com -C "$tmpdir" .
+
+rm -rf "$tmpdir"
+
+cd - > /dev/null
