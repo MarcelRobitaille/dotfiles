@@ -8,4 +8,5 @@ if exists(':Abolish')
 	Abolish lastest latest
 	Abolish previsou previous
 	Abolish chagne change
+	Abolish modele modèle
 endif
