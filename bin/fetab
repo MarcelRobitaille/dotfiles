@@ -36,6 +36,11 @@ fi
 
 filepath=$1
 
+# Read filepath from stdin if "-" given
+if [ "$filepath" = "-" ]; then
+	filepath=$(cat -)
+fi
+
 # If file given, open basename
 if [ -f "$filepath" ]; then
 	filepath="$(basename $filepath)"
