@@ -28,7 +28,7 @@ xdotool_delay=5
 
 ## Programs to be used
 # Editor
-EDITOR='vim'
+EDITOR='nvim'
 
 # Browser
 BROWSER='firefox'
