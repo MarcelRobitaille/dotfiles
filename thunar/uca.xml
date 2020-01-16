@@ -154,4 +154,40 @@
 	<patterns>*.jpg</patterns>
 	<image-files/>
 </action>
+<action>
+	<icon>object-rotate-right</icon>
+	<name>Rotate PDF clockwise</name>
+	<unique-id>1576593324215887-2</unique-id>
+	<command>pdf270 %f</command>
+	<description></description>
+	<patterns>*.pdf</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>object-rotate-left</icon>
+	<name>Rotate PDF counter-clockwise</name>
+	<unique-id>1576593459414724-3</unique-id>
+	<command>pdf90 %f</command>
+	<description></description>
+	<patterns>*.pdf</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>object-rotate-right</icon>
+	<name>Rotate image clockwise</name>
+	<unique-id>1576593964173627-4</unique-id>
+	<command>for f in %F; do convert &quot;$f&quot; -rotate 90 &quot;$f&quot;; done</command>
+	<description></description>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>object-rotate-left</icon>
+	<name>Rotate image counter-clockwise</name>
+	<unique-id>1576594061067163-5</unique-id>
+	<command>for f in %F; do convert &quot;$f&quot; -rotate 270 &quot;$f&quot;; done</command>
+	<description></description>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
 </actions>
