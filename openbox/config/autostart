@@ -42,7 +42,7 @@ killall dunst
 dunst -print &> /var/log/dunst &
 
 # Mail client
-(sleep 20; mailspring --background &> /var/log/mailspring) &
+(sleep 20; mailspring --background > /var/log/mailspring) &
 
 # Calendar
 minetime --hidden &
