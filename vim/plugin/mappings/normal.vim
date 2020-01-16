@@ -23,3 +23,6 @@ nnoremap <C-p> :FZF<CR>
 
 " ctrl-/ -- Comment current line
 nmap <C-_> <Plug>CommentaryLine
+
+nmap j gj
+nmap k gk
