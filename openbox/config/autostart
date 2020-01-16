@@ -50,7 +50,7 @@ minetime --hidden &
 # OctoPrint automated uploader
 /home/marcel/bin/octoload watch &
 
-thunar --daemon &
+thunar --daemon > /var/log/thunar 2>&1 &
 
 # Bluetooth daemon
 blueman-applet &
