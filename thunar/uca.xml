@@ -145,4 +145,13 @@
 	<patterns>*.doc;*.docx;*.ppt;*.pptx</patterns>
 	<other-files/>
 </action>
+<action>
+	<icon>pdfeditor</icon>
+	<name>Images to PDF</name>
+	<unique-id>1576592966631556-1</unique-id>
+	<command>convert %F &quot;$(zenity --entry --text=&apos;Filename: &apos; --entry-text=&apos;merged.pdf&apos;)&quot;</command>
+	<description></description>
+	<patterns>*.jpg</patterns>
+	<image-files/>
+</action>
 </actions>
