@@ -5,7 +5,8 @@ set -e
 # Prevent `not a typewriter` errors
 export GPG_TTY=$(tty)
 
-filename="$(realpath $1)"
+filename="$(realpath "$1")"
+script_path="$(dirname "$0")"
 
 # Android doesn't have `/tmp`. Use `$HOME` instead
 tmp=$([ -d /tmp ] && echo "/tmp" || echo "$HOME")
@@ -21,6 +22,19 @@ if [[ ! "$(file -b $filename)" =~ "PGP RSA encrypted session key"* ]]; then
 fi
 
 tmpdir="$(find "$tmp/gpgtar" -regex ".*\/$(basename $filename | cut -f 1 -d '.')_[0-9]_" | sort | tail -n1)"
+
+# Prepend timestamp to WhatsApp and Wire images as well as screenshots for
+# better sorting
+find "$tmpdir" -name 'WhatsApp Image*' -or -name 'Wire *' -or -name 'Screenshot_*' -print0 | while IFS= read -r -d '' oldpath; do
+	name="$(basename "$oldpath")"
+	timestamp=$(echo $name | sed -e 's/^\(WhatsApp Image \|Wire \|Screenshot_\)//' -e 's/\.\(jpeg\|png\)$//' -e 's/_\(WhatsApp\|Wire\)$//' -e 's/ at//' -e 's/[_.]/:/g' -e 's/-/ /g' -e 's/\([0-9]\{4\}\)\([0-9]\{2\}\)\([0-9]\{2\}\)/\1-\2-\3/' -e 's/\([0-9]\{2\}\)\([0-9]\{2\}\)\([0-9]\{2\}\)/\1:\2:\3/')
+
+	newpath="$tmpdir/[$(date -d "$timestamp" +'%Y-%m-%d %H:%M:%S')] $name"
+
+	if "$script_path/confirm" "Rename $oldpath to $newpath? (y/n):" < /dev/tty; then
+		mv "$oldpath" "$newpath"
+	fi
+done
 
 gpgtar --encrypt --output "$filename" --recipient marcelrobitaille11@gmail.com -C "$tmpdir" .
 
