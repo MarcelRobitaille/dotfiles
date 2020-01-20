@@ -337,6 +337,10 @@ nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 " Continue comments on next line when max length is reached
 set textwidth=79
 
+augroup textwidth_autogroup
+	autocmd FileType markdown setlocal textwidth=0
+augroup END
+
 if executable('par')
 	set equalprg=par
 endif
