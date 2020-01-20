@@ -12,3 +12,6 @@ let @a = "^f(i = f{i=> "
 
 " Convert word under cursor to JavaScript import importing word from material-ui
 let @m = "yiwiimport A from '@material-ui/core/'P"
+
+" Convert dict keying to object attribute (['key'] => .key)
+let @p = "ds'ds]s."
