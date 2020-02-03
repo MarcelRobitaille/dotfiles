@@ -41,5 +41,3 @@ done
 gpgtar --encrypt --output "$filename" --recipient marcelrobitaille11@gmail.com -C "$tmpdir" .
 
 rm -rf "$tmpdir"
-
-cd - > /dev/null
