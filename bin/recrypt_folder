@@ -9,7 +9,7 @@ filename="$(realpath "$1")"
 script_path="$(dirname "$0")"
 
 # Android doesn't have `/tmp`. Use `$HOME` instead
-tmp=$([ -d /tmp ] && echo "/tmp" || echo "$HOME")
+tmp=$([ -d /tmp ] && echo "/tmp" || echo "$HOME/storage/pictures")
 
 if [ -z "$filename" ]; then
 	echo "Please give an encrypted archive to update."
