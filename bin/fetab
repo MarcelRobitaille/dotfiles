@@ -41,6 +41,10 @@ if [ "$filepath" = "-" ]; then
 	filepath=$(cat -)
 fi
 
+if [ "$filepath" = "." ]; then
+	filepath=$(pwd)
+fi
+
 # If file given, open basename
 if [ -f "$filepath" ]; then
 	filepath="$(basename $filepath)"
