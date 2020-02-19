@@ -74,7 +74,8 @@ else
 	echo -n "$filepath" | xclip -i -sel clip
 
 	# Open new tab and paste file path
-	xdotool windowactivate --sync $lastwid key ctrl+t ctrl+l ctrl+v Return
+	xdotool windowactivate --sync $lastwid key ctrl+t ctrl+l ctrl+v
+	xdotool windowactivate --sync $lastwid key Return
 
 	# Put original clipboard contents back in clipboard
 	echo -n "$oldclip" | xclip -i -sel clip
