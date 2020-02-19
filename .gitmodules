@@ -1,0 +1,3 @@
+[submodule "eagle-diff"]
+	path = eagle-diff
+	url = https://github.com/fxkr/eagle-diff.git
