@@ -345,6 +345,7 @@ profiles:
     - bin
     - compton
     - ctags
+    - cron
     - dunst
     - dunst_icons
     - firefox
