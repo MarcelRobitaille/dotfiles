@@ -25,9 +25,9 @@ tmpdir="$(find "$tmp/gpgtar" -regex ".*\/$(basename $filename | cut -f 1 -d '.')
 
 # Prepend timestamp to WhatsApp and Wire images as well as screenshots for
 # better sorting
-find "$tmpdir" -name 'WhatsApp Image*' -print0 -or -name 'Wire *' -print0 -or -name 'Screenshot_*' -print0 | while IFS= read -r -d '' oldpath; do
+find "$tmpdir" -name 'WhatsApp Image*' -print0 -or -name 'Wire *' -print0 -or -name 'Screenshot_*' -print0 -or -name 'IMG*' -print0 | while IFS= read -r -d '' oldpath; do
 	name="$(basename "$oldpath")"
-	timestamp=$(echo $name | sed -e 's/^\(WhatsApp Image \|Wire \|Screenshot_\)//' -e 's/\.\(jpeg\|png\)$//' -e 's/_\(WhatsApp\|Wire\)$//' -e 's/ at//' -e 's/[_.]/:/g' -e 's/\([0-9]\{4\}\)\([0-9]\{2\}\)\([0-9]\{2\}\)-\([0-9]\{2\}\)\([0-9]\{2\}\)\([0-9]\{2\}\)/\1-\2-\3 \4:\5:\6/')
+	timestamp=$(echo $name | sed -e 's/^\(WhatsApp Image \|Wire \|Screenshot_\|IMG-\)//' -e 's/\.\(jpe\?g\|png\)$//' -e 's/_\(WhatsApp\|Wire\)$//' -e 's/-WA.*//' -e 's/ at//' -e 's/[_.]/:/g' -e 's/\([0-9]\{4\}\)\([0-9]\{2\}\)\([0-9]\{2\}\)-\([0-9]\{2\}\)\([0-9]\{2\}\)\([0-9]\{2\}\)/\1-\2-\3 \4:\5:\6/')
 
 	echo $timestamp
 
