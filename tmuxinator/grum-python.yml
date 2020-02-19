@@ -1,7 +1,7 @@
 # vim: modelines=0
 
 name: grum-python
-root: ~/code/grum/eurobot2019/python
+root: ~/code/grum/eurobot2020/python
 windows:
   - nvim: source venv/bin/activate; nvim
   - zsh: source venv/bin/activate
