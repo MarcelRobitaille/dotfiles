@@ -86,3 +86,5 @@
 [diff "pdfdiff"]
   command = diffpdf
 
+[diff "eagle"]
+	command = eagle-diff-git
