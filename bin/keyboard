@@ -20,3 +20,4 @@ case $1 in
     ;;
 esac
 
+xmodmap $HOME/.Xmodmap
