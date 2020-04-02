@@ -48,14 +48,20 @@
 "pamixer --set-volume 20"
   XF86AudioNext
 
+"rofi -show run -matching fuzzy -sorting-method fzf -sort"
+	Mod2+Mod4 + space
+
+"rofi-pass; xmodmap ~/.Xmodmap"
+	Mod2+Mod4+Shift + space
+
 "alacritty"
   Mod2+Mod4 + Return
 
 "/home/marcel/bin/keyboard toggle ca us"
-  Shift+Alt + k
+  Mod2+Mod4 + k
 
-# "xbindkeys_show"
-#   control +shift + q
+"xbindkeys_show"
+  control +shift + q
 
 # set directly keycode (here control + f with my keyboard)
 # "xterm"

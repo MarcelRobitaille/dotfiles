@@ -257,11 +257,6 @@ dotfiles:
     src: ./sqlite/.sqliterc
     link: link
 
-  sxhkdrc:
-    dst: ~/.config/sxhkd/sxhkdrc
-    src: ./sxhkd/sxhkdrc
-    link: link
-
   termite:
     dst: ~/.config/termite/config
     src: ./termite/config
@@ -369,7 +364,6 @@ profiles:
     - rofi-pass
     - setxkbmap
     - sqlite
-    - sxhkdrc
     - termite
     - tern
     - thunar
@@ -415,7 +409,6 @@ profiles:
     - rofi-pass
     - setxkbmap
     - sqlite
-    - sxhkdrc
     - termite
     - tern
     - thunar
