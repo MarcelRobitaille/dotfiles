@@ -121,7 +121,7 @@ systray_name_filter =
 #-------------------------------------
 # Clock
 time1_format = %l:%M:%S %p
-time2_format = %A %B %d
+time2_format = %A, %B %d
 time1_font = Source Code Pro 12
 time2_font = Source Code Pro 9
 clock_font_color = #ffffff 100
