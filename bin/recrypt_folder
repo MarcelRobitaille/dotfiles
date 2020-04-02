@@ -31,9 +31,7 @@ find "$tmpdir" -name 'WhatsApp Image*' -print0 -or -name 'Wire *' -print0 -or -n
 
 	newpath="$tmpdir/[$(date -d "$timestamp" +'%Y-%m-%d %H:%M:%S')] $name"
 
-	if "$script_path/confirm" "Rename $oldpath to $newpath? (y/n):" < /dev/tty; then
-		mv "$oldpath" "$newpath"
-	fi
+	mv "$oldpath" "$newpath"
 done
 
 gpgtar --encrypt --output "$filename" --recipient marcelrobitaille11@gmail.com -C "$tmpdir" .
