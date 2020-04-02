@@ -22,7 +22,7 @@ filename="$HOME/Nextcloud/journal/$(date -d "$timestamp" "+%-Y.%m.%d").md"
 mkdir -p $(dirname $filename)
 
 [ -f "$filename" ] || cat > "$filename" <<EOF
-# $(date -d "$timestamp" "+%B %-d, %Y")
+# $(date -d "$timestamp" "+%A, %B %-d, %Y")
 EOF
 
 $EDITOR $filename
