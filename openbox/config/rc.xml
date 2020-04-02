@@ -281,16 +281,6 @@
 				<monitor>next</monitor>
 			</action>
 		</keybind>
-		<keybind key="W-space">
-			<action name="Execute">
-				<command>rofi -show run</command>
-			</action>
-		</keybind>
-		<keybind key="W-S-space">
-			<action name="Execute">
-				<command>rofi-pass</command>
-			</action>
-		</keybind>
 		<keybind key="Print">
 			<action name="Execute">
 				<command>escrotum --select --clipboard</command>
