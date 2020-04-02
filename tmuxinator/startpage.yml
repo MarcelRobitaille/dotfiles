@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: startpage
+root: ~/code/startpage
+windows:
+  - nvim: nvim
+  - zsh:
