@@ -1,3 +1,6 @@
 [submodule "eagle-diff"]
 	path = eagle-diff
 	url = https://github.com/fxkr/eagle-diff.git
+[submodule "dotdrop"]
+	path = dotdrop
+	url = https://github.com/deadc0de6/dotdrop.git
