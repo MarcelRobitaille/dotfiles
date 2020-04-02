@@ -1,0 +1,9 @@
+# vim: modelines=0
+
+name: pfe-final
+root: ~/Nextcloud/Cours/GELE5700 - Projet de fin d'études/Rapports/rapport-final
+windows:
+  - nvim: nvim
+  - tex: max_print_line=2000 latexmk -xelatex -shell-escape -pvc -e '$pdf_previewer = "xdg-open"' -e '$success_cmd = "echo vimtex_compiler_callback_success"' -e '$failure_cmd = "echo vimtex_compiler_callback_failure"' -interaction=nonstopmode scratchpad.tex
+  - zsh:
+
