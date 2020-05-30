@@ -212,7 +212,6 @@ dotfiles:
   npmrc:
     dst: ~/.npmrc
     src: ./npm/.npmrc
-    link: link
 
   openbox:
     dst: ~/.config/openbox/
