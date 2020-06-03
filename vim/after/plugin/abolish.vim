@@ -9,4 +9,7 @@ if exists(':Abolish')
 	Abolish previsou previous
 	Abolish chagne change
 	Abolish modele modèle
+	Abolish tache tâche
+	Abolish taches tâches
+	Abolish oeuvre œuvre
 endif
