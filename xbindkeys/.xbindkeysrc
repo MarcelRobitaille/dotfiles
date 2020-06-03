@@ -48,7 +48,7 @@
 "pamixer --set-volume 20"
   XF86AudioNext
 
-"rofi -show run -matching fuzzy -sorting-method fzf -sort"
+"rofi -show run -matching fuzzy"
 	Mod2+Mod4 + space
 
 "rofi-pass; xmodmap ~/.Xmodmap"
