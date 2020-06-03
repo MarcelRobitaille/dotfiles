@@ -5,6 +5,8 @@ inotifywait -m . --exclude "[^m]$" -e create -e moved_to |
 
 		echo "Rerunning $filename..."
 
+		# previous_wid=$(xdotool getactivewindow)
+
 		# Remove file extension
 		filename="${filename%.*}"
 
@@ -21,6 +23,8 @@ inotifywait -m . --exclude "[^m]$" -e create -e moved_to |
 		xdotool windowactivate --sync $matlab_wid key Return
 
 		xdotool windowminimize $matlab_wid
+
+		# xdotool windowfocus --sync $previous_wid
 
 		echo "Done."
 	done
