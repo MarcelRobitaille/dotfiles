@@ -90,3 +90,7 @@
 
 [diff "eagle"]
 	command = eagle-diff-git
+
+
+[diff "gpg"]
+	textconv = gpg --no-tty --decrypt
