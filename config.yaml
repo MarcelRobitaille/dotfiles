@@ -160,11 +160,6 @@ dotfiles:
     src: ./gtk/
     link: link
 
-  lead:
-    dst: ~/.config/lead/lead.conf
-    src: ./lead/lead.conf
-    link: link
-
   linters:
     dst: ~/
     src: ./linters/
@@ -363,7 +358,6 @@ profiles:
     - git
     - gitignore
     - gtk
-    - lead
     - linters
     - mpd
     - mycli
