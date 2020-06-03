@@ -10,8 +10,9 @@ function SetupSurround()
 	" Surround with curly brackets with LaTeX macro in front
 	let g:surround_{char2nr('l')} = "\\\1LaTeX macro\1{\r}"
 
-	" Surround with italics
+	" Surround with italics / bold
 	let g:surround_{char2nr('i')} = "\\textit{\r}"
+	let g:surround_{char2nr('b')} = "\\textbf{\r}"
 
 endfunction
 
