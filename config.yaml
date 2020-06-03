@@ -336,6 +336,10 @@ dotfiles:
     - oh-my-zsh-install
     - spaceship-install
     - tmuxinator-completion
+  zsh_prompt:
+    src: ./pure
+    dst: ~/.zsh/pure
+    link: link
   zsh_async:
     src: ./zsh-async
     dst: ~/.zsh/async
@@ -388,6 +392,7 @@ profiles:
     - zathura
     - zshrc
     - zsh_custom
+    - zsh_prompt
     - zsh_async
   Hermes:
     dotfiles:
@@ -435,12 +440,14 @@ profiles:
     - zathura
     - zshrc
     - zsh_custom
+    - zsh_prompt
     - zsh_async
   marcel-VirtualBox:
     dotfiles:
     - vim
     - zshrc
     - zsh_custom
+    - zsh_prompt
     - zsh_async
     - tmux
     - xbindkeys

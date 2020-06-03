@@ -1,17 +1,9 @@
 export ZSH=$HOME/.oh-my-zsh
 export FPATH=/usr/share/zsh/site-functions:/usr/share/zsh/functions/Calendar:/usr/share/zsh/functions/Chpwd:/usr/share/zsh/functions/Completion:/usr/share/zsh/functions/Completion/Base:/usr/share/zsh/functions/Completion/Linux:/usr/share/zsh/functions/Completion/Unix:/usr/share/zsh/functions/Completion/X:/usr/share/zsh/functions/Completion/Zsh:/usr/share/zsh/functions/Exceptions:/usr/share/zsh/functions/Math:/usr/share/zsh/functions/MIME:/usr/share/zsh/functions/Misc:/usr/share/zsh/functions/Newuser:/usr/share/zsh/functions/Prompts:/usr/share/zsh/functions/TCP:/usr/share/zsh/functions/VCS_Info:/usr/share/zsh/functions/VCS_Info/Backends:/usr/share/zsh/functions/Zftp:/usr/share/zsh/functions/Zle:$FPATH
 
-ZSH_THEME="spaceship"
-SPACESHIP_DIR_TRUNC=0
-SPACESHIP_DIR_TRUNC_REPO=false
-SPACESHIP_BATTERY_SHOW=false
-SPACESHIP_EXEC_TIME_SHOW=false
-SPACESHIP_NODE_SHOW=true
-SPACESHIP_PACKAGE_SHOW=false
-SPACESHIP_PHP_SHOW=false
-export RPS1="%{$reset_color%}"
+ZSH_THEME=""
 
-plugins=(git pass vi-mode django)
+plugins=(git pass django)
 
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.zsh/async/async.zsh"
@@ -42,6 +34,13 @@ async_start_worker nvm_worker -n
 async_register_callback nvm_worker load_nvm
 async_job nvm_worker sleep 0.1
 
+fpath+=$HOME/.zsh/pure
+autoload -U promptinit; promptinit
+prompt pure
+
+# Show git stash in prompt
+zstyle :prompt:pure:git:stash show yes
+
 # Up/down search for matches of what's already there
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -51,4 +50,5 @@ bindkey '^N' down-line-or-beginning-search
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 
+# Vi mode
 bindkey -v
