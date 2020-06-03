@@ -7,7 +7,9 @@ function SetupTex()
 	let g:tex_conceal = ''
 
 	let g:tex_IgnoredWarnings =
-		\ 'Underfull'."\n"
+		\ 'Underfull'."\n".
+		\ 'You might wish'."\n"
+
 endfunction
 
 autocmd! User vimtex call SetupTex()
