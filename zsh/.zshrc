@@ -14,6 +14,7 @@ export RPS1="%{$reset_color%}"
 plugins=(git pass vi-mode django)
 
 source "$ZSH/oh-my-zsh.sh"
+source "$HOME/.zsh/async/async.zsh"
 
 for file in $ZSH/custom/{exports,aliases,functions,secret}.sh $ZSH/custom/plugins/*; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"

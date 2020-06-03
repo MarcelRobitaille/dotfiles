@@ -4,3 +4,6 @@
 [submodule "dotdrop"]
 	path = dotdrop
 	url = https://github.com/deadc0de6/dotdrop.git
+[submodule "zsh-async"]
+	path = zsh-async
+	url = https://github.com/mafredri/zsh-async.git

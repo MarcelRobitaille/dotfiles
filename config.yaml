@@ -336,6 +336,10 @@ dotfiles:
     - oh-my-zsh-install
     - spaceship-install
     - tmuxinator-completion
+  zsh_async:
+    src: ./zsh-async
+    dst: ~/.zsh/async
+    link: link
 
 profiles:
   Zeus:
@@ -384,6 +388,7 @@ profiles:
     - zathura
     - zshrc
     - zsh_custom
+    - zsh_async
   Hermes:
     dotfiles:
     - alacritty
@@ -430,11 +435,13 @@ profiles:
     - zathura
     - zshrc
     - zsh_custom
+    - zsh_async
   marcel-VirtualBox:
     dotfiles:
     - vim
     - zshrc
     - zsh_custom
+    - zsh_async
     - tmux
     - xbindkeys
     - xmodmap
