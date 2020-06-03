@@ -1,8 +1,5 @@
 actions:
   pre:
-    nvim-install-plug: test -e ~/.local/share/nvim/site/autoload/plug.vim || (mkdir -p ~/.local/share/nvim/site/autoload/plug.vim; curl
-      -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim)
     oh-my-zsh-install: test -e ~/.oh-my-zsh/oh-my-zsh.sh || (rm -rf ~/.oh-my-zsh; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)")
     tmuxinator-completion: test -e ~/.oh-my-zsh/custom/plugins/tmuxinator.zsh ||
       (git clone https://github.com/tmuxinator/tmuxinator.git /tmp/tmuxinator;
@@ -200,10 +197,13 @@ dotfiles:
   neovim:
     dst: ~/.config/nvim
     src: ./vim/
-    actions:
-     - nvim-install-plug
-     - nvim-plug-install
     link: link_children
+  neovim_plug:
+    src: ./vim-plug/plug.vim
+    dst: ~/.local/share/nvim/site/autoload/plug.vim
+    link: link
+    actions:
+     - nvim-plug-install
 
   npmrc:
     dst: ~/.npmrc
@@ -328,6 +328,10 @@ dotfiles:
     link: link
 
 profiles:
+  neovim:
+    dotfiles:
+    - neovim
+    - neovim_plug
   zsh:
     dotfiles:
     - zshrc
@@ -336,6 +340,7 @@ profiles:
     - zsh_async
   Zeus:
     include:
+    - neovim
     - zsh
     dotfiles:
     - alacritty
@@ -357,7 +362,6 @@ profiles:
     - ncmpcpp
     - neofetch
     - npmrc
-    - neovim
     - openbox
     - openbox_theme
     - ranger
@@ -381,6 +385,7 @@ profiles:
     - zathura
   Hermes:
     include:
+    - neovim
     - zsh
     dotfiles:
     - alacritty
@@ -402,7 +407,6 @@ profiles:
     - mycli
     - ncmpcpp
     - neofetch
-    - neovim
     - npmrc
     - openbox
     - openbox_theme
@@ -425,18 +429,17 @@ profiles:
     - zathura
   robitaille.host:
     include:
-    - zsh
-    dotfiles:
     - neovim
+    - zsh
   marcel-VirtualBox:
     include:
+    - neovim
     - zsh
     dotfiles:
     - alacritty
     - bin
     - ctags
     - flake8
-    - neovim
     - setxkbmap
     - sqlite
     - tern

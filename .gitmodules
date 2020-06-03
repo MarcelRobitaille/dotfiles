@@ -10,3 +10,6 @@
 [submodule "zsh-async"]
 	path = zsh-async
 	url = https://github.com/mafredri/zsh-async.git
+[submodule "vim-plug"]
+	path = vim-plug
+	url = https://github.com/junegunn/vim-plug.git
