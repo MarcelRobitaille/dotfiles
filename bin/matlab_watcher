@@ -16,7 +16,8 @@ inotifywait -m . --exclude "[^m]$" -e create -e moved_to |
 
 		# Open new tab and paste file path
 		xdotool windowfocus --sync $matlab_wid
-		xdotool windowactivate --sync $matlab_wid type --delay 0 $filename
+		xdotool windowactivate --sync $matlab_wid type --delay 1 $filename
+		sleep 0.001
 		xdotool windowactivate --sync $matlab_wid key Return
 
 		xdotool windowminimize $matlab_wid
