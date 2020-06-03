@@ -16,6 +16,10 @@ function SetupTex()
 		\ 'Underfull'."\n".
 		\ 'You might wish'."\n"
 
+	let g:vimtex_quickfix_latexlog = {
+		\ 'underfull' : 0,
+		\}
+
 	let g:vimtex_compiler_latexmk = {
 	 \	'options': [
 	 \		'-xelatex -shell-escape',
