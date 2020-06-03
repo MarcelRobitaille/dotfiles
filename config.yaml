@@ -3,14 +3,11 @@ actions:
     nvim-install-plug: test -e ~/.local/share/nvim/site/autoload/plug.vim || (mkdir -p ~/.local/share/nvim/site/autoload/plug.vim; curl
       -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim)
-    vim-plug-install: test -e ~/.vim/autoload/plug.vim || (mkdir -p ~/.vim/autoload; curl
-      -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim)
     oh-my-zsh-install: test -e ~/.oh-my-zsh/oh-my-zsh.sh || (rm -rf ~/.oh-my-zsh; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)")
     tmuxinator-completion: test -e ~/.oh-my-zsh/custom/plugins/tmuxinator.zsh ||
       (git clone https://github.com/tmuxinator/tmuxinator.git /tmp/tmuxinator;
       mkdir -p ~/.oh-my-zsh/custom/plugins;
       cp /tmp/tmuxinator/completion/tmuxinator.zsh ~/.oh-my-zsh/custom/plugins/)
-  vim-plug: vim +PlugInstall +qall
   nvim-plug-install: nvim +PlugInstall +qall
   update_crontab: "cat /tmp/dotdrop-crontab | crontab -"
 
@@ -287,14 +284,6 @@ dotfiles:
     src: ./tmuxinator/
     link: link
 
-  vim:
-    dst: ~/.vim/
-    src: ./vim/
-    actions:
-     - vim-plug-install
-     - vim-plug
-    link: link_children
-
   xbindkeys:
     dst: ~/.xbindkeysrc
     src: ./xbindkeys/.xbindkeysrc
@@ -385,7 +374,6 @@ profiles:
     - tint2
     - tmux
     - tmuxinator
-    - vim
     - xbindkeys
     - xmodmap
     - xresources
@@ -416,7 +404,6 @@ profiles:
     - neofetch
     - neovim
     - npmrc
-    - neovim
     - openbox
     - openbox_theme
     - ranger
@@ -431,7 +418,6 @@ profiles:
     - tint2
     - tmux
     - tmuxinator
-    - vim
     - xbindkeys
     - xmodmap
     - xresources
@@ -441,16 +427,16 @@ profiles:
     include:
     - zsh
     dotfiles:
-    - vim
+    - alacritty
+    - bin
+    - ctags
+    - flake8
+    - neovim
+    - setxkbmap
+    - sqlite
+    - tern
     - tmux
+    - tmuxinator
     - xbindkeys
     - xmodmap
     - xresources
-    - alacritty
-    - setxkbmap
-    - ctags
-    - bin
-    - tern
-    - sqlite
-    - tmuxinator
-    - flake8
