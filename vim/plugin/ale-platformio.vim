@@ -23,5 +23,5 @@ endif
 
 let s:imports = split(s:pio_gcc_flags["gccIncludePaths"], ',')
 
-let g:ale_cpp_gcc_options = s:pio_gcc_flags["gccDefaultCFlags"] . ' -I"' . join(s:imports, '" -I"') . '"'
+let g:ale_cpp_gcc_options = s:pio_gcc_flags["gccDefaultCFlags"] . ' -std=gnu++11 -I"' . join(s:imports, '" -I"') . '"'
 let g:ale_cpp_gcc_executable = s:pio_gcc_flags["execPath"]
