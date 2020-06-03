@@ -331,17 +331,21 @@ profiles:
     dotfiles:
     - neovim
     - neovim_plug
+
   tmuxinator:
     dotfiles:
     - tmuxinator-completion
     - tmuxinator-profiles
+
   zsh:
     dotfiles:
     - zshrc
     - zsh_custom
     - zsh_prompt
     - zsh_async
-  Zeus:
+
+  # Default dotfiles for main computers
+  Default:
     include:
     - neovim
     - tmuxinator
@@ -386,54 +390,22 @@ profiles:
     - xresources
     - yay
     - zathura
+
+  Zeus:
+    include:
+    - Default
+
   Hermes:
     include:
-    - neovim
-    - tmuxinator
-    - zsh
+    - Default
     dotfiles:
-    - alacritty
     - autorandr
-    - bin
-    - compton
-    - cron
-    - ctags
-    - dunst
-    - dunst_icons
-    - firefox
-    - flake8
-    - git
-    - gitignore
-    - gtk
-    - lead
-    - linters
-    - mpd
-    - mycli
-    - ncmpcpp
-    - neofetch
-    - npmrc
-    - openbox
-    - openbox_theme
-    - ranger
-    - redshift
-    - rofi-pass
-    - setxkbmap
-    - sqlite
-    - termite
-    - tern
-    - thunar
-    - tumbler
-    - tint2
-    - tmux
-    - xbindkeys
-    - xmodmap
-    - xresources
-    - yay
-    - zathura
+
   robitaille.host:
     include:
     - neovim
     - zsh
+
   marcel-VirtualBox:
     include:
     - neovim
