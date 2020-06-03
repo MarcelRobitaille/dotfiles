@@ -60,6 +60,9 @@
 "/home/marcel/bin/keyboard toggle ca us"
   Mod2+Mod4 + k
 
+"escrotum --select --clipboard"
+	Print
+
 "xbindkeys_show"
   control +shift + q
 
