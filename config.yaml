@@ -423,6 +423,11 @@ profiles:
     - xresources
     - yay
     - zathura
+  robitaille.host:
+    include:
+    - zsh
+    dotfiles:
+    - neovim
   marcel-VirtualBox:
     include:
     - zsh
