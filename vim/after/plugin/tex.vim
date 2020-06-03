@@ -16,6 +16,12 @@ function SetupTex()
 		\ 'Underfull'."\n".
 		\ 'You might wish'."\n"
 
+	let g:vimtex_compiler_latexmk = {
+	 \	'options': [
+	 \		'-xelatex -shell-escape',
+	 \	],
+	 \ }
+
 endfunction
 
 augroup marcel_tex_filetype
