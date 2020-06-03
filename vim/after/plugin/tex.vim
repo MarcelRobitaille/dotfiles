@@ -14,6 +14,11 @@ endfunction
 
 autocmd! User vimtex call SetupTex()
 
+augroup marcel_tex_filetype
+	" Replace all `plaintex` files with `tex` files
+	autocmd FileType plaintex setlocal filetype=tex
+augroup END
+
 if exists(':Vimtex')
 	call SetupTex()
 endif
