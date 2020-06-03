@@ -1,10 +1,6 @@
 actions:
   pre:
     oh-my-zsh-install: test -e ~/.oh-my-zsh/oh-my-zsh.sh || (rm -rf ~/.oh-my-zsh; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)")
-    tmuxinator-completion: test -e ~/.oh-my-zsh/custom/plugins/tmuxinator.zsh ||
-      (git clone https://github.com/tmuxinator/tmuxinator.git /tmp/tmuxinator;
-      mkdir -p ~/.oh-my-zsh/custom/plugins;
-      cp /tmp/tmuxinator/completion/tmuxinator.zsh ~/.oh-my-zsh/custom/plugins/)
   nvim-plug-install: nvim +PlugInstall +qall
   update_crontab: "cat /tmp/dotdrop-crontab | crontab -"
 
@@ -279,9 +275,13 @@ dotfiles:
     src: ./tmux/.tmux.conf
     link: link
 
-  tmuxinator:
+  tmuxinator-profiles:
+    src: ./tmuxinator-profiles/
     dst: ~/.tmuxinator/
-    src: ./tmuxinator/
+    link: link
+  tmuxinator-completion:
+    src: ./tmuxinator/completion/tmuxinator.zsh
+    dst: ~/.oh-my-zsh/custom/plugins/tmuxinator.zsh
     link: link
 
   xbindkeys:
@@ -317,7 +317,6 @@ dotfiles:
     src: ./zsh/custom/
     actions:
     - oh-my-zsh-install
-    - tmuxinator-completion
   zsh_prompt:
     src: ./pure
     dst: ~/.zsh/pure
@@ -332,6 +331,10 @@ profiles:
     dotfiles:
     - neovim
     - neovim_plug
+  tmuxinator:
+    dotfiles:
+    - tmuxinator-completion
+    - tmuxinator-profiles
   zsh:
     dotfiles:
     - zshrc
@@ -341,6 +344,7 @@ profiles:
   Zeus:
     include:
     - neovim
+    - tmuxinator
     - zsh
     dotfiles:
     - alacritty
@@ -377,7 +381,6 @@ profiles:
     - tumbler
     - tint2
     - tmux
-    - tmuxinator
     - xbindkeys
     - xmodmap
     - xresources
@@ -386,6 +389,7 @@ profiles:
   Hermes:
     include:
     - neovim
+    - tmuxinator
     - zsh
     dotfiles:
     - alacritty
@@ -421,7 +425,6 @@ profiles:
     - tumbler
     - tint2
     - tmux
-    - tmuxinator
     - xbindkeys
     - xmodmap
     - xresources
@@ -444,7 +447,6 @@ profiles:
     - sqlite
     - tern
     - tmux
-    - tmuxinator
     - xbindkeys
     - xmodmap
     - xresources

@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: dk
+root: ~/code/dk
+windows:
+  - nvim: nvim
+  - zsh:
