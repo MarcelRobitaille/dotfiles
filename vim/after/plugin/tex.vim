@@ -4,6 +4,12 @@ function SetupTex()
 		echom 'Setting up tex...'
 	endif
 
+	" Exit early if vimtex not loaded
+	if ! exists(':Vimtex')
+		echom 'Warning: Vimtex not loaded. Exiting.'
+		return
+	endif
+
 	let g:tex_conceal = ''
 
 	let g:tex_IgnoredWarnings =
@@ -12,13 +18,11 @@ function SetupTex()
 
 endfunction
 
-autocmd! User vimtex call SetupTex()
-
 augroup marcel_tex_filetype
+
 	" Replace all `plaintex` files with `tex` files
 	autocmd FileType plaintex setlocal filetype=tex
-augroup END
 
-if exists(':Vimtex')
-	call SetupTex()
-endif
+	" Call setup when opening `.tex` file
+	autocmd BufEnter *.tex call SetupTex()
+augroup END
