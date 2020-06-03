@@ -166,6 +166,11 @@ dotfiles:
     src: ./git/.gitconfig
     link: link
 
+  gitignore:
+    dst: ~/.gitignore
+    src: ./git/.gitignore
+    link: link
+
   gtk:
     dst: ~/.config/gtk-3.0/
     src: ./gtk/
@@ -345,6 +350,7 @@ profiles:
     - firefox
     - flake8
     - git
+    - gitignore
     - gtk
     - lead
     - linters
@@ -391,6 +397,7 @@ profiles:
     - firefox
     - flake8
     - git
+    - gitignore
     - gtk
     - lead
     - linters
