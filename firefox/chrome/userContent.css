@@ -187,3 +187,9 @@
 		color: #fffffd !important;
 	}
 }
+
+@-moz-document url-prefix("https://web.whatsapp.com/") {
+	[title="Search or start new chat"] {
+		background-color: transparent;
+	}
+}
