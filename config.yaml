@@ -339,7 +339,15 @@ dotfiles:
     link: link
 
 profiles:
+  zsh:
+    dotfiles:
+    - zshrc
+    - zsh_custom
+    - zsh_prompt
+    - zsh_async
   Zeus:
+    include:
+    - zsh
     dotfiles:
     - alacritty
     - bin
@@ -383,11 +391,9 @@ profiles:
     - xresources
     - yay
     - zathura
-    - zshrc
-    - zsh_custom
-    - zsh_prompt
-    - zsh_async
   Hermes:
+    include:
+    - zsh
     dotfiles:
     - alacritty
     - autorandr
@@ -431,17 +437,11 @@ profiles:
     - xresources
     - yay
     - zathura
-    - zshrc
-    - zsh_custom
-    - zsh_prompt
-    - zsh_async
   marcel-VirtualBox:
+    include:
+    - zsh
     dotfiles:
     - vim
-    - zshrc
-    - zsh_custom
-    - zsh_prompt
-    - zsh_async
     - tmux
     - xbindkeys
     - xmodmap
