@@ -8,8 +8,11 @@ inotifywait -m . --exclude "[^m]$" -e create -e moved_to |
 		# Remove file extension
 		filename="${filename%.*}"
 
-		matlab_wid=($(xdotool search --desktop $(xdotool get_desktop) --class matlab))
-		matlab_wid=${matlab_wid[*]: -1}
+		# Don't update matlab window id if it is already set (previous run)
+		if [ -z "$matlab_wid" ]; then
+			matlab_wid=($(xdotool search --all --desktop $(xdotool get_desktop) --onlyvisible --name 'MATLAB'))
+			matlab_wid=${matlab_wid[*]: -1}
+		fi
 
 		# Open new tab and paste file path
 		xdotool windowfocus --sync $matlab_wid
