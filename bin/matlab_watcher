@@ -8,15 +8,15 @@ inotifywait -m . --exclude "[^m]$" -e create -e moved_to |
 		# Remove file extension
 		filename="${filename%.*}"
 
-		wid=($(xdotool search --desktop $(xdotool get_desktop) --class matlab))
-		lastwid=${wid[*]: -1}
+		matlab_wid=($(xdotool search --desktop $(xdotool get_desktop) --class matlab))
+		matlab_wid=${matlab_wid[*]: -1}
 
 		# Open new tab and paste file path
-		xdotool windowfocus --sync $lastwid
-		xdotool windowactivate --sync $lastwid type --delay 0 $filename
-		xdotool windowactivate --sync $lastwid key Return
+		xdotool windowfocus --sync $matlab_wid
+		xdotool windowactivate --sync $matlab_wid type --delay 0 $filename
+		xdotool windowactivate --sync $matlab_wid key Return
 
-		xdotool windowminimize $lastwid
+		xdotool windowminimize $matlab_wid
 
 		echo "Done."
 	done
