@@ -14,6 +14,8 @@ function SetupSurround()
 	let g:surround_{char2nr('i')} = "\\textit{\r}"
 	let g:surround_{char2nr('b')} = "\\textbf{\r}"
 
+	let g:surround_{char2nr('q')} = "\\textquote{\r}"
+
 endfunction
 
 autocmd! User vim-surround call SetupSurround()
