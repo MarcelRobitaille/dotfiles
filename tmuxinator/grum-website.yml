@@ -1,7 +1,7 @@
 # vim: modelines=0
 
 name: grum-website
-root: ~/code/grum/website
+root: ~/code/grum/infrastructure/website
 windows:
   - nvim: nvim
   - serve:
