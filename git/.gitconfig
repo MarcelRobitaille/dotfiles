@@ -92,5 +92,8 @@
 	command = eagle-diff-git
 
 
+[diff "slx"]
+	textconv = unzip -c -a
+
 [diff "gpg"]
 	textconv = gpg --no-tty --decrypt
