@@ -378,3 +378,6 @@ let g:vim_json_syntax_conceal = 0
 let g:NERDSpaceDelims = 1
 
 set conceallevel=0
+
+" Set wrap in vimdiff
+autocmd FilterWritePre * if &diff | setlocal wrap< | endif
