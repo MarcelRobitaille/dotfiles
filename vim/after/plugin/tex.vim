@@ -5,6 +5,9 @@ function SetupTex()
 	endif
 
 	let g:tex_conceal = ''
+
+	let g:tex_IgnoredWarnings =
+		\ 'Underfull'."\n"
 endfunction
 
 autocmd! User vimtex call SetupTex()
