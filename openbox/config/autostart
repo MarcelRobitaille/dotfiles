@@ -55,6 +55,8 @@ thunar --daemon > /var/log/thunar 2>&1 &
 # Bluetooth daemon
 blueman-applet &
 
+/home/marcel/bin/maximize_large_windows.sh
+
 # Autolock screen
 xidlehook \
   --not-when-audio \
