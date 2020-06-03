@@ -379,5 +379,16 @@ let g:NERDSpaceDelims = 1
 
 set conceallevel=0
 
+
+"
+" Project-specific settings
+"
+
+" Use French language in PFE report
+autocmd BufEnter */rapport-final/**/* set spell spelllang=fr spellfile=fr.utf-8.add
+
+" Use Italian language and spellfile for Italian notes
+autocmd BufEnter /home/marcel/Nextcloud/Italian/**/* set spell spelllang=it spellfile=it.utf-8.add
+
 " Set wrap in vimdiff
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
