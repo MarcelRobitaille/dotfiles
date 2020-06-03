@@ -91,6 +91,8 @@
 [diff "eagle"]
 	command = eagle-diff-git
 
+[diff "image"]
+	command = /home/marcel/git-diff-image/git_diff_image
 
 [diff "slx"]
 	textconv = unzip -c -a
