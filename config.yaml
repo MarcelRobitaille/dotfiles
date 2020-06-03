@@ -80,7 +80,7 @@ variables:
     - '*.slxc'
 
 dynvariables:
-  mozilla_path: find ~/.mozilla/firefox -name '*.default'
+  mozilla_path: find ~/.mozilla/firefox -name '*.default' || true
   # Use a dynamic variable as a path and populate it with crontab
   # Hack to make compare work correctly
   populate_crontab: crontab -l > /tmp/dotdrop-crontab; echo /tmp/dotdrop-crontab
