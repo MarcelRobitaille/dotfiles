@@ -21,5 +21,5 @@ endfunction
 autocmd! User vim-surround call SetupSurround()
 
 if g:loaded_surround
-	call SetupNERDTree()
+	call SetupSurround()
 endif
