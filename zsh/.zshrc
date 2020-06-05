@@ -41,6 +41,9 @@ prompt pure
 # Show git stash in prompt
 zstyle :prompt:pure:git:stash show yes
 
+# Vi mode
+bindkey -v
+
 # Up/down search for matches of what's already there
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -49,6 +52,3 @@ bindkey '^P' up-line-or-beginning-search
 bindkey '^N' down-line-or-beginning-search
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
-
-# Vi mode
-bindkey -v
