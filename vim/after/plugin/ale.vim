@@ -23,12 +23,9 @@ function! SetupAle()
 	\}
 
 	let g:ale_fixers = {
-	\ 'javascript': [
-	\ 	'eslint',
-	\ ],
-	\ 'python': [
-	\ 	'autopep8',
-	\ ],
+	\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+	\ 'javascript': ['eslint'],
+	\ 'python': ['autopep8'],
 	\}
 
 	let g:ale_c_parse_makefile = 1
