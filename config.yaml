@@ -329,6 +329,7 @@ profiles:
 
   tmuxinator:
     dotfiles:
+    - tmux
     - tmuxinator-completion
     - tmuxinator-profiles
 
