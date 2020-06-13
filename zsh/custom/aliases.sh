@@ -2,7 +2,8 @@
 alias :q=exit
 alias mux=tmuxinator
 alias clip="xsel -i -b"
-alias incognito="fc -p; SPACESHIP_CHAR_PREFIX=' '"
+# Nerd Font nf-fa-close
+alias incognito="fc -p; PURE_PROMPT_SYMBOL=''"
 
 # Places
 alias ll="ls -lah"
