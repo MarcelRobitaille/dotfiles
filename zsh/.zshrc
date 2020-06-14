@@ -52,3 +52,7 @@ bindkey '^P' up-line-or-beginning-search
 bindkey '^N' down-line-or-beginning-search
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
+
+# Enable FZF stuff in terminal
+# Like ctrl-r history search
+source $HOME/.fzf.zsh
