@@ -29,9 +29,6 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 
 		" Tree view
 		Plug 'scrooloose/nerdtree', { 'on': [ 'NERDTree', 'NERDTreeToggle', 'NERDTreeFind' ] }
-		" Plug 'Xuyuanp/nerdtree-git-plugin'
-		" Plug 'tsony-tsonev/nerdtree-git-plugin'
-		" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 		" Better history
 		Plug 'mbbill/undotree'
