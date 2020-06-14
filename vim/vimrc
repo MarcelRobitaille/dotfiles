@@ -1,19 +1,14 @@
+let s:vim_config_dir = has('nvim')
+\ ? $XDG_CONFIG_HOME . '/nvim/'
+\ : $HOME . '/.vim/'
+
+
 "
 " Plugins
 "
 
-" vim-plug directory for vim
-if filereadable($HOME . '/.vim/autoload/plug.vim')
-	let plugged_dir = $HOME . '/.vim/plugged'
-endif
-
-" vim-plug directory for nvim
-if filereadable($XDG_CONFIG_HOME . '/nvim/autoload/plug.vim')
-	let plugged_dir = $XDG_CONFIG_HOME . '/nvim/plugged'
-endif
-
-if exists('plugged_dir')
-	call plug#begin(plugged_dir)
+if filereadable(s:vim_config_dir . 'autoload/plug.vim')
+	call plug#begin(s:vim_config_dir . 'plugged')
 
 		"
 		" Additional functionality
@@ -186,17 +181,19 @@ filetype plugin indent on
 
 " Use global swap file
 " Then use `vim -L` for list of open files
-if !isdirectory($HOME . "/.vim/swap")
-	call mkdir($HOME . "/.vim/swap", "p")
+let s:vim_swap_dir = s:vim_config_dir . 'swap'
+if !isdirectory(s:vim_swap_dir)
+	call mkdir(s:vim_swap_dir, "p")
 endif
-set directory=~/.vim/swap
+execute "set directory=" . s:vim_swap_dir
 
 " Maintain undo history between sessions
-if !isdirectory($HOME . "/.vim/undodir")
-	call mkdir($HOME . "/.vim/undodir", "p")
+let s:vim_undo_dir = s:vim_config_dir . 'undodir'
+if !isdirectory(s:vim_undo_dir)
+	call mkdir(s:vim_undo_dir, "p")
 endif
 set undofile
-set undodir=~/.vim/undodir
+execute "set undodir=" . s:vim_undo_dir
 
 " Open new splits on right
 set splitright
