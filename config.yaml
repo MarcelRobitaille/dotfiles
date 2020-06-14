@@ -191,7 +191,7 @@ dotfiles:
     link: link_children
   neovim_plug:
     src: ./vim-plug/plug.vim
-    dst: ~/.local/share/nvim/site/autoload/plug.vim
+    dst: ~/.config/nvim/autoload/plug.vim
     link: link
     actions:
      - nvim-plug-install
