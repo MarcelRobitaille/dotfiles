@@ -243,12 +243,6 @@ match Todo /\s\+$/
 " No folding
 set nofoldenable
 
-" Highlight characters that go over line length limit
-augroup vimrc_autocmds
-	" autocmd BufEnter *.js highlight OverLength ctermbg=grey
-	" autocmd BufEnter *.js match OverLength /\%82v.*/
-augroup END
-
 
 "
 " Buffers
