@@ -27,7 +27,7 @@ if [ "$1" = "watch" ]; then
 	watch_dir="/tmp/octoload"
 	mkdir -p "$watch_dir"
 
-	inotifywait --excludei "[^g][^c][^o]$" -m "$watch_dir" -e create -e moved_to -e close_write |
+	inotifywait --excludei "[^g][^c][^o][^d][^e]$" -m "$watch_dir" -e create -e moved_to -e close_write |
 		while read path action file; do
 			octo_upload "$path$file"
 		done
