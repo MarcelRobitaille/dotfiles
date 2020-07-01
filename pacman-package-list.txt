@@ -172,6 +172,7 @@ netctl
 nextcloud-client
 nginx
 nodejs
+noto-fonts-emoji
 npm
 nss-mdns
 ntfs-3g

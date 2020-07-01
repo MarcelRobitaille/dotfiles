@@ -145,6 +145,11 @@ dotfiles:
     src: ./flake8/flake8
     link: link
 
+  fontconfig:
+    src: ./fontconfig/fonts.conf
+    dst: ~/.config/fontconfig/fonts.conf
+    link: link
+
   git:
     dst: ~/.config/git/config
     src: ./git/.gitconfig
@@ -356,6 +361,7 @@ profiles:
     - dunst_icons
     - firefox
     - flake8
+    - fontconfig
     - git
     - gitignore
     - gtk
