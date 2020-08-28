@@ -47,13 +47,13 @@ dunst -print &> /var/log/dunst &
 # Calendar
 minetime --hidden &
 
-# OctoPrint automated uploader
-/home/marcel/bin/octoload watch &
+# Bluetooth daemon
+blueman-applet &
 
 thunar --daemon > /var/log/thunar 2>&1 &
 
-# Bluetooth daemon
-blueman-applet &
+# OctoPrint automated uploader
+/home/marcel/bin/octoload watch &
 
 /home/marcel/bin/maximize_large_windows.sh
 
