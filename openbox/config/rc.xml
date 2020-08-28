@@ -356,26 +356,26 @@
 			<mousebind action="DoubleClick" button="Left">
 				<action xmlns="http://openbox.org/3.4/rc" name="ToggleMaximize"/>
 			</mousebind>
-			<mousebind action="Click" button="Up">
-				<action name="if">
-					<shaded>no</shaded>
-					<then>
-						<action name="Shade"/>
-						<action name="FocusToBottom"/>
-						<action name="Unfocus"/>
-						<action name="Lower"/>
-					</then>
-				</action>
-			</mousebind>
-			<mousebind action="Click" button="Down">
-				<action name="if">
-					<shaded>yes</shaded>
-					<then>
-						<action name="Unshade"/>
-						<action name="Raise"/>
-					</then>
-				</action>
-			</mousebind>
+			<!-- <mousebind action="Click" button="Up"> -->
+			<!-- 	<action name="if"> -->
+			<!-- 		<shaded>no</shaded> -->
+			<!-- 		<then> -->
+			<!-- 			<action name="Shade"/> -->
+			<!-- 			<action name="FocusToBottom"/> -->
+			<!-- 			<action name="Unfocus"/> -->
+			<!-- 			<action name="Lower"/> -->
+			<!-- 		</then> -->
+			<!-- 	</action> -->
+			<!-- </mousebind> -->
+			<!-- <mousebind action="Click" button="Down"> -->
+			<!-- 	<action name="if"> -->
+			<!-- 		<shaded>yes</shaded> -->
+			<!-- 		<then> -->
+			<!-- 			<action name="Unshade"/> -->
+			<!-- 			<action name="Raise"/> -->
+			<!-- 		</then> -->
+			<!-- 	</action> -->
+			<!-- </mousebind> -->
 		</context>
 		<context name="Titlebar Top Right Bottom Left TLCorner TRCorner BRCorner BLCorner">
 			<mousebind action="Press" button="Left">
@@ -563,28 +563,28 @@
 				</action>
 			</mousebind>
 		</context>
-		<context name="MoveResize">
-			<mousebind action="Click" button="Up">
-				<action name="GoToDesktop">
-					<to>previous</to>
-				</action>
-			</mousebind>
-			<mousebind action="Click" button="Down">
-				<action name="GoToDesktop">
-					<to>next</to>
-				</action>
-			</mousebind>
-			<mousebind action="Click" button="A-Up">
-				<action name="GoToDesktop">
-					<to>previous</to>
-				</action>
-			</mousebind>
-			<mousebind action="Click" button="A-Down">
-				<action name="GoToDesktop">
-					<to>next</to>
-				</action>
-			</mousebind>
-		</context>
+		<!-- <context name="MoveResize"> -->
+		<!-- 	<mousebind action="Click" button="Up"> -->
+		<!-- 		<action name="GoToDesktop"> -->
+		<!-- 			<to>previous</to> -->
+		<!-- 		</action> -->
+		<!-- 	</mousebind> -->
+		<!-- 	<mousebind action="Click" button="Down"> -->
+		<!-- 		<action name="GoToDesktop"> -->
+		<!-- 			<to>next</to> -->
+		<!-- 		</action> -->
+		<!-- 	</mousebind> -->
+		<!-- 	<mousebind action="Click" button="A-Up"> -->
+		<!-- 		<action name="GoToDesktop"> -->
+		<!-- 			<to>previous</to> -->
+		<!-- 		</action> -->
+		<!-- 	</mousebind> -->
+		<!-- 	<mousebind action="Click" button="A-Down"> -->
+		<!-- 		<action name="GoToDesktop"> -->
+		<!-- 			<to>next</to> -->
+		<!-- 		</action> -->
+		<!-- 	</mousebind> -->
+		<!-- </context> -->
 	</mouse>
 	<menu>
 		<!-- You can specify more than one menu file in here and they are all loaded,
