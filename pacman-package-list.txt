@@ -137,6 +137,7 @@ libtool
 libva-intel-driver
 libva-vdpau-driver
 licenses
+light-locker
 lightdm
 lightdm-gtk-greeter
 lightdm-gtk-greeter-settings

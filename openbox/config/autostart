@@ -50,6 +50,10 @@ minetime --hidden &
 # Bluetooth daemon
 blueman-applet &
 
+#
+# Daemons
+#
+
 thunar --daemon > /var/log/thunar 2>&1 &
 
 # OctoPrint automated uploader
@@ -57,16 +61,18 @@ thunar --daemon > /var/log/thunar 2>&1 &
 
 /home/marcel/bin/maximize_large_windows.sh
 
+light-locker > /var/log/light-locker.log 2&>1 &
+
 # Autolock screen
 xidlehook \
-  --not-when-audio \
-  --not-when-fullscreen \
-	--timer normal 60 \
-		'pgrep -x gllock || xbacklight -get | tee /tmp/xbacklight_previous_value; xbacklight -set 1' \
+	--not-when-audio \
+	--not-when-fullscreen \
+	--timer 60 \
+		'xbacklight -get | tee /tmp/xbacklight_previous_value; xbacklight -set 1' \
 		'xbacklight -set $(</tmp/xbacklight_previous_value)' \
-  --timer primary 10 \
-		'gllock; xbacklight -set $(</tmp/xbacklight_previous_value)' \
+	--timer 10 \
+		'xbacklight -set $(</tmp/xbacklight_previous_value); light-locker-command -l' \
 		'' \
-	--timer normal 1800 \
-		'systemctl suspend' \
-		''
+	--timer 1800 \
+		'sudo systemctl suspend' \
+		'' > /var/log/xidlehook.log 2>&1
