@@ -1,0 +1,93 @@
+#!/usr/bin/env ruby
+
+require 'pathname'
+
+if $stdin.isatty
+  # We're in an interactive shell; just wrap `less`, no questions asked.
+  exec 'less', *ARGV
+end
+
+# Otherwise, we're being piped to. Try to read enough lines to fill screen.
+lines = [`tput lines`.chomp.to_i, 50].min
+
+buffer = []
+
+while buffer.length <= lines
+  line = $stdin.gets
+
+  if line.nil?
+    break
+  else
+    buffer.push line
+  end
+end
+
+pattern = nil
+
+ARGV.delete_if do |arg|
+  if arg =~ /^(?:-p|--pattern=)(.+)/
+    pattern = $~[1]
+  else
+    false
+  end
+end
+
+if !pattern.nil?
+  # Nasty hack. Make sure last search pattern is the one we want.
+  #
+  # We don't use "--pattern" for this because it has some even-nastier
+  # side-effects.
+  histfile = Pathname.new(ENV.fetch('LESSHISTFILE', '~/.lesshst')).expand_path
+
+  if histfile.exist?
+    File.open(histfile, 'a') do |f|
+      f.puts '.search'
+      f.puts %{"#{pattern}}
+      f.flush
+    end
+  end
+end
+
+pipe_read, pipe_write = IO.pipe
+
+child = fork do
+  # In child.
+  pipe_write.close
+
+  $stdin.reopen(pipe_read)
+
+  exec 'less', *ARGV
+end
+
+# In parent.
+pipe_read.close
+
+BUF_SIZE = 128
+
+# Forward SIGINT to child because `less` handles CTRL-C specially
+# depending on whether -K is passed.
+Signal.trap('INT') do |signo|
+  # BUG: CTRL-C behaves strangely when we are invoked via Git, but only when
+  # `--pattern` is set (happens in `less` too).
+  Process.kill('INT', child)
+end
+
+begin
+  buffer.each { |line| pipe_write.puts line }
+
+  # BUG: if you push "/" `less` prints "Pattern not found", but only if
+  # "/" is first key press and tool was called with `--pattern` (happens
+  # with `less` too).
+  while !$stdin.eof?
+    pipe_write.write $stdin.readpartial(BUF_SIZE)
+  end
+
+  pipe_write.close
+rescue Errno::EPIPE
+  # User probably ran "q" command in `less`.
+end
+
+# BUG: If user quits with "q" we see zsh print: `zsh: interrupt  git log`
+# (happens with `less` too, and even without `diff-highlight` or custom
+# `pager.log` config).
+Process.wait child

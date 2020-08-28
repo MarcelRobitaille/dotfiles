@@ -89,6 +89,12 @@
 	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 	lg = !"git lg1"
 
+[pager]
+	diff = menos -iFMRSX --pattern='^(commit|diff)'
+	log = menos -iFMRSX --pattern='^(commit|diff)'
+	show = menos -iFMRSX --pattern='^(commit|diff)'
+	whatchanged = menos -iFMRSX --pattern='^(commit|diff)'
+
 [diff "pdfdiff"]
   command = diffpdf
 
