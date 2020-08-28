@@ -15,7 +15,7 @@ xbindkeys &
 setxkbmap -config $HOME/.config/setxkbmap.conf &
 
 # Compositing
-compton &
+picom 2>&1 > /var/log/picom.log &
 redshift &
 
 # Panels

@@ -104,9 +104,9 @@ dotfiles:
     dst: ~/bin/
     src: ./bin/
 
-  compton:
-    dst: ~/.config/compton/compton.conf
-    src: ./compton/compton.conf
+  picom:
+    dst: ~/.config/picom/picom.conf
+    src: ./picom/picom.conf
     link: link
 
   ctags:
@@ -354,7 +354,7 @@ profiles:
     dotfiles:
     - alacritty
     - bin
-    - compton
+    - picom
     - ctags
     - cron
     - dunst
