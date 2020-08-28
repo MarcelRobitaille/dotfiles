@@ -48,8 +48,7 @@ help_color="#4872FF"
 clip=primary
 
 # Options for generating new password entries
-default_user=marcelrobitaille11@gmail.com
-# default_user2=mary_ann
+default_user=:filename
 password_length=64
 default_autotype='user :tab pass :enter'
 
