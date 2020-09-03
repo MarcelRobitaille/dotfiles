@@ -2,9 +2,9 @@
 clone(){
   local FOLDER=""
   if [ "$#" -gt "1" ]; then
-    FOLDER=$2
+	FOLDER=$2
   else
-    FOLDER=$(echo $1 | sed 's/\.git$//' | grep -o "[^\/]*$")
+	FOLDER=$(echo $1 | sed 's/\.git$//' | grep -o "[^\/]*$")
   fi
 
   git clone $1 $FOLDER && cd $FOLDER
