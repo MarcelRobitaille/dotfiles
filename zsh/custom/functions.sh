@@ -19,3 +19,20 @@ cptoct(){
   scp $1 clairitech:~/website/$1
 }
 
+# https://stackoverflow.com/questions/45216663/how-to-automatically-activate-virtualenvs-when-cding-into-a-directory
+function chpwd() {
+	if [[ -z "$VIRTUAL_ENV" ]] ; then
+		# If venv folder is found then activate the vitualenv
+		if [[ -d ./venv ]] ; then
+			source ./venv/bin/activate
+		fi
+	else
+	# Check the current folder belong to earlier VIRTUAL_ENV folder
+	# if yes then do nothing, else deactivate
+		parentdir="$(dirname "$VIRTUAL_ENV")"
+		if [[ "$PWD"/ != "$parentdir"/* ]]; then
+			deactivate
+		fi
+	fi
+}
+chpwd
