@@ -330,3 +330,7 @@ autocmd BufEnter /home/marcel/Nextcloud/Italian/**/* set spell spelllang=it spel
 
 " Set wrap in vimdiff
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
+function Grip()
+	! grip $(get-open-port.sh) --browser > grip.log 2>&1 &
+endfunction
+command! Grip call Grip()
