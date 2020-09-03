@@ -29,10 +29,15 @@ function load_nvm() {
 	[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 }
 
-# Call `load_nvm` in async worker
-async_start_worker nvm_worker -n
-async_register_callback nvm_worker load_nvm
-async_job nvm_worker sleep 0.1
+if [[ -f ./.nvmrc ]]; then
+	load_nvm
+	nvm use
+else
+	# Call `load_nvm` in async worker
+	async_start_worker nvm_worker -n
+	async_register_callback nvm_worker load_nvm
+	async_job nvm_worker sleep 0.1
+fi
 
 fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
