@@ -26,3 +26,4 @@ function! CenterSelection()
 	let @v = v_save
 	let &virtualedit = ve_save
 endfunction
+command! CenterSelection call CenterSelection()
