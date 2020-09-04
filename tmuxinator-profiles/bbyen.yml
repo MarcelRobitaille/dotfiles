@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: bbyen
+root: ~/code/bbyen
+windows:
+  - nvim: nvim
+  - zsh:
