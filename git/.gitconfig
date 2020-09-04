@@ -109,3 +109,5 @@
 
 [diff "gpg"]
 	textconv = gpg --no-tty --decrypt
+[pull]
+	rebase = true
