@@ -57,3 +57,13 @@ nnoremap <leader>- color#Test(expand('<cword>'))
 nnoremap <leader>= color#Test(expand('<cword>'))
 						\? '"_ciw' . color#Lighten(expand('<cword>')) . "\<Esc>"
 						\: "\<Nop>"
+
+
+" IPython
+" ========================================
+
+" map <Leader>r to run script
+nnoremap <leader>r :IPythonCellRun<CR>
+
+" map <Leader>e to execute the current cell
+nnoremap <Leader>e :IPythonCellExecuteCell<CR>

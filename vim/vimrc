@@ -144,6 +144,7 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 		Plug 'statico/vim-javascript-sql'
 		Plug 'Vimjas/vim-python-pep8-indent'
 		Plug 'jpalardy/vim-slime'
+		Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 		" Plug 'hdima/python-syntax'
 		" Plug 'Rykka/riv.vim'
 		" Plug 'nvie/vim-flake8'
