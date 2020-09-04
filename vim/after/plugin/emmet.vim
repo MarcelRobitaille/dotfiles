@@ -9,6 +9,6 @@ endfunction
 
 autocmd! user emmet-vim call SetupEmmet()
 
-if g:loaded_emmet_vim
+if exists('g:loaded_emmet_vim') && g:loaded_emmet_vim
 	call SetupEmmet()
 endif

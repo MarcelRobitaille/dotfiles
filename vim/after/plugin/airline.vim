@@ -34,6 +34,6 @@ endfunction
 
 autocmd! User vim-airline call SetupAirline()
 
-if g:loaded_airline
+if exists('g:loaded_airline') && g:loaded_airline
 	call SetupAirline()
 endif

@@ -15,6 +15,6 @@ endfunction
 
 autocmd! user vim-commentary call SetupCommentary()
 
-if g:loaded_commentary
+if exists('g:loaded_commentary') && g:loaded_commentary
 	call SetupCommentary()
 endif

@@ -37,6 +37,6 @@ endfunction
 
 autocmd! User ale call SetupAle()
 
-if g:loaded_ale
+if exists('g:loaded_ale') && g:loaded_ale
 	call SetupAle()
 endif

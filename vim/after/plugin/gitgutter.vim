@@ -14,6 +14,6 @@ endfunction
 
 autocmd! User vim-gitgutter call SetupGitGutter()
 
-if g:loaded_gitgutter
+if exists('g:loaded_gitgutter') && g:loaded_gitgutter
 	call SetupGitGutter()
 endif

@@ -28,6 +28,6 @@ endfunction
 
 autocmd! User vim-fugitive call SetupFugitive()
 
-if g:loaded_fugitive
+if exists('g:loaded_fugitive') && g:loaded_fugitive
 	call SetupFugitive()
 endif

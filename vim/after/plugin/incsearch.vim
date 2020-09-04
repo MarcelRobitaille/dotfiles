@@ -43,6 +43,6 @@ function! SetupIncsearch()
 
 endfunction
 
-if g:loaded_incsearch
+if exists('g:loaded_incsearch') && g:loaded_incsearch
 	call SetupIncsearch()
 endif

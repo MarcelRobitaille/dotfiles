@@ -20,6 +20,6 @@ endfunction
 
 autocmd! User vim-surround call SetupSurround()
 
-if g:loaded_surround
+if exists('g:loaded_surround') && g:loaded_surround
 	call SetupSurround()
 endif

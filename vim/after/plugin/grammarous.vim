@@ -15,6 +15,6 @@ endfunction
 
 autocmd! User vim-grammarous call SetupGrammarous()
 
-if g:loaded_grammarous
+if exists('g:loaded_grammarous') && g:loaded_grammarous
 	call SetupGrammarous()
 endif
