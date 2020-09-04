@@ -12,6 +12,8 @@ function SetupTex()
 
 	let g:tex_conceal = ''
 
+	let g:tex_flavor = 'latex'
+
 	let g:tex_IgnoredWarnings =
 		\ 'Underfull'."\n".
 		\ 'You might wish'."\n"
