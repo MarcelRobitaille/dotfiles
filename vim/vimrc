@@ -369,8 +369,3 @@ autocmd BufWritePre,FileWritePre    *.gpg let &sh=shsave
 autocmd BufWritePost,FileWritePost  *.gpg silent u
 autocmd BufWritePost,FileWritePost  *.gpg set nobin
 augroup END
-
-function Grip()
-	! grip $(get-open-port.sh) --browser > grip.log 2>&1 &
-endfunction
-command! Grip call Grip()
