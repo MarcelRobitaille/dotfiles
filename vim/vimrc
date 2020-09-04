@@ -14,11 +14,13 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 		" Additional functionality
 		"
 
+		" Database wrapper
 		Plug 'tpope/vim-dadbod'
 		Plug 'tpope/vim-dotenv'
 		Plug 'tpope/vim-commentary'
+		" Working with XML like tags
 		Plug 'tpope/vim-ragtag'
-		" Helpers for UNIX
+		" Helpers for UNIX (delete, rename)
 		Plug 'tpope/vim-eunuch'
 
 		" tags file management
@@ -37,6 +39,7 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 		Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 		Plug 'junegunn/fzf.vim'
 
+		" Multi-file search
 		Plug 'wincent/ferret'
 
 		" Enable dot repetition for plugins
@@ -49,10 +52,17 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 		" Good for moving lines and such
 		Plug 'tpope/vim-unimpaired'
 
+		"
 		" Git
+		"
+
 		Plug 'tpope/vim-fugitive'
+		" Figutive extension for GitHub
 		Plug 'tpope/vim-rhubarb'
+		" Figutive extension for GitLab
 		Plug 'shumphrey/fugitive-gitlab.vim'
+
+		" Show git diff in gutter
 		Plug 'airblade/vim-gitgutter'
 
 		" Save session
