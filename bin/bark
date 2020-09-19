@@ -1,0 +1,98 @@
+#!/usr/bin/env python
+
+import sys
+import os
+from os import path
+from datetime import datetime
+import subprocess
+import shutil
+
+import sh
+import click
+from click_default_group import DefaultGroup
+from slugify import slugify
+import notify2
+
+
+LOG_DIR = path.expanduser("~/.cache/bark")
+
+
+def timestamp():
+    return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+
+class Color:
+    PURPLE = '\033[95m'
+    CYAN = '\033[96m'
+    DARKCYAN = '\033[36m'
+    BLUE = '\033[94m'
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    RED = '\033[91m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+    END = '\033[0m'
+
+
+@click.group(cls=DefaultGroup, default='bark', default_if_no_args=True)
+def cli():
+    pass
+
+
+@cli.command(context_settings=dict(
+    ignore_unknown_options=True,
+))
+@click.argument('name')
+@click.argument('cmd', nargs=-1, type=click.UNPROCESSED)
+def bark(name, cmd):
+
+    if not cmd:
+        if shutil.which(name):
+            cmd = (name,)
+
+        else:
+            click.echo('Error: no command given', err=True)
+            sys.exit(1)
+
+    log_file = path.join(LOG_DIR, f'{slugify(name)}.log')
+    os.makedirs(path.dirname(log_file), exist_ok=True)
+
+    with open(log_file, 'a') as f:
+        process = subprocess.Popen(
+            cmd,
+            stderr=subprocess.STDOUT,
+            stdout=subprocess.PIPE,
+        )
+
+        f.write(f'{timestamp()} {Color.BOLD}Started: {name}{Color.END}\n')
+
+        try:
+            for line in iter(process.stdout.readline, b''):
+                f.write(f'{timestamp()} {line.decode(sys.stdout.encoding)}')
+
+        finally:
+            f.write(f'{timestamp()} {Color.BOLD}Stopped: {name}{Color.END}\n')
+
+    notify2.init('Bark!')
+    n = notify2.Notification(
+        'Bark!',
+        f'"{name}" closed unexpectedly',
+        'dialog-warning',
+    )
+    n.show()
+
+
+@cli.command(context_settings=dict(
+    ignore_unknown_options=True,
+))
+@click.argument('name')
+@click.argument('rest', nargs=-1, type=click.UNPROCESSED)
+def logs(name, rest):
+    log_file = path.join(LOG_DIR, f'{slugify(name)}.log')
+
+    for line in sh.tail(*rest, log_file, _iter=True):
+        click.echo_via_pager(line.rstrip())
+
+
+if __name__ == '__main__':
+    cli()

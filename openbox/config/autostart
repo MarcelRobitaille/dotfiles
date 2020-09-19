@@ -4,6 +4,8 @@
 # source ../../../omzsh/exports.sh
 export PATH="$PATH:$HOME/bin/"
 
+source "$HOME/.dotfiles/venv/bin/activate"
+
 # Use detected monitor layout
 hash autorandr &> /dev/null && autorandr -c
 
@@ -11,57 +13,56 @@ hash autorandr &> /dev/null && autorandr -c
 ~/.fehbg
 
 # Keybindings
-xbindkeys &
+bark xbindkeys &
 setxkbmap -config $HOME/.config/setxkbmap.conf &
 
 # Compositing
-picom 2>&1 > /var/log/picom.log &
-redshift &
+bark picom &
+bark redshift &
 
 # Panels
-tint2 &
+bark tint2 &
 
 #
 # Panel applets
 #
 
 # Start nextcloud client
-nextcloud > /var/log/nextcloud-client.log &
+bark nextcloud &
 
 # Network applet
-nm-applet &
+bark nm-applet &
 
 # Printer applet
-system-config-printer-applet &
+bark system-config-printer-applet &
 
 # KDEConnect panel indicator
 kdeconnect-indicator &
 
 # Notification deamon
-killall dunst
-dunst -print &> /var/log/dunst &
+bark dunst -- dunst -print &
 
 # Mail client
-GTK_THEME="Arc" GTK_ICON_THEME="Arc" evolution
+GTK_THEME="Arc" GTK_ICON_THEME="Arc" bark evolution
 
 # Bluetooth daemon
-blueman-applet &
+bark blueman-applet &
 
 #
 # Daemons
 #
 
-thunar --daemon > /var/log/thunar 2>&1 &
+bark thunar -- thunar --daemon &
 
 # OctoPrint automated uploader
-/home/marcel/bin/octoload watch &
+bark octoload -- /home/marcel/bin/octoload watch &
 
-/home/marcel/bin/maximize_large_windows.sh &
+bark maximize_large_windows -- /home/marcel/bin/maximize_large_windows.sh &
 
-light-locker > /var/log/light-locker.log 2&>1 &
+bark light-locker &
 
 # Autolock screen
-xidlehook \
+bark xidlehook \
 	--not-when-audio \
 	--not-when-fullscreen \
 	--timer 60 \
@@ -72,4 +73,4 @@ xidlehook \
 		'' \
 	--timer 1800 \
 		'sudo systemctl suspend' \
-		'' > /var/log/xidlehook.log 2>&1
+		'' &
