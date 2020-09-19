@@ -56,7 +56,7 @@ thunar --daemon > /var/log/thunar 2>&1 &
 # OctoPrint automated uploader
 /home/marcel/bin/octoload watch &
 
-/home/marcel/bin/maximize_large_windows.sh
+/home/marcel/bin/maximize_large_windows.sh &
 
 light-locker > /var/log/light-locker.log 2&>1 &
 
