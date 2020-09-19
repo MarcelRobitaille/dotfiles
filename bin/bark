@@ -15,6 +15,10 @@ import notify2
 
 
 LOG_DIR = path.expanduser("~/.cache/bark")
+NOTIFICATION_SUMMARY = 'Bark!'
+NOTIFICATION_MESSAGE = '"{name}" closed unexpectedly'
+NOTIFICATION_MESSAGE_RETRY = NOTIFICATION_MESSAGE + ' Trying to re-launch...'
+NOTIFICATION_ICON = 'dialog-warning'
 
 
 def timestamp():
@@ -42,9 +46,10 @@ def cli():
 @cli.command(context_settings=dict(
     ignore_unknown_options=True,
 ))
+@click.option('--retries', default=2)
 @click.argument('name')
 @click.argument('cmd', nargs=-1, type=click.UNPROCESSED)
-def bark(name, cmd):
+def bark(retries, name, cmd):
 
     if not cmd:
         if shutil.which(name):
@@ -57,29 +62,47 @@ def bark(name, cmd):
     log_file = path.join(LOG_DIR, f'{slugify(name)}.log')
     os.makedirs(path.dirname(log_file), exist_ok=True)
 
-    with open(log_file, 'a') as f:
-        process = subprocess.Popen(
-            cmd,
-            stderr=subprocess.STDOUT,
-            stdout=subprocess.PIPE,
-        )
-
-        f.write(f'{timestamp()} {Color.BOLD}Started: {name}{Color.END}\n')
-
-        try:
-            for line in iter(process.stdout.readline, b''):
-                f.write(f'{timestamp()} {line.decode(sys.stdout.encoding)}')
-
-        finally:
-            f.write(f'{timestamp()} {Color.BOLD}Stopped: {name}{Color.END}\n')
-
     notify2.init('Bark!')
-    n = notify2.Notification(
-        'Bark!',
-        f'"{name}" closed unexpectedly',
-        'dialog-warning',
+    notification = notify2.Notification(
+        NOTIFICATION_SUMMARY,
+        NOTIFICATION_MESSAGE.format(name=name),
+        NOTIFICATION_ICON,
     )
-    n.show()
+    notification.set_timeout(notify2.EXPIRES_NEVER)
+
+    def worker(number_tries=0):
+        if number_tries > retries:
+            return
+
+        with open(log_file, 'a') as f:
+            process = subprocess.Popen(
+                cmd,
+                stderr=subprocess.STDOUT,
+                stdout=subprocess.PIPE,
+            )
+
+            f.write(f'{timestamp()} {Color.BOLD}Started: {name}{Color.END}\n')
+
+            try:
+                for line in iter(process.stdout.readline, b''):
+                    f.write(f'{timestamp()} {line.decode(sys.stdout.encoding)}')
+
+            finally:
+                f.write(
+                    f'{timestamp()} {Color.BOLD}Stopped: {name}{Color.END}\n')
+
+            notification.update(
+                NOTIFICATION_SUMMARY,
+                NOTIFICATION_MESSAGE_RETRY.format(name=name)
+                if number_tries < retries else
+                NOTIFICATION_MESSAGE.format(name=name),
+                NOTIFICATION_ICON,
+            )
+            notification.show()
+
+            worker(number_tries=number_tries + 1)
+
+    worker()
 
 
 @cli.command(context_settings=dict(
