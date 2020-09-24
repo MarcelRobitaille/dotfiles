@@ -28,6 +28,8 @@ function SetupTex()
 	 \	],
 	 \ }
 
+	let g:vimtex_indent_enabled = 0
+
 endfunction
 
 augroup marcel_tex_filetype
