@@ -128,9 +128,6 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 		" File icons
 		Plug 'ryanoasis/vim-devicons'
 
-		" Indent guides
-		Plug 'Yggdroot/indentLine'
-
 		" Automatically remove search highlighting
 		Plug 'haya14busa/incsearch.vim'
 
