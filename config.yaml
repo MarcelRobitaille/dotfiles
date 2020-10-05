@@ -92,6 +92,9 @@ config:
   link_on_import: nolink
   minversion: 0.29.4
 
+trans_read:
+  _gpg: gpg2 -q --for-your-eyes-only --no-tty -d {0} > {1}
+
 dotfiles:
   alacritty:
     dst: ~/.config/alacritty/alacritty.yml
@@ -254,6 +257,11 @@ dotfiles:
     src: ./sqlite/.sqliterc
     link: link
 
+  ssh:
+    dst: ~/.ssh/config
+    src: ./ssh/config.gpg
+    trans_read: _gpg
+
   termite:
     dst: ~/.config/termite/config
     src: ./termite/config
@@ -388,6 +396,7 @@ profiles:
     - rofi-pass
     - setxkbmap
     - sqlite
+    - ssh
     - termite
     - tern
     - thunar
