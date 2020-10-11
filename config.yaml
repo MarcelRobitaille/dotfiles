@@ -127,7 +127,6 @@ dotfiles:
   cura:
     dst: "{{@@ cura_config_path @@}}/cura.cfg"
     src: ./cura/cura.cfg
-    link: link
 
   cura_machines:
     dst: "{{@@ cura_machines_path @@}}"
