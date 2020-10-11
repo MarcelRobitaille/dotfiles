@@ -74,6 +74,7 @@ variables:
 
 dynvariables:
   mozilla_path: find ~/.mozilla/firefox -name '*.default' || true
+  cura_config_path: find ~/.config/cura -maxdepth 1 -type d | sort | tail -n1
   # Use a dynamic variable as a path and populate it with crontab
   # Hack to make compare work correctly
   populate_crontab: crontab -l > /tmp/dotdrop-crontab; echo /tmp/dotdrop-crontab
@@ -114,11 +115,6 @@ dotfiles:
     src: ./ctags/.ctags
     link: link
 
-  cura:
-    dst: ~/.config/cura/4.0/cura.cfg
-    src: ./cura/cura.cfg
-    link: link
-
   cron:
     # Use a dynamic variable as a path and populate it with crontab
     # Hack to make compare work correctly
@@ -126,6 +122,11 @@ dotfiles:
     src: ./cron/crontab
     actions:
       - update_crontab
+
+  cura:
+    dst: "{{@@ cura_config_path @@}}/cura.cfg"
+    src: ./cura/cura.cfg
+    link: link
 
   dunst:
     dst: ~/.config/dunst/dunstrc
@@ -357,6 +358,7 @@ profiles:
     - picom
     - ctags
     - cron
+    - cura
     - dunst
     - dunst_icons
     - firefox
