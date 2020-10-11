@@ -9,3 +9,4 @@ config.sh
 interactive_read
 tags
 *.log
+venv
