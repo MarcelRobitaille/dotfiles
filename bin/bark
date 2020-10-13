@@ -25,6 +25,31 @@ def timestamp():
     return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 
+def show_notification(notification, name, number_tries, retries):
+
+    if not notification:
+        notify2.init('Bark!')
+        notification = notify2.Notification(
+            NOTIFICATION_SUMMARY,
+            NOTIFICATION_MESSAGE_RETRY.format(name=name)
+            if number_tries < retries else
+            NOTIFICATION_MESSAGE.format(name=name),
+            NOTIFICATION_ICON,
+        )
+
+    notification.update(
+        NOTIFICATION_SUMMARY,
+        NOTIFICATION_MESSAGE_RETRY.format(name=name)
+        if number_tries < retries else
+        NOTIFICATION_MESSAGE.format(name=name),
+        NOTIFICATION_ICON,
+    )
+    notification.set_timeout(notify2.EXPIRES_NEVER)
+    notification.show()
+
+    return notification
+
+
 class Color:
     PURPLE = '\033[95m'
     CYAN = '\033[96m'
@@ -62,15 +87,7 @@ def bark(retries, name, cmd):
     log_file = path.join(LOG_DIR, f'{slugify(name)}.log')
     os.makedirs(path.dirname(log_file), exist_ok=True)
 
-    notify2.init('Bark!')
-    notification = notify2.Notification(
-        NOTIFICATION_SUMMARY,
-        NOTIFICATION_MESSAGE.format(name=name),
-        NOTIFICATION_ICON,
-    )
-    notification.set_timeout(notify2.EXPIRES_NEVER)
-
-    def worker(number_tries=0):
+    def worker(number_tries=0, notification=None):
         if number_tries > retries:
             return
 
@@ -91,16 +108,14 @@ def bark(retries, name, cmd):
                 f.write(
                     f'{timestamp()} {Color.BOLD}Stopped: {name}{Color.END}\n')
 
-            notification.update(
-                NOTIFICATION_SUMMARY,
-                NOTIFICATION_MESSAGE_RETRY.format(name=name)
-                if number_tries < retries else
-                NOTIFICATION_MESSAGE.format(name=name),
-                NOTIFICATION_ICON,
-            )
-            notification.show()
+                notification = show_notification(
+                    notification=notification,
+                    name=name,
+                    number_tries=number_tries,
+                    retries=retries,
+                )
 
-            worker(number_tries=number_tries + 1)
+            worker(number_tries=number_tries + 1, notification=notification)
 
     worker()
 

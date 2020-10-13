@@ -12,6 +12,9 @@ hash autorandr &> /dev/null && autorandr -c
 # Restore desktop background
 ~/.fehbg
 
+# Notification deamon
+bark dunst -- dunst -print &
+
 # Keybindings
 bark xbindkeys &
 setxkbmap -config $HOME/.config/setxkbmap.conf &
@@ -38,9 +41,6 @@ bark system-config-printer-applet &
 
 # KDEConnect panel indicator
 kdeconnect-indicator &
-
-# Notification deamon
-bark dunst -- dunst -print &
 
 # Mail client
 GTK_THEME="Arc" GTK_ICON_THEME="Arc" bark evolution
