@@ -8,8 +8,8 @@ plugins=(git pass django)
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.zsh/async/async.zsh"
 
-for file in $ZSH/custom/{exports,aliases,functions,secret}.sh $ZSH/custom/plugins/*; do
-  [ -r "$file" ] && [ -f "$file" ] && source "$file"
+for file in $ZSH/custom/{exports,aliases,functions,directories,secret}.sh $ZSH/custom/plugins/*; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 
 DEFAULT_USER="marcel"
