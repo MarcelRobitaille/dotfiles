@@ -4,6 +4,9 @@ actions:
   nvim_plug_install: nvim +PlugInstall +qall
   update_crontab: "cat /tmp/dotdrop-crontab | crontab -"
 
+  post:
+    pacman_check_requirements: echo "Missing packages:" && bash -c "comm -23 <(sort -u {{@@ _dotfile_abs_src @@}}) <(pacman -Qq | sort)"
+
 variables:
   color_background: '12181e'
   color_foreground: 'FFFFFD'
@@ -114,6 +117,12 @@ dotfiles:
     dst: ~/.config/picom/picom.conf
     src: ./picom/picom.conf
     link: link
+
+  check_pacman_packages:
+    dst:
+    src: ./pacman-package-list.txt
+    actions:
+      - pacman_check_requirements
 
   ctags:
     dst: ~/.ctags
@@ -365,6 +374,7 @@ profiles:
     - alacritty
     - bin
     - picom
+    - check_pacman_packages
     - ctags
     - cron
     - cura
