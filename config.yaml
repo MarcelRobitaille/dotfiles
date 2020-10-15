@@ -188,7 +188,7 @@ dotfiles:
 
   latex_templates:
     dst: ~/.local/templates/latex_templates
-    src: ./latex/
+    src: ./latex_templates/
 
   linters:
     dst: ~/
