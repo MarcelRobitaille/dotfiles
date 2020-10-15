@@ -29,6 +29,9 @@ export FZF_DEFAULT_COMMAND='ag -l \
   {%@@ endfor @@%}
   -g ""'
 
+export GTK_THEME={{@@ gtk_theme @@}}
+export GTK_ICON_THEME={{@@ gtk_theme @@}}
+
 export KEYTIMEOUT=1
 
 
