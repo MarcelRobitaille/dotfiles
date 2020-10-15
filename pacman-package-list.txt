@@ -157,7 +157,6 @@ mdadm
 mesa-demos
 mesa-vdpau
 minecraft
-minetime
 mlocate
 mousepad
 mpc
