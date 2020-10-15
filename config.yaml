@@ -92,7 +92,9 @@ config:
   minversion: 0.29.4
 
 trans_read:
-  _gpg: gpg2 -q --for-your-eyes-only --no-tty -d {0} > {1}
+  _gpg: test {0} -nt {{@@ _dotfile_abs_dst @@}} && (
+    gpg2 -q --for-your-eyes-only --no-tty --decrypt {0} > {1}) || (
+    cat {{@@ _dotfile_abs_dst @@}} > {1})
 
 dotfiles:
   alacritty:
