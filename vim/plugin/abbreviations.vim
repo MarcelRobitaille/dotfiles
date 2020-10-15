@@ -6,3 +6,4 @@ iabbrev THis This
 iabbrev funx func
 iabbrev COmponent Component
 iabbrev retrun return
+iabbrev oemga omega
