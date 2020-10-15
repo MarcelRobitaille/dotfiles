@@ -318,8 +318,6 @@ vlc
 vulkan-intel
 w3m
 which
-wicd
-wicd-gtk
 wine-mono
 wine-staging
 wine_gecko
