@@ -628,7 +628,25 @@
 											(if unspecified, then it is 'dialog' for child windows)">
 	# you may set only one of name/class/role/title/type, or you may use more
 	# than one together to restrict your matches.
+	-->
 
+	<application class="firefox" title="Mozilla Firefox" type="normal">
+		<desktop>all</desktop>
+	</application>
+
+	<application class="Evolution" name="evolution" type="normal">
+		<desktop>all</desktop>
+	</application>
+
+	<application class="discord" title="Discord" name="discord" type="normal">
+		<desktop>all</desktop>
+	</application>
+
+	<application class="teams-for-linux" name="teams-for-linux" type="normal">
+		<desktop>all</desktop>
+	</application>
+
+	<!--
 	# the name, class, role, and title use simple wildcard matching such as those
 	# used by a shell. you can use * to match any characters and ? to match
 	# any single character.
