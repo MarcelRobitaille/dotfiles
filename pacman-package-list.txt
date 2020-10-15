@@ -25,7 +25,6 @@ catfish
 cava
 chromium
 cloc
-cloudcross
 cnijfilter2-mg7700
 picom
 code
