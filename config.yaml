@@ -74,8 +74,7 @@ variables:
 
 dynvariables:
   mozilla_path: find ~/.mozilla/firefox -name '*.default' || true
-  cura_config_path: find ~/.config/cura -maxdepth 1 -type d | sort | tail -n1
-  cura_machines_path: find ~/.local/share/cura -maxdepth 1 -type d | sort | tail -n1
+  aura_version: cura --version 2>/dev/null | sed 's/.*\([0-9]\+\.[0-9]\+\)\.[0-9]\+/\1/'
   # Use a dynamic variable as a path and populate it with crontab
   # Hack to make compare work correctly
   populate_crontab: crontab -l > /tmp/dotdrop-crontab; echo /tmp/dotdrop-crontab
@@ -128,11 +127,11 @@ dotfiles:
       - update_crontab
 
   cura:
-    dst: "{{@@ cura_config_path @@}}/cura.cfg"
+    dst: "~/.config/cura/{{@@ cura_version @@}}/cura.cfg"
     src: ./cura/cura.cfg
 
   cura_machines:
-    dst: "{{@@ cura_machines_path @@}}"
+    dst: "~/.local/share/cura/{{@@ cura_version @@}}"
     src: ./cura_machines
     # link: link_children
 
