@@ -1,12 +1,14 @@
+# vim: ft=gitconfig
+
 [user]
 	email = mail@marcelrobitaille.me
 	name = Marcel Robitaille
 [push]
 	default = simple
 [core]
-	editor = vim
-	attributesfile = ~/.gitattributes
-	excludesfile = ~/.gitignore
+	editor = nvim
+	attributesfile = ~/.config/git/.gitattributes
+	excludesfile = ~/.config/git/.gitignore
 [alias]
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
@@ -108,6 +110,6 @@
 	textconv = unzip -c -a
 
 [diff "gpg"]
-	textconv = gpg --no-tty --decrypt
+	textconv = gpg --for-your-eyes-only --no-tty --decrypt
 [pull]
 	rebase = true

@@ -160,13 +160,8 @@ dotfiles:
     link: link
 
   git:
-    dst: ~/.config/git/config
-    src: ./git/.gitconfig
-    link: link
-
-  gitignore:
-    dst: ~/.gitignore
-    src: ./git/.gitignore
+    dst: ~/.config/git/
+    src: ./git/
     link: link
 
   gtk:
@@ -379,7 +374,6 @@ profiles:
     - flake8
     - fontconfig
     - git
-    - gitignore
     - gtk
     - linters
     - mpd
