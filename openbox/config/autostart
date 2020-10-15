@@ -16,7 +16,7 @@ hash autorandr &> /dev/null && autorandr -c
 bark dunst -- dunst -print &
 
 # Keybindings
-bark xbindkeys &
+bark xbindkeys -- xbindkeys --nodaemon &
 setxkbmap -config $HOME/.config/setxkbmap.conf &
 
 # Compositing
