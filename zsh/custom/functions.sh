@@ -31,6 +31,7 @@ function chpwd() {
 	# if yes then do nothing, else deactivate
 		parentdir="$(dirname "$VIRTUAL_ENV")"
 		if [[ "$PWD"/ != "$parentdir"/* ]]; then
+			source "$VIRTUAL_ENV/bin/activate"
 			deactivate
 		fi
 	fi
