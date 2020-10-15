@@ -10,6 +10,9 @@ actions:
     pacman_check_requirements: echo "Missing packages:" && bash -c "comm -23 <(sort -u {{@@ _dotfile_abs_src @@}}) <(pacman -Qq | sort)"
 
 variables:
+  gtk_theme: 'Flat-Remix-GTK_Blue'
+  gtk_icon_theme: 'Papirus'
+  gtk_cursor_theme: 'breeze_cursors'
   color_background: '12181e'
   color_foreground: 'FFFFFD'
   color_text: '000000'
@@ -182,7 +185,6 @@ dotfiles:
   gtk:
     dst: ~/.config/gtk-3.0/
     src: ./gtk/
-    link: link
 
   linters:
     dst: ~/
@@ -227,7 +229,6 @@ dotfiles:
   openbox:
     dst: ~/.config/openbox/
     src: ./openbox/config/
-    link: link
   openbox_theme:
     dst: ~/.local/share/themes/Arc-Dark/openbox-3/
     src: ./openbox/theme/
