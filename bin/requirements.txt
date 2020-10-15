@@ -1,0 +1,5 @@
+sh
+click
+click_default_group
+python-slugify
+notify2
