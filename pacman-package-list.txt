@@ -320,7 +320,6 @@ w3m
 which
 wine-mono
 wine-staging
-wine_gecko
 winetricks
 xarchiver
 xbindkeys
