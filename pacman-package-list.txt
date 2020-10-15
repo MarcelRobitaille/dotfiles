@@ -27,7 +27,7 @@ chromium
 cloc
 cloudcross
 cnijfilter2-mg7700
-compton
+picom
 conky
 coreutils
 cower
