@@ -1,22 +1,22 @@
 # Clones repo, cds into it, and opens it in your text editor
 clone(){
-  local FOLDER=""
-  if [ "$#" -gt "1" ]; then
+	local FOLDER=""
+	if [ "$#" -gt "1" ]; then
 	FOLDER=$2
-  else
+	else
 	FOLDER=$(echo $1 | sed 's/\.git$//' | grep -o "[^\/]*$")
-  fi
+	fi
 
-  git clone $1 $FOLDER && cd $FOLDER
+	git clone $1 $FOLDER && cd $FOLDER
 }
 
 # Create a new directory and enter it
 mkd() {
-  mkdir -p "$@" && cd "$_";
+	mkdir -p "$@" && cd "$_";
 }
 
 cptoct(){
-  scp $1 clairitech:~/website/$1
+	scp $1 clairitech:~/website/$1
 }
 
 # https://stackoverflow.com/questions/45216663/how-to-automatically-activate-virtualenvs-when-cding-into-a-directory
