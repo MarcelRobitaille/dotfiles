@@ -28,6 +28,7 @@ cloc
 cloudcross
 cnijfilter2-mg7700
 picom
+code
 conky
 coreutils
 cower
@@ -313,7 +314,6 @@ vim-plug
 virtualbox
 virtualbox-ext-vnc
 virtualbox-host-modules-arch
-visual-studio-code-bin
 vlc
 vulkan-intel
 w3m
