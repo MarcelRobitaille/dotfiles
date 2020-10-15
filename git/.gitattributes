@@ -1,2 +1,6 @@
 *.gpg filter=gpg diff=gpg
 *.asc filter=gpg diff=gpg
+*.gif diff=image
+*.jpeg diff=image
+*.jpg diff=image
+*.png diff=image
