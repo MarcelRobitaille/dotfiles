@@ -10,6 +10,27 @@ clone(){
 	git clone $1 $FOLDER && cd $FOLDER
 }
 
+save_clipboard_image() {
+	if [ -z "$1" ]; then
+		echo "No file name specified"
+	else
+
+		xclip -selection clipboard -target image/png -out > "$1"
+	fi
+}
+
+crop_clipboard_image() {
+	if [ -z "$1" ]; then
+		echo "No file name specified"
+	else
+
+		tmpfile="/tmp/$(pwgen 16 1)$(basename $1)"
+		save_clipboard_image "$tmpfile"
+		convert -trim "$tmpfile" "$1"
+		rm "$tmpfile"
+	fi
+}
+
 # Create a new directory and enter it
 mkd() {
 	mkdir -p "$@" && cd "$_";
