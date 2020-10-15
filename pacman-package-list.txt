@@ -244,7 +244,6 @@ ristretto
 rofi
 rofi-pass
 rsync
-rtl8812au_8821au_linux-dkms-git
 s-nail
 seahorse
 sed
