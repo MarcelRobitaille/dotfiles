@@ -1,8 +1,7 @@
 adeos-oblogout-git
 adobe-source-code-pro-fonts
 airvpn-bin
-alacritty-git
-alacritty-terminfo-git
+alacritty
 android-sdk
 android-sdk-build-tools
 apk-resigner
