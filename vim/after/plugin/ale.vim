@@ -34,7 +34,10 @@ function! SetupAle()
 	let g:ale_c_parse_makefile = 1
 	let g:ale_c_gcc_parse_makefile = 1
 
-	let g:ale_python_pylint_options = '--rcfile=' . getcwd() . '/pylintrc'
+	let l:pylintrc_path = getcwd() . '/pylintrc'
+	if filereadable(l:pylintrc_path)
+		let g:ale_python_pylint_options = '--rcfile=' . l:pylintrc_path
+	endif
 
 endfunction
 
