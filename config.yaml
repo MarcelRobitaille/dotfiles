@@ -186,6 +186,10 @@ dotfiles:
     dst: ~/.config/gtk-3.0/
     src: ./gtk/
 
+  latex_templates:
+    dst: ~/.local/templates/latex_templates
+    src: ./latex/
+
   linters:
     dst: ~/
     src: ./linters/
@@ -392,6 +396,7 @@ profiles:
     - fontconfig
     - git
     - gtk
+    - latex_templates
     - linters
     - mpd
     - mycli

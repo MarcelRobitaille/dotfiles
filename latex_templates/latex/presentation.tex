@@ -1,0 +1,130 @@
+\documentclass[mathserif,aspectratio=169]{beamer}
+
+\mode<presentation>
+\usetheme{default}
+\usecolortheme{dove}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{biolinum}
+\usepackage[noend]{algorithmic}
+\algsetup{indent=2em}
+
+\usepackage{csquotes}
+
+\usepackage{siunitx}
+
+\usepackage{booktabs}
+\usepackage[english]{babel}
+
+
+%% Slide Commands
+\definecolor{watyellow}{RGB}{254,203,0}
+\definecolor{watblack}{RGB}{0,100,0}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{
+	% Top padding
+	\vskip2pt
+	% Left padding
+	\hspace*{10mm}
+	© QuIN Lab, 2020 --- Marcel Robitaille \hfill 2020-10-05 --- \insertframenumber
+	% Right padding
+	\hspace*{10mm}
+	% Bottom padding
+	\vskip15pt
+}
+
+\definecolor{yellow1}{RGB}{255,255,170}
+\definecolor{yellow2}{RGB}{255,234,41}
+\definecolor{yellow3}{RGB}{255,213,79}
+\definecolor{yellow4}{RGB}{228,180,41}
+\definecolor{watred}{RGB}{183,18,51}
+
+\setbeamercolor{block title}{fg=white,bg=black!75}%
+\setbeamercolor{block body}{fg=black,bg=black!5}%
+
+\setbeamertemplate{itemize/enumerate body begin}{\large}
+\setbeamertemplate{itemize/enumerate subbody begin}{\footnotesize}
+
+\setlength{\TPHorizModule}{\paperwidth}
+\setlength{\TPVertModule}{1pt}
+
+\newcommand{\topline}{
+	\begin{textblock}{0.5}(0.00,0.00)
+		\textcolor{black}{\rule{\paperwidth}{5pt}}
+	\end{textblock}
+	\begin{textblock}{0.5}(0.0,5)
+		\textcolor{yellow1}{\rule{0.25\paperwidth}{5pt}}
+	\end{textblock}
+	\begin{textblock}{0.5}(0.25,5)
+		\textcolor{yellow2}{\rule{0.25\paperwidth}{5pt}}
+	\end{textblock}
+	\begin{textblock}{0.5}(0.5,5)
+		\textcolor{yellow3}{\rule{0.25\paperwidth}{5pt}}
+	\end{textblock}
+	\begin{textblock}{0.5}(0.75,5)
+		\textcolor{yellow4}{\rule{0.25\paperwidth}{5pt}}
+	\end{textblock}
+}
+
+
+\makeatletter
+\setbeamertemplate{frametitle}{
+	\topline
+	\ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+	\@tempdima=\textwidth%
+	\advance\@tempdima by\beamer@leftmargin%
+	\advance\@tempdima by\beamer@rightmargin%
+	\vspace*{6pt} %%%%%%%%%%%%% For example insert shift to right
+	\begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}
+	\usebeamerfont{frametitle}%
+	\vbox{}\vskip-1ex%
+	\if@tempswa\else\csname beamer@ftecenter\endcsname\fi%
+	\strut\textbf{\insertframetitle}\strut\par%
+	{%
+		\ifx\insertframesubtitle\@empty%
+		\else%
+			{\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+		\fi
+	}%
+	\vskip-1ex%
+	\if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+	\end{beamercolorbox}%
+}
+\makeatother
+
+\usepackage{tabularx}
+\setlength{\extrarowheight}{3pt}
+
+\usepackage{url}
+
+\newcounter{saveenum}
+
+\newcommand{\hili}[1]{{\color{watred} #1}}
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage{psfrag}
+\usepackage{xspace}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\setbeamertemplate{title page}[default][left,colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+
+\setbeamercolor{section in toc}{bg=white,fg=structure}
+\setbeamertemplate{section in toc}{%
+  {\color{yellow4}\rule[0.4ex]{4pt}{4pt}}~~\inserttocsection\par}
+\setbeamercolor{subsection in toc}{bg=white,fg=structure}
+\setbeamertemplate{subsection in toc}{%
+  \hspace{1.2em}{\color{yellow4}\rule[0.3ex]{3pt}{3pt}}~~\inserttocsubsection\par}
+\setbeamercolor{subsubsection in toc}{bg=white,fg=structure}
+\setbeamertemplate{subsubsection in toc}{%
+  \hspace{2.4em}{\color{yellow4}\rule[0.3ex]{3pt}{3pt}}~~\inserttocsubsubsection\par}
+
+\title[Journal Club --- Research]{\LARGE \textbf{Journal Club --- Research}} %
+\author[Robitaille]{Marcel~Robitaille}
+
+\institute[QuIN Lab]{
+	\includegraphics[width=3.5cm]{{{@@_dotfile_abs_dst @@}}Waterloo_horizontal_crop.pdf}
+}
+
+\input{{{@@_dotfile_abs_dst @@}}/template.tex}
