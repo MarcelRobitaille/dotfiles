@@ -237,7 +237,7 @@ qtox
 ranger
 raw-thumbnailer
 redshift
-refind-efi
+refind
 reiserfsprogs
 repetier-host
 ristretto
