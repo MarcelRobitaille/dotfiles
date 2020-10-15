@@ -62,7 +62,7 @@ bark maximize_large_windows -- /home/marcel/bin/maximize_large_windows.sh &
 bark light-locker &
 
 # Autolock screen
-bark xidlehook \
+bark xidlehook -- xidlehook \
 	--not-when-audio \
 	--not-when-fullscreen \
 	--timer 60 \
