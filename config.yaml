@@ -1,7 +1,7 @@
 actions:
   pre:
-    oh-my-zsh-install: test -e ~/.oh-my-zsh/oh-my-zsh.sh || (rm -rf ~/.oh-my-zsh; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)")
-  nvim-plug-install: nvim +PlugInstall +qall
+    oh_my_zsh_install: test -e ~/.oh-my-zsh/oh-my-zsh.sh || (rm -rf ~/.oh-my-zsh; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)")
+  nvim_plug_install: nvim +PlugInstall +qall
   update_crontab: "cat /tmp/dotdrop-crontab | crontab -"
 
 variables:
@@ -204,7 +204,7 @@ dotfiles:
     dst: ~/.config/nvim/autoload/plug.vim
     link: link
     actions:
-     - nvim-plug-install
+     - nvim_plug_install
 
   npmrc:
     dst: ~/.npmrc
@@ -326,7 +326,7 @@ dotfiles:
     dst: ~/.oh-my-zsh/custom/
     src: ./zsh/custom/
     actions:
-    - oh-my-zsh-install
+    - oh_my_zsh_install
   zsh_prompt:
     src: ./pure
     dst: ~/.zsh/pure
