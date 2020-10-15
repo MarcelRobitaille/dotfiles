@@ -26,7 +26,6 @@ cava
 chromium
 cloc
 cnijfilter2-mg7700
-picom
 code
 conky
 coreutils
@@ -203,6 +202,7 @@ perl
 perl-image-exiftool
 perspektiv-git
 picard
+picom
 pkgconf
 playonlinux
 postman-bin
