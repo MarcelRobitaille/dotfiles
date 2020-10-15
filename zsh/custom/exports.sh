@@ -59,3 +59,4 @@ export PATH="/home/marcel/.gem/ruby/2.7.0/bin:$PATH"
 
 export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
 
+export PASSWORD_STORE_ENABLE_EXTENSIONS=true
