@@ -204,9 +204,9 @@
 # Rules
 #
 
-[mailspring]
-  appname="Mailspring"
-  new_icon="Mailspring"
+[mail]
+  appname="evolution-mail-notification"
+  new_icon="email"
 
 [slack]
   appname="Slack"
