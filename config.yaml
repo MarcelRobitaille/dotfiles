@@ -3,6 +3,8 @@ actions:
     oh_my_zsh_install: test -e ~/.oh-my-zsh/oh-my-zsh.sh || (rm -rf ~/.oh-my-zsh; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)")
   nvim_plug_install: nvim +PlugInstall +qall
   update_crontab: "cat /tmp/dotdrop-crontab | crontab -"
+  pip_create_venv: test -e ~/.dotfiles/venv || python -m venv venv
+  pip_install: pip install -r ~/.dotfiles/bin/requirements.txt
 
   post:
     pacman_check_requirements: echo "Missing packages:" && bash -c "comm -23 <(sort -u {{@@ _dotfile_abs_src @@}}) <(pacman -Qq | sort)"
@@ -112,6 +114,9 @@ dotfiles:
   bin:
     dst: ~/bin/
     src: ./bin/
+    actions:
+      - pip_create_venv
+      - pip_install
 
   picom:
     dst: ~/.config/picom/picom.conf
