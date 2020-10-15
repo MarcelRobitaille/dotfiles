@@ -240,7 +240,6 @@ raw-thumbnailer
 redshift
 refind
 reiserfsprogs
-repetier-host
 ristretto
 rofi
 rofi-pass
