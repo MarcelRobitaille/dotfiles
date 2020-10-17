@@ -217,9 +217,13 @@ set scrolloff=10
 set formatoptions=l
 set linebreak
 
-" Show (certain) invisibles
+" Invisibles setup
 set list
-set listchars=trail:·,tab:\│\ ,
+set listchars=space:·,tab:\│\ ,
+augroup invisibles
+	autocmd ColorScheme * hi VisibleWhiteSpace ctermbg=NONE ctermfg=8
+	autocmd ColorScheme * match VisibleWhiteSpace /\(^\(\t\|\ \)\+\|\ \+$\)/    
+augroup END
 
 " Indentation
 set tabstop=2 softtabstop=2 shiftwidth=2 smarttab
