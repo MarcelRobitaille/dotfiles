@@ -5,10 +5,12 @@ interactive_read 2> /tmp/url
 url=$(</tmp/url)
 rm /tmp/url
 
-if [[ $url =~ [0-9][0-9]\.jpg$ ]]; then
-	url=$(echo $url | sed 's/[0-9][0-9]\.jpg$/%02d.jpg/')
-elif [[ $url =~ [0-9]\.jpg$ ]]; then
-	url=$(echo $url | sed 's/[0-9]\.jpg$/%1d.jpg/')
+extension=$(python -c "from urllib.parse import urlparse; from os import path; print(path.splitext(urlparse('$url').path)[1][1:])")
+
+if [[ $url =~ [0-9][0-9]\.$extension$ ]]; then
+	url=$(echo $url | sed "s/[0-9][0-9]\.$extension$/%02d.$extension/")
+elif [[ $url =~ [0-9]\.$extension$ ]]; then
+	url=$(echo $url | sed "s/[0-9]\.$extension$/%1d.$extension/")
 fi
 echo "Using base url: $url"
 
