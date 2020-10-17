@@ -53,6 +53,8 @@
   # ignore newlines '\n' in notifications
   ignore_newline = no
 
+  # vertical_alignment = top
+
 
   # the geometry of the window
   # geometry [{width}]x{height}][+/-{x}+/-{y}]
