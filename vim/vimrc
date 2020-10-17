@@ -52,6 +52,8 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 		" Good for moving lines and such
 		Plug 'tpope/vim-unimpaired'
 
+		Plug 'andymass/vim-matchup'
+
 		"
 		" Git
 		"
