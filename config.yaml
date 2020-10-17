@@ -150,7 +150,7 @@ dotfiles:
     src: ./cura/cura.cfg
 
   cura_machines:
-    dst: "~/.local/share/cura/{{@@ cura_version @@}}"
+    dst: "~/.local/share/cura/{{@@ cura_version @@}}/"
     src: ./cura_machines
     # link: link_children
 
