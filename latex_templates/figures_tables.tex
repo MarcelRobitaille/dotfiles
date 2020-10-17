@@ -23,3 +23,8 @@
 
 % Multi row stuff in tables
 \usepackage{multirow}
+
+% Custom counter for numbered tables
+\preto\tabular{\setcounter{magicrownumbers}{0}}
+\newcounter{magicrownumbers}
+\newcommand{\rownumber}{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
