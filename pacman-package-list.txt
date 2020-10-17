@@ -306,6 +306,7 @@ unrar
 unzip
 usbutils
 util-linux
+vdirsyncer
 vi
 vim-plug
 virtualbox
