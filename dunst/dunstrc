@@ -25,6 +25,8 @@
   # Markup is allowed
   format = "%s\n%b"
 
+  show_indicators = no
+
   # Sort messages by urgency
   sort = yes
 
