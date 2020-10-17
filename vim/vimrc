@@ -323,9 +323,6 @@ set shortmess+=F
 " Colourscheme settings
 silent! colorscheme wal
 
-" Don't remove quotes from json
-let g:vim_json_syntax_conceal = 0
-
 let g:NERDSpaceDelims = 1
 
 set conceallevel=0
