@@ -121,7 +121,27 @@
 \author[Robitaille]{Marcel~Robitaille}
 
 \institute[QuIN Lab]{
-	\includegraphics[width=3.5cm]{{{@@_dotfile_abs_dst @@}}Waterloo_horizontal_crop.pdf}
+	\includegraphics[width=3.5cm]{{{@@_dotfile_abs_dst @@}}Waterloo_horizontal_crop.pdf}}
+
+\newcommand{\insertTitlePage}{{ %
+	\setbeamertemplate{footline}{} %
+	\begin{frame} %
+		\topline{} %
+		\vskip1cm %
+		\titlepage{} %
+	\end{frame} %
+} %
+\addtocounter{framenumber}{-1} %
+\setbeamertemplate{itemize item}[circle] %
+\setbeamertemplate{enumerate item}[circle] %
+}
+
+\newcommand{\insertReferences}{ %
+\section{References} %
+\begin{frame} %
+	\frametitle{References} %
+	\bibliography{References} %
+\end{frame} %
 }
 
 \input{{{@@_dotfile_abs_dst @@}}/template.tex}
