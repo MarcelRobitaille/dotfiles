@@ -2,4 +2,9 @@
 \usepackage{textcomp}
 
 % Custom labels for lists
-\usepackage[shortlabels]{enumitem}
+% This package is incompatible with beamer
+\makeatletter
+\@ifclassloaded{beamer}{}{%
+	\usepackage[shortlabels]{enumitem}%
+}
+\makeatother
