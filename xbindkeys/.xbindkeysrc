@@ -54,6 +54,9 @@
 "rofi-pass; xmodmap ~/.Xmodmap"
 	Mod2+Mod4+Shift + space
 
+"rofimoji"
+	Mod2+Mod4 + e
+
 "alacritty"
   Mod2+Mod4 + Return
 
