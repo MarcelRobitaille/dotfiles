@@ -238,6 +238,11 @@ dotfiles:
     src: ./openbox/theme/
     link: link
 
+  pylint:
+    dst: ~/.config/pylintrc
+    src: ./pylint/pylintrc
+    link: link
+
   ranger:
     dst: ~/.config/ranger/
     src: ./ranger/
@@ -405,6 +410,7 @@ profiles:
     - npmrc
     - openbox
     - openbox_theme
+    - pylint
     - ranger
     - redshift
     - repetier_printers
