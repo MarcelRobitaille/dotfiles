@@ -183,7 +183,7 @@ filetype plugin indent on
 
 " Use global swap file
 " Then use `vim -L` for list of open files
-let s:vim_swap_dir = s:vim_config_dir . 'swap'
+let s:vim_swap_dir = s:vim_config_dir . 'swap//'
 if !isdirectory(s:vim_swap_dir)
 	call mkdir(s:vim_swap_dir, "p")
 endif
