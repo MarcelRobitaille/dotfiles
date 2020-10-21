@@ -1,25 +1,30 @@
-% Page sizing
-\usepackage[top=25mm, bottom=25mm, right=15mm, left=15mm]{geometry}
+\makeatletter
+\@ifclassloaded{beamer}{}{
 
-% Rename section titles
-\usepackage{titlesec}
+	% Page sizing
+	\usepackage[top=25mm, bottom=25mm, right=15mm, left=15mm]{geometry}
+
+	\usepackage{fancyhdr}
+
+	\pagestyle{fancy}
+	\renewcommand{\headrulewidth}{0pt}
+
+	% Rename section titles
+	\usepackage{titlesec}
+
+	% Paragraph spacing
+	% No indent, 1 line between paragraphs
+	\usepackage{parskip}
+	\setlength{\parindent}{0pt}
+	\setlength{\parskip}{1em}
+}
+\makeatother
 
 % Double strike text
 \usepackage{dsfont}
 
 % Provides `\textquote`
 \usepackage{csquotes}
-
-\usepackage{fancyhdr}
-
-\pagestyle{fancy}
-\renewcommand{\headrulewidth}{0pt}
-
-% Paragraph spacing
-% No indent, 1 line between paragraphs
-\usepackage{parskip}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{1em}
 
 % Allow latex to put super long spaces between words if it has to to align text justified properly
 \setlength{\emergencystretch}{3em}
