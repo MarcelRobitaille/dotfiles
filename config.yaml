@@ -104,6 +104,9 @@ trans_read:
     gpg2 -q --for-your-eyes-only --no-tty --decrypt {0} > {1}) || (
     cat {{@@ _dotfile_abs_dst @@}} > {1})
 
+trans_write:
+  _gpg: gpg2 --no-tty --encrypt -r "$(gpg2 --list-packets {{@@ _dotfile_abs_src @@}} 2>/dev/null | awk 'NR == 2 {{ print $9 }}')" < {0} > {1}
+
 dotfiles:
   alacritty:
     dst: ~/.config/alacritty/alacritty.yml
@@ -286,6 +289,7 @@ dotfiles:
     dst: ~/.ssh/config
     src: ./ssh/config.gpg
     trans_read: _gpg
+    trans_write: _gpg
 
   termite:
     dst: ~/.config/termite/config
