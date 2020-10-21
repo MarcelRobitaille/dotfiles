@@ -133,6 +133,14 @@
 \setbeamertemplate{enumerate item}[circle] %
 }
 
+\newcommand{\insertContents}{
+	\begin{frame}
+		\frametitle{Contents}
+
+		{\hypersetup{hidelinks}\tableofcontents}
+	\end{frame}
+}
+
 \newcommand{\insertReferences}{ %
 \section{References} %
 \begin{frame}[allowframebreaks] %
