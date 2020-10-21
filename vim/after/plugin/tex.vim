@@ -30,6 +30,8 @@ function SetupTex()
 
 	let g:vimtex_indent_enabled = 0
 
+
+	setlocal spell
 endfunction
 
 augroup marcel_tex_filetype
