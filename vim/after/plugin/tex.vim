@@ -30,6 +30,7 @@ function SetupTex()
 
 	let g:vimtex_indent_enabled = 0
 
+	setlocal conceallevel=0
 
 	let g:vimtex_indent_on_ampersands = 0
 	setlocal noautoindent
