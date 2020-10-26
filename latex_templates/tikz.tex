@@ -1,0 +1,15 @@
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,calc,positioning}
+
+% Declare background layer
+\pgfdeclarelayer{bg}
+% Set the order of the layers (main is the standard layer)
+\pgfsetlayers{bg,main}
+
+\tikzset{XOR/.style={draw,circle,append after command={
+			[shorten >=\pgflinewidth, shorten <=\pgflinewidth,]
+			(\tikzlastnode.north) edge (\tikzlastnode.south)
+			(\tikzlastnode.east) edge (\tikzlastnode.west)
+		}
+	}
+}
