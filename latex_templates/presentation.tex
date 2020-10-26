@@ -112,6 +112,9 @@
 \setbeamertemplate{subsubsection in toc}{%
 	\hspace{2.4em}{\color{yellow4}\rule[0.3ex]{3pt}{3pt}}~~\inserttocsubsubsection\par}
 
+% Reset footnote counter on new frame
+\AtBeginEnvironment{frame}{\setcounter{footnote}{0}}
+
 \author[Robitaille]{Marcel~Robitaille}
 
 \institute[QuIN Lab]{
