@@ -8,3 +8,8 @@
 \makeatletter
 \@ifclassloaded{beamer}{}{\input{{{@@_dotfile_abs_dst @@}}/bib.tex}}
 \makeatother
+
+\newcommand{\insertDebugFrames}{
+	\usepackage{lua-visual-debug}
+	\usepackage{lmodern}
+}
