@@ -217,6 +217,10 @@
 	summary="New email"
 	format=""
 
+[nextcloud-talk-warning]
+	summary="You seem to be talking while muted, please unmute yourself for others to hear you"
+	format=""
+
 [slack]
   appname="Slack"
   new_icon="slack"
