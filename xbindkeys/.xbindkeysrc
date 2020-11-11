@@ -1,11 +1,11 @@
 "pamixer -i 5"
-  XF86AudioRaiseVolume
+	XF86AudioRaiseVolume
 
 "pamixer -d 5"
-  XF86AudioLowerVolume
+	XF86AudioLowerVolume
 
 "pamixer --set-volume 20"
-  XF86AudioNext
+	XF86AudioNext
 
 "rofi -show run -matching fuzzy -sort"
 	Mod2+Mod4 + space
@@ -17,13 +17,13 @@
 	Mod2+Mod4 + e
 
 "alacritty"
-  Mod2+Mod4 + Return
+	Mod2+Mod4 + Return
 
 "/home/marcel/bin/keyboard toggle ca us"
-  Mod2+Mod4 + k
+	Mod2+Mod4 + k
 
 "escrotum --select --clipboard"
 	Print
 
 "xbindkeys_show"
-  control +shift + q
+	control +shift + q
