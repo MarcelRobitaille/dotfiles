@@ -141,6 +141,7 @@ disable=print-statement,
 	comprehension-escape,
 	pointless-string-statement,
 	missing-function-docstring,
+	missing-module-docstring,
 	no-else-return,
 
 # Enable the message, report, category or checker with the given id(s). You can
