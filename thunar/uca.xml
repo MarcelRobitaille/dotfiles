@@ -190,4 +190,18 @@
 	<patterns>*</patterns>
 	<image-files/>
 </action>
+<action>
+	<icon>mark-location</icon>
+	<name>Copy file path</name>
+	<unique-id>1604767187887669-1</unique-id>
+	<command>echo &quot;%f&quot; | xsel -i -b</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
 </actions>
