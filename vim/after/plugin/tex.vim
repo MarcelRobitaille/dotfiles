@@ -38,6 +38,8 @@ function SetupTex()
 	setlocal preserveindent
 
 	setlocal spell
+
+	setlocal iskeyword-=:
 endfunction
 
 augroup marcel_tex_filetype
