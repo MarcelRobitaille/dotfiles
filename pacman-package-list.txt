@@ -182,7 +182,7 @@ obconf
 oblogout
 obs-studio
 odt2txt
-onedrive-git
+onedrive-abraunegg
 openbox
 openssh
 orage

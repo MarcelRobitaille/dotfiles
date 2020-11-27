@@ -233,6 +233,11 @@ dotfiles:
     dst: ~/.npmrc
     src: ./npm/.npmrc
 
+  onedrive:
+    src: ./onedrive/config
+    dst: ~/.config/onedrive/config
+    link: link
+
   openbox:
     dst: ~/.config/openbox/
     src: ./openbox/config/
@@ -417,6 +422,7 @@ profiles:
     - ncmpcpp
     - neofetch
     - npmrc
+    - onedrive
     - openbox
     - openbox_theme
     - pylint
