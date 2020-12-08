@@ -218,6 +218,7 @@ python-click
 python-cryptography
 python-dateutil
 python-gobject2
+python-isort
 python-matplotlib
 python-pip
 python-pyalsa
