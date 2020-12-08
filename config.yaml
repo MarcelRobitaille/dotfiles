@@ -232,9 +232,14 @@ dotfiles:
     link: link
 
   neovim:
-    dst: ~/.config/nvim
+    dst: ~/.config/nvim/
     src: ./vim/
+    instignore:
+      - '*templated*'
     link: link_children
+  neovim_templated:
+    dst: ~/.config/nvim/templated/
+    src: ./vim/templated/
   neovim_plug:
     src: ./vim-plug/plug.vim
     dst: ~/.config/nvim/autoload/plug.vim
@@ -391,6 +396,7 @@ profiles:
   neovim:
     dotfiles:
     - neovim
+    - neovim_templated
     - neovim_plug
 
   tmuxinator:
