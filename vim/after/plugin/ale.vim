@@ -23,6 +23,9 @@ function! SetupAle()
 	\	'tex': [
 	\		'chktex',
 	\	],
+	\ 'python': [
+	\		'pylint', 'flake8',
+	\ ],
 	\ 'markdown': [],
 	\}
 
