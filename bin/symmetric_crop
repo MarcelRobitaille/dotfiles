@@ -1,0 +1,10 @@
+#!/bin/bash
+
+original_width=$(identify -format "%w" "$1")> /dev/null
+IFS=" x+" read width height left top < <(convert -fuzz 1% "$1" -format "%@" info:)
+
+right=$((original_width-width-left))
+left_right=$((left>right ? right : left))
+new_width=$((original_width-left_right-left_right))
+
+convert "$1" -crop "${new_width}x${height}+${left_right}+${top}" "$1"
