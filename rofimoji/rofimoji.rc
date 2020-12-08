@@ -1,2 +1,3 @@
 files = [emojis, geometric_shapes_extended, greek_and_coptic, greek_extended, math]
 insert-with-clipboard = true
+skin-tone = neutral
