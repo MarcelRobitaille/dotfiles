@@ -7,3 +7,4 @@ iabbrev funx func
 iabbrev COmponent Component
 iabbrev retrun return
 iabbrev oemga omega
+iabbrev taht that
