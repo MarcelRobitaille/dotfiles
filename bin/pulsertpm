@@ -1,0 +1,51 @@
+#!/bin/bash
+#
+# PulseRTP-multiroom
+#   Loads RTP sender modules to setup multiroom audio at request
+#
+#   Notes
+#     * If you have issues, and have multiple network interfaces, add source_ip= with you prefered local IP
+#     * mtu=1408 is good initial value. It makes room for 352 PCM frames in 16/44.1k.
+#
+pa_rtp_mtu=1408
+pa_sink="Virtual1"
+
+echo "timedatectl status:"
+timedatectl status --no-pager | grep 'NTP service: active'
+if [[ $? -ne 0 ]]; then
+    timedatectl set-ntp true
+    sleep 2
+    timedatectl status --no-pager | grep 'NTP service: active'
+    if [[ $? -ne 0 ]]; then
+        echo "WARNING: NTP service not active"
+    else
+        echo "timedatectl status OK"
+    fi
+fi
+
+pacmd list-modules | grep module-native-protocol-unix
+if [ $? -ne 0 ]; then
+    pactl load-module module-native-protocol-unix
+fi
+pacmd list-modules | grep module-default-device-restore
+if [ $? -ne 0 ]; then
+    pactl load-module module-default-device-restore
+fi
+pacmd list-modules | grep module-rescue-streams
+if [ $? -ne 0 ]; then
+    pactl load-module module-rescue-streams
+fi
+pacmd list-modules | grep module-always-sink
+if [ $? -ne 0 ]; then
+    pactl load-module module-always-sink
+fi
+pacmd list-modules | grep module-intended-roles
+if [ $? -ne 0 ]; then
+    pactl load-module module-intended-roles
+fi
+pacmd list-modules | grep module-suspend-on-idle
+if [ $? -ne 0 ]; then
+    load-module module-suspend-on-idle
+fi
+
+pactl load-module module-rtp-send port=8000 source=${pa_sink}.monitor mtu=${pa_rtp_mtu} format=s16be channels=2 rate=44100
