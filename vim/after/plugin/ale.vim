@@ -23,6 +23,7 @@ function! SetupAle()
 	\	'tex': [
 	\		'chktex',
 	\	],
+	\ 'markdown': [],
 	\}
 
 	let g:ale_fixers = {
