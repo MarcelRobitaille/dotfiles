@@ -135,6 +135,11 @@ dotfiles:
     actions:
       - pacman_check_requirements
 
+  chktex:
+    dst: ~/.chktexrc
+    src: ./chktex/.chktexrc
+    link: link
+
   ctags:
     dst: ~/.ctags
     src: ./ctags/.ctags
@@ -404,6 +409,7 @@ profiles:
     - bin
     - picom
     - check_pacman_packages
+    - chktex
     - ctags
     - cron
     - cura
