@@ -33,3 +33,14 @@
 \newcommand{\rownumber}{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
 
 \usepackage[siunitx,RPvoltages]{circuitikz}
+
+\newcommand{\fastgraphicspath}[1]{%
+	\graphicspath{#1}%
+	\newcommand{\fastincludegraphics}[2][]{%
+		\directlua{require("{{@@_doffile_abs_dst@@}}/fastgraphics")(%
+			\ifdraft{true}{false},
+			[[#1]],
+			[[##1]],
+			[[##2]])}%
+	}%
+}
