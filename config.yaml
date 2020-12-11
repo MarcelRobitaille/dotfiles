@@ -46,6 +46,7 @@ variables:
     - '.git'
     - '.pioenvs'
     - '.piolibdeps'
+    - '.pio'
     - 'env'
     - 'venv'
     - 'build'
