@@ -17,7 +17,6 @@ bark dunst -- dunst -print &
 
 # Keybindings
 bark xbindkeys -- xbindkeys --nodaemon &
-setxkbmap -config $HOME/.config/setxkbmap.conf &
 
 # Compositing
 bark picom &
