@@ -212,6 +212,10 @@
   appname="evolution-mail-notification"
   new_icon="email"
 
+[onedrive]
+	summary="OneDrive"
+	new_icon="onedrive"
+
 [evolution-dedupe]
 	appname="evolution-mail-notification"
 	summary="New email"
