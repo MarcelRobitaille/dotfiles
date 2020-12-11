@@ -144,6 +144,7 @@ linux-headers
 linux-lts
 linux-lts-headers
 logrotate
+lsd
 lshw
 lutris
 lvm2

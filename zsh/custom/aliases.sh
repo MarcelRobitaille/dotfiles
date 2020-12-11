@@ -6,7 +6,8 @@ alias clip="xsel -i -b"
 alias incognito="fc -p; PURE_PROMPT_SYMBOL=''"
 
 # Places
-alias ll="ls -lah"
+alias ls="lsd"
+alias ll="lsd -lah"
 
 # Git
 alias g="git"
