@@ -1,7 +1,9 @@
 \usepackage[style=ieee]{biblatex}
 
 \usepackage{url}
-\usepackage[hidelinks]{hyperref}
+\makeatletter
+\@ifclassloaded{beamer}{}{\usepackage[hidelinks]{hyperref}}
+\makeatother
 \hypersetup{
 	colorlinks=true,
 	linkcolor=black,
