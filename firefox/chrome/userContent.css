@@ -36,6 +36,41 @@
 }
 
 
+/**
+ * Gmail
+ ****************************************/
+
+@-moz-document url-prefix("https://mail.google.com/") {
+	.nH.oy8Mbf.nn.aeN {
+		overflow: hidden;
+		min-height: calc(100vh - 64px);
+	}
+
+	.nH.oy8Mbf.nn.aeN > div {
+		display: none;
+	}
+	.nH.oy8Mbf.nn.aeN > div:first-child {
+		height: 100%;
+		display: block;
+	}
+	.nH.oy8Mbf.nn.aeN > div:first-child > div {
+		height: 100%;
+	}
+	.nH.oy8Mbf.nn.aeN > div:first-child > div > div {
+		height: 100%;
+	}
+	.nH.oy8Mbf.nn.aeN > div:first-child > div > div > div {
+		height: 100%;
+	}
+	.nH.oy8Mbf.nn.aeN > div:first-child > div > div > div > div:nth-child(2) {
+		height: 100%;
+	}
+	.nH.oy8Mbf.nn.aeN > div:first-child > div > div > div > div:nth-child(2) > div {
+		min-height: 100%;
+	}
+}
+
+
 /*
  * OneNote
  ****************************************/
