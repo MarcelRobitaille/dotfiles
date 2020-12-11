@@ -1,0 +1,15 @@
+[Unit]
+Description=A grabbing program for X
+After=graphical.target
+OnFailure=notify@%i.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/xbindkeys --nodaemon
+
+Restart=on-failure
+RestartSec=30s
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target

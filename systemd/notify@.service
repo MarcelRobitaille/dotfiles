@@ -1,0 +1,6 @@
+[Unit]
+Description=%i failure notification 
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c '/home/marcel/bin/notify-send "%i Failure notification"'

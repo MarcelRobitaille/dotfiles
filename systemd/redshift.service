@@ -1,0 +1,14 @@
+[Unit]
+Description=Set colour termpareture of display according to time of day
+After=graphical.target
+OnFailure=notify@%i.service
+
+[Service]
+ExecStart=/usr/bin/redshift
+
+Restart=on-failure
+RestartSec=30s
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target

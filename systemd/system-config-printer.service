@@ -1,0 +1,14 @@
+[Unit]
+Description=print job manager
+After=graphical.target
+OnFailure=notify@%i.service
+
+[Service]
+ExecStart=/usr/bin/system-config-printer-applet
+
+Restart=on-failure
+RestartSec=30s
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target

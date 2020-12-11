@@ -7,69 +7,62 @@ export PATH="$HOME/bin/:$PATH"
 source "$HOME/.dotfiles/venv/bin/activate"
 
 # Use detected monitor layout
-hash autorandr &> /dev/null && autorandr -c
+systemctl --user start autorandr
 
 # Restore desktop background
 ~/.fehbg
 
 # Notification deamon
-bark dunst -- dunst -print &
+systemctl --user start dunst
 
 # Keybindings
-bark xbindkeys -- xbindkeys --nodaemon &
+systemctl --user start xbindkeys
 
 # Compositing
-bark picom &
-bark redshift &
+systemctl --user start picom
+systemctl --user start redshift
 
 # Panels
-bark tint2 &
+systemctl --user start tint2
 
 #
 # Panel applets
 #
 
 # Start nextcloud client
-bark nextcloud &
+systemctl --user start nextcloud
+
+systemctl --user start onedrive
+
+systemctl --user start media-control-indicator
 
 # Network applet
-bark nm-applet &
+systemctl --user start nm-applet
 
 # Printer applet
-bark system-config-printer-applet &
+systemctl --user start system-config-printer
 
 # KDEConnect panel indicator
-kdeconnect-indicator &
+systemctl --user start kdeconnect
 
 # Mail client
-bark evolution &
+systemctl --user start evolution
 
 # Bluetooth daemon
-bark blueman-applet &
+systemctl --user start blueman-applet
 
 #
 # Daemons
 #
 
-bark thunar -- thunar --daemon &
+systemctl --user start thunar
 
 # OctoPrint automated uploader
-bark octoload -- /home/marcel/bin/octoload watch &
+systemctl --user start octoload
 
-bark maximize_large_windows -- /home/marcel/bin/maximize_large_windows.sh &
+systemctl --user start maximize-large-windows
 
-bark light-locker &
+systemctl --user start light-locker
 
 # Autolock screen
-bark xidlehook -- xidlehook \
-	--not-when-audio \
-	--not-when-fullscreen \
-	--timer 60 \
-		'xbacklight -get | tee /tmp/xbacklight_previous_value; xbacklight -set 1' \
-		'xbacklight -set $(</tmp/xbacklight_previous_value)' \
-	--timer 10 \
-		'xbacklight -set $(</tmp/xbacklight_previous_value); light-locker-command -l' \
-		'' \
-	--timer 1800 \
-		'sudo systemctl suspend' \
-		'' &
+systemctl --user start xidlehook

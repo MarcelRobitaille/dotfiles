@@ -1,0 +1,26 @@
+[Unit]
+Description=automatic screen locker
+After=graphical.target
+OnFailure=notify@%i.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/xidlehook \
+	--not-when-audio \
+	--not-when-fullscreen \
+	--timer 60 \
+		'xbacklight -get | tee /tmp/xbacklight_previous_value; xbacklight -set 1' \
+		'xbacklight -set $(</tmp/xbacklight_previous_value)' \
+	--timer 10 \
+		'xbacklight -set $(</tmp/xbacklight_previous_value); light-locker-command -l' \
+		'' \
+	--timer 1800 \
+		'sudo systemctl suspend' \
+		''
+
+Restart=on-failure
+RestartSec=30s
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target

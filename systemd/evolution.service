@@ -1,0 +1,14 @@
+[Unit]
+Description=The Evolution PIM and Email Client
+After=graphical.target
+OnFailure=notify@%i.service
+
+[Service]
+ExecStart=/usr/bin/evolution
+
+Restart=on-failure
+RestartSec=30s
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target

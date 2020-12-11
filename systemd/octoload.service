@@ -1,0 +1,15 @@
+[Unit]
+Description=Automatic OctoPrint uploader
+After=graphical.target
+OnFailure=notify@%i.service
+
+[Service]
+Type=simple
+ExecStart=%h/bin/octoload watch
+
+Restart=on-failure
+RestartSec=30s
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target

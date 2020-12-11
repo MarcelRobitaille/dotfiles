@@ -1,0 +1,14 @@
+[Unit]
+Description=Automatically select display configuration
+After=graphical.target
+OnFailure=notify@%i.service
+
+[Service]
+ExecStart=/usr/bin/autorandr -c
+
+Restart=on-failure
+RestartSec=30s
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target

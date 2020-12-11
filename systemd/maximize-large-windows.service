@@ -1,0 +1,15 @@
+[Unit]
+Description=Maximize large windows
+After=graphical.target
+OnFailure=notify@%i.service
+
+[Service]
+Type=simple
+ExecStart=%h/bin/maximize_large_windows.sh
+
+Restart=on-failure
+RestartSec=30s
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target
