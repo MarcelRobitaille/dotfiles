@@ -167,12 +167,8 @@ dotfiles:
     # link: link_children
 
   dunst:
-    dst: ~/.config/dunst/dunstrc
-    src: ./dunst/dunstrc
-    link: link
-  dunst_icons:
-    dst: ~/.icons/dunst/
-    src: ./dunst/icons/
+    dst: ~/.config/dunst
+    src: ./dunst
     link: link
 
   firefox:
@@ -425,7 +421,6 @@ profiles:
     - cura
     - cura_machines
     - dunst
-    - dunst_icons
     - firefox
     - flake8
     - fontconfig
