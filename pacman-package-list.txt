@@ -215,6 +215,7 @@ psmisc
 pulseaudio
 pv
 pydf
+pyenv
 python-click
 python-cryptography
 python-dateutil
