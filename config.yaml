@@ -306,6 +306,11 @@ dotfiles:
     trans_read: _gpg
     trans_write: _gpg
 
+  systemd:
+    dst: ~/.config/systemd/user/
+    src: ./systemd/
+    link: link_children
+
   termite:
     dst: ~/.config/termite/config
     src: ./termite/config
@@ -446,6 +451,7 @@ profiles:
     - setxkbmap
     - sqlite
     - ssh
+    - systemd
     - termite
     - tern
     - thunar
