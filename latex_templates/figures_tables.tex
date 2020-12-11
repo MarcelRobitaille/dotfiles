@@ -37,7 +37,7 @@
 \newcommand{\fastgraphicspath}[1]{%
 	\graphicspath{#1}%
 	\newcommand{\fastincludegraphics}[2][]{%
-		\directlua{require("{{@@_doffile_abs_dst@@}}/fastgraphics")(%
+		\directlua{require("{{@@_dotfile_abs_dst@@}}/fastgraphics")(%
 			\ifdraft{true}{false},
 			[[#1]],
 			[[##1]],
