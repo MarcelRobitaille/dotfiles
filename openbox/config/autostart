@@ -43,7 +43,7 @@ bark system-config-printer-applet &
 kdeconnect-indicator &
 
 # Mail client
-GTK_THEME="{{@@ gtk_theme @@}}" GTK_ICON_THEME="{{@@ gtk_theme @@}}" bark evolution &
+bark evolution &
 
 # Bluetooth daemon
 bark blueman-applet &
