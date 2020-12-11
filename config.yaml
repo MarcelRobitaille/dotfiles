@@ -93,6 +93,7 @@ dynvariables:
   # Use a dynamic variable as a path and populate it with crontab
   # Hack to make compare work correctly
   populate_crontab: crontab -l > /tmp/dotdrop-crontab; echo /tmp/dotdrop-crontab
+  contacts: find ~/.contacts/Contacts -name '*.png' -exec basename {} .png \;
 config:
   backup: true
   banner: true
@@ -169,7 +170,6 @@ dotfiles:
   dunst:
     dst: ~/.config/dunst
     src: ./dunst
-    link: link
 
   firefox:
     dst: '{{@@ mozilla_path @@}}'

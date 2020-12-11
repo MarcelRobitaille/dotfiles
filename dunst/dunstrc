@@ -229,6 +229,8 @@
 	appname="Slack"
 	new_icon="slack"
 
-[whatsapp]
-	summary="Federica Tomola ❤️❤️❤️"
-	new_icon="Federica Tomola ❤️❤️❤️"
+{%@@ for contact in contacts.split('\n') @@%}
+[{{@@ contact @@}}]
+	summary="{{@@ contact @@}}"
+	new_icon="{{@@ contact @@}}"
+{%@@ endfor @@%}
