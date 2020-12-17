@@ -345,3 +345,8 @@ autocmd BufEnter /home/marcel/Nextcloud/Italian/**/* set spell spelllang=it spel
 
 " Set wrap in vimdiff
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
+
+" TODO: Move
+for f in split(glob('$HOME/.config/nvim/templated/*.vim'), '\n')
+	exe 'source' f
+endfor
