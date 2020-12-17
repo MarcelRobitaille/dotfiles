@@ -233,4 +233,10 @@
 [{{@@ contact @@}}]
 	summary="{{@@ contact @@}}"
 	new_icon="{{@@ contact @@}}"
+[{{@@ contact @@}}-video-call]
+	summary="WhatsApp video call from {{@@ contact @@}}"
+	new_icon="{{@@ contact @@}}"
+[{{@@ contact @@}}-voice-call]
+	summary="WhatsApp video call from {{@@ contact @@}}"
+	new_icon="{{@@ contact @@}}"
 {%@@ endfor @@%}
