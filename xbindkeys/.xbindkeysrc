@@ -22,8 +22,12 @@
 "/home/marcel/bin/keyboard toggle ca us"
 	Mod2+Mod4 + k
 
-"escrotum --select --clipboard"
+"gscreenshot-cli -cs"
 	Print
+"gscreenshot-cli -so"
+	shift+Print
+"gscreenshot-cli -s -f /tmp/gscreenshot.png && gimp /tmp/gscreenshot.png"
+	control+shift+Print
 
 "xbindkeys_show"
 	control +shift + q
