@@ -1,3 +1,17 @@
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: .
+  ignoreempty: false
+  keepdot: false
+  longkey: false
+  showdiff: false
+  workdir: ~/.config/dotdrop
+  link_on_import: nolink
+  ignore_missing_in_dotdrop: true
+  minversion: 0.29.4
+
 actions:
   pre:
     oh_my_zsh_install: test -e ~/.oh-my-zsh/oh-my-zsh.sh || (rm -rf ~/.oh-my-zsh; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)")
@@ -94,19 +108,6 @@ dynvariables:
   # Hack to make compare work correctly
   populate_crontab: crontab -l > /tmp/dotdrop-crontab; echo /tmp/dotdrop-crontab
   contacts: find ~/.contacts/Contacts -name '*.png' -exec basename {} .png \;
-config:
-  backup: true
-  banner: true
-  create: true
-  dotpath: .
-  ignoreempty: false
-  keepdot: false
-  longkey: false
-  showdiff: false
-  workdir: ~/.config/dotdrop
-  link_on_import: nolink
-  minversion: 0.29.4
-
 trans_read:
   _gpg: test {0} -nt {{@@ _dotfile_abs_dst @@}} && (
     gpg2 -q --for-your-eyes-only --no-tty --decrypt {0} > {1}) || (
