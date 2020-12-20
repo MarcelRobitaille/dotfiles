@@ -1,0 +1,15 @@
+[Unit]
+Description=Polkit agent
+After=graphical.target
+OnFailure=notify@%i.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/lxsession
+
+Restart=on-failure
+RestartSec=30s
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target

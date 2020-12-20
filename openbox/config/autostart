@@ -12,6 +12,8 @@ systemctl --user start autorandr
 # Restore desktop background
 ~/.fehbg
 
+systemctl --user start polkit-agent
+
 # Notification deamon
 systemctl --user start dunst
 
