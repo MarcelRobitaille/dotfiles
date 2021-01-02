@@ -1,8 +1,0 @@
-#!/bin/zsh
-
-modpath="$HOME/.config/xmodmap"
-
-xmodmap "$modpath/default.xmodmap"
-
-[[ "$HOST" == "Hermes" ]] && xmodmap "$modpath/home-end.xmodmap"
-
