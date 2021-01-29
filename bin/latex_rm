@@ -1,13 +1,13 @@
 #!/bin/bash
 
-for ext in ".aux" ".bcf" ".blg" ".fdb_latexmk" ".fls" ".log" ".out" ".run.xml"; do
+for ext in ".aux" ".bbl" ".bcf" ".blg" ".fdb_latexmk" ".fls" ".log" ".out" ".run.xml"; do
 	echo "${1%.*}$ext"
 done
 
 read -p "Confirm deleting these files? [y/n] " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-	for ext in ".aux" ".bcf" ".blg" ".fdb_latexmk" ".fls" ".log" ".out" ".run.xml"; do
+	for ext in ".aux" ".bbl" ".bcf" ".blg" ".fdb_latexmk" ".fls" ".log" ".out" ".run.xml"; do
 		rm "${1%.*}$ext"
 	done
 fi
