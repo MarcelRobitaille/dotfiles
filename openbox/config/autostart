@@ -7,64 +7,65 @@ export PATH="$HOME/bin/:$PATH"
 source "$HOME/.dotfiles/venv/bin/activate"
 
 # Use detected monitor layout
-systemctl --user start autorandr
+systemctl --user start autorandr &
 
 # Restore desktop background
 ~/.fehbg
 
-systemctl --user start polkit-agent
+systemctl --user start polkit-agent &
 
 # Notification deamon
-systemctl --user start dunst
+systemctl --user start dunst &
 
 # Keybindings
-systemctl --user start xbindkeys
+systemctl --user start xbindkeys &
 
 # Compositing
-systemctl --user start picom
-systemctl --user start redshift
+systemctl --user start picom &
+systemctl --user start redshift &
 
 # Panels
-systemctl --user start tint2
+systemctl --user start tint2 &
 
 #
 # Panel applets
 #
 
 # Start nextcloud client
-systemctl --user start nextcloud
+systemctl --user start nextcloud &
 
-systemctl --user start onedrive
+systemctl --user start onedrive &
 
-systemctl --user start media-control-indicator
+systemctl --user start media-control-indicator &
 
 # Network applet
-systemctl --user start nm-applet
+systemctl --user start nm-applet &
 
 # Printer applet
-systemctl --user start system-config-printer
+systemctl --user start system-config-printer &
 
 # KDEConnect panel indicator
-systemctl --user start kdeconnect
+systemctl --user start kdeconnect &
 
 # Mail client
-systemctl --user start evolution
+# systemctl --user start evolution &
+systemctl --user start davmail &
 
 # Bluetooth daemon
-systemctl --user start blueman-applet
+systemctl --user start blueman-applet &
 
 #
 # Daemons
 #
 
-systemctl --user start thunar
+systemctl --user start thunar &
 
 # OctoPrint automated uploader
-systemctl --user start octoload
+systemctl --user start octoload &
 
-systemctl --user start maximize-large-windows
+systemctl --user start maximize-large-windows &
 
-systemctl --user start light-locker
+systemctl --user start light-locker &
 
 # Autolock screen
-systemctl --user start xidlehook
+systemctl --user start xidlehook &
