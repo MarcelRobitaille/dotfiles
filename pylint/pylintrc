@@ -148,7 +148,8 @@ disable=print-statement,
 	too-many-instance-attributes,
 	too-many-locals,
 	too-many-arguments,
-	too-many-statements
+	too-many-statements,
+	broad-except
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
