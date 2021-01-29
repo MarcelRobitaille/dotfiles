@@ -8,7 +8,7 @@
 sync_dir = "~/OneDrive"
 # skip_file = "~*|.~*|*.tmp"
 # monitor_interval = "300"
-skip_dir = "Microsoft Teams Chat Files|Random Telegraph Noise|CNT Antenna|Cu2O chacterization|Exciton-Polariton|Hexagonal Boron Nitride (hBN)|Quantum Dot|QuIN - Individual|QuIN Team Member Backups|QuIN Webinar Recording|venv"
+skip_dir = "Microsoft Teams Chat Files|CNT Antenna|Cu2O chacterization|Exciton-Polariton|Hexagonal Boron Nitride (hBN)|Quantum Dot|QuIN - Individual|QuIN Team Member Backups|QuIN Webinar Recording|venv|2020-11-23 Experiment"
 # log_dir = "/var/log/onedrive/"
 drive_id = "b!PXbUXorNrE-E558LTo_VYS8YJ94KkadEviwlB9QUKmj9FGqJ2ZbYR4oy4Wnm8KHh"
 # upload_only = "false"
