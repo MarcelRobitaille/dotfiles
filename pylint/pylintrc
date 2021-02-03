@@ -149,6 +149,7 @@ disable=print-statement,
 	too-many-locals,
 	too-many-arguments,
 	too-many-statements,
+	too-few-public-methods,
 	broad-except
 
 # Enable the message, report, category or checker with the given id(s). You can
