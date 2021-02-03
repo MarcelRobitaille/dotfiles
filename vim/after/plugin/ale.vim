@@ -24,7 +24,7 @@ function! SetupAle()
 	\		'chktex',
 	\	],
 	\ 'python': [
-	\		'pylint', 'flake8',
+	\		'pylint',
 	\ ],
 	\ 'markdown': [],
 	\}
