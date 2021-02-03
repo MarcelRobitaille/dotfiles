@@ -41,7 +41,7 @@ find "$tmpdir" \
 		fi
 
 		timestamp=$(echo $timestamp | sed \
-			-e 's/^\(WhatsApp Image \|Wire \|Screenshot_\|IMG-\)//' \
+			-e 's/^\(WhatsApp Image \|Wire \|Screenshot_\|IMG-\|IMG_\)//' \
 			-e 's/\.\(jpe\?g\|png\)$//' \
 			-e 's/_\(WhatsApp\|Wire\)$//' \
 			-e 's/-WA.*//' \
