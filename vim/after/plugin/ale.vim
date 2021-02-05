@@ -33,10 +33,13 @@ function! SetupAle()
 	\ '*': ['remove_trailing_lines', 'trim_whitespace'],
 	\ 'javascript': ['eslint'],
 	\ 'python': ['autopep8', 'isort', 'trim_whitespace'],
+	\ 'rust': ['rustfmt', 'trim_whitespace'],
 	\}
 
 	let g:ale_c_parse_makefile = 1
 	let g:ale_c_gcc_parse_makefile = 1
+
+	let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 
 	let l:pylintrc_path = getcwd() . '/pylintrc'
 	if filereadable(l:pylintrc_path)
