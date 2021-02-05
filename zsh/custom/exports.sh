@@ -71,3 +71,10 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/shims:$PATH"
+
+
+#
+# Ripgrep
+#
+
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"

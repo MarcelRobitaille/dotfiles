@@ -281,6 +281,10 @@ dotfiles:
     src: ./repetier/printers
     link: link_children
 
+  ripgrep:
+    dst: ~/.config/ripgrep/ripgreprc
+    src: ./ripgrep/ripgreprc
+
   rofimoji:
     dst: ~/.config/rofimoji.rc
     src: ./rofimoji/rofimoji.rc
@@ -447,6 +451,7 @@ profiles:
     - redshift
     - repetier_printers
     - repetier_cura
+    - ripgrep
     - rofimoji
     - rofi-pass
     - setxkbmap
