@@ -160,6 +160,7 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 		Plug 'Matt-Deacalion/vim-systemd-syntax', { 'for': 'systemd' }
 		Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 		Plug 'shohei/vim-eagle-ulp'
+		Plug 'rust-lang/rust.vim'
 
 		Plug 'nikvdp/ejs-syntax'
 
