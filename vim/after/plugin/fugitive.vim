@@ -21,7 +21,7 @@ function! SetupFugitive()
 		endfunction
 	augroup END
 
-	let g:fugitive_gitlab_domains = ['https://gitlab.robitaille.host']
+	let g:fugitive_gitlab_domains = ['https://gitlab.robitaille.host', 'https://git.uwaterloo.ca']
 	let g:fugitive_gitlab_ssh_user = 'gitlab'
 
 endfunction
