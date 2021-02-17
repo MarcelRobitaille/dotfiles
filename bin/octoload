@@ -1,11 +1,12 @@
 #!/bin/zsh
 
 logfile="/var/log/octoload"
-password="$(pass 3dprinting/octoprint/marcel | head -n 1)"
-api_key="$(pass 3dprinting/octoprint/api-key | head -n 1)"
+password="$(pass selfhosted/octoprint.robitaille.host/marcel | head -n 1)"
+api_key="$(pass selfhosted/octoprint.robitaille.host/api-key | head -n 1)"
 
 octo_upload() {
 	output=$(/bin/curl \
+		--verbose \
 		-i -X POST \
 		-H "Content-Type: multipart/form-data" \
 		-H "X-Api-Key: $api_key" \
