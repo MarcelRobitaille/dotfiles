@@ -36,6 +36,10 @@ function! SetupAle()
 	\ 'rust': ['rustfmt'],
 	\}
 
+	let g:ale_fix_on_save = 1
+	let g:ale_fix_on_save_ignore = {
+	\ 'python': ['autopep8', 'yapf', 'isort', 'trim_whitespace'],
+	\}
 	let g:ale_c_parse_makefile = 1
 	let g:ale_c_gcc_parse_makefile = 1
 
