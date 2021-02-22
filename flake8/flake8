@@ -1,3 +1,5 @@
 [flake8]
-ignore = E131, E504
+# E131: Continuation line unaligned for hanging indent
+# W504: Line break after binary operator
+ignore = E131, W504
 max-line-length = 80
