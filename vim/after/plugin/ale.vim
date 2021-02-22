@@ -33,7 +33,7 @@ function! SetupAle()
 	\ '*': ['remove_trailing_lines', 'trim_whitespace'],
 	\ 'javascript': ['eslint'],
 	\ 'python': ['autopep8', 'isort', 'trim_whitespace'],
-	\ 'rust': ['rustfmt', 'trim_whitespace'],
+	\ 'rust': ['rustfmt'],
 	\}
 
 	let g:ale_c_parse_makefile = 1
