@@ -10,7 +10,7 @@
 "rofi -show run -modi run,drun -matching fuzzy -sort -sorting-method fzf -no-disable-history"
 	Mod2+Mod4 + space
 
-"rofi-pass; xmodmap ~/.Xmodmap"
+"rofi-pass"
 	Mod2+Mod4+Shift + space
 
 "rofimoji"
