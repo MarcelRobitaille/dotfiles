@@ -257,6 +257,18 @@ dotfiles:
     src: ./openbox/theme/
     link: link
 
+  prusa_slicer:
+    dst: ~/.config/PrusaSlicer/
+    src: ./PrusaSlicer/
+    cmpignore:
+    - 'cache'
+    - 'vendor'
+    - 'snapshots'
+    upignore:
+    - 'cache'
+    - 'vendor'
+    - 'snapshots'
+
   pylint:
     dst: ~/.config/pylintrc
     src: ./pylint/pylintrc
@@ -446,6 +458,7 @@ profiles:
     - onedrive
     - openbox
     - openbox_theme
+    - prusa_slicer
     - pylint
     - ranger
     - redshift
