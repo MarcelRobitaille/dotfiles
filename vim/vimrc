@@ -161,6 +161,7 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 		Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 		Plug 'shohei/vim-eagle-ulp'
 		Plug 'rust-lang/rust.vim'
+		Plug 'cespare/vim-toml'
 
 		Plug 'nikvdp/ejs-syntax'
 
