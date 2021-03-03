@@ -7,7 +7,7 @@
 "pamixer --set-volume 20"
 	XF86AudioNext
 
-"rofi -show run -modi run,drun -matching fuzzy -sort -sorting-method fzf -no-disable-history"
+"nohup rofi -show run -modi run,drun -matching fuzzy -sort -sorting-method fzf -no-disable-history > /dev/null"
 	Mod2+Mod4 + space
 
 "rofi-pass"
@@ -16,7 +16,7 @@
 "rofimoji"
 	Mod2+Mod4 + e
 
-"alacritty"
+"anohup lacritty > /dev/null"
 	Mod2+Mod4 + Return
 
 "/home/marcel/bin/keyboard toggle ca us"
