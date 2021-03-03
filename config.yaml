@@ -175,6 +175,7 @@ dotfiles:
   firefox:
     dst: '{{@@ mozilla_path @@}}'
     src: ./firefox/
+    chmod: 700
 
   flake8:
     dst: ~/.config/flake8
