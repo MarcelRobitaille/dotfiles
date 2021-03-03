@@ -24,7 +24,7 @@
 
 "gscreenshot-cli -cs"
 	Print
-"gscreenshot-cli -s -f /tmp/gscreenshot.png && so /tmp/gscreenshot.png"
+"gscreenshot-cli -s -f /tmp/gscreenshot.png && /home/marcel/bin/so /tmp/gscreenshot.png"
 	shift+Print
 "gscreenshot-cli -s -f /tmp/gscreenshot.png && gimp /tmp/gscreenshot.png"
 	control+shift+Print
