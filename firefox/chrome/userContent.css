@@ -246,4 +246,8 @@
 	.fc-timegrid-slots tr:nth-child(4n-2) > td:first-child {
 		visibility: hidden;
 	}
+
+	.mx-datepicker-main.mx-datepicker-popup {
+		left: 0 !important;
+	}
 }
