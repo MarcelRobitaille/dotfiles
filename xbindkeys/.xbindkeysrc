@@ -16,7 +16,7 @@
 "rofimoji"
 	Mod2+Mod4 + e
 
-"anohup lacritty > /dev/null 2>&1"
+"nohup alacritty > /dev/null 2>&1"
 	Mod2+Mod4 + Return
 
 "/home/marcel/bin/keyboard toggle ca us"
