@@ -60,7 +60,7 @@ fi
 case "$extension" in
 	pdf ) app="$([ $gnome = true ] && echo evince || echo zathura)";;
 	jpg | png ) app="eog";;
-	m4a ) app="vlc";;
+	m4a | mp4 ) app="vlc";;
 esac
 
 # Open file in app
