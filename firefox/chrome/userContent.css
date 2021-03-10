@@ -252,3 +252,17 @@
 		left: 0 !important;
 	}
 }
+
+
+/*
+ * Octoprint
+ ****************************************/
+
+@-moz-document url-prefix("https://octoprint.robitaille.host/") {
+
+	/* Hide internal filename */
+	/* Just adds space and for me it's already the same */
+	.entry.machinecode > .internal {
+		display: none;
+	}
+}
