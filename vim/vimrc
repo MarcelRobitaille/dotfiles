@@ -224,8 +224,8 @@ set list
 set listchars=space:·,tab:\│\ ,
 augroup invisibles
 	autocmd ColorScheme * hi VisibleWhiteSpace ctermbg=NONE ctermfg=8
-	autocmd ColorScheme * match VisibleWhiteSpace /\(^\(\t\|\ \)\+\|\ \+$\)/    
-	autocmd BufEnter * match VisibleWhiteSpace /\(^\(\t\|\ \)\+\|\ \+$\)/    
+	autocmd ColorScheme * match VisibleWhiteSpace /\(^\(\t\|\ \)\+\|\ \+$\)/
+	autocmd BufEnter * match VisibleWhiteSpace /\(^\(\t\|\ \)\+\|\ \+$\)/
 augroup END
 
 " Indentation
