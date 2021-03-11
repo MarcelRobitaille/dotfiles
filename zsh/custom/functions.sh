@@ -69,5 +69,18 @@ chpwd
 # Remove pyenv from PATH during yay
 # Otherwise, it can install stuff to ~/.pyenv/...
 function yay() {
-	PATH="$(echo $PATH | tr ':' '\n' | grep -v 'pyenv' | perl -pe 'chomp if eof' | tr '\n' ':')" command yay "$@"
+	ORIG_PATH=$PATH
+
+	function cleanup() {
+		export PATH=$ORIG_PATH
+	}
+
+	trap cleanup EXIT
+
+	export PATH="$(echo $PATH | tr ':' '\n' | \
+		grep --invert-match 'pyenv' | \
+		grep --invert-match 'venv' | \
+		([[ -n $VIRTUAL_ENV ]] && grep --invert-match $VIRTUAL_ENV || cat) | \
+		perl -pe 'chomp if eof' | tr '\n' ':')"
+	command yay "$@"
 }
