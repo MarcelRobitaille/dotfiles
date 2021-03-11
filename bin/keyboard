@@ -19,5 +19,3 @@ case $1 in
     echo $LAYOUT > $FIFO
     ;;
 esac
-
-xmodmap $HOME/.Xmodmap

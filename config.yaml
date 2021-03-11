@@ -370,10 +370,6 @@ dotfiles:
     src: ./xbindkeys/.xbindkeysrc
     link: link
 
-  xmodmap:
-    dst: ~/.Xmodmap
-    src: ./xmodmap/.Xmodmap
-
   xresources:
     dst: ~/.Xresources
     src: ./xresources/.Xresources
@@ -479,7 +475,6 @@ profiles:
     - tint2
     - tmux
     - xbindkeys
-    - xmodmap
     - xresources
     - yay
     - zathura
@@ -513,5 +508,4 @@ profiles:
     - tern
     - tmux
     - xbindkeys
-    - xmodmap
     - xresources
