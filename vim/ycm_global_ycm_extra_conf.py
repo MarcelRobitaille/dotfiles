@@ -145,17 +145,22 @@ def get_platformio_environment(wdir):
 
     """
 
+    f = open('/tmp/ycm_global_ycm_extra_conf.log', 'w')
+
     idestate = get_idestate(wdir)
     if idestate == -1:
         return ["ERROR: get_idestate() returns -1"]
 
     _includes = idestate['includes']
+    print(_includes, file=f)
     # _cxx_path = idestate['cxx_path']
     _cxx_flags = idestate['cxx_flags']
     # _cc_path = idestate['cc_path']
     # _cc_flags = idestate['cc_flags']
     _defines = idestate['defines']
     # _lisbsource_dirs = idestate['libsource_dirs']
+
+    # _cxx_flags.append('-std=c++11')
 
     # ADD to _cxx_flags symbols found only in "_defines"
     new_cxx_flags = _cxx_flags.split()
@@ -178,7 +183,8 @@ def get_platformio_environment(wdir):
     for i in _includes:
         inc_list.append('-I' + i)
 
-    return(flags + new_cxx_flags + inc_list)
+    f.close()
+    return(flags + new_cxx_flags + inc_list + ['-std=c++11'])
 
 
 def FlagsForFile(filename, **kwargs):
@@ -209,4 +215,3 @@ if __name__ == "__main__":
 
     for a in allflags:
         print(a)
-
