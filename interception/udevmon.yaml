@@ -1,0 +1,11 @@
+# Small keyboard (esc -> grave)
+# TODO: Get this in dotdrop somehow
+- JOB: intercept -g $DEVNODE | caps2esc -m 2 | uinput -d $DEVNODE
+  DEVICE:
+    LINK: /dev/input/by-id/usb-1ea7_USB-HID_GamingKeyBoard-event-kbd
+
+- JOB: intercept -g $DEVNODE | caps2esc | uinput -d $DEVNODE
+  DEVICE:
+    EVENTS:
+      EV_KEY: [KEY_ESC, KEY_CAPSLOCK]
+    # LINK: /dev/input/by-path/platform-i8042-serio-0-event-kbd
