@@ -10,7 +10,7 @@ source "$HOME/.dotfiles/venv/bin/activate"
 systemctl --user start autorandr &
 
 # Restore desktop background
-~/.fehbg
+feh --no-fehbg --bg-fill "$HOME/Pictures/i-am-root.jpg"
 
 systemctl --user start polkit-agent &
 
