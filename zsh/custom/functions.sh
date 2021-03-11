@@ -63,3 +63,11 @@ function chpwd() {
 	fi
 }
 chpwd
+
+
+# AUR
+# Remove pyenv from PATH during yay
+# Otherwise, it can install stuff to ~/.pyenv/...
+function yay() {
+	PATH="$(echo $PATH | tr ':' '\n' | grep -v 'pyenv' | perl -pe 'chomp if eof' | tr '\n' ':')" command yay "$@"
+}
