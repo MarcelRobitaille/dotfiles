@@ -11,6 +11,8 @@ config:
   link_on_import: nolink
   ignore_missing_in_dotdrop: true
   minversion: 0.29.4
+  instignore:
+    - '*/__pycache__/*'
 
 actions:
   pre:
