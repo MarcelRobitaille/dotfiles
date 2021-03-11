@@ -14,13 +14,16 @@ function SetupTex()
 
 	let g:tex_flavor = 'latex'
 
-	let g:tex_IgnoredWarnings =
-		\ 'Underfull'."\n".
-		\ 'You might wish'."\n"
+	let g:Tex_IgnoredWarnings =
+		\ "Underfull\n".
+		\ "Overfull\n".
+		\ "You might wish\n"
 
-	let g:vimtex_quickfix_latexlog = {
-		\ 'underfull' : 0,
-		\}
+	let g:vimtex_quickfix_ignore_filters = [
+		\ 'Underfull',
+		\ 'Overfull',
+		\ 'Package hyperref Warning',
+		\]
 
 	let g:vimtex_compiler_latexmk = {
 	 \	'options': [
