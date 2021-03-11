@@ -66,14 +66,6 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
 
 #
-# Pyenv
-#
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/shims:$PATH"
-
-
-#
 # Ripgrep
 #
 
