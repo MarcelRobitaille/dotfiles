@@ -8,3 +8,4 @@ iabbrev COmponent Component
 iabbrev retrun return
 iabbrev oemga omega
 iabbrev taht that
+iabbrev celcius celsius
