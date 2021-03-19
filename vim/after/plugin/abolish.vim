@@ -12,4 +12,9 @@ if exists(':Abolish')
 	Abolish tache tâche
 	Abolish taches tâches
 	Abolish oeuvre œuvre
+	Abolish funx func
+	Abolish retrun return
+	Abolish oemga omega
+	Abolish taht that
+	Abolish celcius celsius
 endif
