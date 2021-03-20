@@ -31,3 +31,6 @@
 
 "xbindkeys_show"
 	control +shift + q
+
+"true"
+	control + q
