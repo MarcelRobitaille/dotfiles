@@ -1,0 +1,6 @@
+https://tasmota.github.io/docs/Home-Assistant/
+# List of templates
+https://github.com/stefanbode/Sonoff-Tasmota/blob/master/TEMPLATES.md
+https://www.youtube.com/watch?v=RQKvDozjwgE
+https://templates.blakadder.com/gosund_wp3.html
+https://templates.blakadder.com/plug.html
