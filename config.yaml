@@ -310,6 +310,11 @@ dotfiles:
     src: ./rofi-pass/config
     link: link
 
+  rust-motd:
+    dst: ~/.config/rust-motd/
+    src: ./rust-motd
+    link: link
+
   setxkbmap:
     dst: ~/.config/setxkbmap.conf
     src: ./setxkbmap/setxkbmap.conf
@@ -466,6 +471,7 @@ profiles:
     - ripgrep
     - rofimoji
     - rofi-pass
+    - rust-motd
     - setxkbmap
     - sqlite
     - ssh
