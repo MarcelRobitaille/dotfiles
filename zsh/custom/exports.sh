@@ -73,6 +73,13 @@ export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 
 
 #
+# Man
+#
+
+export MANPAGER="nvim -c 'set ft=man' -"
+
+
+#
 # Fast Node Manager
 #
 
