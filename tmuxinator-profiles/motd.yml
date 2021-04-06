@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: motd
+root: ~/code/rust_motd/
+windows:
+  - nvim: nvim
+  - zsh:
