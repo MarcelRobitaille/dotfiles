@@ -10,7 +10,7 @@ export VISUAL="$EDITOR"
 export SUDO_EDITOR="$EDITOR"
 export CHEATCOLORS=true
 export CHERE_INVOKING=1
-export TERM=xterm-256color
+export TERM=tmux-256color
 
 # Prevent "Couldn't connect to accessibility bus" warnings
 export NO_AT_BRIDGE=1
