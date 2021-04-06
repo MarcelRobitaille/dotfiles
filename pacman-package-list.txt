@@ -65,6 +65,7 @@ flake8
 flat-remix-git
 flat-remix-gtk
 flex
+fnm-bin
 fontforge
 frei0r-plugins
 gamin
@@ -179,7 +180,6 @@ ntfs-3g
 numlockx
 nvidia
 nvidia-settings
-nvm
 obconf
 oblogout
 obs-studio

@@ -70,3 +70,10 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 #
 
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
+
+
+#
+# Fast Node Manager
+#
+
+(command -v fnm &> /dev/null) && eval "$(fnm env)"

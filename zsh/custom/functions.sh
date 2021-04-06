@@ -56,11 +56,6 @@ function chpwd() {
 			deactivate
 		fi
 	fi
-
-	# If nvm function declared and pwd has .nvmrc
-	if declare -f nvm > /dev/null && [[ -f ./.nvmrc ]]; then
-		nvm use
-	fi
 }
 chpwd
 
