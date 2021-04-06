@@ -13,6 +13,8 @@ config:
   minversion: 0.29.4
   instignore:
     - '*/__pycache__/*'
+  filter_file:
+    - ./dotdrop_filters.py
 
 actions:
   pre:

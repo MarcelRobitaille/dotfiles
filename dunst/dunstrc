@@ -232,11 +232,11 @@
 {%@@ for contact in contacts.split('\n') @@%}
 [{{@@ contact @@}}]
 	summary="{{@@ contact @@}}"
-	new_icon="{{@@ contact @@}}"
+	new_icon="{{@@ contact | slufigy @@}}"
 [{{@@ contact @@}}-video-call]
 	summary="WhatsApp video call from {{@@ contact @@}}"
-	new_icon="{{@@ contact @@}}"
+	new_icon="{{@@ contact | slufigy @@}}"
 [{{@@ contact @@}}-voice-call]
 	summary="WhatsApp video call from {{@@ contact @@}}"
-	new_icon="{{@@ contact @@}}"
+	new_icon="{{@@ contact | slufigy @@}}"
 {%@@ endfor @@%}
