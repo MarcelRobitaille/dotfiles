@@ -1,0 +1,23 @@
+#!/bin/zsh
+
+local -a choices
+IFS=$'\n' choices=($(nvr --serverlist))
+
+local -a formatted
+
+for ((i = 1; i < $#choices; i++)); do
+	(echo "$i $(nvr --servername $choices[i] --remote-expr 'system("tmux display-message -t $TMUX_PANE -p \"#{pane_current_path}:#{session_name}:#{window_index} #{window_name}\"")')") &
+done | while IFS=' ' read i session_name; do
+	# Map respecting indices
+	# Since output is generated in forked process,
+	# it is not necessarily output in order
+	# Use the index to put it in array in correct spot
+	formatted[i]=$session_name
+done
+wait
+
+rofi_input=$(printf '%s\n' "${formatted[@]}" | column --table --table-columns pwd,session_name,window_name --separator :)
+
+choice=$(echo "$rofi_input" | tail -n +2 | rofi -dmenu -i -p session -format d -width 1500 -mesg $(echo "$rofi_input" | head -1))
+
+nvr --servername $choices[choice] --remote $1
