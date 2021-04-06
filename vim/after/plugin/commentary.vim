@@ -11,6 +11,7 @@ function! SetupCommentary()
 	autocmd FileType matlab setlocal commentstring=%\ %s
 	autocmd FileType python setlocal commentstring=#\ %s
 	autocmd FileType dosbatch setlocal commentstring=rem\ %s
+	autocmd FileType crontab setlocal commentstring=#\ %s
 endfunction
 
 autocmd! user vim-commentary call SetupCommentary()
