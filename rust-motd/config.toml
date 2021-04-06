@@ -1,0 +1,51 @@
+[banner]
+color = "red"
+command = "hostname | figlet -f slant"
+
+[weather]
+loc = "Waterloo, Canada"
+
+# [service_status]
+# Accounts = "accounts-daemon"
+# Cron = "cron"
+
+[user_service_status]
+polkit-agent = "polkit-agent"
+dunst = "dunst"
+xbindkeys = "xbindkeys"
+picom = "picom"
+redshift = "redshift"
+tint2 = "tint2"
+nextcloud = "nextcloud"
+onedrive = "onedrive"
+media-control-indicator = "media-control-indicator"
+nm-applet = "nm-applet"
+system-config-printer = "system-config-printer"
+kdeconnect = "kdeconnect"
+davmail = "davmail"
+blueman-applet = "blueman-applet"
+thunar = "thunar"
+octoload = "octoload"
+maximize-large-windows = "maximize-large-windows"
+ligh-locker = "lick-locker"
+xidlehook = "xidlehook"
+
+[uptime]
+prefix = "Uptime"
+
+# [ssl_certificates]
+# sort_method = "alphabetical"
+
+#     [ssl_certificates.certs]
+#     "robitaille.host" = "/blaaaaaa"
+
+[filesystems]
+root = "/"
+
+# [fail_2_ban]
+# jails = ["sshd"]
+
+# [last_login]
+# marcel = 2
+
+[last_run]
