@@ -84,3 +84,10 @@ export MANPAGER="nvim -c 'set ft=man' -"
 #
 
 (command -v fnm &> /dev/null) && eval "$(fnm env)"
+
+
+#
+# Android studio
+#
+
+export ANDROID_HOME=~/.android-sdk
