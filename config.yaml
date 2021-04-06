@@ -18,7 +18,7 @@ actions:
   pre:
     oh_my_zsh_install: test -e ~/.oh-my-zsh/oh-my-zsh.sh || (rm -rf ~/.oh-my-zsh; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)")
   nvim_plug_install: nvim +PlugInstall +qall
-  update_crontab: "cat /tmp/dotdrop-crontab | crontab -"
+  update_crontab: '(echo "# vim: nomodifiable"; echo "# Managed by dotdrop"; cat /tmp/dotdrop-crontab) | crontab -'
 
   post:
     pacman_check_requirements: echo "Missing packages:" && bash -c "comm -23 <(sort -u {{@@ _dotfile_abs_src @@}}) <(pacman -Qq | sort)"
