@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONTACT_DIR="$HOME/.contacts/Contacts"
+CONTACT_DIR="$HOME/Contacts/Contacts"
 
 vdirsyncer discover
 vdirsyncer sync
