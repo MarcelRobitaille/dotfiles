@@ -1,3 +1,3 @@
 files = [/home/marcel/.dotfiles/rofimoji/emojis_custom.csv, geometric_shapes_extended, greek_and_coptic, greek_extended, /home/marcel/.dotfiles/rofimoji/custom.csv]
-insert-with-clipboard = true
+action = clipboard
 skin-tone = neutral
