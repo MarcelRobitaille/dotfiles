@@ -236,15 +236,11 @@
 
 @-moz-document url-prefix("https://nextcloud.robitaille.host/") {
 	/* Hide extra 2 lines after 15 minute block */
-	.fc-timegrid-slots tr:nth-child(3n) > td,
-	.fc-timegrid-slots tr:nth-child(3n+2) > td{
+	.fc-timegrid-slots tr:not(:nth-child(6n+1)) > td {
 		display: none;
 	}
 	/* Hide text for 15 minutes (only show rounded hours) */
-	.fc-timegrid-slots tr:nth-child(4n) > td:first-child,
-	.fc-timegrid-slots tr:nth-child(4n-1) > td:first-child,
-	.fc-timegrid-slots tr:nth-child(4n-2) > td:first-child {
-		visibility: hidden;
+	.fc-timegrid-slots tr:nth-child(12n+7) > td:first-child {
 		opacity: 0;
 	}
 
