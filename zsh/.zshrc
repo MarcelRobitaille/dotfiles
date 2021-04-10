@@ -15,8 +15,6 @@ done
 
 DEFAULT_USER="marcel"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 autoload -U promptinit; promptinit
 prompt pure
 
@@ -37,6 +35,6 @@ bindkey '^[[B' down-line-or-beginning-search
 
 # Enable FZF stuff in terminal
 # Like ctrl-r history search
-source $HOME/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 cat $HOME/.local/etc/motd
