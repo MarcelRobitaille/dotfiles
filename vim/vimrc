@@ -222,10 +222,16 @@ set linebreak
 " Invisibles setup
 set list
 set listchars=space:·,tab:\│\ ,
+
+" Hacky way to make spaces visible only as indentation
+" Make invisibles black by default,
+" and add new highlight group to show leading and trainling spaces and tabs
+" God I wish everyone would just use tabs for indentation
+" I can't use indentline because it messes with conceals and I don't like that
+hi NonText ctermbg=NONE ctermfg=0 cterm=NONE
 augroup invisibles
 	autocmd ColorScheme * hi VisibleWhiteSpace ctermbg=NONE ctermfg=8
-	autocmd ColorScheme * match VisibleWhiteSpace /\(^\(\t\|\ \)\+\|\ \+$\)/
-	autocmd BufEnter * match VisibleWhiteSpace /\(^\(\t\|\ \)\+\|\ \+$\)/
+	autocmd ColorScheme,WinEnter * match VisibleWhiteSpace /\(^\(\t\|\ \)\+\|\ \+$\)/
 augroup END
 
 " Indentation
