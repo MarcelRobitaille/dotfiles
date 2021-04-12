@@ -58,6 +58,7 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 		Plug 'andymass/vim-matchup'
 
 		Plug 'AndrewRadev/sideways.vim'
+		Plug 'tommcdo/vim-exchange'
 
 		Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
