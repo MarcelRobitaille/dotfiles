@@ -26,7 +26,6 @@ nnoremap <leader>df :Gdiff<CR>
 " ========================================
 
 nnoremap <leader>n :NERDTreeToggle<CR>
-nnoremap <silent> <Leader>f :NERDTreeFind<CR>
 
 
 " Ale
