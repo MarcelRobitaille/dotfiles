@@ -15,7 +15,8 @@ nnoremap <C-H> <C-W><C-H>
 " Fuzzy Finder
 " ========================================
 
-nnoremap <C-p> :FZF<CR>
+nnoremap <leader>g :GFiles<CR>
+nnoremap <leader>f :Files<CR>
 
 
 " Commentary
