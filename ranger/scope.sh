@@ -38,6 +38,8 @@ HIGHLIGHT_SIZE_MAX=262143  # 256KiB
 HIGHLIGHT_TABWIDTH=8
 HIGHLIGHT_STYLE='pablo'
 PYGMENTIZE_STYLE='autumn'
+OPENSCAD_IMGSIZE=${RNGR_OPENSCAD_IMGSIZE:-1000,1000}
+OPENSCAD_COLORSCHEME=${RNGR_OPENSCAD_COLORSCHEME:-Tomorrow Night}
 
 
 handle_extension() {
@@ -123,6 +125,28 @@ handle_image() {
             --outdir /tmp \
             && mv -T "/tmp/$(basename ${FILE_PATH%.*}).jpg" "${IMAGE_CACHE_PATH}" \
             && exit 6 || exit 1;;
+    esac
+
+    openscad_image() {
+        TMPPNG="$(mktemp -t XXXXXX.png)"
+        openscad --colorscheme="${OPENSCAD_COLORSCHEME}" \
+            --imgsize="${OPENSCAD_IMGSIZE/x/,}" \
+            -o "${TMPPNG}" "${1}"
+        mv "${TMPPNG}" "${IMAGE_CACHE_PATH}"
+    }
+
+    case "${FILE_EXTENSION_LOWER}" in
+        ## 3D models
+        ## OpenSCAD only supports png image output, and ${IMAGE_CACHE_PATH}
+        ## is hardcoded as jpeg. So we make a tempfile.png and just
+        ## move/rename it to jpg. This works because image libraries are
+        ## smart enough to handle it.
+        csg|scad|step)
+            openscad_image "${FILE_PATH}" && exit 6
+            ;;
+        3mf|amf|dxf|off|stl)
+            openscad_image <(echo "import(\"${FILE_PATH}\");") && exit 6
+            ;;
     esac
 }
 
