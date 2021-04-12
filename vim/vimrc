@@ -1,5 +1,8 @@
+let s:xdg_config_home = len($XDG_CONFIG_HOME) == 0
+\ ? $HOME . '/.config'
+\ : $XDG_CONFIG_HOME
 let s:vim_config_dir = has('nvim')
-\ ? $XDG_CONFIG_HOME . '/nvim/'
+\ ? s:xdg_config_home . '/nvim/'
 \ : $HOME . '/.vim/'
 
 
