@@ -8,6 +8,7 @@ alias incognito="fc -p; PURE_PROMPT_SYMBOL=''"
 # Places
 alias ls="lsd"
 alias ll="lsd -lah"
+alias cat="bat"
 
 # Git
 alias g="git"

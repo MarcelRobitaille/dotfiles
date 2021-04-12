@@ -44,4 +44,4 @@ bindkey -v '^?' backward-delete-char
 # Like ctrl-r history search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-cat $HOME/.local/etc/motd
+< $HOME/.local/etc/motd
