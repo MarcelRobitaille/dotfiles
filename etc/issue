@@ -1,0 +1,17 @@
+\e]P0{{@@ color_normal_black @@}}
+\e]P1{{@@ color_normal_red @@}}
+\e]P2{{@@ color_normal_green @@}}
+\e]P3{{@@ color_normal_yellow @@}}
+\e]P4{{@@ color_normal_blue @@}}
+\e]P5{{@@ color_normal_magenta @@}}
+\e]P6{{@@ color_normal_cyan @@}}
+\e]P7{{@@ color_normal_white @@}}
+\e]P8{{@@ color_normal_black @@}}
+\e]P9{{@@ color_bright_red @@}}
+\e]PA{{@@ color_bright_green @@}}
+\e]PB{{@@ color_bright_yellow @@}}
+\e]PC{{@@ color_bright_blue @@}}
+\e]PD{{@@ color_bright_magenta @@}}
+\e]PE{{@@ color_bright_cyan @@}}
+\e]PF{{@@ color_bright_white @@}}
+[H[2J[3J

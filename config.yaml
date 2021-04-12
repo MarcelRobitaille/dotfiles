@@ -176,6 +176,10 @@ dotfiles:
     dst: ~/.config/dunst
     src: ./dunst
 
+  etc:
+    dst: /etc/
+    src: ./etc/
+
   firefox:
     dst: '{{@@ mozilla_path @@}}'
     src: ./firefox/
@@ -487,6 +491,10 @@ profiles:
     - xresources
     - yay
     - zathura
+
+  root:
+    dotfiles:
+      - etc
 
   Zeus:
     include:
