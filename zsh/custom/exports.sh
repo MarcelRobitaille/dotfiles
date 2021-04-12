@@ -100,6 +100,13 @@ export MANPAGER="nvim -c 'set ft=man' -"
 
 
 #
+# Zoxide
+#
+
+(command -v zoxide &> /dev/null) && eval "$(zoxide init zsh)"
+
+
+#
 # Android studio
 #
 
