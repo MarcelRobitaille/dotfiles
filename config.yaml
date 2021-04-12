@@ -111,7 +111,7 @@ dynvariables:
   # Use a dynamic variable as a path and populate it with crontab
   # Hack to make compare work correctly
   populate_crontab: crontab -l > /tmp/dotdrop-crontab; echo /tmp/dotdrop-crontab
-  contacts: find ~/Contacts/Contacts -name '*.png' -exec basename {} .png \;
+  contacts: test -e ~/.config/dunst/contacts/contacts-list.txt && cat ~/.config/dunst/contacts/contacts-list.txt || true
 trans_read:
   _gpg: test {0} -nt {{@@ _dotfile_abs_dst @@}} && (
     gpg2 -q --for-your-eyes-only --no-tty --decrypt {0} > {1}) || (

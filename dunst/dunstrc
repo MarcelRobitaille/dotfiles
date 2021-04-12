@@ -132,7 +132,7 @@
 	browser = /usr/bin/firefox -new-tab
 
 	icon_position = left
-	icon_path = /home/marcel/.config/dunst/icons/:/usr/share/icons/Flat-Remix-Blue/status/scalable/512/:/usr/share/icons/Arc/panel/22/:/usr/share/icons/Arc/status/48/:/usr/share/icons/Paper/48x48/places:/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/home/marcel/.contacts/Contacts/:/usr/share/icons/hicolor/48x48/
+	icon_path = /home/marcel/.config/dunst/icons/:/home/marcel/.config/dunst/contacts/:/usr/share/icons/Flat-Remix-Blue/status/scalable/512/:/usr/share/icons/Arc/panel/22/:/usr/share/icons/Arc/status/48/:/usr/share/icons/Paper/48x48/places:/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/hicolor/48x48/
 
 	min_icon_size = 48
 	max_icon_size = 120
