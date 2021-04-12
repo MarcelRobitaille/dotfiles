@@ -240,7 +240,7 @@ set listchars=space:·,tab:\│\ ,
 " I can't use indentline because it messes with conceals and I don't like that
 hi NonText ctermbg=NONE ctermfg=0 cterm=NONE
 augroup invisibles
-	autocmd ColorScheme * hi VisibleWhiteSpace ctermbg=NONE ctermfg=8
+	autocmd ColorScheme * hi VisibleWhiteSpace ctermbg=NONE ctermfg=7
 	autocmd ColorScheme,WinEnter * match VisibleWhiteSpace /\(^\(\t\|\ \)\+\|\ \+$\)/
 augroup END
 
