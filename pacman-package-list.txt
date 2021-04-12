@@ -26,10 +26,8 @@ cava
 chromium
 cloc
 cnijfilter2-mg7700
-code
 conky
 coreutils
-cower
 cowsay
 cryptsetup
 cups
@@ -47,7 +45,6 @@ dunst
 dvdauthor
 e2fsprogs
 eagle
-easytag
 engrampa
 eog
 evince
@@ -118,8 +115,6 @@ lead-git
 lemonbar-dark-yux-git
 less
 lib32-gconf
-lib32-gst-plugins-base
-lib32-gst-plugins-good
 lib32-libcanberra-pulse
 lib32-libva-intel-driver
 lib32-libva-vdpau-driver
@@ -181,7 +176,6 @@ numlockx
 nvidia
 nvidia-settings
 obconf
-oblogout
 obs-studio
 odt2txt
 onedrive-abraunegg
@@ -209,7 +203,6 @@ pkgconf
 playonlinux
 postman-bin
 powertop
-printrun
 procps-ng
 psensor
 psmisc
@@ -232,8 +225,6 @@ python2-chardet
 python2-idna
 python2-numpy
 python2-pip
-python2-pyalsa
-python2-pyserial
 python2-urllib3
 qt4
 qt5-styleplugins
