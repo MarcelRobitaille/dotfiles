@@ -9,7 +9,17 @@ export VISUAL="$EDITOR"
 export SUDO_EDITOR="$EDITOR"
 export CHEATCOLORS=true
 export CHERE_INVOKING=1
-export TERM=tmux-256color
+
+# Use printable characters for prompt symbols in tty
+# Must come before overwriting TERM
+if [ "$TERM" = linux ]; then
+	export PURE_PROMPT_SYMBOL='>'
+	export PURE_PROMPT_VICMD_SYMBOL='<'
+	export PURE_GIT_DOWN_ARROW='v'
+	export PURE_GIT_UP_ARROW='^'
+	export PURE_GIT_STASH_SYMBOL='s'
+fi
+export TERM=xterm-256color
 
 # Prevent "Couldn't connect to accessibility bus" warnings
 export NO_AT_BRIDGE=1
