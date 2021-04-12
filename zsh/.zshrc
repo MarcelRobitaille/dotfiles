@@ -33,6 +33,13 @@ bindkey '^N' down-line-or-beginning-search
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 
+# Use vim keys in tab complete menu:
+bindkey -M menuselect '^h' vi-backward-char
+bindkey -M menuselect '^k' vi-up-line-or-history
+bindkey -M menuselect '^l' vi-forward-char
+bindkey -M menuselect '^j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
 # Enable FZF stuff in terminal
 # Like ctrl-r history search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
