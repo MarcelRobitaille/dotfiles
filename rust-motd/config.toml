@@ -10,7 +10,6 @@ loc = "Waterloo, Canada"
 # Cron = "cron"
 
 [user_service_status]
-polkit-agent = "polkit-agent"
 dunst = "dunst"
 xbindkeys = "xbindkeys"
 picom = "picom"
