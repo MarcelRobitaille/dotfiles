@@ -365,3 +365,10 @@ autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 for f in split(glob('$HOME/.config/nvim/templated/*.vim'), '\n')
 	exe 'source' f
 endfor
+augroup marcel_text_yank_post
+	autocmd!
+
+	if exists('##TextYankPost')
+		autocmd TextYankPost * lua vim.highlight.on_yank { higroup='Substitute', timeout=200 }
+	endif
+augroup END
