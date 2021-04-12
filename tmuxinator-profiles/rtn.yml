@@ -1,0 +1,8 @@
+# vim: modelines=0
+
+name: rtn
+root: ~/code/quin/CMOS_RTN/marcel/
+windows:
+  - nvim: nvim
+  - zsh:
+  - ranger: ranger data
