@@ -36,10 +36,6 @@ mkd() {
 	mkdir -p "$@" && cd "$_";
 }
 
-cptoct(){
-	scp $1 clairitech:~/website/$1
-}
-
 # https://stackoverflow.com/questions/45216663/how-to-automatically-activate-virtualenvs-when-cding-into-a-directory
 function chpwd() {
 	if [[ -z "$VIRTUAL_ENV" ]] ; then
