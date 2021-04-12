@@ -113,3 +113,5 @@
 	textconv = gpg --for-your-eyes-only --no-tty --decrypt
 [pull]
 	rebase = true
+[init]
+	defaultBranch = main
