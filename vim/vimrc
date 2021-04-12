@@ -141,6 +141,8 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 		" Automatically remove search highlighting
 		Plug 'haya14busa/incsearch.vim'
 
+		Plug 'nelstrom/vim-visual-star-search'
+
 		Plug 'chrisbra/Colorizer'
 
 		" Colour manipulation
