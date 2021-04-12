@@ -313,9 +313,8 @@ dotfiles:
     link: link
 
   rust-motd:
-    dst: ~/.config/rust-motd/
-    src: ./rust-motd
-    link: link
+    dst: ~/.config/rust-motd/config.toml
+    src: ./rust-motd/config.toml
 
   setxkbmap:
     dst: ~/.config/setxkbmap.conf

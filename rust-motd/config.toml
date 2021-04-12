@@ -22,12 +22,14 @@ nm-applet = "nm-applet"
 system-config-printer = "system-config-printer"
 kdeconnect = "kdeconnect"
 davmail = "davmail"
-blueman-applet = "blueman-applet"
 thunar = "thunar"
 octoload = "octoload"
 maximize-large-windows = "maximize-large-windows"
-ligh-locker = "lick-locker"
+{%@@ if profile == "Hermes" @@%}
 xidlehook = "xidlehook"
+blueman-applet = "blueman-applet"
+ligh-locker = "lick-locker"
+{%@@ endif @@%}
 
 [uptime]
 prefix = "Uptime"
