@@ -131,7 +131,7 @@ dotfiles:
     link: link
 
   bin:
-    dst: ~/bin/
+    dst: ~/.local/bin/
     src: ./bin/
 
   picom:
