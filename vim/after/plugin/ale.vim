@@ -50,6 +50,17 @@ function! SetupAle()
 		let g:ale_python_pylint_options = '--rcfile=' . l:pylintrc_path
 	endif
 
+	" Mappings
+	" ========================================
+
+	" TODO: Try to get used to putting this into quickfix / local list and use much
+	" more convenient <C-n> / <C-p>
+	nmap <silent> <leader>k <Plug>(ale_previous_wrap)
+	nmap <silent> <leader>j <Plug>(ale_next_wrap)
+
+	" <leader>x -- fix file (mnemonic: fi[x])
+	nnoremap <leader>x :ALEFix<CR>
+
 endfunction
 
 autocmd! User ale call SetupAle()

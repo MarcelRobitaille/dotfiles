@@ -43,6 +43,12 @@ function SetupTex()
 	setlocal spell
 
 	setlocal iskeyword-=:
+
+	" Mappings
+	" ========================================
+
+	nnoremap <leader>t <Plug>vimtex-compile
+
 endfunction
 
 augroup marcel_tex_filetype

@@ -12,6 +12,16 @@ function! SetupCommentary()
 	autocmd FileType python setlocal commentstring=#\ %s
 	autocmd FileType dosbatch setlocal commentstring=rem\ %s
 	autocmd FileType crontab setlocal commentstring=#\ %s
+
+	" Mappings
+	" ========================================
+
+	" ctrl-/ -- Insert current comment leader replacing %s
+	imap <C-_> <C-r>=substitute(&commentstring, '%s', '', '')<CR>
+
+	" ctrl-/ -- Comment selection
+	vmap <C-_> <Plug>Commentary
+
 endfunction
 
 autocmd! user vim-commentary call SetupCommentary()

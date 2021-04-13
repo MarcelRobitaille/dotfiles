@@ -57,6 +57,11 @@ function SetupNERDTree()
 		endif
 		if exists('g:launching_fzf') | unlet g:launching_fzf | endif
 	endfunction
+
+	" Mappings
+	" ========================================
+
+	nnoremap <leader>n :NERDTreeToggle<CR>
 endfunction
 
 autocmd! User nerdtree call SetupNERDTree()

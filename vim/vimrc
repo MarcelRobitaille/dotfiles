@@ -5,6 +5,9 @@ let s:vim_config_dir = has('nvim')
 \ ? s:xdg_config_home . '/nvim/'
 \ : $HOME . '/.vim/'
 
+" TODO: Add mnemonics for mappings (or at least make everything consistent)
+
+
 " TODO: Move
 for f in split(glob('$HOME/.config/nvim/templated/*.vim'), '\n')
 	execute 'source' f
@@ -291,13 +294,6 @@ set nofoldenable
 
 " Allow buffers in background
 set hidden
-
-" Go to nth buffer
-let c = 1
-while c <= 999
-	execute "nnoremap " . c . "<leader> :" . c . "b\<CR>"
-	let c += 1
-endwhile
 
 " Automatically update files
 set autoread

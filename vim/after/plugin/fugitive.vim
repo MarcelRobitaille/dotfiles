@@ -24,6 +24,17 @@ function! SetupFugitive()
 	let g:fugitive_gitlab_domains = ['https://gitlab.robitaille.host', 'https://git.uwaterloo.ca']
 	let g:fugitive_gitlab_ssh_user = 'gitlab'
 
+	" Mappings
+	" ========================================
+
+	" <leader>s -- Git status
+	nnoremap <leader>s :Gstatus<CR>
+
+	" <leader>c -- Git commit
+	nnoremap <leader>c :Gcommit<CR>
+
+	" <leader>df -- Git diff (mnemonic: git [d]i[f]f)
+	nnoremap <leader>df :Gdiff<CR>
 endfunction
 
 autocmd! User vim-fugitive call SetupFugitive()
