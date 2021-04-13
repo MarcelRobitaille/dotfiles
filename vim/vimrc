@@ -65,6 +65,9 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 
 		Plug 'andymass/vim-matchup'
 
+		" Copy text from anywhere
+		Plug 'ojroques/vim-oscyank'
+
 		Plug 'AndrewRadev/sideways.vim'
 		Plug 'tommcdo/vim-exchange'
 
