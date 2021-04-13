@@ -384,3 +384,8 @@ augroup marcel_colorcolumn
 	autocmd!
 	autocmd BufReadPost,BufNew,ColorScheme,WinEnter * call SetColorColumn()
 augroup END
+
+augroup marcel_formatprg
+	autocmd!
+	autocmd FileType json let &formatprg="jq ."
+augroup END
