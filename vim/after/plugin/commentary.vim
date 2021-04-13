@@ -12,6 +12,7 @@ function! SetupCommentary()
 	autocmd FileType python setlocal commentstring=#\ %s
 	autocmd FileType dosbatch setlocal commentstring=rem\ %s
 	autocmd FileType crontab setlocal commentstring=#\ %s
+	autocmd FileType css setlocal commentstring=/* %s */
 
 	" Mappings
 	" ========================================
