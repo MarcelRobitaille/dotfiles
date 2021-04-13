@@ -309,9 +309,6 @@ endfunction
 nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 
-" Continue comments on next line when max length is reached
-set textwidth=79
-
 augroup textwidth_autogroup
 	autocmd FileType markdown setlocal textwidth=0
 augroup END
@@ -371,4 +368,19 @@ augroup marcel_text_yank_post
 	if exists('##TextYankPost')
 		autocmd TextYankPost * lua vim.highlight.on_yank { higroup='Substitute', timeout=200 }
 	endif
+augroup END
+
+" Continue comments on next line when max length is reached
+set textwidth=79
+
+function! SetColorColumn()
+	if exists('+colorcolumn')
+		" Highlight up to 255 columns (this is the current Vim max) beyond 'textwidth'
+		let &l:colorcolumn='+' . join(range(1, 254), ',+')
+	endif
+endfunction
+
+augroup marcel_colorcolumn
+	autocmd!
+	autocmd BufReadPost,BufNew,ColorScheme,WinEnter * call SetColorColumn()
 augroup END
