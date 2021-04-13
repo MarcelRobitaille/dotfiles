@@ -377,6 +377,8 @@ function! OpenURLUnderCursor()
 	endif
 endfunction
 nnoremap gx :call OpenURLUnderCursor()<CR>
+
+let g:python3_host_prog = '/usr/bin/python'
 augroup marcel_text_yank_post
 	autocmd!
 
