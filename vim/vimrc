@@ -246,9 +246,9 @@ set listchars=space:·,tab:\│\ ,
 " and add new highlight group to show leading and trailing spaces and tabs
 " God I wish everyone would just use tabs for indentation
 " I can't use indentline because it messes with conceals and I don't like that
-hi NonText ctermbg=NONE ctermfg=0 cterm=NONE
 augroup invisibles
-	autocmd ColorScheme * hi VisibleWhiteSpace ctermbg=NONE ctermfg=7
+	autocmd ColorScheme * call SetHighlight('hi NonText ctermbg=NONE ctermfg=0 cterm=NONE')
+	autocmd ColorScheme * call SetHighlight('hi VisibleWhiteSpace ctermbg=NONE ctermfg=7')
 	autocmd ColorScheme,WinEnter * match VisibleWhiteSpace /\(^\(\t\|\ \)\+\|\ \+$\)/
 augroup END
 
