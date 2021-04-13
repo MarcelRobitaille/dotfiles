@@ -5,6 +5,11 @@ let s:vim_config_dir = has('nvim')
 \ ? s:xdg_config_home . '/nvim/'
 \ : $HOME . '/.vim/'
 
+" TODO: Move
+for f in split(glob('$HOME/.config/nvim/templated/*.vim'), '\n')
+	execute 'source' f
+endfor
+
 
 "
 " Plugins
@@ -364,10 +369,6 @@ autocmd BufEnter /home/marcel/Nextcloud/Italian/**/* set spell spelllang=it spel
 " Set wrap in vimdiff
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
-" TODO: Move
-for f in split(glob('$HOME/.config/nvim/templated/*.vim'), '\n')
-	exe 'source' f
-endfor
 augroup marcel_text_yank_post
 	autocmd!
 
