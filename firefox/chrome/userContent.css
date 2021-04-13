@@ -69,7 +69,9 @@
 		min-height: 100%;
 	}
 
-	[aria-label="Report spam"] {
+	/* The attributes on this guy change for some reason. Super hard to
+	 * troubleshoot. It changes as you hover over it */
+	[title="Report spam"], [aria-label="Report spam"] {
 		display: none !important;
 	}
 }
