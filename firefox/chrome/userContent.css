@@ -68,6 +68,10 @@
 	.nH.oy8Mbf.nn.aeN > div:first-child > div > div > div > div:nth-child(2) > div {
 		min-height: 100%;
 	}
+
+	[aria-label="Report spam"] {
+		display: none !important;
+	}
 }
 
 
