@@ -406,9 +406,13 @@ function! SetColorColumn()
 		let &l:colorcolumn='+' . join(range(1, 254), ',+')
 	endif
 endfunction
+call SetColorColumn()
 
 augroup marcel_colorcolumn
 	autocmd!
+	" TODO: These are probably too much
+	" I went for the shotgun approach
+	" Figure out which are actually required
 	autocmd BufReadPost,BufNew,ColorScheme,WinEnter * call SetColorColumn()
 augroup END
 
