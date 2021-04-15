@@ -263,7 +263,7 @@ set copyindent
 set preserveindent
 
 " Indent with tabs, align with spaces
-" I am agaisnt lining up code as this creates unecessary changes when diffing,
+" I am against lining up code as this creates unnecessary changes when diffing,
 " but it is needed for comment blocks with a single leading space
 " set cindent
 " set cinoptions=(0,u0,U0
