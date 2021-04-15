@@ -19,6 +19,7 @@ config:
 actions:
   pre:
     oh_my_zsh_install: test -e ~/.oh-my-zsh/oh-my-zsh.sh || (rm -rf ~/.oh-my-zsh; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)")
+    check_interception_vimproved: test -e /opt/interception-vimproved/interception-vimproved
   nvim_plug_install: nvim +PlugInstall +qall
   update_crontab: '(echo "# vim: nomodifiable"; echo "# Managed by dotdrop"; cat /tmp/dotdrop-crontab) | crontab -'
 
@@ -203,6 +204,12 @@ dotfiles:
   gtk:
     dst: ~/.config/gtk-3.0/
     src: ./gtk/
+
+  interception:
+    dst: /etc/interception/
+    src: ./interception
+    actions:
+      - check_interception_vimproved
 
   latex_templates:
     dst: ~/.local/templates/latex
@@ -495,6 +502,7 @@ profiles:
   root:
     dotfiles:
       - etc
+      - interception
 
   Zeus:
     include:
