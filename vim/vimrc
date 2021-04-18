@@ -392,7 +392,7 @@ set inccommand=split
 augroup marcel_text_yank_post
 	autocmd!
 
-	if exists('##TextYankPost')
+	if exists('##TextYankPost') && has('nvim') && luaeval('vim.highlight ~= nil')
 		autocmd TextYankPost * lua vim.highlight.on_yank { higroup='Substitute', timeout=200 }
 	endif
 augroup END
