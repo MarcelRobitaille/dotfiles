@@ -28,7 +28,7 @@ function! SetupFugitive()
 	" ========================================
 
 	" <leader>s -- Git status
-	nnoremap <leader>s :Gstatus<CR>
+	nnoremap <leader>s :Git<CR>
 
 	" <leader>c -- Git commit
 	nnoremap <leader>c :Gcommit<CR>
