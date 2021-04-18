@@ -17,6 +17,9 @@ function! SetupCommentary()
 	" Mappings
 	" ========================================
 
+	" ctrl-/ -- Toggle comment on crrent line
+	nmap <C-_> <Plug>CommentaryLine
+
 	" ctrl-/ -- Insert current comment leader replacing %s
 	imap <C-_> <C-r>=substitute(&commentstring, '%s', '', '')<CR>
 
