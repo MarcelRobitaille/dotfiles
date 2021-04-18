@@ -1,0 +1,12 @@
+[Unit]
+Description=Port forward port 8080 from RAC1007
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ssh -vvv -g -N -T -o "ServerAliveInterval 10" -o "ExitOnForwardFailure yes" -L 8082:localhost:8080 RAC1007_gateway_pi_t
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
