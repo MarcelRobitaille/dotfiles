@@ -4,7 +4,7 @@
 	email = mail@marcelrobitaille.me
 	name = Marcel Robitaille
 [push]
-	default = simple
+	default = current
 [core]
 	editor = nvim
 	attributesfile = ~/.config/git/.gitattributes
