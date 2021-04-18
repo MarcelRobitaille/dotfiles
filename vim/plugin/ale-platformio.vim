@@ -2,14 +2,14 @@ let s:pio_ini = glob("platformio.ini")
 
 " Fail if can't find ini
 if empty(s:pio_ini)
-  finish
+	finish
 endif
 
 " Fail if not valid json
 let s:pio_gcc_flags  = json_decode(system('pio project data --json-output'))
 if empty(s:pio_gcc_flags)
-  echoerr 'Failed to parse ' . s:pio_flags_file
-  finish
+	echoerr 'Failed to parse ' . s:pio_flags_file
+	finish
 endif
 
 " Default to first environment
