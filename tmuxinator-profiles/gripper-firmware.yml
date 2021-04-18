@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: gripper-firmware
+root: ~/code/quin/CNT_Automation/Opentrons_Modifications/Gripper/firmware/
+windows:
+  - nvim: nvim
+  - zsh:

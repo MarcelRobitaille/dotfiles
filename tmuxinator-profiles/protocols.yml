@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: protocols
+root: ~/code/quin/CNT_Automation/protocols/
+windows:
+  - nvim: nvim
+  - zsh:
