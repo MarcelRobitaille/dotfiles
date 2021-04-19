@@ -229,6 +229,9 @@ set splitright
 " Appearance
 "
 
+" Colourscheme settings
+silent! colorscheme wal
+
 set fileformats=unix
 
 " Syntax highlighting
@@ -250,16 +253,18 @@ set listchars=space:·,tab:\│\ ,
 " and add new highlight group to show leading and trailing spaces and tabs
 " God I wish everyone would just use tabs for indentation
 " I can't use indentline because it messes with conceals and I don't like that
+function! HighlightVisibleWhitespace()
+	call SetHighlight('hi NonText ctermbg=NONE ctermfg=0 cterm=NONE')
+	call SetHighlight('hi VisibleWhiteSpace ctermbg=0 ctermfg=8')
+	match VisibleWhiteSpace /\(^\(\t\|\ \)\+\|\ \+$\)/
+endfunction
+
 augroup marcel_visible_whitespace
 	autocmd!
-	autocmd ColorScheme *
-				\ call SetHighlight('hi NonText ctermbg=NONE ctermfg=0 cterm=NONE')
-	autocmd ColorScheme *
-				\ call SetHighlight('hi VisibleWhiteSpace ctermbg=NONE ctermfg=8')
-	autocmd ColorScheme,WinEnter *
-				\ match VisibleWhiteSpace /\(^\(\t\|\ \)\+\|\ \+$\)/
+	autocmd ColorScheme,WinEnter * call HighlightVisibleWhitespace()
 	autocmd FileType help set nolist
 augroup END
+call HighlightVisibleWhitespace()
 
 " Indentation
 set tabstop=2 softtabstop=2 shiftwidth=2 smarttab
@@ -356,9 +361,6 @@ set laststatus=2
 
 " Hide default status bar
 set shortmess+=F
-
-" Colourscheme settings
-silent! colorscheme wal
 
 let g:NERDSpaceDelims = 1
 
