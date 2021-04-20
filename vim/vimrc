@@ -412,7 +412,7 @@ set textwidth=79
 function! SetColorColumn()
 	if exists('+colorcolumn')
 		" Highlight columns 1 to textwidth
-		let &l:colorcolumn=join(range(1, &l:textwidth), ',')
+		let &l:colorcolumn='+' . join(range(1, 254), ',+')
 	endif
 endfunction
 call SetColorColumn()
