@@ -407,7 +407,7 @@ augroup marcel_text_yank_post
 augroup END
 
 " Continue comments on next line when max length is reached
-set textwidth=79
+set textwidth=80
 
 function! SetColorColumn()
 	if exists('+colorcolumn')
