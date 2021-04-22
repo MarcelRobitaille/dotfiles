@@ -261,7 +261,7 @@ endfunction
 
 augroup marcel_visible_whitespace
 	autocmd!
-	autocmd ColorScheme,WinEnter * call HighlightVisibleWhitespace()
+	autocmd ColorScheme,WinEnter,BufEnter,BufRead * call HighlightVisibleWhitespace()
 	autocmd FileType help set nolist
 augroup END
 call HighlightVisibleWhitespace()
