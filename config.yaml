@@ -78,6 +78,7 @@ variables:
     - 'static'
     - 'static.debug'
     - 'migrations'
+    - 'typings'
 
   standard_ignored_files:
     - '*-blx.bib'
