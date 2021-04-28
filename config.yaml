@@ -385,6 +385,16 @@ dotfiles:
     dst: ~/.oh-my-zsh/custom/plugins/tmuxinator.zsh
     link: link
 
+  vim:
+    dst: ~/.vim
+    src: ./vim/
+    instignore:
+      - '*templated*'
+    link: link_children
+  vim_templated:
+    dst: ~/.vim/templated/
+    src: ./vim/templated/
+
   xbindkeys:
     dst: ~/.xbindkeysrc
     src: ./xbindkeys/.xbindkeysrc
@@ -495,6 +505,7 @@ profiles:
     - tumbler
     - tint2
     - tmux
+    - vim
     - xbindkeys
     - xresources
     - yay
