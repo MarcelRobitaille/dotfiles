@@ -6,4 +6,6 @@ CmdLine
 	# if I'm using quotes, its as an argument to a function where they are
 	# actually requried
 	-n18
+	# User regex about capitalizing sections
+	-n44
 }
