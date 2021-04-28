@@ -24,7 +24,7 @@
 
 "f=$(date +/tmp/%Y-%m-%d_%H-%M-%S_gscreenshot.png); gscreenshot-cli --select --clip --filename $f"
 	Print
-"f=$(date +/tmp/%Y-%m-%d_%H-%M-%S_gscreenshot.png); gscreenshot-cli --select --clip --filename $f && $HOME/bin/so $f"
+"f=$(date +/tmp/%Y-%m-%d_%H-%M-%S_gscreenshot.png); gscreenshot-cli --select --clip --filename $f && $HOME/.local/bin/so $f"
 	shift+Print
 "f=$(date +/tmp/%Y-%m-%d_%H-%M-%S_gscreenshot.png); gscreenshot-cli --select --clip --filename $f && gimp $f"
 	control+shift+Print
