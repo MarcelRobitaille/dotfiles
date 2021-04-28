@@ -1,3 +1,6 @@
+{%@@ for file in standard_ignored_folders @@%}
+--glob=!"{{@@ file @@}}"
+{%@@ endfor @@%}
 {%@@ for file in standard_ignored_files @@%}
 --glob=!"{{@@ file @@}}"
 {%@@ endfor @@%}
