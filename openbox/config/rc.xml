@@ -283,7 +283,7 @@
 		</keybind>
 		<keybind key="W-k">
 			<action name="Execute">
-				<command>/home/marcel/bin/keyboard toggle us ca</command>
+				<command>/home/marcel/.local/bin/keyboard toggle us ca</command>
 			</action>
 		</keybind>
 	</keyboard>

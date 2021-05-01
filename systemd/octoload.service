@@ -5,7 +5,7 @@ OnFailure=notify@%i.service
 
 [Service]
 Type=simple
-ExecStart=%h/bin/octoload watch
+ExecStart=%h/.local/bin/octoload watch
 
 Restart=on-failure
 RestartSec=30s

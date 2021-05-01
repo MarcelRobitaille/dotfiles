@@ -131,7 +131,7 @@
 	<icon>applications-internet</icon>
 	<name>New URL shortcut</name>
 	<unique-id>1567274294183202-1</unique-id>
-	<command>python $HOME/bin/create_url_shortcut.py $(zenity --entry --text &quot;URL for shortcut:&quot;) %f &gt;/tmp/custom_action.log 2&gt;&amp;1 || cat /tmp/custom_action.log | zenity --text-info</command>
+	<command>python $HOME/.local/bin/create_url_shortcut.py $(zenity --entry --text &quot;URL for shortcut:&quot;) %f &gt;/tmp/custom_action.log 2&gt;&amp;1 || cat /tmp/custom_action.log | zenity --text-info</command>
 	<description></description>
 	<patterns>*</patterns>
 	<directories/>
@@ -140,7 +140,7 @@
 	<icon>application-pdf</icon>
 	<name>Convert to PDF with VM</name>
 	<unique-id>1569950617651911-1</unique-id>
-	<command>$HOME/bin/office2pdf %F &gt;/tmp/custom_action.log 2&gt;&amp;1 || cat /tmp/custom_action.log | zenity --text-info</command>
+	<command>$HOME/.local/bin/office2pdf %F &gt;/tmp/custom_action.log 2&gt;&amp;1 || cat /tmp/custom_action.log | zenity --text-info</command>
 	<description></description>
 	<patterns>*.doc;*.docx;*.ppt;*.pptx</patterns>
 	<other-files/>

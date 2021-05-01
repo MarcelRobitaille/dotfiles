@@ -2,7 +2,7 @@
 
 # Sourcing exports doesn't work so yolo
 # source ../../../omzsh/exports.sh
-export PATH="$HOME/bin/:$PATH"
+export PATH="$HOME/.local/bin/:$PATH"
 
 source "$HOME/.dotfiles/venv/bin/activate"
 
