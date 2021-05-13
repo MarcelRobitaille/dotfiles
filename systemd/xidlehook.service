@@ -5,7 +5,10 @@ OnFailure=notify@%i.service
 
 [Service]
 Type=simple
+Environment=DISPLAY=:0
+Environment=XIDLEHOOK_SOCK=%t/xidlehook.socket
 ExecStart=/usr/bin/xidlehook \
+	--socket $XIDLEHOOK_SOCK \
 	--not-when-audio \
 	--not-when-fullscreen \
 	--timer 60 \
