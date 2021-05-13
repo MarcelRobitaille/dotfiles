@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: quin-module-firmware
+root: ~/code/quin/CNT_Automation/module_firmware/
+windows:
+  - nvim: nvim
+  - zsh:
