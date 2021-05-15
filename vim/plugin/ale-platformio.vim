@@ -67,6 +67,7 @@ function! ALEPioUpdate()
 		else
 			let s:pio_project_data = json_decode(s:stdout)
 			let s:pio_ready = 1
+			echom 'ALE Platformio Ready!'
 			call s:ale_pio_update_env()
 		endif
 	endfunction
