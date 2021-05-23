@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: quin-opentrons
+root: ~/code/quin/CNT_Automation/opentrons/
+windows:
+  - nvim: nvim
+  - zsh:

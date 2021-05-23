@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: quin-manual-interface
+root: ~/code/quin/CNT_Automation/machine_interface/
+windows:
+  - nvim: nvim
+  - zsh:
