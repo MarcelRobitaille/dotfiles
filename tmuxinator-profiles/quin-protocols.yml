@@ -1,6 +1,6 @@
 # vim: modelines=0
 
-name: protocols
+name: quin-protocols
 root: ~/code/quin/CNT_Automation/protocols/
 windows:
   - nvim: nvim
