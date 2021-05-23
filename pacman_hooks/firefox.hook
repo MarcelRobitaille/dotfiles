@@ -1,0 +1,11 @@
+[Trigger]
+Operation=Install
+Operation=Upgrade
+Operation=Remove
+Type=Package
+Target=firefox
+
+[Action]
+Description=Re-apply glacambre/firefox-patches
+When=PostTransaction
+Exec=/bin/sh -c 'perl -i -pne 's/reserved="true"/               /g' /usr/lib/firefox/browser/omni.ja && find /home/marcel/.cache/mozilla/firefox -type d -name startupCache | xargs rm -rf'

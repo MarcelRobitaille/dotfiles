@@ -274,6 +274,10 @@ dotfiles:
     src: ./openbox/theme/
     link: link
 
+  pacman_hooks:
+    src: ./pacman_hooks/
+    dst: /etc/pacman.d/hooks/
+
   prusa_slicer:
     dst: ~/.config/PrusaSlicer/
     src: ./PrusaSlicer/
@@ -515,6 +519,7 @@ profiles:
     dotfiles:
       - etc
       - interception
+      - pacman_hooks
 
   Zeus:
     include:
