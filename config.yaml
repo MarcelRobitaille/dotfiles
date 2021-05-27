@@ -30,7 +30,7 @@ variables:
   gtk_theme: 'Flat-Remix-GTK_Blue'
   gtk_icon_theme: 'Papirus'
   gtk_cursor_theme: 'breeze_cursors'
-  color_background: '12181e'
+  color_background: '181e24'
   color_foreground: 'FFFFFD'
   color_text: '000000'
   color_cursor: 'ffffff'
