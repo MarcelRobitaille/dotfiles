@@ -23,3 +23,5 @@ alias p="git push"
 alias pl="git pull"
 
 alias wget="wget --hsts-file=$XDG_CONFIG_HOME/.wget-hsts"
+
+alias sudo='sudo '
