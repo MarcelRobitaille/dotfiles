@@ -535,6 +535,8 @@ profiles:
     include:
     - neovim
     - zsh
+    dotfiles:
+      - rust-motd
 
   marcel-VirtualBox:
     include:

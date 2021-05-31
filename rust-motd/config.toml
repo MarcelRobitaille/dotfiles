@@ -2,12 +2,43 @@
 color = "red"
 command = "hostname | figlet -f slant"
 
+{%@@ if profile == "robitaille.host" @@%}
+
+[service_status]
+Apollo = "Apollo"
+sshd = "sshd.socket"
+Nginx = "nginx"
+OctroPrint = "octoprint"
+jellyfin = "jellyfin"
+gitlab-sidekiq = "gitlab-sidekiq"
+gitlab-puma = "gitlab-puma"
+gitlab-workhorse = "gitlab-workhorse"
+gitlab-gitaly = "gitlab-gitaly"
+MariaDB = "mariadb"
+postgresql = "postgresql"
+syncthing = "syncthing@marcel"
+OpenVPN = "openvpn-server@server"
+CoTURN = "coturn"
+PHP_FastCGI = "php-fpm"
+mosquitto = "mosquitto"
+synapse = "synapse"
+
+[ssl_certificates]
+sort_method = "alphabetical"
+
+    [ssl_certificates.certs]
+    "robitaille.host" = "/etc/letsencrypt/live/robitaille.host/cert.pem"
+
+[fail_2_ban]
+jails = ["sshd"]
+
+[last_login]
+marcel = 2
+
+{%@@ else @@%}
+
 [weather]
 loc = "Waterloo, Canada"
-
-# [service_status]
-# Accounts = "accounts-daemon"
-# Cron = "cron"
 
 [user_service_status]
 dunst = "dunst"
@@ -31,22 +62,12 @@ blueman-applet = "blueman-applet"
 ligh-locker = "lick-locker"
 {%@@ endif @@%}
 
+{%@@ endif @@%}
+
 [uptime]
 prefix = "Uptime"
 
-# [ssl_certificates]
-# sort_method = "alphabetical"
-
-#     [ssl_certificates.certs]
-#     "robitaille.host" = "/blaaaaaa"
-
 [filesystems]
 root = "/"
-
-# [fail_2_ban]
-# jails = ["sshd"]
-
-# [last_login]
-# marcel = 2
 
 [last_run]
