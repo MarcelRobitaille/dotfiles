@@ -6,7 +6,7 @@ command = "hostname | figlet -f slant"
 
 [service_status]
 Apollo = "Apollo"
-sshd = "sshd.socket"
+sshd = "sshd"
 Nginx = "nginx"
 OctroPrint = "octoprint"
 jellyfin = "jellyfin"
