@@ -22,6 +22,7 @@ CoTURN = "coturn"
 PHP_FastCGI = "php-fpm"
 mosquitto = "mosquitto"
 synapse = "synapse"
+fail2ban = "fail2ban"
 
 [ssl_certificates]
 sort_method = "alphabetical"
