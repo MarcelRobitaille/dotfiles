@@ -5,3 +5,8 @@ root: ~/code/quin/CNT_Automation/machine_interface/
 windows:
   - nvim: nvim
   - zsh:
+      layout: even-horizontal
+      panes:
+        - npm run nodemon
+        - npm run webpack -- --watch
+  - zsh:
