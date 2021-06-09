@@ -290,6 +290,11 @@ dotfiles:
     - 'vendor'
     - 'snapshots'
 
+  pycodestyle:
+    dst: ~/.config/pycodestyle
+    src: ./pycodestyle/pycodestyle.cfg
+    link: link
+
   pylint:
     dst: ~/.config/pylintrc
     src: ./pylint/pylintrc
@@ -490,6 +495,7 @@ profiles:
     - openbox
     - openbox_theme
     - prusa_slicer
+    - pycodestyle
     - pylint
     - ranger
     - redshift
