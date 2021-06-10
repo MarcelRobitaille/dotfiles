@@ -102,6 +102,8 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 		" Vimscript test suite
 		Plug 'junegunn/vader.vim'
 
+		Plug 'janko-m/vim-test'
+
 		"
 		" Convenience
 		"
@@ -174,7 +176,9 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 		" Plug 'python-mode/python-mode', { 'branch': 'develop' }
 		Plug 'statico/vim-javascript-sql'
 		Plug 'Vimjas/vim-python-pep8-indent'
+		" Figure out if I really need all of these
 		Plug 'jpalardy/vim-slime'
+		Plug 'jgdavey/tslime.vim'
 		Plug 'hanschen/vim-ipython-cell'
 		" Plug 'hdima/python-syntax'
 		" Plug 'Rykka/riv.vim'
@@ -429,4 +433,18 @@ augroup END
 augroup marcel_formatprg
 	autocmd!
 	autocmd FileType json let &formatprg="jq ."
+augroup END
+
+
+let test#strategy = 'tslime'
+let test#python#runner = 'nose'
+let test#python#nose#options = '--logging-filter=-opentrons'
+let g:tslime_always_current_session = 1
+let g:tslime_always_current_window = 1
+
+augroup test
+  autocmd!
+  autocmd BufWrite * if test#exists() |
+    \   TestNearest |
+    \ endif
 augroup END
