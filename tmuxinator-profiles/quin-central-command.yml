@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: quin-central-command
+root: ~/code/quin/CNT_Automation/central-command
+windows:
+  - nvim: nvim
+  - zsh:
