@@ -7,7 +7,7 @@ let g:wal_colors = {
 	\ 5: '#{{@@ color_normal_magenta @@}}',
 	\ 6: '#{{@@ color_normal_cyan @@}}',
 	\ 7: '#{{@@ color_normal_white @@}}',
-	\ 8: '#{{@@ color_normal_black @@}}',
+	\ 8: '#{{@@ color_bright_black @@}}',
 	\ 9: '#{{@@ color_bright_red @@}}',
 	\ 10: '#{{@@ color_bright_green @@}}',
 	\ 11: '#{{@@ color_bright_yellow @@}}',
