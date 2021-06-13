@@ -15,4 +15,5 @@ let g:wal_colors = {
 	\ 13: '#{{@@ color_bright_magenta @@}}',
 	\ 14: '#{{@@ color_bright_cyan @@}}',
 	\ 15: '#{{@@ color_bright_white @@}}',
+	\ 1000: '#{{@@ color_background @@}}',
 \}
