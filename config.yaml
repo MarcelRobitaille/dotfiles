@@ -323,6 +323,11 @@ dotfiles:
     dst: ~/.config/ripgrep/ripgreprc
     src: ./ripgrep/ripgreprc
 
+  rofi:
+    dst: ~/.config/rofi
+    src: ./rofi
+    link: link
+
   rofimoji:
     dst: ~/.config/rofimoji.rc
     src: ./rofimoji/rofimoji.rc
@@ -502,6 +507,7 @@ profiles:
     - repetier_printers
     - repetier_cura
     - ripgrep
+    - rofi
     - rofimoji
     - rofi-pass
     - rust-motd
