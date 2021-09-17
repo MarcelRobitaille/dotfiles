@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: quin-networking
+root: ~/Nextcloud/Waterloo/QuIN_Lab/Documentation/Networking
+windows:
+  - nvim: nvim
+  - zsh:
