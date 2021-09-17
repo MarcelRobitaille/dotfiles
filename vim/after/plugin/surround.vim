@@ -11,8 +11,11 @@ function SetupSurround()
 	let g:surround_{char2nr('l')} = "\\\1LaTeX macro\1{\r}"
 
 	" Surround with italics / bold
-	let g:surround_{char2nr('i')} = "\\textit{\r}"
-	let g:surround_{char2nr('b')} = "\\textbf{\r}"
+	autocmd FileType tex let g:surround_{char2nr('i')} = "\\textit{\r}"
+	autocmd FileType markdown let g:surround_{char2nr('i')} = "*\r*"
+	autocmd FileType tex let g:surround_{char2nr('b')} = "\\textbf{\r}"
+	autocmd FileType markdown let g:surround_{char2nr('b')} = "**\r**"
+
 
 	let g:surround_{char2nr('q')} = "\\textquote{\r}"
 
