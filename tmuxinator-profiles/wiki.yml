@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: wiki
+root: ~/code/wiki/
+windows:
+  - nvim: nvim
+  - zsh: mkdocs serve
