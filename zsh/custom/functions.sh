@@ -100,8 +100,9 @@ function plagiarise() {
 # Overwrite tmuxinator's default completions
 # I only ever want to tab-complete a profile. It should not be slow. I don't
 # want stupid spec/blah/blah
-_tmuxinator() {
+_tmuxinator_custom() {
 	profiles=( ${(uf)"$(find $HOME/.tmuxinator/ -type f -exec basename -s .yml {} ';')"} )
 
 	_describe 'profile' profiles
 }
+compdef _tmuxinator_custom tmuxinator
