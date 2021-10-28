@@ -45,6 +45,8 @@ if [ "$filepath" = "." ]; then
 	filepath=$(pwd)
 fi
 
+filepath="$(readlink -f "$filepath")"
+
 # If file given, open basename
 if [ -f "$filepath" ]; then
 	filepath="$(basename $filepath)"
