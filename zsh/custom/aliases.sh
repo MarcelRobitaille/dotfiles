@@ -25,3 +25,5 @@ alias pl="git pull"
 alias wget="wget --hsts-file=$XDG_CONFIG_HOME/.wget-hsts"
 
 alias sudo='sudo '
+
+alias rsync='rsync -av'
