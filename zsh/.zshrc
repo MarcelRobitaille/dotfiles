@@ -4,7 +4,7 @@ fpath+=$HOME/.zsh/pure
 
 ZSH_THEME=""
 
-plugins=(git pass django)
+plugins=(git pass)
 
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.zsh/async/async.zsh"
