@@ -172,7 +172,7 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 		Plug 'elzr/vim-json'
 		Plug 'plasticboy/vim-markdown'
 		Plug 'heavenshell/vim-jsdoc'
-		Plug 'lervag/vimtex', { 'for': 'tex' }
+		" Plug 'lervag/vimtex', { 'for': 'tex' }
 		" Plug 'python-mode/python-mode', { 'branch': 'develop' }
 		Plug 'statico/vim-javascript-sql'
 		Plug 'Vimjas/vim-python-pep8-indent'
