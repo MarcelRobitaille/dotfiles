@@ -36,5 +36,4 @@ endwhile
 " Fuzzy Finder
 " ========================================
 
-nnoremap <leader>g :GFiles<CR>
-nnoremap <leader>f :Files<CR>
+nnoremap <leader>f <cmd>Telescope find_files<cr>

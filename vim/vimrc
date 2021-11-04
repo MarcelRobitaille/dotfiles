@@ -47,8 +47,9 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 		Plug 'mbbill/undotree'
 
 		" Fuzzy file finder
-		Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-		Plug 'junegunn/fzf.vim'
+		Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+		Plug 'nvim-lua/plenary.nvim'
+		Plug 'nvim-telescope/telescope.nvim'
 
 		" Multi-file search
 		Plug 'wincent/ferret'
