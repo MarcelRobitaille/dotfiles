@@ -121,7 +121,6 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 		" Linting
 		Plug 'w0rp/ale'
 
-		Plug 'tpope/vim-ragtag'
 
 		Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
