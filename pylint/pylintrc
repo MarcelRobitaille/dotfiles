@@ -151,6 +151,7 @@ disable=print-statement,
 	too-many-statements,
 	too-few-public-methods,
 	broad-except,
+	consider-using-f-string,
 	consider-iterating-dictionary
 
 # Enable the message, report, category or checker with the given id(s). You can
