@@ -48,7 +48,7 @@ for i in "${!files[@]}"; do
 	# Run VB script to convert to pdf
 	guestcontrol run \
 		"C:\\Windows\\System32\\cscript.exe" \
-		"\\\\vboxsrv\\marcel\\bin\\office2pdf.vbs" \
+		"\\\\vboxsrv\\marcel\\.local\\bin\\office2pdf.vbs" \
 		"\\\\vboxsrv\\tmp\\$tmpInput" \
 		"\\\\vboxsrv\\tmp\\$tmpOutput"
 
