@@ -8,6 +8,9 @@ let g:ipython_cell_tag = [ '# %%', '// %%' ]
 
 " map <Leader>e to execute the current cell
 augroup marcel_ipython_cell
+	nnoremap [c :IPythonCellPrevCell<CR>
+	nnoremap ]c :IPythonCellNextCell<CR>
+
 	autocmd FileType python nnoremap <leader>e :IPythonCellExecuteCell<CR>
 
 	" Cling C++ interpreter (`root` command)
