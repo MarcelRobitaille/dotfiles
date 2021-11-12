@@ -1,7 +1,7 @@
 # vim: modelines=0
 
 name: rtn
-root: ~/code/quin/CMOS_RTN/marcel/
+root: ~/code/quin/CMOS_RTN/PMOS/
 windows:
   - nvim: nvim
   - zsh:
