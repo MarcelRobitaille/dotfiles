@@ -89,7 +89,7 @@ export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 # Man
 #
 
-export MANPAGER="nvim -c 'set ft=man' -"
+export MANPAGER='nvim +Man!'
 
 
 #
