@@ -1,3 +1,3 @@
 */2 * * * * /home/marcel/.dotfiles/cron/hibernate-on-low-battery.sh
 */15 * * * * [ $(du -k .xsession-errors | awk '{ print $1 }') -gt 5000000 ] && tail -10000 /home/$(whoami)/.xsession-errors > /home/$(whoami)/.xsession-errors
-*/5 * * * *  export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus; /home/marcel/code/rust_motd/target/debug/rust_motd > /home/marcel/.local/etc/motd
+*/5 * * * *  export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus; /usr/bin/rust-motd > /home/marcel/.local/etc/motd
