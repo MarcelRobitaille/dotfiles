@@ -54,6 +54,9 @@ systemctl --user start davmail &
 # Bluetooth daemon
 systemctl --user start blueman-applet &
 
+# KVM
+systemctl --user start barrier &
+
 #
 # Daemons
 #
