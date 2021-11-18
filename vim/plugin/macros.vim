@@ -15,3 +15,5 @@ let @m = "yiwiimport A from '@material-ui/core/'P"
 
 " Convert dict keying to object attribute (['key'] => .key)
 let @p = "ds'ds]s."
+
+let @d = "yiwoprint('\":', \")"
