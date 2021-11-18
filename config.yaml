@@ -499,7 +499,7 @@ profiles:
     - onedrive
     - openbox
     - openbox_theme
-    - prusa_slicer
+    # - prusa_slicer
     - pycodestyle
     - pylint
     - ranger
