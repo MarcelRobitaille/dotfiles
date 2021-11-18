@@ -10,6 +10,8 @@ let g:ipython_cell_tag = [ '# %%', '// %%' ]
 augroup marcel_ipython_cell
 	nnoremap [c :IPythonCellPrevCell<CR>
 	nnoremap ]c :IPythonCellNextCell<CR>
+	vnoremap [c :IPythonCellPrevCell<CR>
+	vnoremap ]c :IPythonCellNextCell<CR>
 
 	autocmd FileType python nnoremap <leader>e :IPythonCellExecuteCell<CR>
 
