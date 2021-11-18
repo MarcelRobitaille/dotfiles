@@ -16,6 +16,9 @@
 "rofimoji"
 	Mod2+Mod4 + e
 
+"/home/marcel/.local/bin/snippy.sh"
+	Mod2+Mod4 + s
+
 "nohup alacritty > /dev/null 2>&1"
 	Mod2+Mod4 + Return
 
