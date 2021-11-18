@@ -13,9 +13,10 @@ augroup marcel_ipython_cell
 	vnoremap [c :IPythonCellPrevCell<CR>
 	vnoremap ]c :IPythonCellNextCell<CR>
 
-	autocmd FileType python nnoremap <leader>e :IPythonCellExecuteCell<CR>
+	" autocmd FileType python nnoremap <leader>e :IPythonCellExecuteCell<CR>
 
 	" Cling C++ interpreter (`root` command)
 	" Verbose will dump the actual code, which is required for cling
-	autocmd FileType cpp nnoremap <leader>e :IPythonCellExecuteCellVerbose<CR>
+	" autocmd FileType cpp nnoremap <leader>e :IPythonCellExecuteCellVerbose<CR>
+	nnoremap <leader>e :IPythonCellExecuteCellVerbose<CR>
 augroup END
