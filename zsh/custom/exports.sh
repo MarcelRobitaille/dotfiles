@@ -2,6 +2,7 @@ export PATH="/usr/lib/jvm/java-7-openjdk/bin/:$PATH"
 export PATH="/usr/local/bin:"
 export PATH="/usr/bin:$PATH"
 export PATH="$HOME/.local/bin/:$PATH"
+export PATH="$PATH:/usr/bin/vendor_perl"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="/usr/bin/env nvim"
