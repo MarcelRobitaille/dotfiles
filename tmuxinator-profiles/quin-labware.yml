@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: quin-labware
+root: ~/code/quin/CNT_Automation/custom-labware/
+windows:
+  - nvim: nvim
+  - zsh:
