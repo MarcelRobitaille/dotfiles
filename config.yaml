@@ -27,7 +27,7 @@ actions:
     pacman_check_requirements: echo "Missing packages:" && bash -c "comm -23 <(sort -u {{@@ _dotfile_abs_src @@}}) <(pacman -Qq | sort)"
 
 variables:
-  gtk_theme: 'Flat-Remix-GTK_Blue'
+  gtk_theme: 'vimix-doder'
   gtk_icon_theme: 'Papirus'
   gtk_cursor_theme: 'breeze_cursors'
   color_background: '181e24'
