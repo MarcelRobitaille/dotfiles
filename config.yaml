@@ -278,6 +278,11 @@ dotfiles:
     src: ./pacman_hooks/
     dst: /etc/pacman.d/hooks/
 
+  profile_sync_daemon:
+    src: ./profile-sync-daemon/psd.conf
+    dst: ~/.config/psd/psd.conf
+    link: link
+
   prusa_slicer:
     dst: ~/.config/PrusaSlicer/
     src: ./PrusaSlicer/
@@ -499,6 +504,7 @@ profiles:
     - onedrive
     - openbox
     - openbox_theme
+    - profile_sync_daemon
     # - prusa_slicer
     - pycodestyle
     - pylint
