@@ -359,9 +359,7 @@ dotfiles:
 
   ssh:
     dst: ~/.ssh/config
-    src: ./ssh/config.gpg
-    trans_read: _gpg
-    trans_write: _gpg
+    src: ./ssh/config
 
   systemd:
     dst: ~/.config/systemd/user/
