@@ -3,15 +3,15 @@
 
 " map <Leader>r to run script
 nnoremap <leader>r :IPythonCellRun<CR>
+nnoremap [c :IPythonCellPrevCell<CR>
+nnoremap ]c :IPythonCellNextCell<CR>
+vnoremap [c :IPythonCellPrevCell<CR>
+vnoremap ]c :IPythonCellNextCell<CR>
 
 let g:ipython_cell_tag = [ '# %%', '// %%' ]
 
 " map <Leader>e to execute the current cell
 augroup marcel_ipython_cell
-	nnoremap [c :IPythonCellPrevCell<CR>
-	nnoremap ]c :IPythonCellNextCell<CR>
-	vnoremap [c :IPythonCellPrevCell<CR>
-	vnoremap ]c :IPythonCellNextCell<CR>
 
 	" autocmd FileType python nnoremap <leader>e :IPythonCellExecuteCell<CR>
 
