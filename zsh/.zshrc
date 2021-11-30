@@ -45,3 +45,4 @@ bindkey -v '^?' backward-delete-char
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [ -f $HOME/.local/etc/motd ] && command cat $HOME/.local/etc/motd
+fpath=($HOME/.local/bin/ $fpath)
