@@ -90,7 +90,7 @@ local function fastincludegraphics(draft, paths, optional, filename)
 
 		if not exists(path_lowres) then
 			local p = assert(io.popen(string.format(
-				"convert '%s' -resize 5%% '%s'",
+				"convert '%s' -resize 200 '%s'",
 				filepath,
 				path_lowres)))
 			p:read('*all')
