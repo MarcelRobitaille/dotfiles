@@ -18,4 +18,5 @@ if exists(':Abolish')
 	Abolish taht that
 	Abolish celcius celsius
 	Abolish sentense sentence
+	Abolish chagnes changes
 endif
