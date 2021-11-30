@@ -71,4 +71,7 @@ prefix = "Uptime"
 [filesystems]
 root = "/"
 
+[memory]
+swap_pos = "beside"
+
 [last_run]
