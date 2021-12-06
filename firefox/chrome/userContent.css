@@ -240,20 +240,20 @@
  * Nextcloud
  ****************************************/
 
-@-moz-document url-prefix("https://nextcloud.robitaille.host/") {
-	/* Hide extra 2 lines after 15 minute block */
-	.fc-timegrid-slots tr:not(:nth-child(6n+1)) > td {
-		display: none;
-	}
-	/* Hide text for 15 minutes (only show rounded hours) */
-	.fc-timegrid-slots tr:nth-child(12n+7) > td:first-child {
-		opacity: 0;
-	}
+/* @-moz-document url-prefix("https://nextcloud.robitaille.host/") { */
+/* 	/1* Hide extra 2 lines after 15 minute block *1/ */
+/* 	.fc-timegrid-slots tr:not(:nth-child(6n+1)) > td { */
+/* 		display: none; */
+/* 	} */
+/* 	/1* Hide text for 15 minutes (only show rounded hours) *1/ */
+/* 	.fc-timegrid-slots tr:nth-child(12n+7) > td:first-child { */
+/* 		opacity: 0; */
+/* 	} */
 
-	.mx-datepicker-main.mx-datepicker-popup {
-		left: 0 !important;
-	}
-}
+/* 	.mx-datepicker-main.mx-datepicker-popup { */
+/* 		left: 0 !important; */
+/* 	} */
+/* } */
 
 
 /*
