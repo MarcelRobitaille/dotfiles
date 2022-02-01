@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: quin-rtn-aj
+root: ~/code/quin/CMOS_RTN/AJ/noise-simulation
+windows:
+  - nvim: nvim
+  - zsh:

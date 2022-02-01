@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: quin-rtn-latex
+root: ~/Nextcloud/Waterloo/QuIN_Lab/31_CMOS_RTN/Algorithm Paper V2/Overleaf
+windows:
+  - nvim: nvim RTN_Algorithm_Paper_EDL_V2_202201.tex
+  - latex: latexmk -pdflatex=lualatex -shell-escape -pvc -interaction=nonstopmode -pdf -pvc -e '$pdf_previewer = "xdg-open"' -e '$success_cmd = "echo vimtex_compiler_callback_success"' RTN_Algorithm_Paper_EDL_V2_202201.tex

@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: quin-minutes
+root: ~/Nextcloud/Waterloo/QuIN_Lab/Meeting_Minutes
+windows:
+  - nvim: nvim
+  - zsh:
