@@ -5,9 +5,9 @@ root: ~/code/quin/CMOS_RTN/Lu
 windows:
   - nvim: nvim
   - zsh:
-  - wn_study: cd "~/OneDrive/02. QuIN_Research/31. Noise-RTN/01. 2021_Algorithm paper/simulated_rtn/generated_rtn_data4_white_noise_study/data4_1trap/"
-  - artn: cd "~/OneDrive/02. QuIN_Research/31. Noise-RTN/01. 2021_Algorithm paper/simulated_rtn/2022_01_10_anomalous_metastable/"
-  - cnt: cd "~/code/quin/CMOS_RTN/CNT/01. CNT noise_raw_2022_01_13/"
+  - wn_study: cd "$HOME/OneDrive/02. QuIN_Research/31. Noise-RTN/01. 2021_Algorithm paper/simulated_rtn/generated_rtn_data4_white_noise_study/data4_1trap/"
+  - artn: cd "$HOME/OneDrive/02. QuIN_Research/31. Noise-RTN/01. 2021_Algorithm paper/simulated_rtn/2022_01_10_anomalous_metastable/"
+  - cnt: cd "$HOME/code/quin/CMOS_RTN/CNT/01. CNT noise_raw_2022_01_13/"
   - boxer: ssh boxer "tmux a -t 0"
   - gauss: ssh gauss "tmux a -t 0"
   - kilo: ssh kilo "tmux a -t 0"
