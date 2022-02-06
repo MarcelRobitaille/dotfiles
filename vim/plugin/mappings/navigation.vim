@@ -36,4 +36,4 @@ endwhile
 " Fuzzy Finder
 " ========================================
 
-nnoremap <leader>f <cmd>Telescope find_files<cr>
+nnoremap <leader>f <cmd>Telescope find_files hidden=true<cr>
