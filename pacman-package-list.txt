@@ -25,7 +25,6 @@ catfish
 cava
 chromium
 cloc
-cnijfilter2-mg7700
 conky
 coreutils
 cowsay
@@ -86,7 +85,6 @@ grub
 gscreenshot
 gsmartcontrol
 gst-plugins-good
-gtk-xfce-engine
 gulp
 gvfs
 gvfs-gphoto2
@@ -112,10 +110,8 @@ kicad-library-3d
 kid3
 languagetool
 lead-git
-lemonbar-dark-yux-git
 less
 lib32-gconf
-lib32-libcanberra-pulse
 lib32-libva-intel-driver
 lib32-libva-vdpau-driver
 lib32-libvdpau
@@ -153,7 +149,6 @@ man-pages
 mdadm
 mesa-demos
 mesa-vdpau
-minecraft
 mlocate
 mousepad
 mpc
@@ -161,13 +156,12 @@ mpd
 mprime
 mpv
 mycli
-namebench
 nano
 nerd-fonts-source-code-pro
 netctl
 nextcloud-client
 nginx
-nodejs
+fnm-bin
 noto-fonts-emoji
 npm
 nss-mdns
@@ -178,10 +172,9 @@ nvidia-settings
 obconf
 obs-studio
 odt2txt
-onedrive-abraunegg
+onedrive-abraunegg-git
 openbox
 openssh
-orage
 p7zip
 pacman
 pamixer
@@ -191,7 +184,6 @@ papirus-icon-theme
 patch
 pavucontrol
 pciutils
-pcmciautils
 pdfmod
 pdftk
 perl
@@ -213,7 +205,6 @@ pyenv
 python-click
 python-cryptography
 python-dateutil
-python-gobject2
 python-isort
 python-matplotlib
 python-pip
@@ -221,11 +212,6 @@ python-pyalsa
 python-requests
 python-slugify
 python-smbus-git
-python2-chardet
-python2-idna
-python2-numpy
-python2-pip
-python2-urllib3
 qt4
 qt5-styleplugins
 qtox
@@ -252,7 +238,7 @@ stress
 sudo
 sxhkd
 syncthing
-syncthing-gtk
+syncthing-gtk-python3
 sysfsutils
 system-config-printer
 systemd
@@ -283,10 +269,8 @@ thunar
 thunar-archive-plugin
 thunar-media-tags-plugin
 thunar-volman
-thunderbird
 tint2
 tmux
-tor-browser
 transmission-gtk
 trizen
 ttf-fira-mono
@@ -306,7 +290,7 @@ vi
 vim-plug
 virtualbox
 virtualbox-ext-vnc
-virtualbox-host-modules-arch
+virtualbox-host-dkms
 vlc
 vulkan-intel
 w3m
