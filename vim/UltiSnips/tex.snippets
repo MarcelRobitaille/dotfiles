@@ -5,6 +5,17 @@ snippet figure "Figure"
 \end{figure}
 endsnippet
 
+snippet subfigure "Subfigures"
+\begin{figure}[H]
+	\begin{subfigure}{0.5\linewidth}
+		${1:${VISUAL}}
+	\end{subfigure}
+	\begin{subfigure}{0.5\linewidth}
+		$0
+	\end{subfigure}
+\end{figure}
+endsnippet
+
 snippet columns "Two-column layout"
 \begin{columns}
 	\begin{column}{0.5\linewidth}
