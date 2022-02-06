@@ -407,7 +407,9 @@ let g:python3_host_prog = '/usr/bin/python'
 
 let g:vimsyn_embed = 'lPr'
 
-set inccommand=split
+if has('nvim')
+	set inccommand=split
+endif
 
 augroup marcel_text_yank_post
 	autocmd!
