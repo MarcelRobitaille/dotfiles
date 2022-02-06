@@ -122,7 +122,14 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 		Plug 'w0rp/ale'
 
 
-		Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+		Plug 'neovim/nvim-lspconfig'
+		Plug 'tami5/lspsaga.nvim'
+		Plug 'hrsh7th/cmp-nvim-lsp'
+		Plug 'hrsh7th/cmp-buffer'
+		Plug 'hrsh7th/cmp-path'
+		Plug 'hrsh7th/cmp-cmdline'
+		Plug 'hrsh7th/nvim-cmp'
+		Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
 		" Switch between single line and multi line statemnts
 		Plug 'AndrewRadev/splitjoin.vim'
