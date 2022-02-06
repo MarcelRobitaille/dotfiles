@@ -106,3 +106,11 @@ _tmuxinator_custom() {
 	_describe 'profile' profiles
 }
 compdef _tmuxinator_custom tmuxinator
+
+function yay() {
+	if [ $(which python) != "/usr/bin/python" ]; then
+		echo "Refusing to run in a venv!"
+		return 1
+	fi
+	command yay "$@"
+}
