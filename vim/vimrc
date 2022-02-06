@@ -431,15 +431,4 @@ augroup marcel_formatprg
 augroup END
 
 
-let test#strategy = 'tslime'
-let test#python#runner = 'nose'
-let test#python#nose#options = '--logging-filter=-opentrons'
-let g:tslime_always_current_session = 1
-let g:tslime_always_current_window = 1
 
-" augroup test
-"   autocmd!
-"   autocmd BufWrite * if test#exists() |
-"     \   TestNearest |
-"     \ endif
-" augroup END
