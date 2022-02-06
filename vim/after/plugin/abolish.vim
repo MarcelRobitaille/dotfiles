@@ -20,4 +20,5 @@ if exists(':Abolish')
 	Abolish sentense sentence
 	Abolish chagnes changes
 	Abolish scrwe screw
+	Abolish pre{s,c}en{s,c}e presence
 endif
