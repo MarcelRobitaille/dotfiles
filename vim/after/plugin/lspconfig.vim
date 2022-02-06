@@ -56,11 +56,6 @@ lua << EOF
 	}
 	require'lspconfig'.texlab.setup{on_attach=require'completion'.on_attach}
 
-	local saga = require 'lspsaga'
-	saga.init_lsp_saga({
-		error_sign = '',
-		warn_sign = '',
-	})
 EOF
 
 	nnoremap ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
