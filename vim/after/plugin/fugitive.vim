@@ -30,9 +30,6 @@ function! SetupFugitive()
 	" <leader>s -- Git status
 	nnoremap <leader>s :Git<CR>
 
-	" <leader>c -- Git commit
-	nnoremap <leader>c :Gcommit<CR>
-
 	" <leader>df -- Git diff (mnemonic: git [d]i[f]f)
 	nnoremap <leader>df :Gdiff<CR>
 endfunction
