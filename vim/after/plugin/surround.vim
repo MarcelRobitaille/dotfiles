@@ -10,6 +10,9 @@ function SetupSurround()
 	" Surround with curly brackets with LaTeX macro in front
 	let g:surround_{char2nr('l')} = "\\\1LaTeX macro\1{\r}"
 
+	let g:surround_{char2nr('|')} = "|\r|"
+	let g:surround_{char2nr('$')} = "$\r$"
+
 	" Surround with italics / bold
 	autocmd FileType tex let g:surround_{char2nr('i')} = "\\textit{\r}"
 	autocmd FileType markdown let g:surround_{char2nr('i')} = "*\r*"
