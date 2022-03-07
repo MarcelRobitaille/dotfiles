@@ -10,6 +10,14 @@ function! SetupAle()
 	let g:ale_sign_error = ''
 	let g:ale_sign_warning = ''
 
+	function! FixQuotes(buffer) abort
+		return {
+		\	 'command': "sed -e s/’/\\'/g -e s/–/-/g"
+		\}
+	endfunction
+
+	execute ale#fix#registry#Add('fixquotes', 'FixQuotes', ['*'], 'Fix quotes')
+
 	let g:ale_linters = {
 	\ 'c': [
 	\	 'gcc',
@@ -30,10 +38,11 @@ function! SetupAle()
 	\}
 
 	let g:ale_fixers = {
-	\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+	\ '*': ['remove_trailing_lines', 'trim_whitespace', 'fixquotes'],
 	\ 'javascript': ['eslint'],
 	\ 'python': ['autopep8', 'isort', 'trim_whitespace'],
 	\ 'rust': ['rustfmt'],
+	\ 'tex': ['fixquotes', 'latexindent', 'trim_whitespace', 'remove_trailing_lines'],
 	\}
 
 	let g:ale_fix_on_save = 1
