@@ -16,3 +16,4 @@ nnoremap <silent><leader>ca :Lspsaga code_action<CR>
 " Jump to diagnostic
 nnoremap <silent> ]d :Lspsaga diagnostic_jump_next<CR>
 nnoremap <silent> [d :Lspsaga diagnostic_jump_prev<CR>
+nnoremap <silent> <leader>cd :Lspsaga show_line_diagnostics<CR>
