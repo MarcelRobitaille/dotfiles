@@ -14,5 +14,5 @@ nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
 nnoremap <silent><leader>ca :Lspsaga code_action<CR>
 
 " Jump to diagnostic
-nnoremap <silent> [g :Lspsaga diagnostic_jump_next<CR>
-nnoremap <silent> ]g :Lspsaga diagnostic_jump_prev<CR>
+nnoremap <silent> ]d :Lspsaga diagnostic_jump_next<CR>
+nnoremap <silent> [d :Lspsaga diagnostic_jump_prev<CR>
