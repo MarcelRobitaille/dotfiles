@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: blog
+root: ~/code/blog/
+windows:
+  - nvim: nvim
+  - zsh: zola serve
