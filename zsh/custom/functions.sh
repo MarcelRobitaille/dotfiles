@@ -108,6 +108,10 @@ _tmuxinator_custom() {
 }
 compdef _tmuxinator_custom tmuxinator
 
+function poster() {
+	ffmpeg -i $1 -r 1 -f image2 $2
+}
+
 function yay() {
 	if [ $(which python) != "/usr/bin/python" ]; then
 		echo "Refusing to run in a venv!"
