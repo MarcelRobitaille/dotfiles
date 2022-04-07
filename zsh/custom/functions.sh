@@ -28,6 +28,7 @@ crop_clipboard_image() {
 		save_clipboard_image "$tmpfile"
 		convert -trim "$tmpfile" "$1"
 		rm "$tmpfile"
+		echo -n "$1" | clip
 	fi
 }
 
