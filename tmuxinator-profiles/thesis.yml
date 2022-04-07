@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: thesis
+root: ~/Nextcloud/Waterloo/Thesis/latex
+windows:
+  - nvim: nvim
+  - latex: latexmk -pdflatex=lualatex -shell-escape -pvc -interaction=nonstopmode -pdf -pvc -e '$pdf_previewer = "xdg-open"' -e '$success_cmd = "echo vimtex_compiler_callback_success"' masters_thesis_MJR.tex
