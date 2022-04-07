@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: receipts
+root: ~/code/receipt-scanner
+windows:
+  - nvim: nvim
+  - zsh:
