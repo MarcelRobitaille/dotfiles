@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: cookbook
+root: ~/code/cookbook
+windows:
+  - nvim: nvim
+  - zsh:
