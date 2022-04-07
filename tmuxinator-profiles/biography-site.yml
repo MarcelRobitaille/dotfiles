@@ -1,0 +1,7 @@
+# vim: modelines=0
+
+name: biography-site
+root: ~/code/bio-site
+windows:
+  - nvim: nvim
+  - zsh:
