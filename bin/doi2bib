@@ -4,16 +4,13 @@ import sys
 import urllib.request
 from urllib.error import HTTPError
 
-BASE_URL = 'http://dx.doi.org/'
-
 try:
     doi = sys.argv[1]
 except IndexError:
     print('Usage:\n{} <doi>'.format(sys.argv[0]))
     sys.exit(1)
 
-url = BASE_URL + doi
-req = urllib.request.Request(url)
+req = urllib.request.Request(f'http://dx.doi.org/{doi}')
 req.add_header('Accept', 'application/x-bibtex')
 try:
     with urllib.request.urlopen(req) as f:
