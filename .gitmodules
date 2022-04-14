@@ -16,3 +16,6 @@
 [submodule "tmuxinator"]
 	path = tmuxinator
 	url = https://github.com/tmuxinator/tmuxinator.git
+[submodule "bin/rofi-pass"]
+	path = bin/rofi-pass
+	url = https://github.com/carnager/rofi-pass.git
