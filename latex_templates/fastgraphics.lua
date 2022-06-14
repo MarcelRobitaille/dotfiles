@@ -75,7 +75,7 @@ local function fastincludegraphics(draft, paths, optional, filename)
 
 	function includegraphics(path)
 		tex.print(string.format(
-			[[\includegraphics[%s,draft=false]{%s}]],
+			[[\oldincludegraphics[%s,draft=false]{%s}]],
 			optional,
 			path))
 	end
