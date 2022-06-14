@@ -53,6 +53,9 @@ function string:starts_with(substr)
 	return self:sub(1, string.len(substr)) == substr
 end
 
+function string:ends_with(ending)
+	return ending == "" or self:sub(-#ending) == ending
+end
 
 local function fastincludegraphics(draft, paths, optional, filename)
 	-- print()
@@ -101,6 +104,10 @@ local function fastincludegraphics(draft, paths, optional, filename)
 	end
 
 	if not draft then
+		return includegraphics(filename)
+	end
+
+	if filename:ends_with('.pdf') then
 		return includegraphics(filename)
 	end
 
