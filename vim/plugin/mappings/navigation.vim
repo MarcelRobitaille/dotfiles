@@ -16,8 +16,8 @@ cmap <C-p> <Up>
 cmap <C-n> <Down>
 
 " Quickfix navigation
-nnoremap <C-n> :cnext<CR>
-nnoremap <C-p> :cprev<CR>
+" nnoremap <C-n> :cnext<CR>
+" nnoremap <C-p> :cprev<CR>
 
 " `:e`, but relative to current file
 map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
