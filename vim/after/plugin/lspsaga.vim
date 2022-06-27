@@ -1,3 +1,4 @@
+if exists('g:loaded_lspsaga') && g:loaded_lspsaga
 lua << EOF
 local saga = require 'lspsaga'
 saga.init_lsp_saga()
@@ -5,6 +6,7 @@ saga.init_lsp_saga({
 	error_sign = '',
 	warn_sign = '',
 })
+vim.cmd "autocmd CursorHoldI * silent! Lspsaga signature_help"
 EOF
 
 " nnoremap <silent> gh :Lspsaga lsp_finder<CR>
@@ -17,3 +19,6 @@ nnoremap <silent><leader>ca :Lspsaga code_action<CR>
 nnoremap <silent> ]d :Lspsaga diagnostic_jump_next<CR>
 nnoremap <silent> [d :Lspsaga diagnostic_jump_prev<CR>
 nnoremap <silent> <leader>cd :Lspsaga show_line_diagnostics<CR>
+
+set updatetime=500
+endif

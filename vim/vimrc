@@ -131,6 +131,9 @@ if filereadable(s:vim_config_dir . 'autoload/plug.vim')
 		Plug 'hrsh7th/cmp-cmdline'
 		Plug 'hrsh7th/nvim-cmp'
 		Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+		" Icons for cmp menu
+		Plug 'onsails/lspkind.nvim'
+
 
 		" Switch between single line and multi line statemnts
 		Plug 'AndrewRadev/splitjoin.vim'
@@ -431,5 +434,12 @@ augroup marcel_formatprg
 	autocmd FileType json let &formatprg="jq ."
 augroup END
 
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+" Set completeopt to have a better completion experience
+set completeopt=menu,menuone,noinsert,noselect
 
+" Avoid showing message extra message when using completion
+set shortmess+=c
