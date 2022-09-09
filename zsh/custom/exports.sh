@@ -112,3 +112,10 @@ export MANPAGER='nvim +Man!'
 #
 
 export ANDROID_HOME=~/.android-sdk
+
+
+#
+# Forgit
+#
+
+export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
