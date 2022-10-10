@@ -9,7 +9,7 @@
 "pamixer --set-volume 20"
 	XF86AudioNext
 
-"nohup rofi -show run -modi run,drun -matching fuzzy -sort -sorting-method fzf -no-disable-history > /dev/null 2>&1"
+"nohup rofi -show run -matching fuzzy -sort -sorting-method fzf -no-disable-history > /dev/null 2>&1"
 	Mod2+Mod4 + space
 
 "rofi-pass"
