@@ -55,6 +55,12 @@ export KEYTIMEOUT=1
 
 export LESS=-XFr
 
+
+#
+# Rust/Cargo
+#
+
+export PATH="$PATH:$HOME/.cargo/bin"
 #
 # NPM
 #
