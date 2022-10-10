@@ -29,3 +29,5 @@ alias sudo='sudo '
 alias rsync='rsync -av'
 
 alias yy='pwd | clip'
+
+alias today='date +%Y-%m-%d'
