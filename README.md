@@ -8,6 +8,11 @@
 
 # My `.dotfiles`, managed by [dotdrop](https://github.com/deadc0de6/dotdrop)
 
+## Encryption
+
+Some sensitive dotfiles are encrypted using [`git-crypt`](https://github.com/AGWA/git-crypt).
+These are specified in [`.gitattributes`](./.gitattributes).
+
 ## NeoVim
 
 ### Debugging
