@@ -19,10 +19,12 @@ endsnippet
 
 snippet subfigure "Subfigures"
 \begin{figure}[H]
-	\begin{subfigure}{0.5\linewidth}
+	\begin{subfigure}{0.49\linewidth}
+		\centering
 		${1:${VISUAL}}
-	\end{subfigure}
-	\begin{subfigure}{0.5\linewidth}
+	\end{subfigure}\hfill
+	\begin{subfigure}{0.49\linewidth}
+		\centering
 		$0
 	\end{subfigure}
 \end{figure}
