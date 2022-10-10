@@ -4,3 +4,5 @@
 *.jpeg diff=image
 *.jpg diff=image
 *.png diff=image
+*.bmp diff=image
+*.svg diff=image
