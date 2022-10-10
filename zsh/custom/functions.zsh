@@ -94,26 +94,6 @@ function yay() {
 	command yay "$@"
 }
 
-# Copy one folder to another, renaming all files inside to match
-# Useful for weekly reports, where the folder and the files inside
-# (all the many latex files) include the date
-function plagiarise() {
-
-	src=$(basename $1)
-	dst=$(basename $2)
-
-	if [ -z $dst ]; then
-		echo "No destination"
-		return 1
-	fi
-	if [ -e $dst ]; then
-		echo "Destination already exists"
-		return 1
-	fi
-	cp -r $src $dst
-	cd $dst
-	rename $src $dst *
-}
 function poster() {
 	ffmpeg -i $1 -r 1 -f image2 $2
 }
