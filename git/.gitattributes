@@ -6,3 +6,4 @@
 *.png diff=image
 *.bmp diff=image
 *.svg diff=image
+*.pdf diff=pdfdiff
