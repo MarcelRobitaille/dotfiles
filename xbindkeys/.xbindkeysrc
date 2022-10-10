@@ -27,11 +27,11 @@
 "/home/marcel/bin/keyboard toggle ca us"
 	Mod2+Mod4 + k
 
-"f=$(date +/tmp/%Y-%m-%d_%H-%M-%S_gscreenshot.png); gscreenshot-cli --select --clip --filename $f"
+"export f=$(date +/tmp/%Y-%m-%d_%H-%M-%S_gscreenshot.png); gscreenshot-cli --select --clip --filename $f"
 	Print
-"f=$(date +/tmp/%Y-%m-%d_%H-%M-%S_gscreenshot.png); gscreenshot-cli --select --clip --filename $f && $HOME/.local/bin/so $f"
+"export f=$(date +/tmp/%Y-%m-%d_%H-%M-%S_gscreenshot.png); gscreenshot-cli --select --clip --filename $f && $HOME/.local/bin/so $f"
 	shift+Print
-"f=$(date +/tmp/%Y-%m-%d_%H-%M-%S_gscreenshot.png); gscreenshot-cli --select --clip --filename $f && gimp $f"
+"export f=$(date +/tmp/%Y-%m-%d_%H-%M-%S_gscreenshot.png); gscreenshot-cli --select --clip --filename $f && gimp $f"
 	control+shift+Print
 
 "xbindkeys_show"
