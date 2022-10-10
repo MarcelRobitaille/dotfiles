@@ -13,23 +13,40 @@ clone(){
 save_clipboard_image() {
 	if [ -z "$1" ]; then
 		echo "No file name specified"
-	else
-
-		xclip -selection clipboard -target image/png -out > "$1"
+		return 1
 	fi
+
+	filename=$(basename -- "$1")
+	extension="${filename##*.}"
+	mkdir -p "$(dirname $1)"
+
+	case "${(L)extension}" in
+		"png")
+			mime="image/png"
+			;;
+		"jpg" | "jpeg")
+			mime="image/jpeg"
+			;;
+		*)
+			echo "Filetype '$extension' is not supoorted"
+			return 1
+	esac
+
+	xclip -selection clipboard -target $mime -out > "$1"
 }
 
 crop_clipboard_image() {
 	if [ -z "$1" ]; then
 		echo "No file name specified"
-	else
-
-		tmpfile="/tmp/$(pwgen 16 1)$(basename $1)"
-		save_clipboard_image "$tmpfile"
-		convert -trim "$tmpfile" "$1"
-		rm "$tmpfile"
-		echo -n "$1" | clip
+		return 1
 	fi
+
+	mkdir -p "$(dirname $1)"
+	tmpfile="/tmp/$(pwgen 16 1)$(basename $1)"
+	save_clipboard_image "$tmpfile" || return 1
+	convert -trim "$tmpfile" "$1"
+	rm "$tmpfile"
+	echo -n "$1" | clip
 }
 
 # Create a new directory and enter it
