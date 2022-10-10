@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Latex has the annoying quality of attempting to open the PDF with acroread.
+# Default application?? What is that?
+
+xdg-open $1
