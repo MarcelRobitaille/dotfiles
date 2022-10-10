@@ -34,6 +34,7 @@ function! SetupAle()
 	\ 'python': [
 	\ ],
 	\ 'markdown': [],
+	\ 'html': ['alex', 'angular', 'cspell', 'fecs', 'htmlhint', 'proselint', 'stylelint', 'tidy'],
 	\}
 
 	let g:ale_fixers = {
