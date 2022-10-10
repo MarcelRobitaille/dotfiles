@@ -14,5 +14,5 @@ augroup marcel_colorcolumn
 	" TODO: These are probably too much
 	" I went for the shotgun approach
 	" Figure out which are actually required
-	autocmd BufReadPost,BufNew,ColorScheme,WinEnter * call SetColorColumn()
+	autocmd VimEnter,BufRead,BufReadPost,BufNew,ColorScheme,WinEnter * call SetColorColumn()
 augroup END
