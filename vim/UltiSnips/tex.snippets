@@ -30,6 +30,19 @@ snippet subfigure "Subfigures"
 \end{figure}
 endsnippet
 
+snippet subfigimgs "Subfigimgs"
+\begin{figure}[H]
+	\begin{subfigure}{0.49\linewidth}
+		\centering
+		\subfigimg[width=\linewidth]{0pt}{0.5\baselineskip}{}{fig:$1}{$1.png}
+	\end{subfigure}\hfill
+	\begin{subfigure}{0.49\linewidth}
+		\centering
+		\subfigimg[width=\linewidth]{0pt}{0.5\baselineskip}{}{fig:$2}{$2.png}
+	\end{subfigure}
+\end{figure}
+endsnippet
+
 snippet columns "Two-column layout"
 \begin{columns}
 	\begin{column}{0.5\linewidth}
