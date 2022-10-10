@@ -9,6 +9,7 @@ vnoremap [c :IPythonCellPrevCell<CR>
 vnoremap ]c :IPythonCellNextCell<CR>
 
 let g:ipython_cell_tag = [ '# %%', '// %%' ]
+let g:ipython_cell_update_file_variable = 1
 
 " map <Leader>e to execute the current cell
 augroup marcel_ipython_cell
