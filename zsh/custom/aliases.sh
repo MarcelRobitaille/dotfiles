@@ -6,9 +6,9 @@ alias clip="xsel -i -b"
 alias incognito="fc -p; PURE_PROMPT_SYMBOL=''"
 
 # Places
-alias ls="lsd"
+command -v lsd > /dev/null 2>&1 && alias ls="lsd"
 alias ll="lsd -lah"
-alias cat="bat"
+command -v bat > /dev/null && alias cat="bat"
 
 # Git
 alias g="git"
