@@ -1,0 +1,27 @@
+#!/bin/zsh
+
+set -e
+
+date_current="$(date --date 'this sat' +%Y-%m-%d)"
+date_prev="$(date --date 'last sat' +%Y-%m-%d)"
+
+. "$ZSH/custom/directories.sh"
+if [ ! -d ~weekly"/$date_current" ]; then
+	echo 'Plagiarize'
+	$(readlink -f `dirname $0`)/plagiarize ~weekly/$date_prev ~weekly/$date_current
+fi
+
+echo 'Creating tmux session'
+session_name='weekly'
+if ! tmux has-session -t "$session_name" 2> /dev/null; then
+	echo 'creating session'
+	tmux new-session -d -s "$session_name" -c ~weekly/"$date_current" "zsh -c 'nvim ${date_current}_MR.tex'"
+	tmux new-window -d -c ~weekly/$date_current -t "$session_name": "latexmk -pdflatex=lualatex -shell-escape -pvc -interaction=nonstopmode -pdf -pvc -e '$pdf_previewer = xdg-open' ${date_current}_MR.tex"
+fi
+
+echo 'Attaching'
+if [[ -z "$TMUX" ]]; then
+	tmux attach -t "$session_name"
+else
+	tmux switch-client -t "$session_name"
+fi
