@@ -1,8 +1,12 @@
 #!/bin/zsh
 
 tmp="$(mktemp /tmp/sudoedit_XXXXXXXXXXXX_$(basename $1))"
+touch "$tmp"
 
-sudo cat "$1" > "$tmp"
+if [ -f "$1" ]; then
+	sudo cat "$1" > "$tmp"
+fi
+
 inotifywait -m "$tmp" -e create -e moved_to -e close_write 2>/dev/null > \
 	>(sudo sh -c "while read path action file; do cp '$tmp' '$1'; done") &
 
