@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd ~/.password-store
+
+password=$(find . -type f  | sed -e 's/\.\///' -e 's/\.gpg$//' | fzf)
+pass "$password"
