@@ -52,6 +52,8 @@ bindkey -v '^?' backward-delete-char
 # Enable FZF stuff in terminal
 # Like ctrl-r history search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# For some reason, defaults not always loaded
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 
 [ -f $HOME/.local/etc/motd ] && command cat $HOME/.local/etc/motd
 fpath=($HOME/.local/bin/ $fpath)
