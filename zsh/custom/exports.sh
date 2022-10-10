@@ -61,6 +61,15 @@ export LESS=-XFr
 #
 
 export PATH="$PATH:$HOME/.cargo/bin"
+
+
+#
+# Go
+#
+
+export PATH="$PATH:$HOME/go/bin"
+
+
 #
 # NPM
 #
