@@ -62,6 +62,7 @@ case "$extension" in
 	jpg | png ) app="eog";;
 	m4a | mp4 ) app="vlc";;
 	html ) app="firefox -new-tab";;
+	odt | odp | doc | docx | ppt | pptx ) app="libreoffice";;
 esac
 
 # Open file in app
