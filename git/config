@@ -98,7 +98,7 @@
 	whatchanged = menos -iFMRSX --pattern='^(commit|diff)'
 
 [diff "pdfdiff"]
-  command = diffpdf
+	command = diffpdf
 
 [diff "eagle"]
 	command = eagle-diff-git
