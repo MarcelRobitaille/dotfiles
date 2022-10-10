@@ -5,4 +5,3 @@ root: ~/code/quin/CMOS_RTN/algorithm/
 windows:
   - nvim: nvim
   - zsh:
-  - ranger: ranger data

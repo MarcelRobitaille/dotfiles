@@ -1,8 +1,0 @@
-# vim: modelines=0
-
-name: rtn-lu
-root: ~/code/quin/CMOS_RTN/rtn-lu/
-windows:
-  - nvim: nvim
-  - zsh:
-  - ranger: ranger data

@@ -3,5 +3,5 @@
 name: quin-rtn-nature
 root: ~/Nextcloud/Waterloo/QuIN_Lab/31_CMOS_RTN/Articles/2022_03_RNN_Paper_Nature
 windows:
-  - nvim: nvim RNNmain.tex
-  - latex: latexmk -pdflatex=lualatex -shell-escape -pvc -interaction=nonstopmode -pdf -pvc -e '$pdf_previewer = "xdg-open"' -e '$success_cmd = "echo vimtex_compiler_callback_success"' RNNmain.tex
+  - nvim: nvim RNNmain_v2_20220519.tex
+  - latex: latexmk -pdflatex=lualatex -shell-escape -pvc -interaction=nonstopmode -pdf -pvc -e '$pdf_previewer = "xdg-open"' -e '$success_cmd = "echo vimtex_compiler_callback_success"' RNNmain_v2_20220519.tex
