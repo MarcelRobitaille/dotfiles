@@ -72,16 +72,16 @@ handle_extension() {
             exit 1;;
 
         feather)
-            /usr/bin/python -c "import pandas as pd; print(pd.read_feather('${FILE_PATH}'))" && exit 5
+            /usr/bin/python3 -c "import pandas as pd; print(pd.read_feather('${FILE_PATH}'))" && exit 5
             exit 1;;
 
         npy)
-            /usr/bin/python -c "import numpy as np; print(np.load('${FILE_PATH}'))" && exit 5
+            /usr/bin/python3 -c "import numpy as np; print(np.load('${FILE_PATH}'))" && exit 5
             exit 1;;
 
         csv)
-            /usr/bin/python -c "import pandas as pd; print(pd.read_csv('${FILE_PATH}'))" && exit 5
-        	exit 1;;
+            /usr/bin/python3 -c "import pandas as pd; print(pd.read_csv('${FILE_PATH}'))" && exit 5
+            exit 1;;
 
         # OpenDocument
         # odt|ods|odp|sxw)
