@@ -112,6 +112,7 @@ export MANPAGER='nvim +Man!'
 # Fast Node Manager
 #
 
+export PATH=/home/marcel/.fnm:$PATH
 (command -v fnm &> /dev/null) && eval "$(fnm env)"
 
 
